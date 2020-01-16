@@ -18,21 +18,15 @@
 (defn abs [x]
   (max x (- x)))
 
-(defn hash-rnd [base i]
-  (abs (+ (hash base) (or i 1))))
+(defn hash-rnd [h i]
+  (abs (+ h (or i 1))))
 
 (defn rnd-choice
-  ;; get rand-int from [A-Z]
   [coll & [base i]]
-  ;;(println "I  " i)
-  ;;(println "Base  " base)
   (let [v (vec coll)
-        offset (hash-rnd base i)]
-    ;;(v (rand-int (count v)))
-    ;;(v (rand-int (count v)))
-    ;;(println (rem (hash-rnd base i) (count v) ))
-    (v (rem (hash-rnd base i) (count v) ))
-    ))
+        h (hash base)]
+    (fn [coll & [base i]]
+      (v (rem (hash-rnd h i) (count v))))))
 
 (defn take-fn
   [n f] (take n (repeatedly f)))
@@ -97,19 +91,6 @@
 
 (def repeat-limit 20)
 
-(def escaped
-  (attach
-    (match #"\\(.)")
-    (fn [[_ char] & [i]]
-      (cond
-        (= char "d") #(rnd-choice digits)
-        (= char "s") #(rnd-choice whitespace)
-        (= char "w") #(rnd-choice alphanumeric)
-        (= char "D") #(rnd-choice (invert digits))
-        (= char "S") #(rnd-choice (invert whitespace))
-        (= char "W") #(rnd-choice (invert alphanumeric))
-        :otherwise    (constantly char)))))
-
 (def literal
   (attach
     (match #"[^\\{}.+*()\[\]^$]")
@@ -149,36 +130,11 @@
       (match #"\]"))
     (fn [[a invert? char-groups b] & [i]]
       (let [chars (get-char-list char-groups (seq invert?))]
-        #(rnd-choice chars base i)))))
+        #((rnd-choice chars base i) chars base i)))))
 
 (declare pattern)
 
-(def sub-pattern
-  (attach
-    (series
-      (match #"\(")
-      (forward pattern)
-      (match #"\)"))
-    (fn [[_ f _]]
-      #(let [s (f)]
-         (apply vector (first s) s)))))
-
-(def single 
-  (choice ;;escaped
-          sub-pattern
-          any-char
-          (char-class "")
-          literal))
-
-
-(defn base-single [base]
-  (choice escaped
-          sub-pattern
-          any-char
-          (char-class base)
-          literal))
-
 (defn pattern [base]
-  (attach (many (choice (base-single base)))
+  (attach (many (choice (char-class base)))
     (fn [fs i]
       #(combine-groups into (map (fn [f] (f)) fs)))))

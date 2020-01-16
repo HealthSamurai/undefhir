@@ -5,7 +5,17 @@
             [pg.core :as pg]
             [clj-pg.honey :as db]
             [matcho.core :as matcho]
+            [bxb.utils :as u]
             [bxb.core          :as sut]))
+
+(deftest hash
+  (time (doseq [i (range 10000)] (u/hash-id "123456789")))
+
+  (u/hash-id "1234567")
+
+  (re-rand.core/into-regex 123)
+
+  )
 
 
 (deftest bxb
@@ -16,7 +26,7 @@
   (def spec
 
     {:truncate-history true                                                      ;; If true - truncate history of data tables (skip meta tables and 'skip' specified)
-     :skip             [:CodeSystem :Concept :Organization :Practitioner :PractitionerRole]  ;; Do nothing with this resources 
+     :skip             [:CodeSystem :Concept :Organization :Practitioner :PractitionerRole]  ;; Do nothing with this resources
      :truncate-tables  [:Transaction :IntegrationQueue :Session]
 
      ;;:leave {:Patient "identifier.#(system =  \"urn:identity:enp:Patient\" and value in (\"1651985062584760\", \"2167250889000119\", \"2150630846000030\", \"2152410818000161\", \"2152240829000169\") )'"}
