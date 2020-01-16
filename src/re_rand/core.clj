@@ -50,16 +50,15 @@
 
 (defn *rnd-choice
   [h tp i]
-  (if-let [dic (magic-ids tp)]
-    (dic (rem (*hash-rnd h i) (count dic)))
+  (if (coll? tp)
+    (tp (rem (*hash-rnd h i) (count tp)))
     tp))
-
 
 (defn *hash [p base]
   (let [h (hash base)]
     (loop [s "", i 0, [t & rst] p]
       (if (or t rst)
-        (recur (str s (*rnd-choice h t i) ) (inc i) rst )
+        (recur (str s (*rnd-choice h t i) ) (inc i) rst)
         s))))
 
 (defn tpl [s]
@@ -68,25 +67,23 @@
      (let [code (int ch)]
        (cond
          (and (>= code 65) (<= code 90))
-         (str acc "1")
+         (conj acc (magic-ids \1))
          (and (>= code 97) (<= code 122))
-         (str acc "2")
+         (conj acc (magic-ids \2))
          (and (>= code 48) (<= code 57))
-         (str acc "3")
+         (conj acc (magic-ids \3))
          (and (>= code 1040) (<= code 1071))
-         (str acc "4")
+         (conj acc (magic-ids \4))
          (and (>= code 1072) (<= code 1103))
-         (str acc "5")
+         (conj acc (magic-ids \5))
          :else
-         (str acc ch))))
-   "" s))
+         (conj acc ch))))
+   [] s))
 
 (defn *re-hash [s & [salt]]
   (*hash (tpl s) s))
 
-
 (comment
   (tpl "123:qwe")
-  (*re-hash "12ЯабZ 34")
-  
+  (*re-hash "12AабZ 34")
   )
