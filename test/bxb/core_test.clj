@@ -12,10 +12,16 @@
   (time (doseq [i (range 1000000)] (re-rand.core/re-hash "123456789")))
   (time (doseq [i (range 1000000)] (re-rand.core/re-hash "a861ec3c-6c69-467e-8ff5-f907007ac276")))
 
-  (u/hash-id "1234567")
 
-(re-rand.core/re-hash "1: A/ a!Ф@ы")
-(re-rand.core/re-hash "123456789")
+  (println (re-rand.core/re-hash "1: A/ a!Ф@ы" "1"))
+  (println (re-rand.core/re-hash "1: A/ a!Ф@ы" "2"))
+  (println (re-rand.core/re-hash "1: A/ a!Ф@ы" "3"))
+  (println (re-rand.core/re-hash "1: A/ a!Ф@ы" "foo1"))
+
+  (println (re-rand.core/re-hash "12345678"))
+  (println (re-rand.core/re-hash "12 34 5678" "marat"))
+  (println (re-rand.core/re-hash "1234 56788383-12" "niquola"))
+  (println (re-rand.core/re-hash "12345678" "viktor"))
 
 
   )

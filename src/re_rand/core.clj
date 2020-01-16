@@ -7,19 +7,18 @@
            (inc (int (first to))))))
 
 (def magic-ids
-  {\1 (count (vec (char-range "A" "Z")))
+  {\1 (vec (char-range "A" "Z"))
    \2 (vec (char-range "a" "z"))
    \3 (vec (char-range "1" "9"))
    \4 (vec (char-range "А" "Я"))
    \5 (vec (char-range "а" "я"))})
 
-(defn abs [x] (max x (- x)))
-(defn hash-rnd [h i] (abs (+ h (or i 1))))
+(defn abs [x] (if (pos? x) x (- x)))
 
 (defn rnd-choice
   [h magic-id i]
   (if-let [v (magic-ids magic-id)] 
-    (v (rem (hash-rnd h i) (count v)))
+    (v (rem (abs (+ h i i)) (count v)))
     magic-id))
 
 (defn get-magic-id [ch]
@@ -33,7 +32,7 @@
       :else ch)))
 
 (defn re-hash [base & [salt]]
-  (let [h (hash base)]
+  (let [h (hash (str base (or salt "NEED SALT")))]
     (loop [s "", i 0, [t & rst] base]
       (if (or t rst)
         (recur (str s  (rnd-choice h (get-magic-id t) i)) (inc i) rst)
