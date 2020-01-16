@@ -1,0 +1,491 @@
+[{:patient
+  {:id "*5=B:d",
+   :resource
+   {:name [{:use "PU:.V", :given ["c9ryQ0&"], :family ",Q@v7U"}],
+    :gender "rtP?",
+    :address
+    [{:use "1LGI",
+      :city "bkrDt[7",
+      :line ["D1SaTvS.pn,<'R3&2"],
+      :state "Qr",
+      :postalCode ">pt,4"}],
+    :birthDate "nd3mK7p~f9",
+    :identifier
+    [{:value "Zn;PAP", :system ".3hNAn\"<U\"XvUCWA|5rbma,"}
+     {:value "]Y~dP#A8N", :system ">bm+m`yQ)}I/^mW>g7Z,lE@hxFxG~["}],
+    :resourceType "qW-5f^u"},
+   :resourceType "Ni~0{wP"},
+  :requestOrganization
+  {:display "|Dh'M]GRrJ!B!R.&pB3zgP'$_A",
+   :identifier
+   {:value "_{\"NI4wf*+", :system "%xP6t2~ki:OW@Un'Kb+<c$"},
+   :resourceType "L5fT9mhrSuEW"},
+  :request
+  {:id "jcdrT~WF!r,`)i`/yN>6Dv`7wt*)}L\"E<.zN", :resourceType "Tr/iS"},
+  :requestProvider
+  {:id "ut7fQ8XX",
+   :resource
+   {:name
+    [{:use "qv\"m\\}XZ",
+      :text "|VFL>|;14!v{",
+      :given ["!gtp@"],
+      :family "ep",
+      :prefix ["br"],
+      :suffix ["{CT8"]}
+     {:given ["e\\PcF" "j"], :family "$n", :prefix ["n!TQ{"]}],
+    :identifier
+    [{:value "4a(E5\\\\]b", :system ")Dc9,::&HhbJvmFOJqn+)-"}
+     {:value "cBTh9E:lm", :system "TGqfve$@A|_\\1jgJWrv6!&mY["}
+     {:value "XV4%`nuPs", :system "ZcPB]9#:V_K*O\\za45Ap`[AP~"}
+     {:value "=a8{Cq[%", :system "k#h.^I3ksL/VMcDTEaWMI3$]D}i"}
+     {:value "D#s5~+", :system "n_%Cw-*9!wYzVUn'?xxkK5ZZGA@_sGnS"}
+     {:value "-+4Lj{Spca", :system ")vN;fe>yC2I%{;*^[%Ixko`{1T:8[1"}
+     {:value "OzSWT", :system "Refk9^c0<Sl~P8(xc\\~]i[8}fku"}
+     {:value "EO", :system "bF-!:FSW74JX~'.SF:B7Dsl"}
+     {:value "k.~F\"~g", :system "Gj6->2<&c?Y_wg){G3ZK9:S\"#>9"}],
+    :resourceType "}gU]cwYH0MTu"},
+   :resourceType "e~Rrp^H3.6%7"},
+  :meta
+  {:lastUpdated "b'`@is6]Q(rlD\"uA'5/Dbo+]",
+   :versionId "2gr++k5",
+   :tag [{:system "+TZ\\H]Ul_IV}Re>v+K", :code "QFIY#86"}]},
+  :encounter
+  {:id "vD')MI/RJs~\\x-i+y/2Vx|UK!,$WXL%wIy*-",
+   :resourceType "T-]DI\"~-S"},
+  :payment
+  {:date "t]5X?|=Xo%",
+   :type
+   {:coding
+    [{:code "Us1Kzq:U",
+      :system "a\"T`Q(R#^+\\*j+&9sU68q-$f-3,79A#q!Z"}]},
+   :amount {:code "d\"U", :value 0.0}},
+  :item
+  [{:fee {:code "te)", :value 217.9734339759059},
+    :remark nil,
+    :service
+    {:coding
+     [{:code "?0^Dg", :display "X6,~nRN\\<bxsv{eCU'$?xcDX}.9F"}]},
+    :modifier [],
+    :serviced {:date "t}j&l?N?)K"},
+    :adjudication
+    [{:amount {:code "}`\"", :value 45.294359180447124},
+      :category {:coding [{:code "w1|l^h", :display "M'Bp0i[^o0jxG"}]}}
+     {:amount {:code "4<Y", :value 0.0},
+      :category
+      {:coding [{:code "2d=#QWG", :display "Pd:92P5XSvPh}O"}]}}
+     {:amount {:code "\\_D", :value 89.31003273392466},
+      :reason {:coding [{:code "g", :display "&6?U'Z#)PGQ2hNerg"}]},
+      :category
+      {:coding [{:code ")f", :display "aF}#1@!>.p:vXIEM5;WmR@"}]}}
+     {:amount {:code "6TH", :value 12.50125579131707},
+      :reason
+      {:coding
+       [{:code "~7",
+         :display
+         "6lkCPOnT}N?JAJO(1%npU7!yFWOdO3`HWO!sPgO`n(l)P><4^7&d@_a>T9+!DOLL.N=1D[k>Q>d$_qNj:z+mtX6"}]},
+      :category
+      {:coding [{:code "SQ", :display "d.J3WHWlu^OKL&vdPSHd$wY"}]}}
+     {:amount {:code "a:Y", :value 17.497113475472318},
+      :reason
+      {:coding
+       [{:code "O@p",
+         :display "M'x:S|wsAmL3]Z)^^\"z)jhn8a>24i|^I{}+"}]},
+      :category
+      {:coding [{:code "Qu", :display "Lrk>{x=MWVVlA7n=RgvQ,Z<"}]}}
+     {:amount {:code "$V4", :value 105.55079424440818},
+      :category {:coding [{:code "o$", :display "T24CsFgqclZD<J"}]}}],
+    :sequenceLinkId 0}],
+  :created "][KG;oCKR]ki\"/P18_*=h\"#g",
+  :outcome
+  {:coding
+   [{:system "http://hl7.org/fhir/remittance-outcome"}]},
+  :totalBenefit {:code "I&`", :value 0.0},
+  :resourceType "\"\"cvObYH-E1S;",
+  :disposition
+  ".(l7$X)liRJ>LNH&BB:sXmV3y@_teIC*N6FkNNVQy-699}swE}.\\>XfcZ-b$Tzs",
+  :serviceDate "Mz)~fM]g<N",
+  :totalPatientResponsibility {:code "g8;", :value 98.06971564855583},
+  :receivedDate "?IKqU}CXPa",
+  :insurer
+  {:display "|6g4RL@5pAC8*X)>oJf",
+   :identifier
+   {:value "*$xFDAcbBX+>*[F[(j;", :system "f46s5=D]v1e1Jz])w.{d.?/"},
+   :resourceType "#K\"4\\5MGX+Y;"},
+  :subscriber
+  {:display "DH2%T<&Fs,=ya6",
+   :identifier
+   {:value "0(CXRBPc%gQ^3,P", :system "eU^dnN=Gu?1E3x${K#pra"},
+   :resourceType "M;M7lR."},
+  :status "Q?tnyL",
+  :id "RV{7%xE\"e5b--ltuzV>%KUa\\#f|!F6-sNA}.",
+  :identifier
+  [{:value ",#:6fk!5V[\\).Q2A^I^",
+    :system "P=W,[dw'qWIlzjby_f!q6-YJ~s>Uc'2H<H-Y,5"}
+   {:value "G=Jb]T.O-!J<!",
+    :system "OxV(t7?/>}^5o0<LG]hU~E(z0qp*q5D44#J;d!T94+d)"}],
+  :totalCost {:code "S=\\", :value 226.91243624023053},
+  :serviceLocation
+  {:id "$",
+   :display "?+wu94HE",
+   :resource
+   {:address
+    {:city "\"pXPJ$W\"",
+     :line ["]/5OfzDKvosGq<zlN"],
+     :state "[9",
+     :postalCode "YXsLp"},
+    :resourceType "nF[Z~=/_"},
+   :resourceType ")7sM~$aM"}}
+ {:patient
+  {:id "*v\\5,f",
+   :resource
+   {:name [{:use "EHu/G", :given ["'NP;PC\"In}"], :family "9poky`"}],
+    :gender "eX?oyY",
+    :address
+    [{:use "W*]%",
+      :city "nevM;<@?",
+      :line ["hX?TomBoTJ\\W~,T~SA*"],
+      :state "+l",
+      :postalCode "iDqnq"}],
+    :birthDate "\\%`6Wn?V2:",
+    :resourceType "qgjXws;"},
+   :resourceType "+aj%z--"},
+  :requestOrganization
+  {:display "5qe)]&ewaTlU@6&,~qI:+P1l/]",
+   :identifier {:value "/H&DxFN]nz", :system "nZaPO?rA!w::0b}Y+r=@v!"},
+   :resourceType "yK7Q-dy36PMH"},
+  :request
+  {:id "r\"\\dyS[)@x73#Ps)t('nk_N<O@o\\E$H{I?x!",
+   :resourceType "K5olP"},
+  :requestProvider
+  {:id "rlvBw^!e",
+   :resource
+   {:name
+    [{:use "I^}c(T{l",
+      :text "m/>rB>>lcrGl1",
+      :given ["47\"t^" "~"],
+      :family "[oqJh",
+      :prefix ["(4"],
+      :suffix ["H8"]}
+     {:given ["4u#Uo" "BpQ06<"], :family "3}*RC"}],
+    :identifier
+    [{:value "f_7G?4q{F", :system "M)1k|%)Js?{>MHmv^zEvCu"}
+     {:value "Uj<!)g1)*", :system "@TRoLJ~ng'K,dB>Nc_7elTsE*"}
+     {:value "A23xHZNL", :system "%WwD\"*|[wFMa5cBZD~KS&e#xI'a"}
+     {:value "(4+pcv", :system "tle}^D8\\HUnJdP-^+.XF~lh-0[8Tew)E"}
+     {:value "b6GjB^y=2t", :system "rVcUz!~PQ$*AF]vm.qxH4W~`%IU%m9"}
+     {:value "07x^lCym9KW", :system "M4%<qcY~wc;j8l~8:gNji8'3fep"}
+     {:value "Fjc", :system ">]^<b%X2|o!~2UyeD2z;r\\m"}],
+    :resourceType "b4__m*UWOBAN"},
+   :resourceType "WG='csy;A7H6"},
+  :meta
+  {:lastUpdated "oF>\\AYV?1s=+:h?qYXNe%qde",
+   :versionId ".nUPn!l",
+   :tag [{:system "AaOIM5HoN6oCrn[9CQ", :code "ja-D[B3"}]},
+  :encounter
+  {:id "raqu2f6zbT|@dM_Evq!EERrK3a=a}x2P%o/@",
+   :resourceType "?q;7`qOl~"},
+  :payment
+  {:date "RMzYJ(W5G%",
+   :type
+   {:coding
+    [{:code "e;ZU?JUt",
+      :system "b*FCfvd\\5a1N@G]8{6l9k-gs!Q2{b#~}KT"}]},
+   :amount {:code "yih", :value 51.19173430614883}},
+  :item
+  [{:fee {:code "SN?", :value 28.843517636663076},
+    :remark
+    {:coding
+     [{:code "5Ems",
+       :display
+       "s@UZ\"D1)-WRL@y>Zs'5w2v^dd01r7s3:C8i,Q!0z+k@KZlqicGD,4nNd:!d9zCU2_yLRl=;W@&'j^ln,bgjq`WNiWIKQ\\o9w84I1F+1(wVj1$Y?"}]},
+    :service
+    {:coding
+     [{:code "y\"CPL", :display "Osi9EF*}ZmLa>DjD#:sD'/9N4x"}]},
+    :modifier [],
+    :serviced {:date "7!4BrrX*7Y"},
+    :adjudication
+    [{:amount {:code "%yA", :value 180.03073925082884},
+      :category {:coding [{:code "m_n,t8", :display "W#,9H}tUDYlJP"}]}}
+     {:amount {:code "fm9", :value 117.33355248749201},
+      :category
+      {:coding [{:code "t'Qa_~+", :display "vnb/N~&9eNO}P&"}]}}
+     {:amount {:code "Uum", :value 137.2356076025753},
+      :reason
+      {:coding
+       [{:code "/v",
+         :display
+         "gQDk_eKc9MM&w^J/:4Wz)d=u\\caK~d*[/<UzFg?>-)WFIT7g6!]Zof9?CPsZ=ww~QOX@-L0\"DnKt7<'M8Mx7/.,"}]},
+      :category
+      {:coding [{:code "'n", :display "?`/P\"aU[%z^/nEb.Yh5}SMo"}]}}
+     {:amount {:code ".9z", :value 129.44970973062118},
+      :category {:coding [{:code "%+", :display "?8SAWhI9g\"mn;V"}]}}],
+    :sequenceLinkId 0}],
+  :created "ef|&`L3KPk,kXT>PJ#FGBPdy",
+  :outcome
+  {:coding
+   [{:code "C",
+     :system "http://hl7.org/fhir/remittance-outcome"}]},
+  :totalBenefit {:code "E[N", :value 122.8207950854915},
+  :resourceType "5&R*1-94dKd-}",
+  :disposition
+  "@3quWC-L}[v}&qJ46a/'>N9}7Xfd`p/O.%1F_g3!Y_yot<wa#::Ti_-a",
+  :serviceDate "<e~Twd?6K\\",
+  :totalPatientResponsibility {:code "Sa{", :value 0},
+  :receivedDate "-0lfL-.F*n",
+  :insurer
+  {:display "9C3.xch7\"s]xU;anm{",
+   :identifier
+   {:value "%H/_18>Z<(rDU)NZ87", :system "5HDKz73PRA{]`E1-6q#ZJ:s"},
+   :resourceType "]<NKe&TYt.#<"},
+  :subscriber nil,
+  :status "-7?!Enmcd",
+  :id "LW~\\:dAEIq!ipk=Cp>/j\\kuR_FKz2z`||pmV",
+  :identifier
+  [{:value "NsCT/bUmP5!p2RhNal&",
+    :system "tw5Mxz,Jatas=BGz/!`b1Ag(;)MZz5&[K+z;^C"}
+   {:value "WA/`PL%9T`q$",
+    :system "q2:@|2JfPu83h<PYMA^v^We^g36-[DdE<|aGlt93`iS#"}],
+  :totalCost {:code "vdq", :value 357.8366617079677},
+  :serviceLocation
+  {:id "m", :display "WI$*WyB+Q&L:m2w", :resourceType "-+ZhNag?"}}
+ {:patient
+  {:id "dL?--g",
+   :resource
+   {:name [{:use "I?qwR", :given ["*hc\"'*"], :family "UJYpZ"}],
+    :gender "D,\"m",
+    :address
+    [{:use "QKv8",
+      :city "#(+fyrb'0oA",
+      :line ["ynQF(Tfm-)3,LZ9Xk"],
+      :state "'.",
+      :postalCode "$x_uY"}],
+    :birthDate "T<]r!3N)y(",
+    :identifier
+    [{:value "8rfO\"\"", :system "%r|9X0mIz@6aV;Ohyq8MZ4,"}],
+    :resourceType "I*gIN$@"},
+   :resourceType "[A_EezK"},
+  :requestOrganization
+  {:display "=(*00)VJCe{9tRd|+f!!$@]:Xv",
+   :identifier {:value "y^xUv_T*RD", :system "waOVBxQSy57kv}^B0VcWLg"},
+   :resourceType "/(QDU62oV$BC"},
+  :request
+  {:id "v7}9+1Y*I6syez|M,%qW\\^:`vz&Rt\\nv[drQ",
+   :resourceType "GrKA%"},
+  :requestProvider
+  {:id "yx2Nxapp",
+   :resource
+   {:name
+    [{:use ".RgW?(Jp",
+      :text "4WC$Ubnr<;$#",
+      :given ["fB-xK"],
+      :family ";$",
+      :prefix ["q9"],
+      :suffix ["~ov>"]}
+     {:given ["X/<#E" "S"], :family "Ql", :prefix ["|Hl:%"]}],
+    :identifier
+    [{:value "|LVAz_luU", :system "2a?'EJ=0@v4#|iB'\"7rioW"}
+     {:value "R=Gu9[RZ0", :system "dHnmyROBS;9T%fs74B-{sK;\\y"}
+     {:value "Y6zCz3b+@", :system "C4E!6}@D/}`vXz0_z.>i$'Po&"}
+     {:value "rLE1j4UK", :system "AO_`0TEFUhUm}JUvcW&KH_'f(<N"}
+     {:value "8sHbID", :system "9?oB})fdC;2L@{5tA;I,yvzZqSoE+]fm"}
+     {:value "?)a~]E~4r:", :system "DV_uO[h$lYiGP\"N1{^%0r#'kCBMbJA"}
+     {:value ";SX+j", :system "nPX3V0dn#<7l5O2}dmmkbcV8XLK"}
+     {:value "sN", :system "IIm{(K)0}JSt\\]wqP/UPVAA"}
+     {:value "Qvvj_FT", :system "!drK0&?I+g|hzAeFy)z,Dk{=pYX"}],
+    :resourceType "EC^g?1%X,:>("},
+   :resourceType "}Ve`ui]I#\\A["},
+  :meta
+  {:lastUpdated "$INh6eGyRIqPCHgP|VRZx)'A",
+   :versionId "b^!<:JI",
+   :tag [{:system ";Nbx{7~:<HOclWs1X~", :code "i[V^M_#"}]},
+  :adjudication
+  [{:amount {:code "?km", :value 100.2910051731546},
+    :reason
+    {:coding
+     [{:code "._",
+       :display
+       "_)/}!Hrk>g$Bcnv]NrhC:/[s{v1`4i9w=:Y,JW7/e8gRQw>magm?r]55h~(7eJMw1&69A^L#5k1tB}zuyT5/b}`"}]},
+    :category
+    {:coding [{:code "m>", :display "qa'H,[A^lOT&s8Vbo3^\\._B"}]}}
+   {:amount {:code "'<M", :value 8.201097475515366},
+    :reason
+    {:coding
+     [{:code "Ip",
+       :display
+       "H<fn2&$_b.fMMz4-qa@/<UlX^JEkZ\\giUgT?5-Su+xR9QI#d2hdc$:UgKBarX;@Y^/PI$CsHAiqQ;;yN4gAy{)+\\/NVyoS#8e|jly;}Za'4z~g"}]},
+    :category {:coding [{:code "B*", :display "XDA7XtvTn'xn4,=WX"}]}}],
+  :encounter
+  {:id ",6h|E$sIpq~sxdaYiM_c:Nu9$mi!Qz\\9(#Yo",
+   :resourceType "!z2+2@Qxs"},
+  :payment
+  {:date "rY:,<yy%UE",
+   :type
+   {:coding
+    [{:code "w%CfIa~*",
+      :system "p>R:#?,l/z$dx{XPhob`VqNB,t4{-'x~Ox"}]},
+   :amount {:code "?0A", :value 17.216070200518303}},
+  :item [],
+  :checkNumber "L?^e.=\\P",
+  :created "Jg\"`YpS2lMS$tg)q,Y`T[:O<",
+  :outcome
+  {:coding
+   [{:code "$",
+     :system "http://hl7.org/fhir/remittance-outcome"}]},
+  :totalBenefit {:code "(`!", :value 16.510625895555652},
+  :resourceType "5ns37?tx}wX&0",
+  :disposition
+  ",gPPf@z6_DBZffYMxlo[Uc6MYJ2v8aAB8mNq7S}`hIcCo7d\"SA+U_",
+  :serviceDate "V\"KSEk=VNj",
+  :totalPatientResponsibility {:code "(/>", :value 0},
+  :receivedDate "RXm1QJ.&b8",
+  :insurer
+  {:display "M!t4Pyi@B;f",
+   :identifier
+   {:value "\"l>PS_q~+Pt", :system "%$1)cdqi%dozGFhHlWb,59c"},
+   :resourceType "Y*Yt~~;%ut#K"},
+  :subscriber
+  {:display "P7~o;t}~:WF)",
+   :identifier {:value "u^jKUpd?4", :system "q:bx?EUrl9TXVS,0?dEph"},
+   :resourceType "Z2w_?]:"},
+  :status "e.V%wa",
+  :id "_:|^E69'r>81aJw_'~`(r=_YOaE|kF;=kE6w",
+  :identifier
+  [{:value "g#9|#,vCi0f'`v]AjS?",
+    :system "4l5=zi$K\"1MT/|rAPslCCQ4e7cC&J?HoGNqg~~"}
+   {:value "eHAtwb&&3n",
+    :system ">^c'gpE8T,g,8nwjmLsk:*ss}0t%%Rk?MM+i/XcvN\"8n"}],
+  :totalCost {:code "}!>", :value 66.8734308753326},
+  :serviceLocation
+  {:id "D",
+   :display "f}X\\bO[Y",
+   :resource
+   {:address
+    {:city "i29EKUR+",
+     :line ["%uK9o}^,g?/']Y?Ve"],
+     :state "O|",
+     :postalCode ".9F?l"},
+    :resourceType "`D&]lK51"},
+   :resourceType "^ML#U[(a"}}
+ {:patient
+  {:id "-H\\.N&",
+   :resource
+   {:name [{:use "Qsqx2", :given ["#O\\GL{" "&"], :family "FBxnOX"}],
+    :gender "?x}2",
+    :address
+    [{:city "Rf~T$~~CM4t",
+      :line ["LFi}ce0<4{UlyLq?RBH]}"],
+      :state "BG",
+      :postalCode "<<,`1"}],
+    :birthDate "}2q\"0XTr7g",
+    :identifier
+    [{:value "pn0_cy", :system "w>D<\"~sN/{;z-riW,JUM_x&"}],
+    :resourceType "ctdX}%E"},
+   :resourceType "|U;\"kYj"},
+  :requestOrganization
+  {:display "Fr)2*DKUt~QnB2J!lzI{NlpE\\j",
+   :identifier
+   {:value "N56ID>sm&l", :system ">399GH{FFpX5;N2\"%)h#>0"},
+   :resourceType "(\"^z+6?@[`~y"},
+  :request
+  {:id "e7(dSuy~3A;WR+=5o{)Ui7|1Ok|{VJl4+2!\\",
+   :resourceType "e\"qlX"},
+  :requestProvider
+  {:id "]q+$Q&:W",
+   :resource
+   {:name
+    [{:use ";'y{18'D",
+      :text "nA%Jy8cy1~`C$",
+      :given ["Qoe~i" "H"],
+      :family "'R:*v",
+      :prefix ["Q]"],
+      :suffix ["-+"]}
+     {:given ["LI|&e" "JsycZB"], :family "UU,/B", :prefix ["4v"]}],
+    :identifier
+    [{:value "p-^E,oUR%", :system ">)gK)(3.lq7-Y`}[|%NBc:"}
+     {:value ".~!4f,^Xo", :system "pA-1QlN}MX'GTa4h'x17\"`8*3"}
+     {:value "XirxRaUo", :system "8O8D#%@R-W:jD?-23xs'@TAdrIH"}
+     {:value "1yxeG~", :system "~hpQeHh,&}Z32%J5ZgY60C+F~KFsPPaH"}
+     {:value "}'(E#s)ix'", :system "A_o>Xp#p(IBz=NvY'+%vMb%UOc)oWU"}
+     {:value "z(M52z:Pqpq", :system "c?x~SM@vl>qJ%+8i@7:K8)VVG:n"}
+     {:value "mJ<", :system "Am$D%:e?ZH5|EXa^f:$USE."}],
+    :resourceType "W@M:bQ=C{LI@"},
+   :resourceType "-3Rt+a[nk0v|"},
+  :meta
+  {:lastUpdated "6>\\ss0!Z7ra\"KKs5'SxJ/oTX",
+   :versionId "O3.Xx5B",
+   :tag [{:system "{8EUhuyZp)&$}m:@:h", :code "2o>b`u\\"}]},
+  :encounter
+  {:id "<TQN[y~~#-!Ab74p.2Zf]IwMk[WVhXWW\"I^=",
+   :resourceType "~BRg\"FL,>"},
+  :payment
+  {:date "QgeT+rUr-F",
+   :type
+   {:coding
+    [{:code "}J,Y1Jrs",
+      :system "dOf_c1WsA>pUjf3]5pg)'4BE#ZpMJHTR.u"}]},
+   :amount {:code "YxQ", :value 0.0}},
+  :item
+  [{:fee {:code "W5r", :value 126.67375029013394},
+    :remark nil,
+    :service
+    {:coding
+     [{:code "Dzm(]", :display "RH\\l$1.>v|:oI7m2%3yh>8.4-$Vh"}]},
+    :modifier [],
+    :serviced {:date "EB{X6k>ap3"},
+    :adjudication
+    [{:amount {:code "6$5", :value 160.87731734932345},
+      :category {:coding [{:code "&>'P2j", :display "G&:/gwpE&/=U'"}]}}
+     {:amount {:code ">5U", :value 0.0},
+      :category
+      {:coding [{:code "L8l3BN7", :display "no55B|utu_:d$("}]}}
+     {:amount {:code "4_{", :value 39.710913761610726},
+      :reason
+      {:coding
+       [{:code "`9",
+         :display
+         "7eqj@d'yeC5Lv=bzi,Y/8o{Un,xw=qec$A05&h7&cG{Ik`YJtI*v#_64ymaC8%ReZQ1o}eu2u=eakpjG\"tA27/7"}]},
+      :category
+      {:coding [{:code "9x", :display "({o&&K%J8D8s{}bkpQI=Rjq"}]}}
+     {:amount {:code "3^k", :value 88.9676464954394},
+      :reason
+      {:coding
+       [{:code "8+",
+         :display
+         "65k'45m-cIz]TH|OMd{Z#d(-xxL,u\"t8FT(J+9B',,BH$ohq)wff_dqhjr8'|mn],&/wAQNt-Jjl,c\"%\"E-4hJ+Yf=/5264<KLd&=^Dm)fT`c["}]},
+      :category {:coding [{:code "~n", :display "%x~0)U.MzpyuvBT(j"}]}}
+     {:amount {:code "8Y=", :value 7.747347620882114},
+      :reason {:coding [{:code "t", :display ">MfQrn8<|2wME`XSI"}]},
+      :category
+      {:coding [{:code "]N", :display "g`(7mnpkfl;ugX=\"qYaz\\\""}]}}
+     {:amount {:code "2sn", :value 8.652484217692875},
+      :category {:coding [{:code "YA", :display "~.w_&=UnGvngJk"}]}}],
+    :sequenceLinkId 0}],
+  :created "R-d>(%E)/(xsNZ\\fqB!|hm;O",
+  :outcome
+  {:coding
+   [{:code "Y",
+     :system "http://hl7.org/fhir/remittance-outcome"}]},
+  :totalBenefit {:code "s@M", :value 0.0},
+  :resourceType "r\\}U.3eDU#p(I",
+  :disposition
+  "]lxVo>80*VTDMg|I\"4{f&Jf.7A#i`Yhii4Y#fScdE.G=mXgv~`)Y:dSZknuIX",
+  :serviceDate "53:WLV:&mY",
+  :totalPatientResponsibility {:code "inx", :value 10.053394193872636},
+  :receivedDate ")@'If5/I(,",
+  :insurer
+  {:display "zmYy}X#iqSGqSk#hT-x7fSH1q;:}=f2j{G(.z73",
+   :identifier
+   {:value ";YK;HNryga#Vt'^hP$SC%}P`j6#{(Ch>~lklo}/",
+    :system "QLA|Hz$,[y+]G~DdX53;;oi"},
+   :resourceType "?Ec^O<B&{<kb"},
+  :subscriber nil,
+  :status "AI;<&%",
+  :id ":/mAo?c(;k&`A='1K}c52%5;2(1rSH^@G=f0",
+  :identifier
+  [{:value "m|FI$/'+!X.S%E49wp1",
+    :system "\\%H?[AGn(TJ`TWY_HC]bk[yw(wR$T=ER[@r|m|"}
+   {:value "N\"D\\+adLe(n=/",
+    :system "*NTiM$3_D50D`iN_=_}.CA\"k,]*Lj=JVOr+5AB|Vf/a7"}],
+  :totalCost {:code "=@P", :value 74.66383119080932},
+  :serviceLocation
+  {:id "P", :display "QBJ&sJ<NI=-_BkV", :resourceType "l>:.Q*yP"}}]
