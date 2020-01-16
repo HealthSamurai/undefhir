@@ -15,8 +15,7 @@
   (:use re-rand.parser.tools)
   (:use [clojure.set :only (difference)]))
 
-(defn abs [x]
-  (max x (- x)))
+(defn abs [x] (max x (- x)))
 
 (defn hash-rnd [h i]
   (abs (+ h (or i 1))))

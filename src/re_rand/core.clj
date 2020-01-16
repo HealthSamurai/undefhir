@@ -32,8 +32,61 @@
 (defn re-hash [s]
   (re-rand (into-regex s) s))
 
+(defn *char-range
+  [from to]
+  (map char
+    (range (int (first from))
+           (inc (int (first to))))))
+
+(def magic-ids
+  {\1 (vec (*char-range "A" "Z"))
+   \2 (vec (*char-range "a" "z"))
+   \3 (vec (*char-range "1" "9"))
+   \4 (vec (*char-range "А" "Я"))
+   \5 (vec (*char-range "а" "я"))})
+
+(defn *abs [x] (max x (- x)))
+(defn *hash-rnd [h i] (*abs (+ h (or i 1))))
+
+(defn *rnd-choice
+  [h tp i]
+  (if-let [dic (magic-ids tp)]
+    (dic (rem (*hash-rnd h i) (count dic)))
+    tp))
+
+
+(defn *hash [p base]
+  (let [h (hash base)]
+    (loop [s "", i 0, [t & rst] p]
+      (if (or t rst)
+        (recur (str s (*rnd-choice h t i) ) (inc i) rst )
+        s))))
+
+(defn tpl [s]
+  (reduce
+   (fn [acc ch]
+     (let [code (int ch)]
+       (cond
+         (and (>= code 65) (<= code 90))
+         (str acc "1")
+         (and (>= code 97) (<= code 122))
+         (str acc "2")
+         (and (>= code 48) (<= code 57))
+         (str acc "3")
+         (and (>= code 1040) (<= code 1071))
+         (str acc "4")
+         (and (>= code 1072) (<= code 1103))
+         (str acc "5")
+         :else
+         (str acc ch))))
+   "" s))
+
+(defn *re-hash [s & [salt]]
+  (*hash (tpl s) s))
+
 
 (comment
-  (re-hash "12ЯабZ 34")
+  (tpl "123:qwe")
+  (*re-hash "12ЯабZ 34")
   
   )

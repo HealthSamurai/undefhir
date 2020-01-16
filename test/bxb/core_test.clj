@@ -10,15 +10,20 @@
 
 (deftest hash
   (time (doseq [i (range 10000)] (u/hash-id "123456789")))
+  (time (doseq [i (range 10000)] (re-rand.core/*re-hash "123456789")))
 
   (u/hash-id "1234567")
+
+(re-rand.core/*re-hash "1: A/ a!Ф@ы")
+(re-rand.core/*re-hash "123456789")
+
 
   (re-rand.core/into-regex 123)
 
   )
 
 
-(deftest bxb
+#_(deftest bxb
   (bxb.sanitize/connect-db)
 
   (def email-test-data (assoc-in (db/query-first @bxb.sanitize/db "select * from patient limit 1") [:resource :telecom 0 :system] "email"))
