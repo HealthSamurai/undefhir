@@ -1,4 +1,4 @@
-(ns re-rand.core)
+(ns undefhir.re-hash)
 
 (defn char-range
   [from to]

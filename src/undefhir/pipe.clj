@@ -1,4 +1,4 @@
-(ns bxb.pipe
+(ns undefhir.pipe
   (:require [honeysql.core    :as hsql]
             [cheshire.core :as json]
             [pg.core :as pg]

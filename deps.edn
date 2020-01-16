@@ -6,18 +6,12 @@
          org.clojure/tools.logging   {:mvn/version "0.3.1"}
          org.postgresql/postgresql   {:mvn/version "42.2.9.jre7"}
          http-kit                    {:mvn/version "2.3.0"}
-         instaparse                  {:mvn/version "1.4.10"} 
-         org.clojure/core.logic      {:mvn/version "0.8.11"} 
          org.clojure/data.generators {:mvn/version "0.1.2"} 
          honeysql                    {:mvn/version "0.9.8"}
          cheshire                    {:mvn/version "5.9.0"}}
 
  :aliases
- {:dev
-  {:extra-paths ["dev"]
-   :extra-deps  {com.bhauman/figwheel-main {:mvn/version "0.2.3"}}}
-
-  :runner
+ {:runner
   {:extra-paths ["runner"]
    :extra-deps
    {com.cognitect/test-runner

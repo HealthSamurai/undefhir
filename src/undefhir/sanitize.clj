@@ -1,16 +1,17 @@
-(ns bxb.sanitize
+(ns undefhir.sanitize
   (:require [honeysql.core    :as hsql]
             [cheshire.core :as json]
             [pg.core :as pg]
             [clj-pg.honey :as db]
             [clojure.set :as set]
-            [re-rand.core :as re-rand]
             [clojure.data.generators :as gen]
             [clojure.string :as str]
             [clojure.java.jdbc :as jdbc]
-            [bxb.pipe :as pipe]
-            [bxb.utils :refer :all]))
+            [undefhir.re-hash :as ur]
+            [undefhir.pipe :as pipe]
+            [undefhir.utils :refer :all]))
 
+(def hash-id ur/re-hash )
 (defonce db (atom nil))
 
 (def *given  ["a" , "b"] #_(str/split-lines (slurp "given")))

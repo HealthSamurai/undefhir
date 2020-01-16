@@ -1,5 +1,5 @@
-(ns bxb.core
-  (:require [bxb.sanitize :refer :all]))
+(ns undefhir.core
+  (:require [undefhir.sanitize :refer :all]))
 
 (defn process [spec]
   (println "-----------------------------------------------")
