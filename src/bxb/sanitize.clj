@@ -13,9 +13,9 @@
 
 (defonce db (atom nil))
 
-(def *given  (str/split-lines (slurp "given")))
-(def *family (str/split-lines (slurp "family")))
-(def *patron (str/split-lines (slurp "patronymic")))
+(def *given  ["a" , "b"] #_(str/split-lines (slurp "given")))
+(def *family ["a" , "b"] #_(str/split-lines (slurp "family")))
+(def *patron ["a" , "b"] #_(str/split-lines (slurp "patronymic")))
 
 (def db-spec
     {:dbtype   "postgresql"
