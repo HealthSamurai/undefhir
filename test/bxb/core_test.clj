@@ -9,16 +9,14 @@
             [bxb.core          :as sut]))
 
 (deftest hash
-  (time (doseq [i (range 10000)] (u/hash-id "123456789")))
-  (time (doseq [i (range 10000)] (re-rand.core/*re-hash "123456789")))
+  (time (doseq [i (range 1000000)] (re-rand.core/re-hash "123456789")))
+  (time (doseq [i (range 1000000)] (re-rand.core/re-hash "a861ec3c-6c69-467e-8ff5-f907007ac276")))
 
   (u/hash-id "1234567")
 
-(re-rand.core/*re-hash "1: A/ a!Ф@ы")
-(re-rand.core/*re-hash "123456789")
+(re-rand.core/re-hash "1: A/ a!Ф@ы")
+(re-rand.core/re-hash "123456789")
 
-
-  (re-rand.core/into-regex 123)
 
   )
 
