@@ -2,7 +2,7 @@
 .PHONY: test build
 
 repl:
-	rm -rf .cpcache/ && DEBUG=true clj -A:dev:test:nrepl
+	clj -A:test:nrepl
 
 build:
 	clj -A:build

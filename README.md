@@ -5,8 +5,8 @@
 
 ```edn
 
-{:dict {:colors  "./colors.txt"
-          :animals "./animals.txt"}
+{:dictionary {:colors  "./colors.txt"
+              :animals "./animals.txt"}
 
    :templates {:$rnd-humanName [{:given ["$rand-nth dict.colors"]
                                  :family "$rand-nth dict.animals"}]}
