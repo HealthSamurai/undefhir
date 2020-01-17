@@ -85,6 +85,23 @@
   [_ value]
   (map #(update % :value hash-id) value))
 
+;;Template for complex types processing
+(defn anonimify-name [an-fn value]
+  (mapv
+   (fn [el]
+     (reduce-kv
+      (fn [acc k v]
+        (if (vector? v)
+          (do
+            (println v)
+            (->> v (mapv an-fn) (assoc acc k)))
+          (assoc acc k (an-fn v))))
+      {}
+      el))
+   value))
+
+(anonimify-name (fn [el] "7") [{:family "Hello" :given ["World 1" "World 2"]}])
+
 (defn skip-list [spec]
   (set/union
    (set ["OperationOutcome"])
