@@ -1,5 +1,7 @@
 # UndeFHIR
 
+make postgres-up
+make repl 
 
 # Design WIP
 

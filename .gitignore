@@ -4,6 +4,7 @@
 /classes
 /checkouts
 .cpcache/*
+pgdata
 profiles.clj
 pom.xml
 pom.xml.asc

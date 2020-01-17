@@ -1,24 +1,21 @@
 (ns undefhir.utils
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clj-pg.honey :as pg]))
 
 (defn file-dictionary [file]
   (str/split-lines (slurp file)))
 
-(defn query-dictionary [query]
-  ["foo"])
+(defn query-dictionary [db query]
+  (mapcat vals (pg/query db query)))
 
-(defn load-dictionary [{:keys [file query] :as d}]
+(defn load-dictionary [db {:keys [file query] :as d}]
   (try 
     (cond
       file  (file-dictionary file)
-      query (query-dictionary query)
+      query (query-dictionary db query)
       :else  (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'file' or 'query'"))))
     (catch Exception e
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
-
-
-
-
 
 
 

@@ -135,7 +135,7 @@
     (when (pg/database-exists? db dbname)
       (pg/exec! db grant-sql))))
 
-(defn ensure-database [conn db-name]
+(defn ensure-database [conn {db-name :database :as  db-spec}]
   (when-not (database-exists? conn db-name)
     (pg/create-database conn db-name)))
 
