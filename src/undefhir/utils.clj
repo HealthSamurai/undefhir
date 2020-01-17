@@ -5,21 +5,36 @@
 (defn file-dictionary [file]
   (str/split-lines (slurp file)))
 
-(defn query-dictionary [db query]
-  (mapcat vals (pg/query db query)))
+(defn build-query [[statement & args] cache]
+  (reduce
+   (fn [acc v]
+     (conj acc ((keyword v) cache)))
+   [statement] args))
 
-(defn load-dictionary [db {:keys [file query] :as d}]
+(defn query-dictionary [db query cache]
+  (let [query (if (string? query)
+                query
+                (if (vector? query)
+                  (build-query query cache)))]
+    (mapcat vals (pg/query db query))))
+
+(defn load-dictionary [db {:keys [file query literal] :as d} & [ dictionary-cache]]
   (try 
     (cond
-      file  (file-dictionary file)
-      query (query-dictionary db query)
-      :else  (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'file' or 'query'"))))
+      file    (file-dictionary file)
+      query   (query-dictionary db query dictionary-cache)
+      literal literal
+      :else   (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'file', 'literal' or 'query'"))))
     (catch Exception e
+      (println e)
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
 
 
-
-
+(defn load-dictionaries [db dict]
+  (reduce
+   (fn [acc {n :name :as d}]
+     (assoc acc (keyword n) (load-dictionary db d acc)))
+   {} dict))
 
 
 (defn table-name [resource-type]
