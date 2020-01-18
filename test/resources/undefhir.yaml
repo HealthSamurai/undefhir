@@ -6,7 +6,7 @@ dictionary:
       - 1
       - 5
   - name: numbers
-    query: "select i from generate_series(1,10) as i"
+    query: "select * from generate_series(1,10)"
   - name: filtered-numbers
     query:
       - "select i from generate_series(1,10) as i where i = any (?)" 
