@@ -30,7 +30,6 @@
       literal literal
       :else   (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'file', 'literal' or 'query'"))))
     (catch Exception e
-      (println e)
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
 
 (defn load-dictionaries [db dict & [cb]]
@@ -51,9 +50,9 @@
   (case f
     "json" (json/generate-stream e *out*)
     "yaml" (println (yaml/generate-string e))
-    "csv" (with-open [writer (io/writer *out*)]
-            (csv/write-csv writer (prepare-for-csv e)))
-    :else  (throw (Exception. "Unsupported output format: " f))))
+    "csv"  (with-open [writer (io/writer *out*)]
+             (csv/write-csv writer (prepare-for-csv e)))
+    (throw (Exception. (str "Unsupported output format: " f)))))
 
 ;; UI
 (defn ui-load-dictionaries [db dict]
@@ -63,11 +62,14 @@
     (println) (println)
     result))
 
-(defn debug [{manifest :manifest d :dictionary f :output :as opts}]
+(defn debug
+  [{manifest :manifest
+    db :db/connection
+    d :dictionary f :output :as opts}]
   (if f
-    (formatter ((keyword d) (load-dictionaries nil (:dictionary manifest))) f)
+    (formatter ((keyword d) (load-dictionaries db (:dictionary manifest))) f)
 
-    (let [dbg ((keyword d) (ui-load-dictionaries nil (:dictionary manifest)))
+    (let [dbg ((keyword d) (ui-load-dictionaries db (:dictionary manifest)))
           dictionaty-source (first (filter #(= d (:name %))  (:dictionary manifest)))]
       (println "Debug dictionary: " d)
       (println "Source: " dictionaty-source)

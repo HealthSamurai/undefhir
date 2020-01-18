@@ -19,6 +19,9 @@ build:
 run-jar:
 	java -jar app.jar
 
+dev-run:
+	clj -i src/undefhir/core.clj -m undefhir.core $(filter-out $@,$(MAKECMDGOALS))
+
 test:
 	clj -A:test:runner
 

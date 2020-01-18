@@ -82,7 +82,7 @@
   ([conn value & [sql-type]]
    (.createArrayOf conn (or sql-type "text") (into-array value)))
   ([value]
-   (log/warn "Create array without connection")
+   ;;(log/warn "Create array without connection")
    (str "{" (clojure.string/join "," (map #(str "\"" % "\"") value)) "}")))
 
 

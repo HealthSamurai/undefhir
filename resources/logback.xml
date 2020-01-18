@@ -7,10 +7,10 @@
   </appender>
 
   <logger name="com.zaxxer.hikari" level="WARN" />
-  <logger name="clj-pg" level="WARN" />
+  <logger name="clj-pg" level="ERROR" />
   <logger name="proto.jobs" level="WARN" />
 
-  <root level="WARN">
+  <root level="ERROR">
     <appender-ref ref="STDOUT"/>
   </root>
 

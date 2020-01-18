@@ -1,5 +1,6 @@
 (ns undefhir.core
   (:require [cli-matic.core :as cli]
+            [pg.core :as pg]
             [undefhir.dictionary :as dictionary])
   (:gen-class))
 
@@ -8,12 +9,13 @@
   [args]
   (-> args
       (assoc :manifest (clojure.walk/keywordize-keys (:file args)))
-      ;;(assoc :db/connection db-conn)
-      ))
+      (assoc :db/connection (pg/connection (pg/db-spec-from-env)))))
 
 (defn debug [{d :dictionary :as arg}]
-  (when d
-    (dictionary/debug (clinit arg))))
+  (try
+    (when d
+      (dictionary/debug (clinit arg)))
+    (catch Exception e (println (.getMessage e)))))
 
 
 (def configuration

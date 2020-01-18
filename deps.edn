@@ -8,6 +8,7 @@
          org.clojure/tools.logging   {:mvn/version "0.5.0"}
          org.postgresql/postgresql   {:mvn/version "42.2.9.jre7"}
          com.health-samurai/jute     {:mvn/version "0.2.0-SNAPSHOT"}
+         org.slf4j/slf4j-simple      {:mvn/version "1.7.21"}
          simple-progress             {:mvn/version "0.1.3"}
          cli-matic                   {:mvn/version "0.3.11"}
          clj-yaml                    {:mvn/version "0.4.0"} 

@@ -1,4 +1,14 @@
 dictionary:
   - name: colors
     file: test/resources/loader_test.txt
-  
+  - name: filter 
+    literal:
+      - 1
+      - 5
+  - name: numbers
+    query: "select i from generate_series(1,10) as i"
+  - name: filtered-numbers
+    query:
+      - "select i from generate_series(1,10) as i where i = any (?)" 
+      - filter
+
