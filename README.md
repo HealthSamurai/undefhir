@@ -1,11 +1,14 @@
 # UndeFHIR
 
-What is it --------------------------
-
+What is it?
 
 ## Overview
 
+What is it for?
+
 ## How its work
+
+Database and application communication and data tranformation
 
 ## Basic concepts
 
