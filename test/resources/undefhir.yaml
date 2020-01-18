@@ -1,0 +1,4 @@
+dictionary:
+  - name: colors
+    file: test/resources/loader_test.txt
+  

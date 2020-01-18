@@ -1,4 +1,4 @@
-(ns undefhir.utils-test
+(ns undefhir.dictionary-test
   (:require [undefhir.utils :as sut]
             [matcho.core :as matcho]
             [test-db :as tdb]

@@ -1,26 +1,35 @@
 (ns undefhir.core
   (:require [cli-matic.core :as cli]
-            [undefhir.utils :as utils])
+            [undefhir.dictionary :as dictionary])
   (:gen-class))
 
-(defn add_numbers [{:keys [file] :as p}]
-  (let [d [{:name "file"
-            :file "test/resources/loader_test.txt"}
-           {:name "oneof"
-            :literal [1 5]}]]
+(defn clinit
+  "Init db connection and prepare args"
+  [args]
+  (-> args
+      (assoc :manifest (clojure.walk/keywordize-keys (:file args)))
+      ;;(assoc :db/connection db-conn)
+      ))
 
-    (utils/load-dictionaries nil d)))
+(defn debug [{d :dictionary :as arg}]
+  (when d
+    (dictionary/debug (clinit arg))))
+
 
 (def configuration
   {:app         {:command     "UndeFHIR"
                  :description "A command-line tool for anonimify and minify Aidbox FHIR database."
                  :version     "0.0.1"}
 
-   :global-opts [{:option  "file" :short "f" :as  "undefhir file path" :type :string :default "./undefhir.yaml"}]
+   :global-opts [{:option  "file" :short "f" :as  "undefhir file path" :type :yamlfile :default "./undefhir.yaml"}]
 
-   :commands    [{:command     "load-dictionaries"
-                  :description "Load dictionaries from manifest"
-                  :runs        add_numbers}]
+   :commands    [{:command     "debug"
+                  :description "debug dictionary, template ..."
+                  :opts [{:option "dictionary" :short "d"
+                          :as "debug specified dictionary" :type :string}
+                         {:option "output" :short "o"
+                          :as "just return dictionary entry in the given output format json|yaml|csv"  :type :string}]
+                  :runs        debug}]
    })
 
 (defn -main [& arg]
