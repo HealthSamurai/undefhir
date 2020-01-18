@@ -1,5 +1,6 @@
 (ns undefhir.utils
   (:require [clojure.string :as str]
+            [simple-progress.bar :as spb]
             [clj-pg.honey :as pg]))
 
 (defn file-dictionary [file]
@@ -12,10 +13,9 @@
    [statement] args))
 
 (defn query-dictionary [db query cache]
-  (let [query (if (string? query)
-                query
-                (if (vector? query)
-                  (build-query query cache)))]
+  (let [query (cond (string? query) query
+                    (vector? query) (build-query query cache)
+                    :else (throw (Exception. (str "Can`t create query from: " query))))]
     (mapcat vals (pg/query db query))))
 
 (defn load-dictionary [db {:keys [file query literal] :as d} & [ dictionary-cache]]
@@ -31,10 +31,12 @@
 
 
 (defn load-dictionaries [db dict]
-  (reduce
-   (fn [acc {n :name :as d}]
-     (assoc acc (keyword n) (load-dictionary db d acc)))
-   {} dict))
+  (let [bar (spb/mk-progress-bar (count dict))]
+    (reduce
+     (fn [acc {n :name :as d}]
+       (bar)
+       (assoc acc (keyword n) (load-dictionary db d acc)))
+     {} dict)))
 
 
 (defn table-name [resource-type]
