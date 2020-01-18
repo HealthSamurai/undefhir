@@ -19,20 +19,18 @@
 
 
 (def configuration
-  {:app         {:command     "UndeFHIR"
+  {:app         {:command     "undefhir"
                  :description "A command-line tool for anonimify and minify Aidbox FHIR database."
                  :version     "0.0.1"}
 
-   :global-opts [{:option  "file" :short "f" :as  "undefhir file path" :type :yamlfile :default "./undefhir.yaml"}]
+   :global-opts [{:option  "file" :short "f" :as  "undefhir file path" :type :yamlfile :default "./undefhir.yaml"}
+                 {:option "output" :short "o" :as "format of output json|yaml|csv"  :type :string}]
 
    :commands    [{:command     "debug"
-                  :description "debug dictionary, template ..."
+                  :description "debug dictionary"
                   :opts [{:option "dictionary" :short "d"
-                          :as "debug specified dictionary" :type :string}
-                         {:option "output" :short "o"
-                          :as "just return dictionary entry in the given output format json|yaml|csv"  :type :string}]
-                  :runs        debug}]
-   })
+                          :as "debug specified dictionary" :type :string}]
+                  :runs  debug}]})
 
 (defn -main [& arg]
   (cli/run-cmd arg configuration))
