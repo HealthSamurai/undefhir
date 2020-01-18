@@ -2,9 +2,11 @@
   (:require [undefhir.utils :as sut]
             [matcho.core :as matcho]
             [test-db :as tdb]
-
             [clj-pg.honey :as pg]
             [clojure.test :refer :all]))
+
+
+;; TODO: add  build_in  ndjons
 
 (tdb/ensure-db)
 (def db (tdb/get-db))
@@ -17,7 +19,6 @@ insert into ttl select i from  generate_series(1,5) as i; ")
   (pg/execute db "drop table  ttl;"))
 
 (use-fixtures :once test-fxt)
-
 
 
 (deftest dictionary-loader
