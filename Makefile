@@ -17,12 +17,12 @@ build:
 	mv target/app-1.0.0-SNAPSHOT-standalone.jar app.jar
 
 run-jar:
-	java -jar app.jar -m app.core
+	java -jar app.jar
 
 test:
 	clj -A:test:runner
 
-
+# Postgres
 postgres-up:
 	docker-compose up -d
 postgres-down:

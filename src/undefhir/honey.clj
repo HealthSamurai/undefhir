@@ -1,4 +1,4 @@
-(ns bxb.honey
+(ns undefhir.honey
   (:refer-clojure :exclude [update])
   (:require [clojure.string :as str]
             [honeysql.core    :as hsql]
@@ -38,7 +38,6 @@
   (str "DROP TABLE " (when (:if-exists sql-map) " IF EXISTS ") (sqlf/to-sql tbl-name)))
 
 (sqlf/register-clause! :drop-table 1)
-
 ;; UPSERT (from https://github.com/nilenso/honeysql-postgres/)
 
 (sqlf/register-clause! :do-update-set 235)
