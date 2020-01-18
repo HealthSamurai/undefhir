@@ -28,7 +28,7 @@
    :main-opts   ["-m" "cognitect.test-runner" "-d" "runner" "-d" "test"]}
 
   :test
-  {:extra-paths ["test"]
+  {:extra-paths ["test" "test/resources"]
    :extra-deps  {matcho {:mvn/version "0.1.0-RC6"}}}
 
   :nrepl

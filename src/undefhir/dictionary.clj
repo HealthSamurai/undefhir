@@ -10,6 +10,26 @@
 (defn file-dictionary [file]
   (str/split-lines (slurp file)))
 
+(defn yaml-dictionary [file]
+  (yaml/parse-string (slurp file)))
+
+(defn csv-data->maps [csv-data]
+  (map zipmap
+       (->> (first csv-data)
+            ;;(map keyword)
+            repeat)
+	  (rest csv-data)))
+
+(defn csv-dictionary [file {:keys [headers] :as format}]
+  (with-open [reader (io/reader file)]
+    (doall
+     (if headers
+       (csv-data->maps (csv/read-csv reader))
+       (csv/read-csv reader)))))
+
+(defn build-in-dictionary [resource-name]
+  (str/split-lines (slurp (io/resource (str "dictionary/" resource-name)))))
+
 (defn build-query [[statement & args] cache]
   (reduce
    (fn [acc v]
@@ -22,13 +42,16 @@
                     :else (throw (Exception. (str "Can`t create query from: " query))))]
     (mapcat vals (pg/query db query))))
 
-(defn load-dictionary [db {:keys [file query literal] :as d} & [ dictionary-cache]]
+(defn load-dictionary [db {:keys [csv yaml file query literal build-in] f :format :as d} & [dictionary-cache]]
   (try 
     (cond
-      file    (file-dictionary file)
-      query   (query-dictionary db query dictionary-cache)
-      literal literal
-      :else   (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'file', 'literal' or 'query'"))))
+      literal   literal
+      build-in  (build-in-dictionary build-in)
+      file      (file-dictionary file)
+      csv       (csv-dictionary csv f)
+      yaml      (yaml-dictionary yaml)
+      query     (query-dictionary db query dictionary-cache)
+      :else     (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'yaml', 'build-in', 'file', 'literal' or 'query'"))))
     (catch Exception e
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
 
