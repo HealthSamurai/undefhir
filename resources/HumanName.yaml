@@ -1,0 +1,5 @@
+name:
+  - family: "$ fn(dict.colors)"
+    given:
+      $map: "$ name.given"
+      $body: "$ fn(dict.animals)"
