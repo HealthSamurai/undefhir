@@ -1,13 +1,12 @@
-PGPORT = 5441
-PGHOST = localhost
-PGUSER = postgres
-PGDATABASE = postgres
-PGPASSWORD = postgres
-PGIMAGE ?= aidbox/db:11.4.0-P1
+PGPORT=5441
+PGHOST=localhost
+PGUSER=postgres
+PGDATABASE=postgres
+PGPASSWORD=postgres
+PGIMAGE?=aidbox/db:11.4.0-P1
 
 .EXPORT_ALL_VARIABLES:
 .PHONY: test build
-
 
 repl:
 	clj -A:test:nrepl
@@ -18,9 +17,6 @@ build:
 
 run-jar:
 	java -jar app.jar
-
-dev-run:
-	clj -i src/undefhir/core.clj -m undefhir.core $(filter-out $@,$(MAKECMDGOALS))
 
 test:
 	clj -A:test:runner

@@ -1,14 +1,54 @@
-dictionary:
-  - name: colors
-    file: test/resources/loader_test.txt
-  - name: filter 
-    literal:
-      - 1
-      - 5
-  - name: numbers
-    query: "select * from generate_series(1,10)"
-  - name: filtered-numbers
-    query:
-      - "select i from generate_series(1,10) as i where i = any (?)" 
-      - filter
+skip:                         # list  of resources thats will be skipped from copy
+- EpisodeOfCare
+- Session 
 
+skipHistory: true             # skip resources history or not (default true)
+
+loadFhirTerminology: true     # Load pre buildin FHIR terminology
+
+
+# User defined fns
+# This functions can be used in templates 
+
+# User defined dictionaries
+# can be refer to buildIn dicts
+dictionary:
+  - name: ruName
+    file: "./dictionary/ruName.txt" 
+  - name: ruFamily
+    file: "./dictionary/ruFamily.txt" 
+  - name: ruPatronymic
+    file: "./dictionary/ruPatronymic.txt" 
+
+fns:
+  - name: ruHumanName
+    desc: Создает массив русских имен
+    $body:
+      - given:
+          - $ randNth(dictionary.ruName)
+          - $ randNth(dictionary.ruPatronymic)
+        family: $ randNth(dictionary.fuFamily)
+      
+  - name: practitionerQualification
+    $body:
+      - code: $ randCodeableConcept('http://terminology.hl7.org/CodeSystem/v2-0360|2.7')
+
+copy:
+  Practitioner:
+    query: "select * from practitioner where ......."
+    template:
+      resource:
+        name: $ fns.ruHumanName()
+        birthDate: $ fns.fhriBirthDate()
+        qualification: $ fns.practitionerQualification()
+
+  Patient:
+    template:
+      resource: 
+        name: $ fns.ruHumanName()
+        qualification: $ fns.practitionerQualification()
+        birthDate: $ fns.fhriBirthDate()
+
+        telecom: $ fns.fhirContactPoint()
+        gender: $ fns.fhirGender()
+      

@@ -23,13 +23,12 @@
                  :description "A command-line tool for anonimify and minify Aidbox FHIR database."
                  :version     "0.0.1"}
 
-   :global-opts [{:option  "file" :short "f" :as  "undefhir file path" :type :yamlfile :default "./undefhir.yaml"}
-                 {:option "output" :short "o" :as "format of output json|yaml|csv"  :type :string}]
+   :global-opts [{:option "file" :short "f" :as  "undefhir file path" :type :yamlfile :default "./undefhir.yaml"}]
 
    :commands    [{:command     "debug"
                   :description "debug dictionary"
-                  :opts [{:option "dictionary" :short "d"
-                          :as "debug specified dictionary" :type :string}]
+                  :opts [{:option "dictionary" :short "d" :as "debug specified dictionary" :type :string}
+                         {:option "output" :short "o" :as "format of output json|yaml|csv"  :type :string}]
                   :runs  debug}]})
 
 (defn -main [& arg]
