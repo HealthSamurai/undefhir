@@ -1,6 +1,5 @@
 (ns undefhir.template
-  (:require [jute.core :as jute]
-            [test-db :as tdb]))
+  (:require [jute.core :as jute]))
 
 (def root-fns
   {:randFoo #(str "foo from rand foo")})
@@ -17,3 +16,10 @@
      (assoc acc (keyword k) (compile-fn v)))
    {}
    fns))
+
+(defn debug
+  [{manifest :manifest
+    o :output f :function :as opts}]
+  (let [fns-cache (load-fns (:fns manifest))
+        fn-dbg ((keyword f) fns-cache)]
+    (fn-dbg)))

@@ -32,30 +32,13 @@
    {:testMyFn1 {:a "a" :b "b"}
     :testMyFn2 {:foo "bar"}}))
 
-(deftest template
-  (testing "Primitive"
-    (def c (sut/compile-template {:literal {:foo "bar"}}))
-    (matcho/match
-     (c {:mar "tar"})
-     {:foo "bar"})
+(deftest debug
+  (testing "Debug"
+    (def dbg {:fns
+              {:debug
+               {:$body {:foo "bar"}}}})
 
+    (sut/debug {:manifest dbg
+                :function "debug"})
 
-    (def c (sut/compile-template {:literal {:foo {:$call "rand-nth" :$args [[1 2]]}}}))
-    (matcho/match
-     (c {:rand-nth rand-nth
-         :mar "tar"})
-     {:foo #(or (= 1 %) (= 2 %))}))
-
-  (testing "Advanced"
-    (def c
-      (sut/compile-template
-       {:literal {:resoruce {:gender "$ randNth(dictionary.fhirGender)"}}}))
-
-    (c {:dictionary {:fhirGender ["male", "female", "other", "unknown"]}
-        :resource {:gender "male"
-                   :birthDate "1980-05-17"}})
-
-
-    )
-
-  )
+    ))
