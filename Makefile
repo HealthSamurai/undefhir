@@ -26,3 +26,6 @@ postgres-up:
 	docker-compose up -d
 postgres-down:
 	docker-compose down
+postgres-fhir-init:
+	pg_restore --clean --create -d postgres://$(PGUSER):$(PGPASSWOR)@$(PGHOST):$(PGPORT)/$(PGDATABASE) resources/devbox_dump.bak
+
