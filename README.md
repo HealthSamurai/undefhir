@@ -35,7 +35,7 @@ dictionary:
     file: "./dictionary/ruPatronymic.txt" 
 
 fns:
-  - name: ruHumanName
+  ruHumanName:
     desc: Создает массив русских имен
     $body:
       - given:
@@ -43,7 +43,7 @@ fns:
           - $ randNth(dictionary.ruPatronymic)
         family: $ randNth(dictionary.fuFamily)
       
-  - name: practitionerQualification
+  practitionerQualification:
     $body:
       - code: $ randCodeableConcept('http://terminology.hl7.org/CodeSystem/v2-0360|2.7')
 
