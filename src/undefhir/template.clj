@@ -19,7 +19,11 @@
 
 (defn debug
   [{manifest :manifest
-    o :output f :function :as opts}]
+    i :input o :output f :function :as opts}]
   (let [fns-cache (load-fns (:fns manifest))
         fn-dbg ((keyword f) fns-cache)]
-    (fn-dbg)))
+    (println "Debug: " f)
+    (println "Input params: " i)
+    (println "Result: " (if i
+                          (apply fn-dbg i)
+                          (fn-dbg)))))
