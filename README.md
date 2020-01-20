@@ -36,7 +36,6 @@ dictionary:
 
 fns:
   ruHumanName:
-    desc: Создает массив русских имен
     $body:
       - given:
           - $ randNth(dictionary.ruName)

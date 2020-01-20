@@ -17,7 +17,3 @@
      (assoc acc (keyword k) (compile-fn v)))
    {}
    fns))
-
-(defn compile-template [{:keys [literal file build-in] :as template-spec}]
-  (jute/compile literal))
-

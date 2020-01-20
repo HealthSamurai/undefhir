@@ -11,26 +11,26 @@
 (deftest fns
 
   (def f (sut/compile-fn {:$body "fffffoo"}))
-  (def p (sut/compile-fn {:$fn ["f" "a" "b"]
-                          :$body
-                          {:f "$ f()"
-                           :a "$ a"
-                           :foo "$ randFoo()"
-                           :b "$ b"}}))
+  (def p (sut/compile-fn {:$fn ["f" "a" "b"] :$body {:f "$ f()" :a "$ a" :b "$ b"}}))
 
   (def c (jute/compile {:result "$ fns.p(fns.f, 12, \"23\")"}))
-  (c {:fns {:p p :f f}})
+  (matcho/match
+   (c {:fns {:p p :f f}})
+   {:result {:f "fffffoo" :a 12 :b "23"}})
 
+  (def fns
+    (sut/load-fns
+     {:myFn1 {:desc "My super puper fn"
+              :$body {:a "a" :b "b"}}
+      :myFn2 {:$body {:foo "bar"}}}))
 
+  (matcho/match
+   ((jute/compile {:testMyFn1 "$ fns.myFn1()"
+                   :testMyFn2 "$ fns.myFn2()"})
+    {:fns fns})
 
-  (def tpl {:$let {:fns {:myFn1 {:$fn [] :$body "foo"}}}
-            :$body {:result "$ fns.myFn1()"}})
-
-  (def c (jute/compile tpl))
-
-  (c {})
-
-  )
+   {:testMyFn1 {:a "a" :b "b"}
+    :testMyFn2 {:foo "bar"}}))
 
 (deftest template
   (testing "Primitive"
@@ -55,12 +55,6 @@
         :resource {:gender "male"
                    :birthDate "1980-05-17"}})
 
-    (matcho/match
-     (c {:rand-nth rand-nth
-         :dictionary {:fhir-gender ["male", "female", "other", "unknown"]}
-         :resource {:gender "male"
-                    :birthDate "1980-05-17"}})
-     {:foo "bar"})
 
     )
 
