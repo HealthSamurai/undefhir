@@ -6,9 +6,9 @@ What is it?
 
 What is it for?
 
-## How its work
+## How does it work?
 
-Database and application communication and data tranformation
+Database and application communication and data transformation
 
 Example of `undefhir.yaml`
 ```yaml
@@ -20,10 +20,6 @@ skipHistory: true             # skip resources history or not (default true)
 
 loadFhirTerminology: true     # Load pre buildin FHIR terminology
 
-
-# User defined fns
-# This functions can be used in templates 
-
 # User defined dictionaries
 # can be refer to buildIn dicts
 dictionary:
@@ -34,6 +30,8 @@ dictionary:
   - name: ruPatronymic
     file: "./dictionary/ruPatronymic.txt" 
 
+# User defined fns
+# This functions can be used in templates 
 fns:
   ruHumanName:
     $body:
@@ -76,9 +74,9 @@ copy:
 
 ### Template
 
-### Dictionay
+### Dictionary
 
-A `dictionary` is a set of values that can be used both for building transformation templates and also for building queries. A dictionary can be loaded from files, or using pre-prepared dictionaries, or through the result of a query to the database.
+A `dictionary` is a set of values that can be used both for building transformation templates and for building queries. A dictionary can be loaded from files, or by using pre-prepared dictionaries, or through the result of a query to the database.
 
 Example: `undefhir.yaml`
 ```yaml 
@@ -92,7 +90,7 @@ dictionary:
 
 ```
 
-In this examle we are define 3 dictionaries.
+In this example we have defined 3 dictionaries.
 
 Dictionary with name `color` will be loaded from raw file `./dict/colors`. This is plain text file with values on new line
 Content of `./dict/colors`
@@ -108,7 +106,7 @@ _list of availiable dicts_
 
 Dictionary with name `range` will be loaded from sql query `select * from generate_series(1,10)` that return list of numbers from 1::10
 
-For display entry of dictionary we can use `debug` option
+For displaying entry of a dictionary we can use `debug` option
 ```sh
 $ undefhir debug -d range
 Load dictionaries:
@@ -119,13 +117,77 @@ Source:  {:name numbers, :query select * from generate_series(1,10)}
 Result: 
 (1 2 3 4 5 6 7 8 9 10)
 ```
+### User-defined functions
+User can define his own set of function, which will can be used for template building. Those functions are stored under `fns` key of `undefhir.yaml`.
+
+Example:
+```yaml 
+fns:
+  test:
+    $body:
+      foo: "bar"
+```
+
+This function takes no arguments and returns a map with key `foo` and value `bar` 
+
+You can use `debug` option to see result of this function
+```sh
+$ undefhir debug -f test
+Load functions:
+[100%] [=======================================================================]
+
+Debug:  test
+Input params: 
+nil 
+
+Result: 
+{:foo bar}
+```
+
+You can use option `-o` in a case you want to display function output in `yaml` or `json` format
+```sh
+$ undefhir debug -f test -o json
+
+{"foo":"bar"}
+```
+
+```sh
+$ undefhir debug -f test -o yaml
+
+{foo: bar}
+```
+In a case you want to create a function that takes one or several arguments see an example below
+
+Example:
+```yaml
+  testWithArgs:
+    $fn: ["a", "b"] 
+    $body:
+      a: "$ a"
+      b: "$ b"
+```
+
+
+To debug functions with input arguments you need to specify them using `-i` option for each argument 
+```sh
+$ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" 
+
+{a: firstArgument, b: secondArgument}
+
+```
+
+```sh
+$ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" -o json 
+
+{"a":"firstArg","b":"secondArg"}
+```
 
 
 ## API reference 
 
 :salt
 
-:dictionay
+:dictionary
 
 :template
 
