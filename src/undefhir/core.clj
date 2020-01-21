@@ -2,6 +2,7 @@
   (:require [cli-matic.core :as cli]
             [pg.core :as pg]
             [undefhir.template :as template]
+            [undefhir.function :as function]
             [undefhir.dictionary :as dictionary])
   (:gen-class))
 
@@ -16,7 +17,7 @@
   (try
     (cond-> (clinit arg)
       d dictionary/debug
-      f template/debug)
+      f function/debug)
     (catch Exception e (println (.getMessage e)))))
 
 

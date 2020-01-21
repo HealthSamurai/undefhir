@@ -4,6 +4,7 @@
             [clojure.java.io :as io]
             [clj-yaml.core :as yaml]
             [cheshire.core :as json]
+            [undefhir.utils :as u]
             [clojure.data.csv :as csv]
             [clj-pg.honey :as pg]))
 
@@ -64,18 +65,6 @@
    {}
    dict))
 
-(defn prepare-for-csv [e]
-  (if (map? (first e))
-    e
-    (mapv #(conj [] %) e)))
-
-(defn formatter [e f]
-  (case f
-    "json" (json/generate-stream e *out*)
-    "yaml" (println (yaml/generate-string e))
-    "csv"  (with-open [writer (io/writer *out*)]
-             (csv/write-csv writer (prepare-for-csv e)))
-    (throw (Exception. (str "Unsupported output format: " f)))))
 
 ;; UI
 (defn ui-load-dictionaries [db dict]
@@ -88,9 +77,9 @@
 (defn debug
   [{manifest :manifest
     db :db/connection
-    d :dictionary f :output :as opts}]
-  (if f
-    (formatter ((keyword d) (load-dictionaries db (:dictionary manifest))) f)
+    d :dictionary output-format :output :as opts}]
+  (if output-format
+    (u/formatter ((keyword d) (load-dictionaries db (:dictionary manifest))) output-format)
 
     (let [dbg ((keyword d) (ui-load-dictionaries db (:dictionary manifest)))
           dictionaty-source (first (filter #(= d (:name %))  (:dictionary manifest)))]

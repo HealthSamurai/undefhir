@@ -1,6 +1,25 @@
 (ns undefhir.utils
   (:require [clojure.string :as str]
+            [clojure.java.io :as io]
+            [cheshire.core :as json]
+            [clojure.data.csv :as csv]
+            [clj-yaml.core :as yaml]
             [clj-pg.honey :as pg]))
+
+
+(defn prepare-for-csv [e]
+  (if (map? (first e))
+    e
+    (mapv #(conj [] %) e)))
+
+(defn formatter [e f]
+  (case f
+    "json" (json/generate-stream e *out*)
+    "yaml" (println (yaml/generate-string e))
+    "csv"  (with-open [writer (io/writer *out*)]
+             (csv/write-csv writer (prepare-for-csv e)))
+    (throw (Exception. (str "Unsupported output format: " f)))))
+
 
 (defn table-name [resource-type]
   (str "\"" (str/replace (str/lower-case (name resource-type)) #"\." "__")  "\""))
