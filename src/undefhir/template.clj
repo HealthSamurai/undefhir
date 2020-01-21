@@ -1,5 +1,8 @@
 (ns undefhir.template
-  (:require [jute.core :as jute]))
+  (:require [jute.core :as jute]
+            [clj-yaml.core :as yaml]
+            [simple-progress.bar :as spb]
+            [cheshire.core :as json]))
 
 (def root-fns
   {:randFoo #(str "foo from rand foo")})
@@ -9,21 +12,44 @@
     (fn [& args]
       (body (merge root-fns (zipmap (mapv keyword $fn) args))))))
 
-
-(defn load-fns [fns]
+(defn load-fns [fns & [cb]]
   (reduce-kv
    (fn [acc k v]
-     (assoc acc (keyword k) (compile-fn v)))
+     (let [acc (assoc acc (keyword k) (compile-fn v))]
+       (when cb (cb))
+       acc))
    {}
    fns))
+
+(defn formatter [e f]
+  (case f
+    "json" (json/generate-stream e *out*)
+    "yaml" (println (yaml/generate-string e))
+    (throw (Exception. (str "Unsupported output format: " f)))))
+
+(defn ui-load-fns [fns]
+  (println "Load functions:")
+  (let [bar (spb/mk-progress-bar (count fns))
+        result (load-fns fns bar)]
+    (println) (println)
+    result))
 
 (defn debug
   [{manifest :manifest
     i :input o :output f :function :as opts}]
-  (let [fns-cache (load-fns (:fns manifest))
-        fn-dbg ((keyword f) fns-cache)]
-    (println "Debug: " f)
-    (println "Input params: " i)
-    (println "Result: " (if i
-                          (apply fn-dbg i)
-                          (fn-dbg)))))
+  (if o
+    (let [func (get (load-fns (:fns manifest)) (keyword f))
+          res (if i
+                (apply func i)
+                (func))]
+      (formatter res o))
+
+    (let [func (get (ui-load-fns (:fns manifest)) (keyword f))
+          res (if i
+                (apply func i)
+                (func))]
+      (println "Debug: " f)
+      (println "Input params: ")
+      (println i "\n")
+      (println "Result: ")
+      (println res))))
