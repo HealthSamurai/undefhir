@@ -1,10 +1,8 @@
-(ns undefhir.functions
+(ns undefhir.function
   (:require [jute.core :as jute]
             [clojure.data.generators :as gen]
             [simple-progress.bar :as spb]
             [undefhir.utils :as u]))
-
-
 
 (defn rand-birthDate []
   (.format

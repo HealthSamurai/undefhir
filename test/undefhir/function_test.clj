@@ -1,5 +1,5 @@
-(ns undefhir.template-test
-  (:require [undefhir.template :as sut]
+(ns undefhir.function-test
+  (:require [undefhir.function :as sut]
             [test-db :as tdb]
             [jute.core :as jute]
             [matcho.core :as matcho]
@@ -39,6 +39,7 @@
                {:$body {:foo "bar"}}}})
 
     (sut/debug {:manifest dbg
+                :output "yaml"
                 :function "debug"})
 
     ))
