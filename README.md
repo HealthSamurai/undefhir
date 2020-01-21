@@ -118,7 +118,7 @@ Result:
 (1 2 3 4 5 6 7 8 9 10)
 ```
 ### User-defined functions
-User can define his own set of function, which will can be used for template building. Those functions are stored under `fns` key of `undefhir.yaml`.
+User can define his own set of function, which can be used for template building. Those functions are stored under `fns` key of `undefhir.yaml`.
 
 Example:
 ```yaml 
