@@ -1,27 +1,11 @@
 randHumanName:
   $fn: ["name"]
   $body:
-    $if: "$ name.use"
-    $then:
-      use: "$ randNth ([usual, official, temp, nickname,  anonymous,  old,  maiden])" 
-    $if: "$name.text"
-    $then:
-      text: "$ randStr (25)" 
-    $if: "$name.family"
-    $then:
+    $map: "$ name"
+    $body: 
       family: "$ randNth (dictionary.animals)" 
-    $if: "$name.given"
-    $then:
-      given: "$ randNth (dictionary.colors)" 
-    $if: "$name.prefix"
-    $then:
-      prefix: "$ randStr (3)" 
-    $if: "$name.suffix"
-    $then:
-      suffix: "$ randStr (3)" 
-    $if: "$ name.period"
-    $then:
-      period:
-        start: "$ randDate ()"
-        end: "$ randDate ()"
-
+      given:
+        $map: "$ name.given"
+        $body:
+          "$ randNth (dictionary.colors)"
+        
