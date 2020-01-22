@@ -45,16 +45,20 @@
 
 (defn debug
   [{manifest :manifest
-    i :input output-format :output f :function :as opts}]
+    input-file :input-file i :input output-format :output f :function :as opts}]
   (if output-format
     (let [func ((keyword f) (load-fns (:fns manifest)))
-          res (apply func i)]
+          res (if input-file
+                (map (partial apply func) input-file)
+                (apply func i))]
       (u/formatter res output-format))
 
     (let [func ((keyword f) (ui-load-fns (:fns manifest)))
-          res (apply func i)]
+          res (if input-file
+                (map (partial apply func) input-file)
+                (apply func i))]
       (println "Debug: " f)
-      (println "Input params: ")
-      (println i "\n")
+      ;; (println "Input params: ")
+      ;; (println i "\n")
       (println "Result: ")
       (println res))))
