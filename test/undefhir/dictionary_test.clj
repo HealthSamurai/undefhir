@@ -60,6 +60,12 @@ insert into ttl select i from  generate_series(1,5) as i; ")
      (sut/load-dictionary db d)
      ["Green" "Blue"]))
 
+  (testing "json"
+    (def d {:json "test/resources/dictionary/color.json"})
+    (matcho/match
+     (sut/load-dictionary db d)
+     ["White" "Yellow" "Blue"]))
+
 
   (testing "query"
     (def d {:query "select t from ttl;"})

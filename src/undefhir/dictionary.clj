@@ -28,6 +28,9 @@
        (csv-data->maps (csv/read-csv reader))
        (csv/read-csv reader)))))
 
+(defn json-dictionary [file]
+  (json/parse-string (slurp file) true))
+
 (defn build-in-dictionary [resource-name]
   (str/split-lines (slurp (io/resource (str "dictionary/" resource-name)))))
 
@@ -43,13 +46,14 @@
                     :else (throw (Exception. (str "Can`t create query from: " query))))]
     (mapcat vals (pg/query db query))))
 
-(defn load-dictionary [db {:keys [csv yaml file query literal build-in] f :format :as d} & [dictionary-cache]]
-  (try 
+(defn load-dictionary [db {:keys [csv json yaml file query literal build-in] f :format :as d} & [dictionary-cache]]
+  (try
     (cond
       literal   literal
       build-in  (build-in-dictionary build-in)
       file      (file-dictionary file)
       csv       (csv-dictionary csv f)
+      json      (json-dictionary json)
       yaml      (yaml-dictionary yaml)
       query     (query-dictionary db query dictionary-cache)
       :else     (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'yaml', 'build-in', 'file', 'literal' or 'query'"))))
