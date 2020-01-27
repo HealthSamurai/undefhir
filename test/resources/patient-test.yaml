@@ -1,0 +1,4 @@
+dictionary:
+  - name: Patient
+    json: ./test/resources/Patient1.json
+

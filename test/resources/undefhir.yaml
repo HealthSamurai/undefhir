@@ -6,7 +6,7 @@ dictionary:
         with
         attrs as (
             select resource as resource from attribute
-            where resource @@ 'resource.id = Patient and type.id in (HumanName, ContactPoint, code)' ),
+            where resource @@ 'resource.id = Patient and type.id in (HumanName, ContactPoint)' ),
         parents as (
             select resource as resource from attribute
             where resource->'path' <@ any (select resource->'path' from attrs)
@@ -15,7 +15,7 @@ dictionary:
         select resource
         from (
             select resource, resource->>'path' as pth from parents
-            union
+           union
             select resource, resource->>'path' as pth from attrs
             order by pth ) a
 
@@ -51,7 +51,6 @@ fns:
       $else:
         $ "$ randType(" + node.type + ")"
         
-
   - name: toFhir
     $fn: [fhirTree]
     $body:
@@ -103,8 +102,6 @@ fns:
 # else
 #  randHumanName()
 
-
->>>>>>> ab0fc80842cb1a1ff38b1c361ba51c20536078b0
 copy:
   Practitioner:
     query: "select * from practitioner where ......."
