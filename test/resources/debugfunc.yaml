@@ -1,6 +1,4 @@
-- - 1
-  - 2
-- - foo
-  - bar
-- - foo: bar
-  - bar: foo
+- - "marat"
+  - "surmashev"
+- - "foo"
+  - "bar"

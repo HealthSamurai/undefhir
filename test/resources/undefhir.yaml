@@ -1,34 +1,114 @@
-skip:                         # list  of resources thats will be skipped from copy
-- EpisodeOfCare
-- Session 
-
-skipHistory: true             # skip resources history or not (default true)
-
-loadFhirTerminology: true     # Load pre buildin FHIR terminology
-
-
-# User defined fns
-# This functions can be used in templates 
-
-# User defined dictionaries
-# can be refer to buildIn dicts
 dictionary:
-  - name: ruName
-    file: "./dictionary/ruName.txt" 
-  - name: ruFamily
-    file: "./dictionary/ruFamily.txt" 
-  - name: ruPatronymic
-    file: "./dictionary/ruPatronymic.txt" 
+  #- name: resource
+  #  query: "select  id from entity where resource @@ 'type = resource'"
+  - name: attribute
+    query: >-
+        with
+        attrs as (
+            select resource as resource from attribute
+            where resource @@ 'resource.id = Patient and type.id in (HumanName, ContactPoint, code)' ),
+        parents as (
+            select resource as resource from attribute
+            where resource->'path' <@ any (select resource->'path' from attrs)
+            and resource @@ 'resource.id = Patient ' )
+
+        select resource
+        from (
+            select resource, resource->>'path' as pth from parents
+            union
+            select resource, resource->>'path' as pth from attrs
+            order by pth ) a
 
 fns:
- testInputFile:
-   $fn: ["a", "b"]
-   $body:
-     foo: "$ a"
-     bar: "$ b"
+  - name: treePath
+    $fn: ["path"]
+    $body:
+      $call: flatten
+      $args:
+        - $map: $ path
+          $as: pth
+          $body: ["attr", "$ pth"]
+
+  - name: flat2tree
+    $fn: ["attrs"]
+    $body:
+      $reduce: $ attrs 
+      $as: ["acc", "attr"]
+      $start: {}
+      $body:
+        $call: assocIn
+        $args:
+          - $ acc
+          - $ fns.treePath(attr.path)
+          - $ attr
+
+  - name: randomize
+    $fn: [node]
+    $body:
+      $if: $ node.coll 
+      $then:
+        - $ "$ randType(" + node.type + ")"
+      $else:
+        $ "$ randType(" + node.type + ")"
+        
+
+  - name: toFhir
+    $fn: [fhirTree]
+    $body:
+      $let:
+        treetofhir:
+          $fn: [tree] 
+          $body:
+            $reduce: $ get(tree, "attr")
+            $as: ["acc", "attr"]
+            $start: {}
+            $body:
+              $call: assoc
+              $args:
+              - $ acc
+              - $ second(first(attr))
+              - $if: $ get(second(second(attr)), "attr")
+                $then:
+                  $if: $ get(second(second(attr)), "coll")
+                  $then:
+                  - $reduce: $ get(second(second(attr)), "attr")
+                    $as: ["acc", "attr"]
+                    $start: {}
+                    $body:
+                      $call: assoc
+                      $args:
+                      - $ acc
+                      - $ second(first(attr))
+                      - $ fns.randomize(second(second(attr)))
+                  $else:
+                    $reduce: $ get(second(second(attr)), "attr")
+                    $as: ["acc", "attr"]
+                    $start: {}
+                    $body:
+                      $call: assoc
+                      $args:
+                      - $ acc
+                      - $ second(first(attr))
+                      - $ fns.randomize(second(second(attr)))
+                $else: $ fns.randomize(second(second(attr)))
+      $body: $ treetofhir(fhirTree)
+
+  - name: test 
+    $body:
+      $ fns.cljtreefhir(fns.flat2tree(fns.dict("attribute")))
+
+# if coll
+# then
+#  -  randHumanName()
+# else
+#  randHumanName()
+
+
+>>>>>>> ab0fc80842cb1a1ff38b1c361ba51c20536078b0
 copy:
   Practitioner:
     query: "select * from practitioner where ......."
+    strategy: merge | deepmerge | replace
     template:
       resource:
         name: $ fns.ruHumanName()
@@ -38,10 +118,4 @@ copy:
   Patient:
     template:
       resource: 
-        name: $ fns.ruHumanName()
-        qualification: $ fns.practitionerQualification()
-        birthDate: $ fns.fhriBirthDate()
-
-        telecom: $ fns.fhirContactPoint()
-        gender: $ fns.fhirGender()
-      
+        name: $ fns.ruRandHumanName()

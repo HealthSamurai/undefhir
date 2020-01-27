@@ -2,18 +2,22 @@
   (:require [cli-matic.core :as cli]
             [pg.core :as pg]
             [clj-yaml.core :as yaml]
+            [clojure.walk :as walk]
             [undefhir.template :as template]
             [undefhir.function :as function]
             [undefhir.dictionary :as dictionary])
   (:gen-class))
 
+(defn ensure-manifest [file]
+  (if (string? file)
+    (yaml/parse-string (slurp file))
+    file))
+
 (defn clinit
   "Init db connection and prepare args"
   [args]
   (-> args
-      (assoc :manifest (clojure.walk/keywordize-keys (if (string? (:file args))
-                                                       (-> (:file args) slurp yaml/parse-string)
-                                                       (:file args))))
+      (assoc :manifest (walk/keywordize-keys (ensure-manifest (:file args))))
       (assoc :db/connection (pg/connection (pg/db-spec-from-env)))))
 
 (defn debug [{d :dictionary f :function :as arg}]

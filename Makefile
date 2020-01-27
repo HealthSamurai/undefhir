@@ -1,7 +1,7 @@
 PGPORT=5441
 PGHOST=localhost
 PGUSER=postgres
-PGDATABASE=postgres
+PGDATABASE=undefhir
 PGPASSWORD=postgres
 PGIMAGE?=aidbox/db:11.4.0-P1
 

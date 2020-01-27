@@ -2,6 +2,15 @@
 
 What is it?
 
+
+* declarative tests
+
+* 1 - stage/demo (full anon)
+* 2 - dev (anon / partial )
+* 3 - x100
+* 4 - user space configuration (i18n)
+
+
 ## Overview
 
 What is it for?

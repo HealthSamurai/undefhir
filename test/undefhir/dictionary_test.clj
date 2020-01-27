@@ -68,7 +68,7 @@ insert into ttl select i from  generate_series(1,5) as i; ")
      [1 2 3 4 5])
 
     (matcho/match
-     (sut/build-query ["fooo ?" "bar"] {:mar [3] :bar [1 2]})
+     (sut/build-query ["fooo ?" "bar"] {"mar" [3] "bar" [1 2]})
      ["fooo ?" [1 2]]))
 
   (testing "literal"
@@ -88,4 +88,4 @@ insert into ttl select i from  generate_series(1,5) as i; ")
         :literal [1 5]}
        {:name "sql"
         :query ["select t from ttl where t  = any (?)" "oneof"]}] )
-     {:file ["foo" "bar"], :oneof [1 5], :sql [1 5]})))
+     {"file" ["foo" "bar"], "oneof" [1 5], "sql" [1 5]})))

@@ -34,7 +34,7 @@
 (defn build-query [[statement & args] cache]
   (reduce
    (fn [acc v]
-     (conj acc ((keyword v) cache)))
+     (conj acc (get cache v)))
    [statement] args))
 
 (defn query-dictionary [db query cache]
@@ -59,7 +59,7 @@
 (defn load-dictionaries [db dict & [cb]]
   (reduce
    (fn [acc {n :name :as d}]
-     (let [acc (assoc acc (keyword n) (load-dictionary db d acc))]
+     (let [acc (assoc acc  (name n) (load-dictionary db d acc))]
        (when cb (cb)) ;; For ui progress bar
        acc))
    {}
