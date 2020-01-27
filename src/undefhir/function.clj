@@ -55,35 +55,21 @@
 
 (def set-of-fns
   "Preset of rand functions defined via just template"
-  [{:name :randHumanName
-    :source "HumanName.yaml"}
-   {:name :randContactPoint
-    :source "ContactPoint.yaml"}])
+  [{:name :randHumanName :file (.getPath (io/resource "HumanName.yaml"))}
+   {:name :randContactPoint :file (.getPath (io/resource "ContactPoint.yaml"))}])
 
 (defn load-single [r-name]
   (when r-name
     (-> r-name io/file slurp yaml/parse-string)))
 
-(defn load-build-in []
-  (reduce
-   (fn [acc el]
-     (let [n (:name el)
-           s (-> (:source el)
-                 load-single
-                 jute/compile)]
-       (assoc acc n s)))
-   {}
-   set-of-fns))
-
 (def root-fns
   "Preset of build-in functions"
-  (merge {:randBirthDate rand-birthDate
-          :randEmail     rand-email
-          :randNumber    u/rand-nmb
-          :randPhone     rand-phone
-          :cljtreefhir   tree2fhir
-          :dict          dict}
-         (load-build-in)))
+  {:randBirthDate rand-birthDate
+   :randEmail     rand-email
+   :randNumber    u/rand-nmb
+   :randPhone     rand-phone
+   :cljtreefhir   tree2fhir
+   :dict          dict})
 
 (defn compile-fn [{:keys [$fn $body file] :as f} & [cache]]
   (let [f (load-single file)
@@ -94,6 +80,7 @@
               (:$fn f)
               $fn)]
     (fn [& args]
+      (println (zipmap (mapv keyword $fn) args))
       (body (merge {:fns (merge root-fns cache)}
                    {:assocIn #(assoc-in %1 (map keyword %2) %3)
                     :first first
@@ -109,7 +96,7 @@
        (when cb (cb)) ;; only for ui progressbar tick
        acc))
    {:dict (dict (:db/connection manifest) manifest)} ;;TODO
-   fns))
+   (concat set-of-fns fns)))
 
 (defn ui-load-fns [manifest]
   (println "Load functions:")

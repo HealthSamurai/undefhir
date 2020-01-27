@@ -50,9 +50,7 @@
       [{:name :superbFunc
         :file (.getPath (io/resource "TestFunc.yaml"))}]}))
 
-  (matcho/match ((jute/compile {:testFunc "$ fns.superbFunc()"}) {:fns fns}) {:testFunc {:foo "bar"}})
-
-  )
+  (matcho/match ((jute/compile {:testFunc "$ fns.superbFunc()"}) {:fns fns}) {:testFunc {:foo "bar"}}))
 
 (deftest function-dict
   (def manifest
