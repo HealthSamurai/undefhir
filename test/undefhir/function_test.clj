@@ -2,6 +2,7 @@
   (:require [undefhir.function :as sut]
             [test-db :as tdb]
             [jute.core :as jute]
+            [clojure.java.io :as io]
             [matcho.core :as matcho]
             [clojure.test :refer :all]))
 
@@ -34,6 +35,24 @@
 
    {:testMyFn1 {:a "a" :b "b"}
     :testMyFn2 {:foo "bar"}}))
+
+(deftest fns-from-file
+  (def F (sut/compile-fn {:file (.getPath (io/resource "TestFunc.yaml"))}))
+  (matcho/match (F) {:foo "bar"})
+
+  (def withArgs (sut/compile-fn {:file (.getPath (io/resource "TestFunc2.yaml"))}))
+
+  (matcho/match (withArgs "foo1") {:bar "foo1"})
+
+  (def fns
+    (sut/load-fns
+     {:fns
+      [{:name :superbFunc
+        :file (.getPath (io/resource "TestFunc.yaml"))}]}))
+
+  (matcho/match ((jute/compile {:testFunc "$ fns.superbFunc()"}) {:fns fns}) {:testFunc {:foo "bar"}})
+
+  )
 
 (deftest function-dict
   (def manifest
