@@ -3,7 +3,6 @@
             [pg.core :as pg]
             [clj-yaml.core :as yaml]
             [clojure.walk :as walk]
-            [undefhir.template :as template]
             [undefhir.function :as function]
             [undefhir.dictionary :as dictionary])
   (:gen-class))

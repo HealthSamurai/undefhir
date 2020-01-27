@@ -29,7 +29,7 @@
        (csv/read-csv reader)))))
 
 (defn json-dictionary [file]
-  (json/parse-string (slurp file) true))
+  (json/parse-string (slurp file) ))
 
 (defn build-in-dictionary [resource-name]
   (str/split-lines (slurp (io/resource (str "dictionary/" resource-name)))))
@@ -85,7 +85,7 @@
   (if output-format
     (u/formatter ((keyword d) (load-dictionaries db (:dictionary manifest))) output-format)
 
-    (let [dbg ((keyword d) (ui-load-dictionaries db (:dictionary manifest)))
+    (let [dbg (get (ui-load-dictionaries db (:dictionary manifest)) d)
           dictionaty-source (first (filter #(= d (:name %))  (:dictionary manifest)))]
       (println "Debug dictionary: " d)
       (println "Source: " dictionaty-source)
