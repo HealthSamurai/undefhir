@@ -2,6 +2,8 @@
   (:require [jute.core :as jute]
             [clojure.data.generators :as gen]
             [simple-progress.bar :as spb]
+            [clojure.string :as str]
+            [undefhir.dictionary :as dictionary]
             [undefhir.utils :as u]))
 
 (defn rand-birthDate []
@@ -15,50 +17,95 @@
 (defn rand-phone []
   (u/rand-nmb 10))
 
+
+(defn dict [db {d :dictionary :as manifest}]
+  (let [dictionaries (dictionary/load-dictionaries db d)]
+    (fn [dict-name]
+      (get dictionaries dict-name))))
+
+
+(defn doRand [v strPath]
+  (let [tp (get-in v [:type :id])]
+    (cond
+      (= "code" tp)
+      (str "$ radn" tp "(\"" (get-in v [:valueSet :id]) "\", "  (str/join "." strPath) ")")
+
+      :else 
+      (str "$ rand" tp "(" (str/join "." strPath) ")"))))
+
+(defn tree2fhir [tree & [path]]
+  (let [path (or path [])]
+    (reduce-kv
+     (fn [acc k v]
+       (let [path (conj path k)
+             strPath (map name path)]
+         (assoc acc k (if (:attr v)
+                        (if (:isCollection v)
+                          {:$map (str "$ " (str/join "." strPath))
+                           :$as "e"
+                           :$body (tree2fhir v ["e"]) }
+                          (tree2fhir v path))
+                        (if (:isCollection v)
+                          {:$map (str "$ " (str/join "." strPath))
+                           :$as "e"
+                           :$body (doRand v ["e"])}
+                          
+                          (doRand v strPath))))))
+     {}
+     (:attr tree))))
+
+
 (def root-fns
   "Preset of build-in functions"
   {:randBirthDate rand-birthDate
-   :randEmail rand-email
-   :randPhone rand-phone})
+   :randEmail     rand-email
+   :randPhone     rand-phone
+   :cljtreefhir   tree2fhir
+   :dict          dict})
 
 
-(defn compile-fn [{:keys [$fn $body] :as f}]
+(defn compile-fn [{:keys [$fn $body] :as f} & [cache]]
   (let [body (jute/compile $body)]
     (fn [& args]
-      (body (merge root-fns (zipmap (mapv keyword $fn) args))))))
+      (body (merge {:fns  (merge  root-fns cache)}
+                   {:assocIn #(assoc-in %1 (map keyword %2) %3)
+                    :first first
+                    :second second 
+                    :get get
+                    :rest rest}
+                   (zipmap (mapv keyword $fn) args))))))
 
-(defn load-fns [fns & [cb]]
-  (reduce-kv
-   (fn [acc k v]
-     (let [acc (assoc acc (keyword k) (compile-fn v))]
-       (when cb (cb))
+(defn load-fns [{:keys [fns] :as manifest} & [cb]]
+  (reduce
+   (fn [acc {k :name :as v}]
+     (let [acc (assoc acc (keyword k) (compile-fn v acc))]
+       (when cb (cb)) ;; only for ui progressbar tick
        acc))
-   {}
+   {:dict (dict (:db/connection manifest) manifest)}
    fns))
 
-(defn ui-load-fns [fns]
+(defn ui-load-fns [manifest]
   (println "Load functions:")
-  (let [bar (spb/mk-progress-bar (count fns))
-        result (load-fns fns bar)]
+  (let [bar (spb/mk-progress-bar (count (:fns manifest)))
+        result (load-fns manifest bar)]
     (println) (println)
     result))
 
 (defn debug
   [{manifest :manifest
+    db :db/connection
     input-file :input-file i :input output-format :output f :function :as opts}]
   (if output-format
-    (let [func ((keyword f) (load-fns (:fns manifest)))
+    (let [func ((keyword f) (load-fns  (assoc manifest :db/connection db))) ;; TODO: fix
           res (if input-file
                 (map (partial apply func) input-file)
                 (apply func i))]
       (u/formatter res output-format))
 
-    (let [func ((keyword f) (ui-load-fns (:fns manifest)))
+    (let [func ((keyword f) (ui-load-fns (assoc manifest :db/connection db)))  ;; TODO: fix
           res (if input-file
                 (map (partial apply func) input-file)
                 (apply func i))]
       (println "Debug: " f)
-      ;; (println "Input params: ")
-      ;; (println i "\n")
       (println "Result: ")
       (println res))))

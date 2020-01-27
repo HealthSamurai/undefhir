@@ -20,9 +20,12 @@
 
   (def fns
     (sut/load-fns
-     {:myFn1 {:desc "My super puper fn"
-              :$body {:a "a" :b "b"}}
-      :myFn2 {:$body {:foo "bar"}}}))
+     {:fns
+      [{:name :myFn1
+        :desc "My super puper fn"
+        :$body {:a "a" :b "b"}}
+       {:name :myFn2
+        :$body {:foo "bar"}}]}))
 
   (matcho/match
    ((jute/compile {:testMyFn1 "$ fns.myFn1()"
@@ -32,14 +35,83 @@
    {:testMyFn1 {:a "a" :b "b"}
     :testMyFn2 {:foo "bar"}}))
 
+(deftest function-dict
+  (def manifest
+    {:dictionary
+     [{:name :integers
+       :literal [1 2 3 4 5]}]
+     :fns
+     [{:name :test
+       :$body {:intarray "$ fns.dict(\"integers\")"}}]})
+
+  (def fns (sut/load-fns manifest))
+
+  (matcho/match
+   ((:test fns))
+   {:intarray [1 2 3 4 5]}))
+
 (deftest debug
   (testing "Debug"
     (def dbg {:fns
-              {:debug
-               {:$body {:foo "bar"}}}})
+              [{:name :debug
+                :$body {:foo "bar"}}]})
 
     (sut/debug {:manifest dbg
                 :output "yaml"
                 :function "debug"})
 
     ))
+
+(defn mk-path [path]
+  (mapcat (fn [p] [:attr (keyword p)]) path))
+
+
+(defn flat2tree [attrs]
+  (reduce
+   (fn [acc attr]
+     (assoc-in acc (mk-path (:path attr)) attr))
+   {}
+   attrs))
+
+(defn tree2fhir [tree]
+  (reduce-kv
+   (fn [acc k v]
+     (assoc acc k (if (:attr v)
+                    (if (:coll v)
+                      [(tree2fhir v)]
+                      (tree2fhir v))
+                    (if (:coll v)
+                      [(:type v)]
+                      (:type v)))))
+   {}
+   (:attr tree)))
+
+(comment
+
+  (def f [{:path ["birthdate"] :type :date}
+          {:path ["deceased"]}
+          {:path ["deceased" "date"] :type :date}
+          {:path ["contact"] :coll true}
+          {:path ["contact" "name"]  :type :HumanName}
+          {:path ["contact" "mar" "foo"]}
+          {:path ["contact" "mar" "foo" "bar"] :type :HumanName}])
+
+  (tree2fhir (flat2tree f))
+
+  {:attr {:contact {:coll true
+                    :attr {:name {:type :HumanName}}}}}
+
+  ;; contact:
+  ;;   $map: $ contact
+  ;;   $as:  e
+  ;;   $body:
+  ;;     name: $ text (e.name)
+
+  (def f [{:p ["info"] }
+          {:p ["info" "name" :type :humanName]}])
+
+  ;; info:
+  ;;   name: $ text (info.name)
+
+
+  )
