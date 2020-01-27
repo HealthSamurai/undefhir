@@ -55,12 +55,13 @@
 
 (def set-of-fns
   "Preset of rand functions defined via just template"
-  [{:name :randHumanName    :resource  "HumanName.yaml"}
-   {:name :randContactPoint :resource  "ContactPoint.yaml"}])
+  [{:name :randHumanName    :resource "HumanName.yaml"}
+   {:name :randContactPoint :resource "ContactPoint.yaml"}])
 
-(defn load-from-file [{:keys [file resource]}]
-  (let [source (if file file (io/resource resource))]
-    (-> source slurp yaml/parse-string)))
+(defn load-from-file [{:keys [file resource] :as f}]
+  (when (or file resource)
+    (let [source (if file file (io/resource resource))]
+                            (-> source slurp yaml/parse-string))))
 
 (def root-fns
   "Preset of build-in functions"
@@ -71,13 +72,13 @@
    :cljtreefhir   tree2fhir
    :dict          dict})
 
-(defn compile-fn [{:keys [$fn $body file resource] :as f} & [cache]]
-  (let [f (if  $body f (load-from-file f)) 
-        body (if f
-               (jute/compile (:$body f))
+(defn compile-fn [{:keys [$fn $body file] :as f} & [cache]]
+  (let [cnt (load-from-file f) ;;TODO
+        body (if cnt
+               (jute/compile (:$body cnt))
                (jute/compile $body))
-        $fn (if f
-              (:$fn f)
+        $fn (if cnt
+              (:$fn cnt)
               $fn)]
     (fn [& args]
       (body (merge {:fns (merge root-fns cache)}
