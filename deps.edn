@@ -1,4 +1,5 @@
-{:paths ["src" "resources"]
+{:paths ["src"]
+ :extra-paths ["resources"]
  :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}}
 
@@ -46,6 +47,7 @@
   {:extra-deps {luchiniatwork/cambada {:mvn/version "1.0.2"}}
    :main-opts  ["-m" "cambada.uberjar"
                 "-a" "all"
+                "-p" "resources"
                 "--main" "undefhir.core"
                 "--app-group-id" "undefhir"
                 "--app-artifact-id" "app"
