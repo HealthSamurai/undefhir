@@ -19,8 +19,8 @@
   "Preset of build-in functions"
   {:randBirthDate rand-birthDate
    :randEmail rand-email
+   :randNumber u/rand-nmb
    :randPhone rand-phone})
-
 
 (defn compile-fn [{:keys [$fn $body] :as f}]
   (let [body (jute/compile $body)]

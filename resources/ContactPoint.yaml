@@ -1,6 +1,10 @@
-telecom:
-  system: $ telecom.system
-  value:
-    $if: $ telecom.system = "email"
-    $then: "$ anonEmail()"
-    $else: "$ anonPhone()"
+randContactPoint:
+  $fn: ["telecom"]
+  $body: 
+    $map: "$ telecom" 
+    $body: 
+      system: "$ telecom.system"
+      value:
+        $if: $ telecom.system = "email"
+        $then: "$ anonEmail()"
+        $else: "$ anonPhone()"

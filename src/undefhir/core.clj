@@ -23,7 +23,6 @@
       f function/debug)
     (catch Exception e (println (.getMessage e)))))
 
-
 (def configuration
   {:app         {:command     "undefhir"
                  :description "A command-line tool for anonimify and minify Aidbox FHIR database."

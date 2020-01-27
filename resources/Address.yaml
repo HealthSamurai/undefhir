@@ -1,0 +1,14 @@
+randAddress:
+  $fn: ["address"]
+  $body:
+    $map: "$ address"
+    $body: 
+      city: "$ randNth (dictionary.animals)" 
+      country: "$ randNth (dictionary.animals)" 
+      postalCode: "$ randNumber (5)"
+      district: "$ randNth (dictionary.animals)"
+      state: "$ randNth (dictionary.animals)"
+      line:
+        $map: "$ address.line"
+        $body:
+          "$ randNth (dictionary.colors)"
