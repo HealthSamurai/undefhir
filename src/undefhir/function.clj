@@ -3,6 +3,7 @@
             [clojure.data.generators :as gen]
             [simple-progress.bar :as spb]
             [clojure.string :as str]
+            [cheshire.core :as json]
             [clj-yaml.core :as yaml]
             [undefhir.dictionary :as dictionary]
             [undefhir.utils :as u]
@@ -69,6 +70,9 @@
   {:randBirthDate rand-birthDate
    :randEmail     rand-email
    :randNumber    u/rand-nmb
+   :toJson        json/generate-string
+   :toYaml        yaml/generate-string
+   :spit          spit
    :randPhone     rand-phone
    :cljtreefhir   tree2fhir
    :dict          dict})
