@@ -56,6 +56,7 @@
 (def set-of-fns
   "Preset of rand functions defined via just template"
   [{:name :randHumanName    :resource "HumanName.yaml"}
+   {:name :randAddress      :resource "Address.yaml"}
    {:name :randContactPoint :resource "ContactPoint.yaml"}])
 
 (defn load-from-file [{:keys [file resource] :as f}]

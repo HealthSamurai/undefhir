@@ -1,4 +1,12 @@
 {
   "resourceType": "Patient",
-  "name": [{"family": "Bar", "given": ["Foo"]}]
+  "name": [{"family": "Bar",
+            "given": ["Foo"]},
+           {"family": "Foo",
+            "given": ["Bar1", "Bar2"]}],
+  "telecom": [{"system": "email",
+               "value": "blablabla@gmail.com"},
+              {"system": "phone",
+               "value": "88005553555"}],
+  "address": [{"city": "Wuhan", "country": "China", "line": ["Foo", "Bar"]}]
 }

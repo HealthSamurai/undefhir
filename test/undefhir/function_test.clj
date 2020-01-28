@@ -13,8 +13,8 @@
 
   (def f (sut/compile-fn {:$body "fffffoo"}))
   (def p (sut/compile-fn {:$fn ["f" "a" "b"] :$body {:f "$ f()" :a "$ a" :b "$ b"}}))
-
   (def c (jute/compile {:result "$ fns.p(fns.f, 12, \"23\")"}))
+
   (matcho/match
    (c {:fns {:p p :f f}})
    {:result {:f "fffffoo" :a 12 :b "23"}})
@@ -78,6 +78,7 @@
                 :function "debug"})
 
     ))
+
 
 (defn mk-path [path]
   (mapcat (fn [p] [:attr (keyword p)]) path))

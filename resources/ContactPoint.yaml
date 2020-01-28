@@ -1,10 +1,10 @@
-randContactPoint:
-  $fn: ["telecom"]
+$fn: ["telecom"]
+$body: 
+  $map: $ telecom 
+  $as: i
   $body: 
-    $map: "$ telecom" 
-    $body: 
-      system: "$ telecom.system"
-      value:
-        $if: $ telecom.system = "email"
-        $then: "$ anonEmail()"
-        $else: "$ anonPhone()"
+    system: $ get(i, "system") 
+    value:
+      $if: $ get(i, "system") = "email"
+      $then: $ fns.randEmail()
+      $else: $ fns.randPhone()

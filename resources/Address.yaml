@@ -1,14 +1,14 @@
-randAddress:
-  $fn: ["address"]
-  $body:
-    $map: "$ address"
-    $body: 
-      city: "$ randNth (dictionary.animals)" 
-      country: "$ randNth (dictionary.animals)" 
-      postalCode: "$ randNumber (5)"
-      district: "$ randNth (dictionary.animals)"
-      state: "$ randNth (dictionary.animals)"
-      line:
-        $map: "$ address.line"
-        $body:
-          "$ randNth (dictionary.colors)"
+$fn: ["address"]
+$body:
+  $map: "$ address"
+  $as: i
+  $body: 
+    city: $ randNth (fns.dict("CityDict")) 
+    country: $ randNth (fns.dict("CountryDict")) 
+    postalCode: $ fns.randNumber (5)
+    district: $ randNth (fns.dict("DistrictDict"))
+    state: $ randNth (fns.dict("StateDict"))
+    line:
+      $map: $ get(i, "line") 
+      $body:
+        $ randNth (fns.dict("LineDict"))

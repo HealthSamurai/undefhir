@@ -1,11 +1,11 @@
-randHumanName:
-  $fn: ["name"]
-  $body:
-    $map: "$ name"
-    $body: 
-      family: "$ randNth (dictionary.animals)" 
-      given:
-        $map: "$ name.given"
-        $body:
-          "$ randNth (dictionary.colors)"
+$fn: ["name"]
+$body: 
+  $map: "$ name"
+  $as: i
+  $body: 
+    family: $ randNth (fns.dict("FamilyDict")) 
+    given:
+      $map: $ get(i, "given")
+      $body:
+        $ randNth (fns.dict("GivenDict"))
         

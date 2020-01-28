@@ -2,8 +2,31 @@ dictionary:
   - name: Patient
     json: test/resources/Patient1.json
 
+  - name: FamilyDict
+    json: test/resources/dictionary/color.json 
+
+  - name: GivenDict
+    file: test/resources/dictionary/names
+
+  - name: CountryDict
+    json: test/resources/dictionary/color.json 
+
+  - name: CityDict
+    json: test/resources/dictionary/color.json 
+
+  - name: StateDict
+    json: test/resources/dictionary/color.json 
+
+  - name: DistrictDict 
+    json: test/resources/dictionary/color.json 
+
+  - name: LineDict 
+    json: test/resources/dictionary/color.json 
+
 fns:
-  - name: testRandHN
+  - name: testPatient
     $body:
-      name: $ fns.randHumanName ("1")
+      name: $ fns.randHumanName (get(fns.dict("Patient"), "name"))
+      telecom: $ fns.randContactPoint(get(fns.dict("Patient"), "telecom"))
+      address: $ fns.randAddress(get(fns.dict("Patient"), "address"))
 
