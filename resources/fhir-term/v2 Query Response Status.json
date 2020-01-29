@@ -1,0 +1,1 @@
+[{"code":"AR","display":"Application reject"},{"code":"NF","display":"No data found, no errors"},{"code":"AE","display":"Application error"},{"code":"PD","display":"Protected data"},{"code":"TM","display":"Too much data found"},{"code":"OK","display":"Data found, no errors (this is the default)"}]

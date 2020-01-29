@@ -1,0 +1,1 @@
+[{"code":"REP","display":"Report completion date/time"},{"code":"ANY","display":"Any status"},{"code":"CFN","display":"Current final value, whether final or corrected"},{"code":"COR","display":"Corrected only (no final with corrections)"},{"code":"FIN","display":"Final only (no corrections)"},{"code":"PRE","display":"Preliminary"}]

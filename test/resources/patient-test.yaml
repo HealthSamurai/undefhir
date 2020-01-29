@@ -1,3 +1,5 @@
+terminology: true
+
 dictionary:
   - name: Patient
     json: test/resources/Patient1.json
@@ -23,13 +25,43 @@ dictionary:
   - name: LineDict 
     json: test/resources/dictionary/color.json 
 
-  - name: CodeSystem
-    query:  "select resource->>'system', jsonb_agg(resource) from concept group by resource->>'system' limit 1"
+  - name: CodeSystems
+    query: |
+      select cs.resource->>'name' as system, jsonb_agg(c.resource) as entry
+      from concept c
+      join codesystem as cs
+      on cs.resource->>'url' = c.resource->>'system'
+      group by cs.id
 
 fns:
+  - name: mkName 
+    $fn: [s]
+    $body: $ last (split(s, "/"))
+
+  - name: cleanUpConcept
+    $fn: [concept]
+    $body:
+      $map: $ concept
+      $as: c
+      $body:
+        code: $ c.code
+        display: $ c.display
+
+  - name: saveFile 
+    $fn: [sys, cnt]
+    $body:
+      $call: spit
+      $args:
+        - $ "/home/victor/Documents/Work/Trash/" + fns.mkName(toString(sys)) + ".json" 
+        - $  fns.toJson(fns.cleanUpConcept(cnt)) 
+    
   - name: intoFiles
     $body:
-      res: $ fns.spit ("/home/victor/Documents/test.json", fns.toJson (first (second (fns.dict("CodeSystem"))))) 
+      $map: $ fns.dict("CodeSystems") 
+      $as: i 
+      $body:
+        $ fns.saveFile (i.system, i.entry)
+
   - name: testPatient
     $body:
       name: $ fns.randHumanName (get(fns.dict("Patient"), "name"))

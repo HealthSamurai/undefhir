@@ -1,0 +1,1 @@
+[{"code":"ALL","display":"All values within the range"},{"code":"LST","display":"Last value within the range"},{"code":"REV","display":"All values within the range returned in reverse chronological order (This is the default if not otherwise specified.)"},{"code":"1ST","display":"First value within range"}]

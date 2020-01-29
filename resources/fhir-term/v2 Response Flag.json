@@ -1,0 +1,1 @@
+[{"code":"E","display":"Report exceptions only"},{"code":"F","display":"Same as D, plus confirmations explicitly"},{"code":"N","display":"Only the MSA segment is returned"},{"code":"R","display":"Same as E, also Replacement and Parent-Child"},{"code":"D","display":"Same as R, also other associated segments"}]

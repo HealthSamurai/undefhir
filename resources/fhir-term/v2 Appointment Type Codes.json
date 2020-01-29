@@ -1,0 +1,1 @@
+[{"code":"Tentative","display":"A request for a tentative (e.g., “penciled in”) appointment"},{"code":"Normal","display":"Routine schedule request type – default if not valued"},{"code":"Complete","display":"A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"}]

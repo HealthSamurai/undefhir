@@ -1,0 +1,1 @@
+[{"code":"1","display":"Valid code; used for grouping"},{"code":"3","display":"Invalid code; code is relevant for grouping"},{"code":"2","display":"Invalid code; not used for grouping"},{"code":"0","display":"Valid code; not used for grouping"}]

@@ -1,0 +1,1 @@
+[{"code":"display","display":"Display Only"},{"code":"capture","display":"Capture Only"},{"code":"capture-display","display":"Capture & Display"},{"code":"capture-display-non-empty","display":"Capture or, if answered, Display"},{"code":"display-non-empty","display":"Display when Answered"}]
