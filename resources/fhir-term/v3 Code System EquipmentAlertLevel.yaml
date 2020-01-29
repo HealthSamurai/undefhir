@@ -1,0 +1,4 @@
+- {code: W, display: Warning}
+- {code: C, display: Critical}
+- {code: N, display: Normal}
+- {code: S, display: Serious}

@@ -1,0 +1,3 @@
+- {code: D, display: Denied}
+- {code: R, display: Rejected}
+- {code: P, display: Processed}

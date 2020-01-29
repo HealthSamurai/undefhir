@@ -1,0 +1,6 @@
+- {code: '1', display: Excellent}
+- {code: '3', display: Fair}
+- {code: '5', display: Some (level unknown)}
+- {code: '6', display: None}
+- {code: '4', display: Poor}
+- {code: '2', display: Good}

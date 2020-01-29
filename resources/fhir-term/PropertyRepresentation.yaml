@@ -1,0 +1,5 @@
+- {code: cdaText, display: CDA Text Format}
+- {code: xmlText, display: XML Text}
+- {code: xmlAttr, display: XML Attribute}
+- {code: xhtml, display: XHTML}
+- {code: typeAttr, display: Type Attribute}

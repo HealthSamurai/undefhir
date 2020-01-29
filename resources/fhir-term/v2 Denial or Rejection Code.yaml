@@ -1,0 +1,4 @@
+- {code: '0', display: Line item not denied or rejected}
+- {code: '2', display: 'Line item is on a multiple-day claim. The line item is not
+    denied or rejected, but occurs on a day that has been denied or rejected.'}
+- {code: '1', display: Line item denied or rejected}

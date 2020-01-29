@@ -1,0 +1,4 @@
+- {code: AD, display: Automatic Dispensing}
+- {code: F, display: Floor Stock}
+- {code: TR, display: Traditional}
+- {code: UD, display: Unit Dose}

@@ -1,0 +1,6 @@
+- {code: progress-update, display: Progress Update}
+- {code: prescription-refill-request, display: Prescription Refill Request}
+- {code: phone-consult, display: Phone Consult}
+- {code: report-labs, display: Report Labs}
+- {code: appointment-reminder, display: Appointment Reminder}
+- {code: summary-report, display: Summary Report}

@@ -1,0 +1,3 @@
+- {code: pending, display: Pending}
+- {code: fail, display: Fail}
+- {code: pass, display: Pass}

@@ -1,0 +1,18 @@
+- {code: Tue, display: An indicator that Tuesday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Prefstart, display: 'An indicator that there is a preferred start time for
+    the appointment request, service or resource.'}
+- {code: Fri, display: An indicator that Friday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Wed, display: An indicator that Wednesday is or is not preferred for the
+    day on which the appointment will occur.}
+- {code: Sat, display: An indicator that Saturday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Sun, display: An indicator that Sunday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Thu, display: An indicator that Thursday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Mon, display: An indicator that Monday is or is not preferred for the day
+    on which the appointment will occur.}
+- {code: Prefend, display: 'An indicator that there is a preferred end time for the
+    appointment request, service or resource.'}

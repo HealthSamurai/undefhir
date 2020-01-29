@@ -1,0 +1,4 @@
+- {code: F, display: Fair}
+- {code: P, display: Poor}
+- {code: E, display: Excellent}
+- {code: G, display: Good}

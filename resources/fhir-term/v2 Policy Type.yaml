@@ -1,0 +1,5 @@
+- {code: ANC, display: Ancillary}
+- {code: 2ANC, display: Second ancillary}
+- {code: 2MMD, display: Second major medical}
+- {code: 3MMD, display: Third major medical}
+- {code: MMD, display: Major medical}

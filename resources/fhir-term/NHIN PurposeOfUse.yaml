@@ -1,0 +1,27 @@
+- {code: SYSADMIN, display: Sysadmin}
+- {code: REQUEST, display: Request}
+- {code: OPERATIONS, display: Operations}
+- {code: COVERAGE, display: Coverage}
+- {code: WORKERSCOMP, display: Worker's Comp}
+- {code: GOVERNMENT, display: Government}
+- {code: THREAT, display: Threat}
+- {code: RESEARCH, display: Research}
+- {code: DONATION, display: Donation}
+- {code: DECEASED, display: Deceased}
+- {code: LAW, display: Law Enforcement}
+- {code: JUDICIAL, display: Judicial}
+- {code: PAYMENT, display: Payment}
+- {code: TREATMENT, display: Treatment}
+- {code: OVERSIGHT, display: Oversight}
+- {code: ABUSE, display: Abuse}
+- {code: PUBLICHEALTH, display: Public Health}
+- {code: DISASTER, display: Disaster}
+- {code: EMERGENCY, display: Emergency}
+- {code: PRESENT, display: Present}
+- {code: FAMILY, display: Family}
+- {code: DIRECTORY, display: Directory}
+- {code: MARKETING, display: Marketing}
+- {code: LEGAL, display: Legal}
+- {code: TRAINING, display: Training}
+- {code: PSYCHOTHERAPY, display: Psychotherapy}
+- {code: FRAUD, display: Fraud}

@@ -1,0 +1,7 @@
+- {code: phone, display: Phone}
+- {code: pager, display: Pager}
+- {code: sms, display: SMS}
+- {code: other, display: Other}
+- {code: email, display: Email}
+- {code: fax, display: Fax}
+- {code: url, display: URL}

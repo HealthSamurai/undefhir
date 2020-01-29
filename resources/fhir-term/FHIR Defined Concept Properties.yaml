@@ -1,0 +1,5 @@
+- {code: notSelectable, display: Not Selectable}
+- {code: parent, display: Parent}
+- {code: deprecated, display: Deprecated}
+- {code: inactive, display: Inactive}
+- {code: child, display: Child}

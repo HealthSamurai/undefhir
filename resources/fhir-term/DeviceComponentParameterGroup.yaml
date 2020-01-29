@@ -1,0 +1,9 @@
+- {code: fluid-chemistry, display: Fluid Chemistry Parameter Group}
+- {code: neurological, display: Neurological Parameter Group}
+- {code: ventilation, display: Ventilation Parameter Group}
+- {code: miscellaneous, display: Miscellaneous Parameter Group}
+- {code: ecg, display: ECG Parameter Group}
+- {code: respiratory, display: Respiratory Parameter Group}
+- {code: drug-delivery, display: Drug Delivery Parameter Group}
+- {code: blood-chemistry, display: Blood Chemistry Parameter Group}
+- {code: haemodynamic, display: Haemodynamic Parameter Group}

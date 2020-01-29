@@ -1,0 +1,3 @@
+- {code: both, display: Postal & Physical}
+- {code: postal, display: Postal}
+- {code: physical, display: Physical}

@@ -1,0 +1,21 @@
+- {code: PA, display: Pause}
+- {code: EX, display: Execute (command specified in field Parameters (ST) 01394)}
+- {code: ES, display: Emergency -stop}
+- {code: EN, display: Enable Sending Events}
+- {code: DI, display: Disable Sending Events}
+- {code: CN, display: Clear Notification}
+- {code: CL, display: Clear}
+- {code: AB, display: Abort}
+- {code: AT, display: Aliquot To container}
+- {code: AF, display: Aliquot From container}
+- {code: LC, display: Local Control Request}
+- {code: UN, display: Unload}
+- {code: UC, display: Unlock}
+- {code: TT, display: Transport To}
+- {code: SU, display: Setup}
+- {code: SA, display: Sampling}
+- {code: RE, display: Resume}
+- {code: RC, display: Remote Control Request}
+- {code: LO, display: Load}
+- {code: LK, display: Lock}
+- {code: IN, display: Initialize/Initiate}

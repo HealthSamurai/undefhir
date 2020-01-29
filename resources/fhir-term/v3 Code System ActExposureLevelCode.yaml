@@ -1,0 +1,4 @@
+- {code: _ActExposureLevelCode, display: ActExposureLevelCode}
+- {code: HIGH, display: high}
+- {code: LOW, display: low}
+- {code: MEDIUM, display: medium}

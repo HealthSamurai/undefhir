@@ -1,0 +1,7 @@
+- {code: T, display: Tobacco - smoked}
+- {code: M, display: Marijuana}
+- {code: K, display: Kava}
+- {code: C, display: Tobacco - chewed}
+- {code: A, display: Alcohol}
+- {code: U, display: Unknown}
+- {code: O, display: Other}

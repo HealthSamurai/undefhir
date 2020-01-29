@@ -1,0 +1,4 @@
+- {code: E1, display: exclusive try once}
+- {code: IW, display: inclusive wait}
+- {code: EW, display: exclusive wait}
+- {code: I1, display: inclusive try once}

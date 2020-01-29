@@ -1,0 +1,6 @@
+- {code: MDL, display: Delete record from master file}
+- {code: MAD, display: Add record to master file}
+- {code: MAC, display: Reactivate deactivated record}
+- {code: MUP, display: Update record for master file}
+- {code: MDC, display: 'Deactivate: discontinue using record in master file, but do
+    not delete from database'}

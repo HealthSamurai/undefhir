@@ -1,0 +1,7 @@
+- {code: S, display: Subdivision}
+- {code: D, display: Department}
+- {code: U, display: Subdepartment}
+- {code: L, display: Local market area}
+- {code: V, display: Division}
+- {code: M, display: Medical Center Area}
+- {code: F, display: Facility}

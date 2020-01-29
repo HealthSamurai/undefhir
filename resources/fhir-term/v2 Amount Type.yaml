@@ -1,0 +1,5 @@
+- {code: UL, display: Unlimited}
+- {code: DF, display: Differential}
+- {code: LM, display: Limit}
+- {code: PC, display: Percentage}
+- {code: RT, display: Rate}

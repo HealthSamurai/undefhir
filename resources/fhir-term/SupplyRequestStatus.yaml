@@ -1,0 +1,7 @@
+- {code: cancelled, display: Cancelled}
+- {code: entered-in-error, display: Entered in Error}
+- {code: active, display: Active}
+- {code: unknown, display: Unknown}
+- {code: completed, display: Completed}
+- {code: suspended, display: Suspended}
+- {code: draft, display: Draft}

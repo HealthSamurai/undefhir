@@ -1,0 +1,6 @@
+- {code: R, display: 'Pharmaceutical substance is in the formulary, but restrictions
+    apply'}
+- {code: G, display: 'Pharmaceutical substance is in the formulary, but guidelines
+    apply'}
+- {code: N, display: Pharmaceutical substance is NOT in the formulary}
+- {code: Y, display: Pharmaceutical substance is in the formulary}

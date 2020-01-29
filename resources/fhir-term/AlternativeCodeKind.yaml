@@ -1,0 +1,5 @@
+- {code: case-insensitive, display: Case Insensitive}
+- {code: case-sensitive, display: Case Sensitive}
+- {code: expression, display: Expression}
+- {code: deprecated, display: Deprecated}
+- {code: alternate, display: Alternate Code}

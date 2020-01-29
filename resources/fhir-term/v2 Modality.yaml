@@ -1,0 +1,26 @@
+- {code: US, display: Ultrasound}
+- {code: XA, display: X-ray Angiography}
+- {code: AS, display: Angioscopy}
+- {code: BS, display: Biomagnetic imaging}
+- {code: CD, display: Color flow Doppler}
+- {code: CP, display: Colposcopy}
+- {code: CR, display: Computed radiography}
+- {code: MA, display: Magnetic resonance angiography}
+- {code: NM, display: Nuclear Medicine (radioisotope study)}
+- {code: OT, display: Other}
+- {code: PT, display: Positron emission tomography (PET)}
+- {code: RF, display: Radio fluoroscopy}
+- {code: ST, display: Single photon emission computed tomography (SPECT)}
+- {code: TG, display: Thermography}
+- {code: DM, display: Digital microscopy}
+- {code: EC, display: Echocardiography}
+- {code: ES, display: Endoscopy}
+- {code: FA, display: Fluorescein angiography}
+- {code: FS, display: Fundoscopy}
+- {code: LP, display: Laparoscopy}
+- {code: LS, display: Laser surface scan}
+- {code: MS, display: Magnetic resonance spectroscopy}
+- {code: CS, display: Cystoscopy}
+- {code: CT, display: Computed tomography}
+- {code: DD, display: Duplex Doppler}
+- {code: DG, display: Diapanography}

@@ -1,0 +1,387 @@
+- {code: _IntraovarianRoute, display: IntraovarianRoute}
+- {code: _IntrapericardialRoute, display: IntrapericardialRoute}
+- {code: _IntraperitonealRoute, display: IntraperitonealRoute}
+- {code: SKIN, display: 'Topical application, skin'}
+- {code: _IntrapleuralRoute, display: IntrapleuralRoute}
+- {code: _IntraprostaticRoute, display: IntraprostaticRoute}
+- {code: _IntrapulmonaryRoute, display: IntrapulmonaryRoute}
+- {code: _IntrasinalRoute, display: IntrasinalRoute}
+- {code: _IntraspinalRoute, display: IntraspinalRoute}
+- {code: _IntrasternalRoute, display: IntrasternalRoute}
+- {code: _IntrasynovialRoute, display: IntrasynovialRoute}
+- {code: IU, display: 'Insertion, intrauterine'}
+- {code: IOSURGINS, display: 'Insertion, intraocular, surgical'}
+- {code: CERVINS, display: 'Insertion, cervical (uterine)'}
+- {code: _Insertion, display: Insertion}
+- {code: URETINJ, display: 'Injection, ureteral'}
+- {code: IGASTINSTIL, display: 'Instillation, intragastric'}
+- {code: URETHINJ, display: 'Injection, urethral'}
+- {code: _IntratendinousRoute, display: IntratendinousRoute}
+- {code: TRTRACHINJ, display: 'Injection, transtracheal'}
+- {code: _IntratesticularRoute, display: IntratesticularRoute}
+- {code: _IntrathecalRoute, display: IntrathecalRoute}
+- {code: _IntrathoracicRoute, display: IntrathoracicRoute}
+- {code: _IntratrachealRoute, display: IntratrachealRoute}
+- {code: _IntratubularRoute, display: IntratubularRoute}
+- {code: _IntratumorRoute, display: IntratumorRoute}
+- {code: _IntratympanicRoute, display: IntratympanicRoute}
+- {code: _IntrauterineRoute, display: IntrauterineRoute}
+- {code: _IntravascularRoute, display: IntravascularRoute}
+- {code: _IntravenousRoute, display: IntravenousRoute}
+- {code: _IntraventricularRoute, display: IntraventricularRoute}
+- {code: TRPLACINJ, display: 'Injection, transplacental'}
+- {code: SUBMUCINJ, display: 'Injection, submucosal'}
+- {code: SUBARACHINJ, display: 'Injection, subarachnoid'}
+- {code: SQ, display: 'Injection, subcutaneous'}
+- {code: NASALINSTIL, display: 'Instillation, nasal'}
+- {code: SOFTISINJ, display: 'Injection, soft tissue'}
+- {code: OCDRESTA, display: Occlusive dressing technique}
+- {code: SLESINJ, display: 'Injection, sublesional'}
+- {code: SCINJ, display: 'Injection, subconjunctival'}
+- {code: RBINJ, display: 'Injection, retrobulbar'}
+- {code: PNSINJ, display: 'Injection, paranasal sinuses'}
+- {code: PNINJ, display: 'Injection, perineural'}
+- {code: SCALP, display: 'Topical application, scalp'}
+- {code: _IntravesicleRoute, display: IntravesicleRoute}
+- {code: _IntravitrealRoute, display: IntravitrealRoute}
+- {code: _JejunumRoute, display: JejunumRoute}
+- {code: _LacrimalPunctaRoute, display: LacrimalPunctaRoute}
+- {code: _LaryngealRoute, display: LaryngealRoute}
+- {code: _LingualRoute, display: LingualRoute}
+- {code: _MucousMembraneRoute, display: MucousMembraneRoute}
+- {code: PDURINJ, display: 'Injection, peridural'}
+- {code: _NailRoute, display: NailRoute}
+- {code: PDPINJ, display: 'Injection, peritoneal dialysis port'}
+- {code: PDONTINJ, display: 'Injection, periodontal'}
+- {code: PARENTINJ, display: 'Injection, parenteral'}
+- {code: PAINJ, display: 'Injection, periarticular'}
+- {code: IVITINJ, display: 'Injection, intravitreal'}
+- {code: IVSPUSH, display: 'Injection, intravenous, slow push'}
+- {code: IVRPUSH, display: 'Injection, intravenous, rapid push'}
+- {code: IVPUSH, display: 'Injection, intravenous, push'}
+- {code: IVINJBOL, display: 'Injection, intravenous, bolus'}
+- {code: IVINJ, display: 'Injection, intravenous'}
+- {code: LARYNGINSTIL, display: 'Instillation, laryngeal'}
+- {code: _NasalRoute, display: NasalRoute}
+- {code: _OphthalmicRoute, display: OphthalmicRoute}
+- {code: _OralRoute, display: OralRoute}
+- {code: _OromucosalRoute, display: OromucosalRoute}
+- {code: _OropharyngealRoute, display: OropharyngealRoute}
+- {code: _OticRoute, display: OticRoute}
+- {code: _ParanasalSinusesRoute, display: ParanasalSinusesRoute}
+- {code: _ParenteralRoute, display: ParenteralRoute}
+- {code: _PerianalRoute, display: PerianalRoute}
+- {code: _PeriarticularRoute, display: PeriarticularRoute}
+- {code: _PeriduralRoute, display: PeriduralRoute}
+- {code: _PerinealRoute, display: PerinealRoute}
+- {code: _PerineuralRoute, display: PerineuralRoute}
+- {code: _PeriodontalRoute, display: PeriodontalRoute}
+- {code: _PulmonaryRoute, display: PulmonaryRoute}
+- {code: _RectalRoute, display: RectalRoute}
+- {code: RECTAL, display: 'Topical application, rectal'}
+- {code: _RespiratoryTractRoute, display: RespiratoryTractRoute}
+- {code: _RetrobulbarRoute, display: RetrobulbarRoute}
+- {code: IVESINJ, display: 'Injection, intravesicle'}
+- {code: IVENTINJ, display: 'Injection, intraventricular (heart)'}
+- {code: IVASCINJ, display: 'Injection, intravascular'}
+- {code: IURETINJ, display: 'Injection, intraureteral, retrograde'}
+- {code: _ScalpRoute, display: ScalpRoute}
+- {code: _SinusUnspecifiedRoute, display: SinusUnspecifiedRoute}
+- {code: _SkinRoute, display: SkinRoute}
+- {code: _SoftTissueRoute, display: SoftTissueRoute}
+- {code: _SubarachnoidRoute, display: SubarachnoidRoute}
+- {code: _SubconjunctivalRoute, display: SubconjunctivalRoute}
+- {code: _SubcutaneousRoute, display: SubcutaneousRoute}
+- {code: _SublesionalRoute, display: SublesionalRoute}
+- {code: _SublingualRoute, display: SublingualRoute}
+- {code: _SubmucosalRoute, display: SubmucosalRoute}
+- {code: _TracheostomyRoute, display: TracheostomyRoute}
+- {code: _TransmucosalRoute, display: TransmucosalRoute}
+- {code: _TransplacentalRoute, display: TransplacentalRoute}
+- {code: PDONTTA, display: 'Topical application, periodontal'}
+- {code: _TranstrachealRoute, display: TranstrachealRoute}
+- {code: _TranstympanicRoute, display: TranstympanicRoute}
+- {code: _UreteralRoute, display: UreteralRoute}
+- {code: _UrethralRoute, display: UrethralRoute}
+- {code: _UrinaryBladderRoute, display: UrinaryBladderRoute}
+- {code: _UrinaryTractRoute, display: UrinaryTractRoute}
+- {code: _VaginalRoute, display: VaginalRoute}
+- {code: _VitreousHumourRoute, display: VitreousHumourRoute}
+- {code: PERINEAL, display: 'Topical application, perineal'}
+- {code: PERIANAL, display: 'Topical application, perianal'}
+- {code: OROPHARTA, display: 'Topical application, oropharyngeal'}
+- {code: ORMUC, display: 'Topical application, oromucosal'}
+- {code: ORALTA, display: 'Topical application, oral'}
+- {code: OPTHALTA, display: 'Topical application, ophthalmic'}
+- {code: NASAL, display: 'Topical application, nasal'}
+- {code: NAIL, display: 'Topical application, nail'}
+- {code: MUC, display: 'Topical application, mucous membrane'}
+- {code: LARYNGTA, display: 'Topical application, laryngeal'}
+- {code: IOTOP, display: 'Topical application, intraocular'}
+- {code: ILUMTA, display: 'Topical application, intraluminal'}
+- {code: ILTOP, display: 'Topical application, intralesional'}
+- {code: IILEALTA, display: 'Topical application, intraileal'}
+- {code: IESOPHTA, display: 'Topical application, intraesophageal'}
+- {code: ICORONTA, display: 'Topical application, intracoronal (dental)'}
+- {code: ICORNTA, display: 'Topical application, intracorneal'}
+- {code: HAIR, display: 'Topical application, hair'}
+- {code: GIN, display: 'Topical application, gingival'}
+- {code: DEN, display: 'Topical application, dental'}
+- {code: CERV, display: 'Topical application, cervical'}
+- {code: BUC, display: 'Topical application, buccal'}
+- {code: TOPICAL, display: Topical}
+- {code: SWAB, display: 'Topical application, swab'}
+- {code: DRESS, display: 'Topical application, soaked dressing'}
+- {code: _TopicalApplication, display: TopicalApplication}
+- {code: TTYMPTABSORP, display: 'Topical absorption, transtympanic'}
+- {code: _TopicalAbsorptionRoute, display: TopicalAbsorptionRoute}
+- {code: SWISHSWAL, display: 'Swish and swallow, oromucosal'}
+- {code: SWISHSPIT, display: 'Swish and spit out, oromucosal'}
+- {code: _Swish, display: Swish}
+- {code: URETHSUP, display: 'Suppository, urethral'}
+- {code: _SuppositoryRoute, display: SuppositoryRoute}
+- {code: ORRINSE, display: 'Rinse, oral'}
+- {code: DENRINSE, display: 'Rinse, dental'}
+- {code: _Rinse, display: Rinse}
+- {code: ETNEB, display: 'Nebulization, endotracheal tube'}
+- {code: _Nebulization, display: Nebulization}
+- {code: SMUCMAB, display: 'Mucosal absorption, submucosal'}
+- {code: ITRACHMAB, display: 'Mucosal absorption, intratracheal'}
+- {code: IDOUDMAB, display: 'Mucosal absorption, intraduodenal'}
+- {code: _MucosalAbsorptionRoute, display: MucosalAbsorptionRoute}
+- {code: IGASTLAV, display: 'Lavage, intragastric'}
+- {code: IILEALINJ, display: 'Instillation, intraileal'}
+- {code: IUINJC, display: 'Injection, intracervical (uterus)'}
+- {code: _LavageRoute, display: LavageRoute}
+- {code: IUINJ, display: 'Injection, intrauterine'}
+- {code: RECIRR, display: 'Irrigation, rectal'}
+- {code: DOUCHE, display: 'Douche, vaginal'}
+- {code: BLADIRRT, display: 'Irrigation, urinary bladder, tidal'}
+- {code: BLADIRRC, display: 'Irrigation, urinary bladder, continuous'}
+- {code: _Douche, display: Douche}
+- {code: _RouteByMethod, display: RouteByMethod}
+- {code: SOAK, display: Immersion (soak)}
+- {code: SHAMPOO, display: Shampoo}
+- {code: ITYMPINJ, display: 'Injection, intratympanic'}
+- {code: TRNSLING, display: Translingual}
+- {code: ITUMINJ, display: 'Injection, intratumor'}
+- {code: ITUBINJ, display: 'Injection, intratubular'}
+- {code: ITINJ, display: 'Injection, intrathecal'}
+- {code: ITHORINJ, display: 'Injection, intrathoracic'}
+- {code: ITESTINJ, display: 'Injection, intratesticular'}
+- {code: ITENDINJ, display: 'Injection, intratendinous'}
+- {code: ISYNINJ, display: 'Injection, intrasynovial'}
+- {code: ISTERINJ, display: 'Injection, intrasternal'}
+- {code: ISINJ, display: 'Injection, intraspinal'}
+- {code: IPUMPINJ, display: 'Injection, insulin pump'}
+- {code: PO, display: 'Swallow, oral'}
+- {code: GARGLE, display: Gargle}
+- {code: SUCK, display: 'Suck, oromucosal'}
+- {code: _Chew, display: Chew}
+- {code: CHEW, display: 'Chew, oral'}
+- {code: _Diffusion, display: Diffusion}
+- {code: EXTCORPDIF, display: 'Diffusion, extracorporeal'}
+- {code: HEMODIFF, display: 'Diffusion, hemodialysis'}
+- {code: TRNSDERMD, display: 'Diffusion, transdermal'}
+- {code: _Dissolve, display: Dissolve}
+- {code: DISSOLVE, display: 'Dissolve, oral'}
+- {code: SL, display: 'Dissolve, sublingual'}
+- {code: _ElectroOsmosisRoute, display: ElectroOsmosisRoute}
+- {code: ELECTOSMOS, display: Electro-osmosis}
+- {code: _Enema, display: Enema}
+- {code: ENEMA, display: 'Enema, rectal'}
+- {code: RETENEMA, display: 'Enema, rectal retention'}
+- {code: _Flush, display: Flush}
+- {code: IPROSTINJ, display: 'Injection, intraprostatic'}
+- {code: IPLRINJ, display: 'Injection, intrapleural'}
+- {code: IPINJ, display: 'Injection, intrapulmonary'}
+- {code: IPERINJ, display: 'Injection, intraperitoneal'}
+- {code: IPCARDINJ, display: 'Injection, intrapericardial'}
+- {code: IVFLUSH, display: 'Flush, intravenous catheter'}
+- {code: IOVARINJ, display: 'Injection, intraovarian'}
+- {code: JJTINSTL, display: 'Instillation, jejunostomy tube'}
+- {code: _Implantation, display: Implantation}
+- {code: IDIMPLNT, display: 'Implantation, intradermal'}
+- {code: BLADIRR, display: 'Irrigation, urinary bladder'}
+- {code: IOIRR, display: 'Irrigation, intraocular'}
+- {code: ILESIRR, display: 'Irrigation, intralesional'}
+- {code: IGASTIRR, display: 'Irrigation, intragastric'}
+- {code: GUIRR, display: 'Irrigation, genitourinary'}
+- {code: _Irrigation, display: Irrigation}
+- {code: IONTO, display: 'Topical application, iontophoresis'}
+- {code: _IontophoresisRoute, display: IontophoresisRoute}
+- {code: URETHINSTL, display: 'instillation, urethral'}
+- {code: TRTYMPINSTIL, display: 'Instillation, transtympanic'}
+- {code: TRACHINSTL, display: 'Instillation, tracheostomy'}
+- {code: SOFTISINSTIL, display: 'Instillation, soft tissue'}
+- {code: SININSTIL, display: 'Instillation, sinus, unspecified'}
+- {code: IVITIMPLNT, display: 'Implantation, intravitreal'}
+- {code: RECTINSTL, display: 'Instillation, rectal tube'}
+- {code: SQIMPLNT, display: 'Implantation, subcutaneous'}
+- {code: _Infusion, display: Infusion}
+- {code: EPI, display: 'Infusion, epidural'}
+- {code: IA, display: 'Infusion, intraarterial catheter'}
+- {code: IC, display: 'Infusion, intracardiac'}
+- {code: ICOR, display: 'Infusion, intracoronary'}
+- {code: IOSSC, display: 'Infusion, intraosseous, continuous'}
+- {code: IT, display: 'Infusion, intrathecal'}
+- {code: IV, display: 'Infusion, intravenous'}
+- {code: IVC, display: 'Infusion, intravenous catheter'}
+- {code: IVCC, display: 'Infusion, intravenous catheter, continuous'}
+- {code: IVCI, display: 'Infusion, intravenous catheter, intermittent'}
+- {code: PCA, display: 'Infusion, intravenous catheter, pca pump'}
+- {code: IVASCINFUS, display: 'Infusion, intravascular'}
+- {code: IOSSINJ, display: 'Injection, intraosseous'}
+- {code: SQINFUS, display: 'Infusion, subcutaneous'}
+- {code: _Inhalation, display: Inhalation}
+- {code: IPINHL, display: 'Inhalation, respiratory'}
+- {code: ORIFINHL, display: 'Inhalation, oral intermittent flow'}
+- {code: SQSURGINS, display: 'Insertion, subcutaneous, surgical'}
+- {code: LPINS, display: 'Insertion, lacrimal puncta'}
+- {code: _IntraesophagealRoute, display: IntraesophagealRoute}
+- {code: _IntragastricRoute, display: IntragastricRoute}
+- {code: _IntrailealRoute, display: IntrailealRoute}
+- {code: SUBCONJTA, display: Subconjunctival}
+- {code: _IntralesionalRoute, display: IntralesionalRoute}
+- {code: _IntraluminalRoute, display: IntraluminalRoute}
+- {code: _IntralymphaticRoute, display: IntralymphaticRoute}
+- {code: _IntramedullaryRoute, display: IntramedullaryRoute}
+- {code: _IntramuscularRoute, display: IntramuscularRoute}
+- {code: _IntraocularRoute, display: IntraocularRoute}
+- {code: _IntraosseousRoute, display: IntraosseousRoute}
+- {code: IOINJ, display: 'Injection, intraocular'}
+- {code: INTERSTITINJ, display: 'Injection, interstitial'}
+- {code: INTERMENINJ, display: 'Injection, interameningeal'}
+- {code: IMEDULINJ, display: 'Injection, intramedullary'}
+- {code: IMZ, display: 'Injection, intramuscular, z track'}
+- {code: IMD, display: 'Injection, intramuscular, deep'}
+- {code: IM, display: 'Injection, intramuscular'}
+- {code: ILYMPJINJ, display: 'Injection, intralymphatic'}
+- {code: ILUMINJ, display: 'Injection, intraluminal'}
+- {code: ILESINJ, display: 'Injection, intralesional'}
+- {code: IEPITHINJ, display: 'Injection, intraepithelial'}
+- {code: IEPIDINJ, display: 'Injection, intraepidermal'}
+- {code: IDURINJ, display: 'Injection, intradural'}
+- {code: IDUCTINJ, display: 'Injection, intraductal'}
+- {code: IDISCINJ, display: 'Injection, intradiscal'}
+- {code: IDINJ, display: 'Injection, intradermal'}
+- {code: ICORPCAVINJ, display: 'Injection, intracorpus cavernosum'}
+- {code: ICORONINJP, display: 'Injection, intracoronary, push'}
+- {code: IUINSTL, display: 'Instillation, intrauterine'}
+- {code: ICORONINJ, display: 'Injection, intracoronary'}
+- {code: ICISTERNINJ, display: 'Injection, intracisternal'}
+- {code: ICEREBINJ, display: 'Injection, intracerebral'}
+- {code: ICAVITINJ, display: 'Injection, intracavitary'}
+- {code: ICAVINJ, display: 'Injection, intracavernous'}
+- {code: ICAUDINJ, display: 'Injection, intracaudal'}
+- {code: ICARTINJ, display: 'Injection, intracartilaginous'}
+- {code: ICARINJP, display: 'Injection, intracardiac, push'}
+- {code: ICARDINJSP, display: 'Injection, intracardiac, slow push'}
+- {code: ICARDINJRP, display: 'Injection, intracardiac, rapid push'}
+- {code: ICARDINJ, display: 'Injection, intracardiac'}
+- {code: IBURSINJ, display: 'Injection, intrabursal'}
+- {code: IARTINJ, display: 'Injection, intraarticular'}
+- {code: IAINJSP, display: 'Injection, intraarterial, slow push'}
+- {code: IAINJP, display: 'Injection, intraarterial, push'}
+- {code: IAINJ, display: 'Injection, intraarterial'}
+- {code: IABDINJ, display: 'Injection, intra-abdominal'}
+- {code: HEMOPORT, display: 'Injection, hemodialysis port'}
+- {code: ENDOSININJ, display: 'Injection, endosinusial'}
+- {code: BLADINJ, display: 'Injection, urinary bladder'}
+- {code: GINGINJ, display: 'Injection, gingival'}
+- {code: GBINJ, display: 'Injection, gastric button'}
+- {code: EXTCORPINJ, display: 'Injection, extracorporeal'}
+- {code: EXTRAMNINJ, display: 'Injection, extra-amniotic'}
+- {code: ITRACHINSTIL, display: 'Instillation, intratracheal'}
+- {code: EPINJSP, display: 'Injection, epidural, slow push'}
+- {code: EPIINJ, display: 'Injection, epidural, push'}
+- {code: _IntraduralRoute, display: IntraduralRoute}
+- {code: _IntraduodenalRoute, display: IntraduodenalRoute}
+- {code: _IntraductalRoute, display: IntraductalRoute}
+- {code: _IntradiscalRoute, display: IntradiscalRoute}
+- {code: _IntradermalRoute, display: IntradermalRoute}
+- {code: _IntracorpusCavernosumRoute, display: IntracorpusCavernosumRoute}
+- {code: _IntracoronaryRoute, display: IntracoronaryRoute}
+- {code: _IntracoronalRoute, display: IntracoronalRoute}
+- {code: _IntracornealRoute, display: IntracornealRoute}
+- {code: _IntracisternalRoute, display: IntracisternalRoute}
+- {code: _IntracervicalRoute, display: IntracervicalRoute}
+- {code: _IntracerebralRoute, display: IntracerebralRoute}
+- {code: _IntracavitaryRoute, display: IntracavitaryRoute}
+- {code: _IntracavernosalRoute, display: IntracavernosalRoute}
+- {code: _IntracaudalRoute, display: IntracaudalRoute}
+- {code: _IntracartilaginousRoute, display: IntracartilaginousRoute}
+- {code: _IntracardiacRoute, display: IntracardiacRoute}
+- {code: _IntrabursalRoute, display: IntrabursalRoute}
+- {code: _IntrabronchialRoute, display: IntrabronchialRoute}
+- {code: _IntraarticularRoute, display: IntraarticularRoute}
+- {code: _IntraarterialRoute, display: IntraarterialRoute}
+- {code: _IntraabdominalRoute, display: IntraabdominalRoute}
+- {code: RECINSTL, display: 'Instillation, rectal'}
+- {code: PNSINSTL, display: 'Instillation, paranasal sinuses'}
+- {code: PDPINSTL, display: 'Instillation, peritoneal dialysis port'}
+- {code: EPIDURINJ, display: 'Injection, epidural'}
+- {code: CERVINJ, display: 'Injection, cervical'}
+- {code: _InterstitialRoute, display: InterstitialRoute}
+- {code: CHOLINJ, display: 'Injection, for cholangiography'}
+- {code: BILINJ, display: 'Injection, biliary tract'}
+- {code: AMNINJ, display: 'Injection, amniotic fluid'}
+- {code: _Injection, display: Injection}
+- {code: VENTMASK, display: 'Inhalation, ventimask'}
+- {code: VENT, display: 'Inhalation, ventilator'}
+- {code: TRACH, display: 'Inhalation, tracheostomy'}
+- {code: ORNEB, display: 'Inhalation, nebulization, oral'}
+- {code: NASNEB, display: 'Inhalation, nebulization, nasal'}
+- {code: OT, display: 'Instillation, otic'}
+- {code: OJJ, display: 'Instillation, orojejunum tube'}
+- {code: NEB, display: 'Inhalation, nebulization'}
+- {code: NASINHLC, display: 'Inhalation, nasal cannula'}
+- {code: _InterameningealRoute, display: InterameningealRoute}
+- {code: NASINHL, display: 'Inhalation, nasal'}
+- {code: IPPB, display: 'Inhalation, intermittent positive pressure breathing (ippb)'}
+- {code: REBREATH, display: 'Inhalation, oral rebreather mask'}
+- {code: ISININSTIL, display: 'Instillation, intrasinal'}
+- {code: IOINSTL, display: 'Instillation, intraocular'}
+- {code: _HairRoute, display: HairRoute}
+- {code: IDUODINSTIL, display: 'Instillation, intraduodenal'}
+- {code: IBRONCHINSTIL, display: 'Instillation, intrabronchial'}
+- {code: IESOPHINSTIL, display: 'Instillation, intraesophageal'}
+- {code: _GingivalRoute, display: GingivalRoute}
+- {code: GJT, display: 'Instillation, gastro-jejunostomy tube'}
+- {code: ETINSTL, display: 'Instillation, endotracheal tube'}
+- {code: CTINSTL, display: 'Instillation, chest tube'}
+- {code: CAPDINSTL, display: 'Instillation, continuous ambulatory peritoneal dialysis
+    port'}
+- {code: BLADINSTL, display: 'Instillation, urinary catheter'}
+- {code: OGT, display: 'Instillation, orogastric tube'}
+- {code: NGT, display: 'Instillation, nasogastric tube'}
+- {code: NTT, display: 'Instillation, nasotracheal tube'}
+- {code: GT, display: 'Instillation, gastrostomy tube'}
+- {code: ENTINSTL, display: 'Instillation, enteral'}
+- {code: EFT, display: 'Instillation, enteral feeding tube'}
+- {code: CECINSTL, display: 'Instillation, cecostomy'}
+- {code: _GenitourinaryRoute, display: GenitourinaryRoute}
+- {code: _Instillation, display: Instillation}
+- {code: NASOGASINSTIL, display: 'Instillation, nasogastric'}
+- {code: _GastricRoute, display: GastricRoute}
+- {code: _ExtracorporealCirculationRoute, display: ExtracorporealCirculationRoute}
+- {code: _ExtraAmnioticRoute, display: ExtraAmnioticRoute}
+- {code: _EpiduralRoute, display: EpiduralRoute}
+- {code: _EnteralRoute, display: EnteralRoute}
+- {code: _EndocervicalRoute, display: EndocervicalRoute}
+- {code: _CervicalRoute, display: CervicalRoute}
+- {code: VAGINSI, display: 'Insertion, vaginal'}
+- {code: _CecostomyRoute, display: CecostomyRoute}
+- {code: _BuccalMucosaRoute, display: BuccalMucosaRoute}
+- {code: _BodySurfaceRoute, display: BodySurfaceRoute}
+- {code: _BiliaryRoute, display: BiliaryRoute}
+- {code: _AmnioticFluidSacRoute, display: AmnioticFluidSacRoute}
+- {code: _RouteBySite, display: RouteBySite}
+- {code: TRNSDERM, display: Transdermal}
+- {code: _IntraepidermalRoute, display: IntraepidermalRoute}
+- {code: INSUF, display: Insufflation}
+- {code: VAGINS, display: 'Topical application, vaginal'}
+- {code: TMUCTA, display: 'Topical application, transmucosal'}
+- {code: _IntraepithelialRoute, display: IntraepithelialRoute}
+- {code: URETHINS, display: 'Insertion, urethral'}
+- {code: PR, display: 'Insertion, rectal'}

@@ -1,0 +1,6 @@
+- {code: entered-in-error, display: Entered In Error}
+- {code: in-progress, display: In Progress}
+- {code: data-required, display: Data Required}
+- {code: data-requested, display: Data Requested}
+- {code: success, display: Success}
+- {code: failure, display: Failure}

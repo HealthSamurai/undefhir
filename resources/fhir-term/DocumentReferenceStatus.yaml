@@ -1,0 +1,3 @@
+- {code: current, display: Current}
+- {code: superseded, display: Superseded}
+- {code: entered-in-error, display: Entered in Error}

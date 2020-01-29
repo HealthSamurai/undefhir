@@ -1,0 +1,20 @@
+- {code: USCDC, display: US Center for Disease Control}
+- {code: CANBC, display: Canada - British Columbia}
+- {code: CANMB, display: Canada - Manitoba}
+- {code: CANNB, display: Canada - New Brunswick}
+- {code: CANNF, display: Canada - Newfoundland}
+- {code: CANNS, display: Canada - Nova Scotia}
+- {code: CANNT, display: Canada - Northwest Territories}
+- {code: CANNU, display: Canada - Nanavut}
+- {code: CANPE, display: Canada - Prince Edward Island}
+- {code: CANQC, display: Canada - Quebec}
+- {code: CANSK, display: Canada - Saskatchewan}
+- {code: CANYT, display: Canada - Yukon Territories}
+- {code: NLVWS, display: 'NL - Ministerie van Volksgezondheid, Welzijn en Sport'}
+- {code: USHCFA, display: US Healthcare Finance Authority}
+- {code: USSSA, display: US Social Security Administration}
+- {code: CANON, display: Canada - Ontario}
+- {code: '...', display: No suggested values defined}
+- {code: AUSDVA, display: Australia - Dept. of Veterans Affairs}
+- {code: AUSHIC, display: Australia - Health Insurance Commission}
+- {code: CANAB, display: Canada - Alberta}

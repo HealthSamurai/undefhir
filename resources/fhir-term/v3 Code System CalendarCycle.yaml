@@ -1,0 +1,18 @@
+- {code: CW, display: week (continuous)}
+- {code: CD, display: day (continuous)}
+- {code: CH, display: hour (continuous)}
+- {code: WM, display: week of the month}
+- {code: WY, display: week of the year}
+- {code: DY, display: day of the year}
+- {code: CS, display: second (continuous)}
+- {code: CN, display: minute (continuous)}
+- {code: _CalendarCycleTwoLetter, display: CalendarCycleTwoLetter}
+- {code: S, display: second of the minute}
+- {code: N, display: minute of the hour}
+- {code: M, display: month of the year}
+- {code: H, display: hour of the day}
+- {code: DW, display: day of the week (begins with Monday)}
+- {code: D, display: day of the month}
+- {code: CY, display: year}
+- {code: _CalendarCycleOneLetter, display: CalendarCycleOneLetter}
+- {code: CM, display: month (continuous)}

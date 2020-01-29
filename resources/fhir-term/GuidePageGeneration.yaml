@@ -1,0 +1,4 @@
+- {code: xml, display: XML}
+- {code: markdown, display: Markdown}
+- {code: html, display: HTML}
+- {code: generated, display: Generated}

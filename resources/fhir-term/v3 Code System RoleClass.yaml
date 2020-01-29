@@ -1,0 +1,112 @@
+- {code: CIT, display: citizen}
+- {code: PHYS, display: physician}
+- {code: PA, display: physician assistant}
+- {code: NURPRAC, display: nurse practitioner}
+- {code: CHILD, display: child}
+- {code: ISLT, display: isolate}
+- {code: ALQT, display: aliquot}
+- {code: SPEC, display: specimen}
+- {code: ACTM, display: active moiety}
+- {code: PART, display: part}
+- {code: MBR, display: member}
+- {code: STOR, display: stored entity}
+- {code: LOCE, display: located entity}
+- {code: MECH, display: mechanical ingredient}
+- {code: STBL, display: stabilizer}
+- {code: PRSV, display: preservative}
+- {code: FLVR, display: flavor additive}
+- {code: COLR, display: color additive}
+- {code: IACT, display: inactive ingredient}
+- {code: CRED, display: credentialed entity}
+- {code: CNTM, display: contaminant ingredient}
+- {code: BASE, display: base}
+- {code: ADTV, display: additive}
+- {code: ADJV, display: adjuvant}
+- {code: ACTIR, display: active ingredient - reference substance is basis of strength}
+- {code: ACTIM, display: active ingredient - moiety is basis of strength}
+- {code: ACTIB, display: active ingredient - basis of strength}
+- {code: ACTI, display: active ingredient}
+- {code: INGR, display: ingredient}
+- {code: FOMITE, display: fomite}
+- {code: EXPVECTOR, display: exposure vector}
+- {code: EXPAGTCAR, display: exposure agent carrier}
+- {code: NURS, display: nurse}
+- {code: CONT, display: content}
+- {code: _RoleClassPartitive, display: RoleClassPartitive}
+- {code: SUBS, display: subsumer}
+- {code: INST, display: instance}
+- {code: GRIC, display: has generic}
+- {code: GEN, display: has generalization}
+- {code: SUBY, display: subsumed by}
+- {code: SAME, display: same}
+- {code: EQUIV, display: equivalent entity}
+- {code: _RoleClassOntological, display: RoleClassOntological}
+- {code: WRTE, display: warranted product}
+- {code: USED, display: used entity}
+- {code: TERR, display: territory of authority}
+- {code: RGPR, display: regulated product}
+- {code: OWN, display: owned entity}
+- {code: MNT, display: maintained entity}
+- {code: THER, display: therapeutic agent}
+- {code: MANU, display: manufactured product}
+- {code: IDENT, display: identified entity}
+- {code: HLTHCHRT, display: health chart}
+- {code: HLD, display: held entity}
+- {code: EXPR, display: exposed entity}
+- {code: ISDLOC, display: incidental service delivery location}
+- {code: DSDLOC, display: dedicated service delivery location}
+- {code: SDLOC, display: service delivery location}
+- {code: EXLOC, display: event location}
+- {code: RET, display: retailed material}
+- {code: DST, display: distributed material}
+- {code: DEATHPLC, display: place of death}
+- {code: ADMM, display: Administerable Material}
+- {code: CONY, display: continuity}
+- {code: BOND, display: molecular bond}
+- {code: CONC, display: connection}
+- {code: ADJY, display: adjacency}
+- {code: ACCESS, display: access}
+- {code: _RoleClassPassive, display: RoleClassPassive}
+- {code: SELF, display: self}
+- {code: PRS, display: personal relationship}
+- {code: CAREGIVER, display: caregiver}
+- {code: UNDWRT, display: underwriter}
+- {code: SPNSR, display: coverage sponsor}
+- {code: QUAL, display: qualified entity}
+- {code: POLHOLD, display: policy holder}
+- {code: PAYOR, display: invoice payor}
+- {code: PAYEE, display: payee}
+- {code: PAT, display: patient}
+- {code: PROV, display: healthcare provider}
+- {code: NOT, display: notary public}
+- {code: LIC, display: licensed entity}
+- {code: RESBJ, display: research subject}
+- {code: CASEBJ, display: Case Subject}
+- {code: INVSBJ, display: Investigation Subject}
+- {code: GUAR, display: guarantor}
+- {code: STD, display: student}
+- {code: CRSPNSR, display: clinical research sponsor}
+- {code: CRINV, display: clinical research investigator}
+- {code: PROG, display: program eligible}
+- {code: SUBSCR, display: subscriber}
+- {code: INDIV, display: individual}
+- {code: DEPEN, display: dependent}
+- {code: BIRTHPL, display: birthplace}
+- {code: MIL, display: military person}
+- {code: EMP, display: employee}
+- {code: NAMED, display: named insured}
+- {code: CLAIM, display: claimant}
+- {code: COVPTY, display: covered party}
+- {code: GUARD, display: guardian}
+- {code: NOK, display: next of kin}
+- {code: ECON, display: emergency contact}
+- {code: CON, display: contact}
+- {code: SGNOFF, display: signing authority or officer}
+- {code: COMPAR, display: commissioning party}
+- {code: ASSIGNED, display: assigned entity}
+- {code: AGNT, display: agent}
+- {code: AFFL, display: affiliate}
+- {code: _RoleClassRelationshipFormal, display: RoleClassRelationshipFormal}
+- {code: _RoleClassMutualRelationship, display: RoleClassMutualRelationship}
+- {code: _RoleClassAssociative, display: RoleClassAssociative}
+- {code: ROL, display: role}

@@ -1,0 +1,4 @@
+- {code: unlikely, display: Unlikely}
+- {code: likely, display: Likely}
+- {code: unknown, display: Unknown}
+- {code: confirmed, display: Confirmed}

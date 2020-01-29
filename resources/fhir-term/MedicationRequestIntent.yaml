@@ -1,0 +1,6 @@
+- {code: option, display: Option}
+- {code: instance-order, display: Instance Order}
+- {code: proposal, display: Proposal}
+- {code: plan, display: Plan}
+- {code: order, display: Order}
+- {code: original-order, display: Original Order}

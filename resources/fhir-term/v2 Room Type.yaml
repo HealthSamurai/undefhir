@@ -1,0 +1,6 @@
+- {code: 2ICU, display: Second intensive care unit}
+- {code: SPR, display: Semi-private room}
+- {code: PRI, display: Private room}
+- {code: ICU, display: Intensive care unit}
+- {code: 2SPR, display: Second semi-private room}
+- {code: 2PRI, display: Second private room}

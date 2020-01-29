@@ -1,0 +1,5 @@
+- {code: temp, display: Temp}
+- {code: secondary, display: Secondary}
+- {code: usual, display: Usual}
+- {code: official, display: Official}
+- {code: old, display: Old}

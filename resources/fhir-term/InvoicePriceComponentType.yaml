@@ -1,0 +1,6 @@
+- {code: surcharge, display: surcharge}
+- {code: informational, display: informational}
+- {code: deduction, display: deduction}
+- {code: tax, display: tax}
+- {code: base, display: base price}
+- {code: discount, display: discount}

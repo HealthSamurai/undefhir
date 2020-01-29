@@ -1,0 +1,3 @@
+- {code: 'no', display: 'No'}
+- {code: undetermined, display: Undetermined}
+- {code: 'yes', display: 'Yes'}

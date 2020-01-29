@@ -1,0 +1,3 @@
+- {code: N, display: Country}
+- {code: C, display: County/Parish}
+- {code: S, display: State/Province}

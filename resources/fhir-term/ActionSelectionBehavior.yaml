@@ -1,0 +1,6 @@
+- {code: one-or-more, display: One Or More}
+- {code: any, display: Any}
+- {code: all, display: All}
+- {code: all-or-none, display: All Or None}
+- {code: exactly-one, display: Exactly One}
+- {code: at-most-one, display: At Most One}

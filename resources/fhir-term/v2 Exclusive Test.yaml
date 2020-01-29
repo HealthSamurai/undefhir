@@ -1,0 +1,4 @@
+- {code: D, display: 'In some cases, this test should be only exclusively with like
+    tests (examples are cyto or pathology)'}
+- {code: Y, display: This test should be exclusive}
+- {code: N, display: This test can be included with any number of other tests}

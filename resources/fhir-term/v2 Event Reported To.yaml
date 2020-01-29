@@ -1,0 +1,4 @@
+- {code: D, display: Distributor}
+- {code: L, display: Local facility/user facility}
+- {code: M, display: Manufacturer}
+- {code: R, display: Regulatory agency}

@@ -1,0 +1,9 @@
+- {code: I, display: On IV}
+- {code: U, display: Unknown}
+- {code: A, display: Aggressive}
+- {code: B, display: Blind}
+- {code: C, display: Confused}
+- {code: D, display: Deaf}
+- {code: N, display: Do not resuscitate}
+- {code: O, display: Other}
+- {code: P, display: Paraplegic}

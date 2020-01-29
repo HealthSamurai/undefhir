@@ -1,0 +1,7 @@
+- {code: WED, display: Wednesday}
+- {code: FRI, display: Friday}
+- {code: MON, display: Monday}
+- {code: SAT, display: Saturday}
+- {code: SUN, display: Sunday}
+- {code: THU, display: Thursday}
+- {code: TUE, display: Tuesday}

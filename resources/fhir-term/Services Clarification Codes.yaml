@@ -1,0 +1,7 @@
+- {code: GFTH, display: Good Faith Indicator}
+- {code: DGAPP, display: Diagnostic Approval Number}
+- {code: DTCTR, display: Data Center Number}
+- {code: CLCTR, display: Claim Center}
+- {code: ENC, display: Encounter Number}
+- {code: SEQ, display: Sequence Number}
+- {code: OOP, display: Out of Province Indicator}

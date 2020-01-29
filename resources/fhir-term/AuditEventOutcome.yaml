@@ -1,0 +1,4 @@
+- {code: '8', display: Serious failure}
+- {code: '12', display: Major failure}
+- {code: '0', display: Success}
+- {code: '4', display: Minor failure}

@@ -1,0 +1,7 @@
+- {code: '!=', display: Not Equals}
+- {code: <=, display: Less or Equals}
+- {code: '>=', display: Greater or Equals}
+- {code: <, display: Less Than}
+- {code: '>', display: Greater Than}
+- {code: =, display: Equals}
+- {code: exists, display: Exists}

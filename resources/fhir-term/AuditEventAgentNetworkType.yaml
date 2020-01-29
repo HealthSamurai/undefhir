@@ -1,0 +1,5 @@
+- {code: '4', display: Email address}
+- {code: '5', display: URI}
+- {code: '3', display: Telephone Number}
+- {code: '1', display: Machine Name}
+- {code: '2', display: IP Address}

@@ -1,0 +1,4 @@
+- {code: FM, display: Family Member}
+- {code: GT, display: Guarantor}
+- {code: SB, display: Subscriber}
+- {code: PT, display: Patient}

@@ -1,0 +1,8 @@
+- {code: cyan, display: Color Cyan}
+- {code: green, display: Color Green}
+- {code: white, display: Color White}
+- {code: red, display: Color Red}
+- {code: black, display: Color Black}
+- {code: yellow, display: Color Yellow}
+- {code: blue, display: Color Blue}
+- {code: magenta, display: Color Magenta}

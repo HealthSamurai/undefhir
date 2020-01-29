@@ -1,0 +1,4 @@
+- {code: share, display: Share}
+- {code: first, display: First}
+- {code: collate, display: Collate}
+- {code: last, display: Last}

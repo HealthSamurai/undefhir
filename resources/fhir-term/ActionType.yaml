@@ -1,0 +1,4 @@
+- {code: create, display: Create}
+- {code: fire-event, display: Fire Event}
+- {code: remove, display: Remove}
+- {code: update, display: Update}

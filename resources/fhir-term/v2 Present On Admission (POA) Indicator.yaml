@@ -1,0 +1,5 @@
+- {code: U, display: Unknown}
+- {code: Y, display: 'Yes'}
+- {code: W, display: Not applicable}
+- {code: E, display: Exempt}
+- {code: N, display: 'No'}

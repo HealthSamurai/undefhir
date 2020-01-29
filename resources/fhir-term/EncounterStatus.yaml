@@ -1,0 +1,9 @@
+- {code: arrived, display: Arrived}
+- {code: entered-in-error, display: Entered in Error}
+- {code: planned, display: Planned}
+- {code: finished, display: Finished}
+- {code: cancelled, display: Cancelled}
+- {code: unknown, display: Unknown}
+- {code: in-progress, display: In Progress}
+- {code: triaged, display: Triaged}
+- {code: onleave, display: On Leave}

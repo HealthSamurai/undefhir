@@ -1,0 +1,16 @@
+- {code: RLQ, display: 'Quadrant, Right Lower'}
+- {code: RUQ, display: 'Quadrant, Right Upper'}
+- {code: BIL, display: Bilateral}
+- {code: DIS, display: Distal}
+- {code: EXT, display: External}
+- {code: L, display: Left}
+- {code: LAT, display: Lateral}
+- {code: LLQ, display: 'Quadrant, Left Lower'}
+- {code: LOW, display: Lower}
+- {code: LUQ, display: 'Quadrant, Left Upper'}
+- {code: MED, display: Medial}
+- {code: POS, display: Posterior}
+- {code: PRO, display: Proximal}
+- {code: R, display: Right}
+- {code: ANT, display: Anterior}
+- {code: UPP, display: Upper}

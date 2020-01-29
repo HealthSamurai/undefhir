@@ -1,0 +1,21 @@
+- {code: 4-upper, display: Upper Quartile}
+- {code: 5-2, display: 2nd Quintile}
+- {code: 5-3, display: 3rd Quintile}
+- {code: sum, display: Sum}
+- {code: median, display: Median}
+- {code: totalcount, display: Total Count}
+- {code: count, display: Count}
+- {code: minimum, display: Minimum}
+- {code: std-dev, display: Standard Deviation}
+- {code: maximum, display: Maximum}
+- {code: average, display: Average}
+- {code: 80-percent, display: 80th Percentile}
+- {code: 4-lower, display: Lower Quartile}
+- {code: 4-dev, display: Quartile Deviation}
+- {code: regression, display: Regression}
+- {code: kurtosis, display: Kurtosis}
+- {code: skew, display: Skew}
+- {code: 5-1, display: 1st Quintile}
+- {code: 5-4, display: 4th Quintile}
+- {code: variance, display: Variance}
+- {code: 20-percent, display: 20th Percentile}

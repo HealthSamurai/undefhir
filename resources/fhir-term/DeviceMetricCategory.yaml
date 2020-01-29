@@ -1,0 +1,4 @@
+- {code: calculation, display: Calculation}
+- {code: setting, display: Setting}
+- {code: unspecified, display: Unspecified}
+- {code: measurement, display: Measurement}

@@ -1,0 +1,5 @@
+- {code: busy-unavailable, display: Busy (Unavailable)}
+- {code: busy, display: Busy}
+- {code: entered-in-error, display: Entered in error}
+- {code: busy-tentative, display: Busy (Tentative)}
+- {code: free, display: Free}

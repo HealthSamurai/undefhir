@@ -1,0 +1,3 @@
+- {code: agree, display: Agree}
+- {code: pending, display: Pending}
+- {code: disagree, display: Disagree}

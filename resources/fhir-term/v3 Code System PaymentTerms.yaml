@@ -1,0 +1,4 @@
+- {code: N90, display: Net 90 days}
+- {code: N30, display: Net 30 days}
+- {code: N60, display: Net 60 days}
+- {code: COD, display: Cash on Delivery}

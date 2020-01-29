@@ -1,0 +1,3 @@
+- {code: U, display: User Error}
+- {code: P, display: Preventable}
+- {code: O, display: Other}

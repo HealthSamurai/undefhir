@@ -1,0 +1,4 @@
+- {code: functional, display: Functional}
+- {code: disabled, display: Disabled}
+- {code: unknown, display: Unknown}
+- {code: non-functional, display: Non-Functional}

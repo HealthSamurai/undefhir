@@ -1,0 +1,4 @@
+- {code: planned, display: Planned}
+- {code: completed, display: Completed}
+- {code: active, display: Active}
+- {code: reserved, display: Reserved}

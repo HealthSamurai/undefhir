@@ -1,0 +1,3 @@
+- {code: E, display: Exact}
+- {code: NT, display: Narrower Than}
+- {code: BT, display: Broader Than}

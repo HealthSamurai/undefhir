@@ -1,0 +1,10 @@
+- {code: amended, display: Amended}
+- {code: corrected, display: Corrected}
+- {code: appended, display: Appended}
+- {code: cancelled, display: Cancelled}
+- {code: entered-in-error, display: Entered in Error}
+- {code: unknown, display: Unknown}
+- {code: registered, display: Registered}
+- {code: partial, display: Partial}
+- {code: final, display: Final}
+- {code: preliminary, display: Preliminary}

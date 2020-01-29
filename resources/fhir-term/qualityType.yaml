@@ -1,0 +1,3 @@
+- {code: indel, display: INDEL Comparison}
+- {code: unknown, display: UNKNOWN Comparison}
+- {code: snp, display: SNP Comparison}

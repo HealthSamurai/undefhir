@@ -1,0 +1,3 @@
+- {code: witness, display: Witness}
+- {code: performer, display: Performer}
+- {code: verifier, display: Verifier}

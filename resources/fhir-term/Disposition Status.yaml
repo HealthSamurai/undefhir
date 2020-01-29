@@ -1,0 +1,5 @@
+- {code: RA, display: Returned unused/no longer needed}
+- {code: WA, display: Wasted (product no longer viable)}
+- {code: TX, display: Transfused}
+- {code: TR, display: Transfused with adverse reaction}
+- {code: RL, display: Returned unused/keep linked to patient for possible use later}

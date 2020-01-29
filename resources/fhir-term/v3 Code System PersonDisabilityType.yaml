@@ -1,0 +1,10 @@
+- {code: '2', display: Hearing impaired}
+- {code: '3', display: Speech impaired}
+- {code: WK, display: Requires walker}
+- {code: WC, display: Requires wheelchair}
+- {code: CR, display: Requires crutches}
+- {code: CB, display: Requires crib}
+- {code: '1', display: Vision impaired}
+- {code: G, display: Requires gurney}
+- {code: '5', display: Mobility impaired}
+- {code: '4', display: Mentally impaired}

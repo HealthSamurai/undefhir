@@ -1,0 +1,3 @@
+- {code: assessment, display: Assessment}
+- {code: education, display: Education}
+- {code: treatment, display: Treatment}

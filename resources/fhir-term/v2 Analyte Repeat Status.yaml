@@ -1,0 +1,4 @@
+- {code: F, display: Reflex test}
+- {code: D, display: Repeated with dilution}
+- {code: O, display: 'Original, first run'}
+- {code: R, display: Repeated without dilution}

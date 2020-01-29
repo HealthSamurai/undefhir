@@ -1,0 +1,7 @@
+- {code: _MedicationCap, display: MedicationCap}
+- {code: CHILD, display: ChildProof}
+- {code: EASY, display: EasyOpen}
+- {code: SCR, display: Screw Cap}
+- {code: PUSH, display: Push Cap}
+- {code: FOIL, display: Foil}
+- {code: FILM, display: Film}

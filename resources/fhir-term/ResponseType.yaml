@@ -1,0 +1,3 @@
+- {code: fatal-error, display: Fatal Error}
+- {code: transient-error, display: Transient Error}
+- {code: ok, display: OK}

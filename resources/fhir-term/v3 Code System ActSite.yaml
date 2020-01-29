@@ -1,0 +1,54 @@
+- {code: LLFA, display: left lower forearm}
+- {code: RVL, display: right vastus lateralis}
+- {code: RVG, display: right ventragluteal}
+- {code: RUFA, display: right upper forearm}
+- {code: RUAQ, display: right upper abd quadrant}
+- {code: RUA, display: right upper arm}
+- {code: RT, display: right thigh}
+- {code: RSC, display: right subclavian}
+- {code: RPC, display: right posterior chest}
+- {code: RN, display: right naris}
+- {code: RMFA, display: right mid forearm}
+- {code: RLFA, display: right lower forearm}
+- {code: RLAQ, display: right lower abd quadrant}
+- {code: RIJ, display: right internal jugular}
+- {code: RH, display: right hand}
+- {code: RG, display: right gluteus medius}
+- {code: RF, display: right foot}
+- {code: REJ, display: right external jugular}
+- {code: RE, display: right ear}
+- {code: RD, display: right deltoid}
+- {code: RACF, display: right antecubital fossa}
+- {code: RAC, display: right anterior chest}
+- {code: RA, display: right arm}
+- {code: PERIN, display: perineal}
+- {code: PA, display: perianal}
+- {code: OU, display: bilateral eyes}
+- {code: OS, display: left eye}
+- {code: OD, display: right eye}
+- {code: LVL, display: left vastus lateralis}
+- {code: LVG, display: left ventragluteal}
+- {code: LUFA, display: left upper forearm}
+- {code: LUAQ, display: left upper abd quadrant}
+- {code: LUA, display: left upper arm}
+- {code: LT, display: left thigh}
+- {code: LSC, display: left subclavian}
+- {code: LPC, display: left posterior chest}
+- {code: LN, display: left naris}
+- {code: _HumanActSite, display: HumanActSite}
+- {code: _HumanSubstanceAdministrationSite, display: HumanSubstanceAdministrationSite}
+- {code: BE, display: bilateral ears}
+- {code: BN, display: bilateral nares}
+- {code: BU, display: buttock}
+- {code: LA, display: left arm}
+- {code: LAC, display: left anterior chest}
+- {code: LACF, display: left antecubital fossa}
+- {code: LD, display: left deltoid}
+- {code: LE, display: left ear}
+- {code: LEJ, display: left external jugular}
+- {code: LF, display: left foot}
+- {code: LG, display: left gluteus medius}
+- {code: LH, display: left hand}
+- {code: LIJ, display: left internal jugular}
+- {code: LLAQ, display: left lower abd quadrant}
+- {code: LMFA, display: left mid forearm}

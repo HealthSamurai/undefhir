@@ -1,0 +1,9 @@
+- {code: I, display: 'Incapacity which is significant, persistent or permanent'}
+- {code: C, display: Congenital anomaly/birth defect}
+- {code: D, display: Death}
+- {code: H, display: Caused hospitalized}
+- {code: J, display: 'Disability which is significant, persistent or permanent'}
+- {code: L, display: Life threatening}
+- {code: O, display: Other}
+- {code: P, display: Prolonged hospitalization}
+- {code: R, display: Required intervention to prevent permanent impairment/damage}

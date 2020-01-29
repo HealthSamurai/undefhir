@@ -1,0 +1,7 @@
+- {code: FLA, display: Flammable}
+- {code: UNK, display: Unknown}
+- {code: TOX, display: Toxic}
+- {code: RAD, display: Radioactive}
+- {code: INJ, display: Injury Hazard}
+- {code: EXP, display: Explosive}
+- {code: COR, display: Corrosive}

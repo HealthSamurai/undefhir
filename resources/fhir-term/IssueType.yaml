@@ -1,0 +1,29 @@
+- {code: required, display: Required element missing}
+- {code: too-long, display: Content Too Long}
+- {code: code-invalid, display: Invalid Code}
+- {code: login, display: Login Required}
+- {code: invalid, display: Invalid Content}
+- {code: structure, display: Structural Issue}
+- {code: not-found, display: Not Found}
+- {code: value, display: Element value invalid}
+- {code: invariant, display: Validation rule failed}
+- {code: security, display: Security Problem}
+- {code: unknown, display: Unknown User}
+- {code: expired, display: Session Expired}
+- {code: forbidden, display: Forbidden}
+- {code: suppressed, display: Information  Suppressed}
+- {code: processing, display: Processing Failure}
+- {code: not-supported, display: Content not supported}
+- {code: duplicate, display: Duplicate}
+- {code: extension, display: Unacceptable Extension}
+- {code: conflict, display: Edit Version Conflict}
+- {code: business-rule, display: Business Rule Violation}
+- {code: transient, display: Transient Issue}
+- {code: too-costly, display: Operation Too Costly}
+- {code: lock-error, display: Lock Error}
+- {code: no-store, display: No Store Available}
+- {code: exception, display: Exception}
+- {code: timeout, display: Timeout}
+- {code: throttled, display: Throttled}
+- {code: informational, display: Informational Note}
+- {code: incomplete, display: Incomplete Results}

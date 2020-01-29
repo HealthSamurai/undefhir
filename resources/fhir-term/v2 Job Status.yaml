@@ -1,0 +1,4 @@
+- {code: P, display: Permanent}
+- {code: O, display: Other}
+- {code: U, display: Unknown}
+- {code: T, display: Temporary}

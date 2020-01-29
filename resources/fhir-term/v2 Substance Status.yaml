@@ -1,0 +1,11 @@
+- {code: NE, display: Not Available Error}
+- {code: QW, display: QC Warning}
+- {code: QE, display: QC Error}
+- {code: OW, display: Other Warning}
+- {code: OK, display: OK Status}
+- {code: OE, display: Other Error}
+- {code: CE, display: Calibration Error}
+- {code: NW, display: Not Available Warning}
+- {code: EE, display: Expired Error}
+- {code: CW, display: Calibration Warning}
+- {code: EW, display: Expired Warning}

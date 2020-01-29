@@ -1,0 +1,5 @@
+- {code: work, display: Work}
+- {code: old, display: Old}
+- {code: mobile, display: Mobile}
+- {code: temp, display: Temp}
+- {code: home, display: Home}

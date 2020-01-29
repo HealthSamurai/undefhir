@@ -1,0 +1,4 @@
+- {code: extensible, display: Extensible}
+- {code: example, display: Example}
+- {code: required, display: Required}
+- {code: preferred, display: Preferred}

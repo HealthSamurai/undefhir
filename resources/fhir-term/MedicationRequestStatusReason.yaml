@@ -1,0 +1,13 @@
+- {code: drughigh, display: Drug level too high}
+- {code: sddi, display: Drug interacts with another drug}
+- {code: washout, display: Waiting for old drug to wash out}
+- {code: surg, display: Patient scheduled for surgery}
+- {code: sintol, display: Suspected intolerance}
+- {code: sdupther, display: Duplicate therapy}
+- {code: salg, display: Allergy}
+- {code: preg, display: Parent is pregnant/breast feeding}
+- {code: non-avail, display: Patient not-available}
+- {code: labint, display: Lab interference issues}
+- {code: hospadm, display: Admission to hospital}
+- {code: clarif, display: Prescription requires clarification}
+- {code: altchoice, display: Try another treatment first}

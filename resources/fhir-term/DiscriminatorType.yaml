@@ -1,0 +1,5 @@
+- {code: type, display: Type}
+- {code: pattern, display: Pattern}
+- {code: value, display: Value}
+- {code: exists, display: Exists}
+- {code: profile, display: Profile}

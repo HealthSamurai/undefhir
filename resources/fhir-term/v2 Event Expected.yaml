@@ -1,0 +1,3 @@
+- {code: N, display: 'No'}
+- {code: U, display: Unknown}
+- {code: Y, display: 'Yes'}

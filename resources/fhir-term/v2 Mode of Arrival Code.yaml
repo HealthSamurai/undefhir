@@ -1,0 +1,7 @@
+- {code: H, display: Helicopter}
+- {code: O, display: Other}
+- {code: P, display: Public Transport}
+- {code: U, display: Unknown}
+- {code: A, display: Ambulance}
+- {code: C, display: Car}
+- {code: F, display: On foot}

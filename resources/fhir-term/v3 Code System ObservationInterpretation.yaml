@@ -1,0 +1,57 @@
+- {code: IE, display: Insufficient evidence}
+- {code: AC, display: Anti-complementary substances present}
+- {code: '>', display: Off scale high}
+- {code: <, display: Off scale low}
+- {code: _ObservationInterpretationExceptions, display: ObservationInterpretationExceptions}
+- {code: EX, display: outside threshold}
+- {code: UNE, display: Unexpected}
+- {code: OBX, display: Interpretation qualifiers in separate OBX segments}
+- {code: HX, display: above high threshold}
+- {code: LX, display: below low threshold}
+- {code: W, display: Worse}
+- {code: HM, display: Hold for Medical Review}
+- {code: ObservationInterpretationDetection, display: ObservationInterpretationDetection}
+- {code: IND, display: Indeterminate}
+- {code: E, display: Equivocal}
+- {code: _GeneticObservationInterpretation, display: GeneticObservationInterpretation}
+- {code: QCF, display: Quality control failure}
+- {code: NR, display: Non-reactive}
+- {code: CAR, display: Carrier}
+- {code: Carrier, display: Carrier}
+- {code: _ObservationInterpretationChange, display: ObservationInterpretationChange}
+- {code: B, display: Better}
+- {code: D, display: Significant change down}
+- {code: U, display: Significant change up}
+- {code: S, display: Susceptible}
+- {code: SDD, display: Susceptible-dose dependent}
+- {code: SYN-S, display: Synergy - susceptible}
+- {code: VS, display: very susceptible}
+- {code: POS, display: Positive}
+- {code: LU, display: Significantly low}
+- {code: WR, display: Weakly reactive}
+- {code: SYN-R, display: Synergy - resistant}
+- {code: R, display: Resistant}
+- {code: NS, display: Non-susceptible}
+- {code: ND, display: Not detected}
+- {code: NCL, display: No CLSI defined breakpoint}
+- {code: MS, display: moderately susceptible}
+- {code: I, display: Intermediate}
+- {code: _ObservationInterpretationSusceptibility, display: ObservationInterpretationSusceptibility}
+- {code: N, display: Normal}
+- {code: L<, display: Significantly low}
+- {code: RR, display: Reactive}
+- {code: L, display: Low}
+- {code: HU, display: Significantly high}
+- {code: H>, display: Significantly high}
+- {code: NEG, display: Negative}
+- {code: H, display: High}
+- {code: LL, display: Critical low}
+- {code: HH, display: Critical high}
+- {code: DET, display: Detected}
+- {code: ObservationInterpretationExpectation, display: ObservationInterpretationExpectation}
+- {code: AA, display: Critical abnormal}
+- {code: EXP, display: Expected}
+- {code: ReactivityObservationInterpretation, display: ReactivityObservationInterpretation}
+- {code: A, display: Abnormal}
+- {code: _ObservationInterpretationNormality, display: ObservationInterpretationNormality}
+- {code: TOX, display: Cytotoxic substance present}

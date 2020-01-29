@@ -1,0 +1,4 @@
+- {code: warning, display: Warning}
+- {code: error, display: Error}
+- {code: information, display: Information}
+- {code: fatal, display: Fatal}

@@ -1,0 +1,3 @@
+- {code: EOB, display: Print on EOB}
+- {code: PAT, display: Inform Patient}
+- {code: PRO, display: Inform Provider}

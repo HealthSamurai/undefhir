@@ -1,0 +1,5 @@
+- {code: in-progress, display: In Progress}
+- {code: amended, display: Amended}
+- {code: completed, display: Completed}
+- {code: stopped, display: Stopped}
+- {code: entered-in-error, display: Entered in Error}

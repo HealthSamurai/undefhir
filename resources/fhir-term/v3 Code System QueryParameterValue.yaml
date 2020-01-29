@@ -1,0 +1,16 @@
+- {code: ISSFU, display: with unmanaged issues}
+- {code: _DispenseQueryFilterCode, display: dispense query filter code}
+- {code: ALLDISP, display: all dispenses}
+- {code: LASTDISP, display: last dispense}
+- {code: NODISP, display: no dispense}
+- {code: _OrderFilterCode, display: _OrderFilterCode}
+- {code: AO, display: all orders}
+- {code: ONR, display: orders without results}
+- {code: OWR, display: orders with results}
+- {code: _PrescriptionDispenseFilterCode, display: Prescription Dispense Filter Code}
+- {code: C, display: Completely dispensed}
+- {code: N, display: Never Dispensed}
+- {code: R, display: Dispensed with remaining fills}
+- {code: _QueryParameterValue, display: QueryParameterValue}
+- {code: ISSFA, display: all}
+- {code: ISSFI, display: with issues}

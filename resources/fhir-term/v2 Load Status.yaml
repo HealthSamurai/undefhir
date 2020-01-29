@@ -1,0 +1,4 @@
+- {code: LCP, display: Load In Process}
+- {code: LLD, display: Building a Load}
+- {code: LCC, display: Load is Complete}
+- {code: LCN, display: Load Canceled}

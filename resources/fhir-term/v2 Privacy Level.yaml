@@ -1,0 +1,6 @@
+- {code: W, display: Ward}
+- {code: F, display: Isolation}
+- {code: J, display: Private room - medically justified}
+- {code: P, display: Private room}
+- {code: Q, display: Private room - due to overflow}
+- {code: S, display: Semi-private room}

@@ -1,0 +1,9 @@
+- {code: F, display: F}
+- {code: G, display: (gamma)}
+- {code: E, display: exponential}
+- {code: B, display: beta}
+- {code: LN, display: log-normal}
+- {code: U, display: uniform}
+- {code: N, display: normal (Gaussian)}
+- {code: T, display: T}
+- {code: X2, display: chi square}

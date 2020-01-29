@@ -1,0 +1,5 @@
+- {code: '03', display: Census management}
+- {code: '02', display: Physician/health practitioner order}
+- {code: '01', display: Patient request}
+- {code: U, display: Unknown}
+- {code: O, display: Other}

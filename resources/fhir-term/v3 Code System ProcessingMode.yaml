@@ -1,0 +1,4 @@
+- {code: I, display: Initial load}
+- {code: R, display: Restore from archive}
+- {code: A, display: Archive}
+- {code: T, display: Current processing}

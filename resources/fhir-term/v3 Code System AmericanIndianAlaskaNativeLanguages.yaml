@@ -1,0 +1,255 @@
+- {code: x-NEZ, display: Nez Perce}
+- {code: x-SJW, display: Shawnee}
+- {code: x-ALW, display: Aleut}
+- {code: _Algic, display: Algic}
+- {code: _Algonquian, display: Algonquian}
+- {code: _Arapahoan, display: Arapahoan}
+- {code: x-BLC, display: Blackfoot}
+- {code: _ArapahoGrosVentre, display: ArapahoGrosVentre}
+- {code: x-ARP, display: Arapaho}
+- {code: x-ATS, display: Gros Ventre}
+- {code: _CreeMontagnais, display: CreeMontagnais}
+- {code: _Cree, display: Cree}
+- {code: x-CRP, display: Western Cree}
+- {code: _EasternAlgonquin, display: EasternAlgonquin}
+- {code: _Abenakian, display: Abenakian}
+- {code: x-AAQ, display: Eastern Abenaki}
+- {code: x-ABE, display: Western Abenaki}
+- {code: x-MAC, display: Maliseet-Passamaquoddy}
+- {code: _Delawaran, display: Delawaran}
+- {code: x-DEL, display: Unami Delaware}
+- {code: x-MIC, display: Micmac}
+- {code: _Ojibwayan, display: Ojibwayan}
+- {code: x-OJB, display: Southern Ojibwa}
+- {code: x-POT, display: Potawatami}
+- {code: _SaukFoxKickapoo, display: SaukFoxKickapoo}
+- {code: x-KIC, display: Kickapoo}
+- {code: x-SAC, display: Mesquakie}
+- {code: x-CHY, display: Cheyenne}
+- {code: x-MEZ, display: Menominee}
+- {code: _Ritwan, display: Ritwan}
+- {code: x-YUR, display: Yurok}
+- {code: _Caddoan, display: Caddoan}
+- {code: _NorthernCaddoan, display: NorthernCaddoan}
+- {code: x-ARI, display: Arikara}
+- {code: x-PAW, display: Pawnee}
+- {code: x-WIC, display: Wichita}
+- {code: _SouthernCaddoan, display: SouthernCaddoan}
+- {code: x-CAD, display: Caddo}
+- {code: _Chimakuan, display: Chimakuan}
+- {code: x-QUI, display: Quileute}
+- {code: _EskimoAleut, display: EskimoAleut}
+- {code: _Aleut, display: Aleut}
+- {code: _Eskimoan, display: Eskimoan}
+- {code: _InuitInupiaq, display: InuitInupiaq}
+- {code: x-ESI, display: North Alaskan Inuktitut}
+- {code: x-ESK, display: Northwest Alaska Inuktitut}
+- {code: _SirenikskiYupik, display: SirenikskiYupik}
+- {code: x-KJU, display: Kashaya}
+- {code: x-EMS, display: Pacific Yupik Gulf}
+- {code: x-ESS, display: Central Siberian Yupik}
+- {code: x-ESU, display: Central Alaskan Yupik}
+- {code: _Hokan, display: Hokan}
+- {code: _CochimiYuman, display: CochimiYuman}
+- {code: _Yuman, display: Yuman}
+- {code: _DeltaCalifornia, display: DeltaCalifornia}
+- {code: _Diegueno, display: Diegueno}
+- {code: x-DIH, display: Kumeyaay}
+- {code: x-COC, display: Cocopa}
+- {code: _Pai, display: Pai}
+- {code: x-YUF, display: Havasupai}
+- {code: _River, display: River}
+- {code: x-MOV, display: Mohave}
+- {code: x-MRC, display: Maricopa}
+- {code: x-YUM, display: Quechan}
+- {code: x-HOP, display: Hopi}
+- {code: _Palaihnihan, display: Palaihnihan}
+- {code: x-ACH, display: Achumawi}
+- {code: x-ATW, display: Atsugewi}
+- {code: _Pomoan, display: Pomoan}
+- {code: x-PEF, display: Northeastern Pomo}
+- {code: x-PEO, display: Southeastern Pomo}
+- {code: x-PEQ, display: Southern Pomo}
+- {code: x-POO, display: Central Pomo}
+- {code: _Shasta, display: Shasta}
+- {code: x-SHT, display: Shasta}
+- {code: x-KYH, display: Karok}
+- {code: x-WAS, display: Washoe}
+- {code: _Iroquoian, display: Iroquoian}
+- {code: _NorthernIroquoian, display: NorthernIroquoian}
+- {code: x-CAY, display: Cayuga}
+- {code: x-MOH, display: Mohawk}
+- {code: x-ONE, display: Oneida}
+- {code: x-ONO, display: Onondaga}
+- {code: x-SEE, display: Seneca}
+- {code: x-TUS, display: Tuscarora}
+- {code: x-CER, display: Cherokee}
+- {code: _Keresan, display: Keresan}
+- {code: x-KEE, display: Rio Grande Keresan}
+- {code: x-KJQ, display: Acoma-Laguna}
+- {code: _KiowaTanoan, display: KiowaTanoan}
+- {code: _Tiwa, display: Tiwa}
+- {code: x-TAO, display: Northern Tiwa}
+- {code: x-TIX, display: Southern Tiwa}
+- {code: x-KIO, display: Kiowa}
+- {code: x-TEW, display: Tewa}
+- {code: x-TOW, display: Jemez}
+- {code: _Muskogean, display: Muskogean}
+- {code: _CentralMuskogean, display: CentralMuskogean}
+- {code: x-AKZ, display: Alabama}
+- {code: x-CKU, display: Koasati}
+- {code: x-MIK, display: Mikasuki}
+- {code: _WesternMuskogean, display: WesternMuskogean}
+- {code: x-CCT, display: Choctaw}
+- {code: x-CIC, display: Chickasaw}
+- {code: x-CRK, display: Creek}
+- {code: _Nadene, display: Nadene}
+- {code: _AthapaskanEyak, display: AthapaskanEyak}
+- {code: _Athapaskan, display: Athapaskan}
+- {code: _Apachean, display: Apachean}
+- {code: _EasternApachean, display: EasternApachean}
+- {code: x-APJ, display: Jicarilla}
+- {code: x-APL, display: Lipan}
+- {code: _WesternApachean, display: WesternApachean}
+- {code: x-APM, display: Mescalero-Chiricahua}
+- {code: x-APW, display: Western Apache}
+- {code: x-NAV, display: Dine}
+- {code: x-APK, display: Kiowa Apache}
+- {code: _CentralAlaskaYukon, display: CentralAlaskaYukon}
+- {code: _KoyukonIngalik, display: KoyukonIngalik}
+- {code: x-HOI, display: Holikachuk}
+- {code: x-ING, display: Degexit'an}
+- {code: x-KOY, display: Koyukon}
+- {code: _KutchinHan, display: KutchinHan}
+- {code: x-HAA, display: Han}
+- {code: x-KUC, display: Kutchin}
+- {code: _TananaTutchone, display: TananaTutchone}
+- {code: _Tanana, display: Tanana}
+- {code: x-TAA, display: Lower Tanana}
+- {code: x-TAU, display: Upper Tanana}
+- {code: x-TCB, display: Tanacross}
+- {code: x-KUU, display: Upper Kuskokwim}
+- {code: _PacificCoastAthapaskan, display: PacificCoastAthapaskan}
+- {code: _CaliforniaAthapaskan, display: CaliforniaAthapaskan}
+- {code: x-HUP, display: Hupa}
+- {code: x-KTW, display: Cahto}
+- {code: _OregonAthapaskan, display: OregonAthapaskan}
+- {code: x-TOL, display: Tolowa}
+- {code: x-TUU, display: Tututni}
+- {code: _SouthernAlaska, display: SouthernAlaska}
+- {code: x-AHT, display: Ahtna}
+- {code: x-TFN, display: Tanaina}
+- {code: x-EYA, display: Eyak}
+- {code: x-TLI, display: Tlingit}
+- {code: _Penutian, display: Penutian}
+- {code: _Chinookan, display: Chinookan}
+- {code: _UpperChinook, display: UpperChinook}
+- {code: x-WAC, display: Kiksht}
+- {code: _Coosan, display: Coosan}
+- {code: x-COS, display: Hanis}
+- {code: _Maiduan, display: Maiduan}
+- {code: x-MAI, display: Northwest Maidu}
+- {code: x-NMU, display: Northeast Maidu}
+- {code: x-NSZ, display: Nisenan}
+- {code: _PlateauPenutian, display: PlateauPenutian}
+- {code: _Sahaptian, display: Sahaptian}
+- {code: x-UMA, display: Umatilla}
+- {code: x-WAA, display: Walla Walla}
+- {code: x-WAR, display: Tenino}
+- {code: x-YAK, display: Yakima}
+- {code: x-KLA, display: Klamath-Modoc}
+- {code: _Takelman, display: Takelman}
+- {code: _Kalapuyan, display: Kalapuyan}
+- {code: x-KAL, display: Central Kalapuyan}
+- {code: _Tsimshianic, display: Tsimshianic}
+- {code: x-TSI, display: Coast Tsimshain}
+- {code: _Utian, display: Utian}
+- {code: _Miwokan, display: Miwokan}
+- {code: _EasternMiwok, display: EasternMiwok}
+- {code: x-CSM, display: Central Sierra Miwok}
+- {code: x-NSQ, display: Northern Sierra Miwok}
+- {code: x-PMW, display: Plains Miwok}
+- {code: x-SKD, display: Southern Sierra Miwok}
+- {code: _WesternMiwok, display: WesternMiwok}
+- {code: x-CSI, display: Coast Miwok}
+- {code: x-LMW, display: Lake Miwok}
+- {code: _Wintuan, display: Wintuan}
+- {code: x-WIT, display: Wintu-Nomlaki}
+- {code: _Yokutsan, display: Yokutsan}
+- {code: x-ENH, display: Kings River}
+- {code: x-GSH, display: Gashowu}
+- {code: x-PYL, display: Poso Creek}
+- {code: x-TKH, display: Tule-Kaweah}
+- {code: _Pidgin, display: Pidgin}
+- {code: x-CHH, display: Chinook Wawa}
+- {code: _Salishan, display: Salishan}
+- {code: _CentralSalish, display: CentralSalish}
+- {code: x-CLM, display: Clallam}
+- {code: x-LUT, display: Lushootseed}
+- {code: x-STR, display: Northern Straits}
+- {code: _InteriorSalish, display: InteriorSalish}
+- {code: x-COL, display: Columbian}
+- {code: x-CRD, display: Coeur D'alene}
+- {code: x-FLA, display: Kalispel}
+- {code: x-OKA, display: Okanagan}
+- {code: _Tsamosan, display: Tsamosan}
+- {code: x-CEA, display: Lower Chehalis}
+- {code: x-CJH, display: Upper Chehalis}
+- {code: x-COW, display: Cowlitz}
+- {code: x-QUN, display: Quinault}
+- {code: _SiouanCatawba, display: SiouanCatawba}
+- {code: _Siouan, display: Siouan}
+- {code: _MississippiValley, display: MississippiValley}
+- {code: _ChiwereWinnebago, display: ChiwereWinnebago}
+- {code: x-IOW, display: Chiwere}
+- {code: x-WIN, display: Hocak}
+- {code: _Dakotan, display: Dakotan}
+- {code: x-ASB, display: Assiniboine}
+- {code: x-DHG, display: Dakota}
+- {code: x-LKT, display: Lakota}
+- {code: x-NKT, display: Nakota}
+- {code: _Dhegiha, display: Dhegiha}
+- {code: x-KAA, display: Kansa}
+- {code: x-OMA, display: Omaha-Ponca}
+- {code: x-OSA, display: Osage}
+- {code: x-QUA, display: Quapaw}
+- {code: _MissouriRiver, display: MissouriRiver}
+- {code: x-CRO, display: Crow}
+- {code: x-HID, display: Hidatsa}
+- {code: x-MHQ, display: Mandan}
+- {code: _UtoAztecan, display: UtoAztecan}
+- {code: _Numic, display: Numic}
+- {code: _CentralNumic, display: CentralNumic}
+- {code: x-COM, display: Comanche}
+- {code: x-PAR, display: Panamint}
+- {code: x-SHH, display: Shoshone}
+- {code: _SouthernNumic, display: SouthernNumic}
+- {code: x-KAW, display: Kawaiisu}
+- {code: x-UTE, display: Ute-Southern Paiute}
+- {code: _WesternNumic, display: WesternNumic}
+- {code: x-MON, display: Mono}
+- {code: x-PAO, display: Northern Paiute-Bannock}
+- {code: _Takic, display: Takic}
+- {code: _Cupan, display: Cupan}
+- {code: x-CHL, display: Cahuilla}
+- {code: x-CUP, display: Cupeno}
+- {code: x-LUI, display: Luiseno}
+- {code: _SerranoGabrielino, display: SerranoGabrielino}
+- {code: x-SER, display: Serrano}
+- {code: _Taracahitan, display: Taracahitan}
+- {code: _Cahitan, display: Cahitan}
+- {code: x-YAQ, display: Yaqui}
+- {code: _Tepiman, display: Tepiman}
+- {code: x-PAP, display: Papago-Pima}
+- {code: x-TUB, display: Tubatululabal}
+- {code: _Wakashan, display: Wakashan}
+- {code: _Nootkan, display: Nootkan}
+- {code: x-MYH, display: Makah}
+- {code: _Yukian, display: Yukian}
+- {code: x-WAO, display: Wappo}
+- {code: x-YUK, display: Yuki}
+- {code: x-HAI, display: Haida}
+- {code: x-KUN, display: Kootenai}
+- {code: x-PSD, display: Plains Indian Sign Language}
+- {code: x-YUC, display: Yuchi}
+- {code: x-ZUN, display: Zuni}

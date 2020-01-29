@@ -1,0 +1,12 @@
+- {code: disapproved, display: Disapproved}
+- {code: completed, display: Completed}
+- {code: closed-to-accrual-and-intervention, display: Closed to Accrual and Intervention}
+- {code: closed-to-accrual, display: Closed to Accrual}
+- {code: approved, display: Approved}
+- {code: administratively-completed, display: Administratively Completed}
+- {code: withdrawn, display: Withdrawn}
+- {code: active, display: Active}
+- {code: in-review, display: In Review}
+- {code: temporarily-closed-to-accrual, display: Temporarily Closed to Accrual}
+- {code: temporarily-closed-to-accrual-and-intervention, display: Temporarily Closed
+    to Accrual and Intervention}

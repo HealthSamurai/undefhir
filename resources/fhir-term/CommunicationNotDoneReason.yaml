@@ -1,0 +1,6 @@
+- {code: system-error, display: System Error}
+- {code: patient-objection, display: Patient Objection}
+- {code: family-objection, display: Family Objection}
+- {code: recipient-unavailable, display: Recipient Unavailable}
+- {code: unknown, display: Unknown}
+- {code: invalid-phone-number, display: Invalid Phone Number}

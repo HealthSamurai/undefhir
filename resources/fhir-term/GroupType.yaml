@@ -1,0 +1,6 @@
+- {code: medication, display: Medication}
+- {code: device, display: Device}
+- {code: substance, display: Substance}
+- {code: person, display: Person}
+- {code: animal, display: Animal}
+- {code: practitioner, display: Practitioner}

@@ -1,0 +1,8 @@
+- {code: R, display: Room}
+- {code: O, display: Operating Room}
+- {code: N, display: Nursing Unit}
+- {code: L, display: Other Location}
+- {code: E, display: Exam Room}
+- {code: D, display: Department}
+- {code: C, display: Clinic}
+- {code: B, display: Bed}

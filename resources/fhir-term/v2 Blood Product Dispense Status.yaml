@@ -1,0 +1,11 @@
+- {code: RS, display: Reserved (ordered and product allocated for the patient)}
+- {code: CR, display: Released into inventory for general availability}
+- {code: DS, display: Dispensed to patient location}
+- {code: PT, display: Presumed transfused (dispensed and not returned)}
+- {code: RA, display: Returned unused/no longer needed}
+- {code: RD, display: Reserved and ready to dispense}
+- {code: RE, display: Released (no longer allocated for the patient)}
+- {code: RI, display: Received into inventory (for specified patient)}
+- {code: RL, display: Returned unused/keep linked to patient for possible use later}
+- {code: RQ, display: Request to dispense blood product}
+- {code: WA, display: Wasted (product no longer viable)}

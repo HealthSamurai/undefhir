@@ -1,0 +1,4 @@
+- {code: outpatient, display: Outpatient}
+- {code: inpatient, display: Inpatient}
+- {code: patientspecified, display: Patient Specified}
+- {code: community, display: Community}

@@ -1,0 +1,3 @@
+- {code: ftp, display: FTP}
+- {code: mllp, display: MLLP}
+- {code: http, display: HTTP}

@@ -1,0 +1,6 @@
+- {code: standalone, display: standalone}
+- {code: in-context, display: in context}
+- {code: edit-check, display: edit check}
+- {code: valueset, display: value set}
+- {code: primary, display: primary source}
+- {code: multi, display: multiple sources}

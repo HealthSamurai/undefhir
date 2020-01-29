@@ -1,0 +1,3 @@
+- {code: '1', display: Operation relevant procedure}
+- {code: '0', display: Neither operation relevant nor non-operation relevant procedure}
+- {code: '2', display: Non-operation relevant procedure}

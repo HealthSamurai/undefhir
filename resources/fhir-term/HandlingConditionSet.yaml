@@ -1,0 +1,3 @@
+- {code: refrigerated, display: refrigerated}
+- {code: room, display: room temperature}
+- {code: frozen, display: frozen}

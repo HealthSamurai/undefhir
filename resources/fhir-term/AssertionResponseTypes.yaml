@@ -1,0 +1,12 @@
+- {code: gone, display: gone}
+- {code: unprocessable, display: unprocessable}
+- {code: created, display: created}
+- {code: okay, display: okay}
+- {code: notModified, display: notModified}
+- {code: conflict, display: conflict}
+- {code: methodNotAllowed, display: methodNotAllowed}
+- {code: notFound, display: notFound}
+- {code: forbidden, display: forbidden}
+- {code: bad, display: bad}
+- {code: noContent, display: noContent}
+- {code: preconditionFailed, display: preconditionFailed}

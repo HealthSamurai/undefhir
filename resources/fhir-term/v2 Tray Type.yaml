@@ -1,0 +1,5 @@
+- {code: MSG, display: Tray message only}
+- {code: LATE, display: Late tray}
+- {code: GUEST, display: Guest tray}
+- {code: EARLY, display: Early tray}
+- {code: 'NO', display: No tray}

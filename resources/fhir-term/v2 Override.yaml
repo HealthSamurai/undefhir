@@ -1,0 +1,3 @@
+- {code: X, display: Override not allowed}
+- {code: R, display: Override required}
+- {code: A, display: Override allowed}

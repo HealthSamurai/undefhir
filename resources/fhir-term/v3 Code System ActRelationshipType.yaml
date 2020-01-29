@@ -1,0 +1,137 @@
+- {code: QUALF, display: has qualifier}
+- {code: STEP, display: has step}
+- {code: ARR, display: arrival}
+- {code: DEP, display: departure}
+- {code: OUTC, display: has outcome}
+- {code: PART, display: has part}
+- {code: COVBY, display: covered by}
+- {code: DRIV, display: is derived from}
+- {code: ELNK, display: episodeLink}
+- {code: EVID, display: provides evidence for}
+- {code: EXACBY, display: exacerbated by}
+- {code: EXPL, display: has explanation}
+- {code: INTF, display: interfered by}
+- {code: ITEMSLOC, display: items located}
+- {code: LIMIT, display: limited by}
+- {code: META, display: has metadata}
+- {code: SUMM, display: summarized by}
+- {code: MFST, display: is manifestation of}
+- {code: NAME, display: assigns name}
+- {code: _ActRelationsipObjective, display: Act Relationsip Objective}
+- {code: OBJC, display: has continuing objective}
+- {code: OBJF, display: has final objective}
+- {code: GOAL, display: has goal}
+- {code: RISK, display: has risk}
+- {code: PERT, display: has pertinent information}
+- {code: PREV, display: has previous instance}
+- {code: REFR, display: refers to}
+- {code: USE, display: uses}
+- {code: REFV, display: has reference values}
+- {code: RELVBY, display: relieved by}
+- {code: SEQL, display: is sequel}
+- {code: APND, display: is appendage}
+- {code: BSLN, display: has baseline}
+- {code: COMPLY, display: complies with}
+- {code: DOC, display: documents}
+- {code: FLFS, display: fulfills}
+- {code: OCCR, display: occurrence}
+- {code: OREF, display: references order}
+- {code: GEN, display: has generalization}
+- {code: GEVL, display: evaluates (goal)}
+- {code: INST, display: instantiates (master)}
+- {code: MOD, display: modifies}
+- {code: MTCH, display: matches (trigger)}
+- {code: OPTN, display: has option}
+- {code: SCH, display: schedules request}
+- {code: ART, display: act relationship type}
+- {code: _ActClassTemporallyPertains, display: ActClassTemporallyPertains}
+- {code: _ActRelationshipAccounting, display: ActRelationshipAccounting}
+- {code: _ActRelationshipCostTracking, display: ActRelationshipCostTracking}
+- {code: ACTIMM, display: active immunization against}
+- {code: CHRG, display: has charge}
+- {code: COST, display: has cost}
+- {code: _ActRelationshipPosting, display: ActRelationshipPosting}
+- {code: CREDIT, display: has credit}
+- {code: DEBIT, display: has debit}
+- {code: _ActRelationshipConditional, display: ActRelationshipConditional}
+- {code: CIND, display: has contra-indication}
+- {code: RCHAL, display: re-challenge}
+- {code: PRCN, display: has pre-condition}
+- {code: RSON, display: has reason}
+- {code: BLOCK, display: blocks}
+- {code: DIAG, display: diagnoses}
+- {code: IMM, display: immunization against}
+- {code: PASSIMM, display: passive immunization against}
+- {code: MITGT, display: mitigates}
+- {code: RCVY, display: recovers}
+- {code: PRYLX, display: prophylaxis of}
+- {code: TREAT, display: treats}
+- {code: ADJUNCT, display: adjunctive treatment}
+- {code: MTREAT, display: maintenance treatment}
+- {code: PALLTREAT, display: palliates}
+- {code: SYMP, display: symptomatic relief}
+- {code: TRIG, display: has trigger}
+- {code: _ActRelationshipTemporallyPertains, display: ActRelationshipTemporallyPertains}
+- {code: _ActRelationshipTemporallyPertainsApproximates, display: ActRelationshipTemporallyPertainsApproximates}
+- {code: ENE, display: ends near end}
+- {code: ECW, display: ends concurrent with}
+- {code: CONCURRENT, display: concurrent with}
+- {code: SBSECWE, display: 'starts before start of, ends with'}
+- {code: ENS, display: ends near start}
+- {code: ECWS, display: ends concurrent with start of}
+- {code: SNE, display: starts near end}
+- {code: SCWE, display: starts concurrent with end of}
+- {code: SNS, display: starts near start}
+- {code: SCW, display: starts concurrent with}
+- {code: SCWSEBE, display: starts with. ends before end of}
+- {code: SCWSEAE, display: 'starts with, ends after end of'}
+- {code: EAS, display: ends after start of}
+- {code: EAE, display: ends after end of}
+- {code: SASEAE, display: 'starts after start of, ends after end of'}
+- {code: SBEEAE, display: contains end of}
+- {code: SASSBEEAS, display: 'start after start of, contains end of'}
+- {code: SBSEAE, display: contains time of}
+- {code: SAS, display: starts after start of}
+- {code: SAE, display: starts after end of}
+- {code: DURING, display: occurs during}
+- {code: SASECWE, display: 'starts after start of, ends with'}
+- {code: EASORECWS, display: ends after or concurrent with start of}
+- {code: EAEORECW, display: ends after or concurrent with end of}
+- {code: INDEPENDENT, display: independent of time of}
+- {code: SAEORSCWE, display: starts after or concurrent with end of}
+- {code: SASORSCW, display: starts after or concurrent with start of}
+- {code: SBEORSCWE, display: starts before or concurrent with end of}
+- {code: OVERLAP, display: overlaps with}
+- {code: EDU, display: ends during}
+- {code: SBSEASEBE, display: 'contains start of, ends before end of'}
+- {code: SBSEAS, display: contains start of}
+- {code: SDU, display: starts during}
+- {code: SBE, display: starts before end of}
+- {code: EBE, display: ends before end of}
+- {code: SBSEBE, display: 'starts before start of, ends before end of'}
+- {code: EBSORECWS, display: ends before or concurrent with start of}
+- {code: EBS, display: ends before start of}
+- {code: EBEORECW, display: ends before or concurrent with end of}
+- {code: SBSORSCW, display: starts before or concurrent with start of}
+- {code: SBS, display: starts before start of}
+- {code: AUTH, display: authorized by}
+- {code: CAUS, display: is etiology for}
+- {code: COMP, display: has component}
+- {code: CTRLV, display: has control variable}
+- {code: MBR, display: has member}
+- {code: REV, display: reverses}
+- {code: RPLC, display: replaces}
+- {code: SUCC, display: succeeds}
+- {code: UPDT, display: updates (condition)}
+- {code: XCRPT, display: Excerpts}
+- {code: VRXCRPT, display: Excerpt verbatim}
+- {code: XFRM, display: transformation}
+- {code: SPRT, display: has support}
+- {code: SPRTBND, display: has bounded support}
+- {code: SUBJ, display: has subject}
+- {code: VALUE, display: has value}
+- {code: CURE, display: curative indication}
+- {code: CURE.ADJ, display: adjunct curative indication}
+- {code: MTGT.ADJ, display: adjunct mitigation}
+- {code: RACT, display: null}
+- {code: SUGG, display: null}

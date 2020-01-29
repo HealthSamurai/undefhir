@@ -1,0 +1,12 @@
+- {code: draft, display: Draft}
+- {code: entered-in-error, display: Entered in Error}
+- {code: completed, display: Completed}
+- {code: in-progress, display: In Progress}
+- {code: cancelled, display: Cancelled}
+- {code: ready, display: Ready}
+- {code: rejected, display: Rejected}
+- {code: accepted, display: Accepted}
+- {code: received, display: Received}
+- {code: requested, display: Requested}
+- {code: failed, display: Failed}
+- {code: on-hold, display: On Hold}

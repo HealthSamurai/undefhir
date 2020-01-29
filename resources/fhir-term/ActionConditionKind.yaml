@@ -1,0 +1,3 @@
+- {code: stop, display: Stop}
+- {code: start, display: Start}
+- {code: applicability, display: Applicability}

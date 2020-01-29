@@ -1,0 +1,4 @@
+- {code: MAY, display: MAY}
+- {code: SHOULD-NOT, display: SHOULD-NOT}
+- {code: SHOULD, display: SHOULD}
+- {code: SHALL, display: SHALL}

@@ -1,0 +1,6 @@
+- {code: A, display: Archive}
+- {code: T, display: 'Current processing, transmitted at intervals (scheduled or on
+    demand)'}
+- {code: R, display: Restore from archive}
+- {code: Not present, display: 'Not present (the default, meaning current  processing)'}
+- {code: I, display: Initial load}

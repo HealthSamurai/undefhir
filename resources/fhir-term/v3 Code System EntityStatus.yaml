@@ -1,0 +1,5 @@
+- {code: active, display: active}
+- {code: nullified, display: nullified}
+- {code: terminated, display: terminated}
+- {code: normal, display: normal}
+- {code: inactive, display: inactive}

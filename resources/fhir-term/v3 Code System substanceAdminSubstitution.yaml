@@ -1,0 +1,10 @@
+- {code: N, display: none}
+- {code: TB, display: therapeutic brand}
+- {code: TG, display: therapeutic generic}
+- {code: F, display: formulary}
+- {code: EC, display: equivalent composition}
+- {code: BC, display: brand composition}
+- {code: G, display: generic composition}
+- {code: _ActSubstanceAdminSubstitutionCode, display: ActSubstanceAdminSubstitutionCode}
+- {code: TE, display: therapeutic alternative}
+- {code: E, display: equivalent}

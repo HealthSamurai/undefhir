@@ -1,0 +1,15 @@
+- {code: asked-declined, display: Asked But Declined}
+- {code: not-asked, display: Not Asked}
+- {code: temp-unknown, display: Temporarily Unknown}
+- {code: asked-unknown, display: Asked But Unknown}
+- {code: unknown, display: Unknown}
+- {code: not-a-number, display: Not a Number (NaN)}
+- {code: positive-infinity, display: Positive Infinity (PINF)}
+- {code: negative-infinity, display: Negative Infinity (NINF)}
+- {code: error, display: Error}
+- {code: not-performed, display: Not Performed}
+- {code: as-text, display: As Text}
+- {code: not-permitted, display: Not Permitted}
+- {code: unsupported, display: Unsupported}
+- {code: not-applicable, display: Not Applicable}
+- {code: masked, display: Masked}

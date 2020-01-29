@@ -72,7 +72,6 @@
    :randNumber    u/rand-nmb
    :toJson        json/generate-string
    :toYaml        yaml/generate-string
-   :spit          spit
    :randPhone     rand-phone
    :cljtreefhir   tree2fhir
    :dict          dict})
@@ -89,8 +88,12 @@
       (body (merge {:fns (merge root-fns cache)}
                    {:assocIn #(assoc-in %1 (map keyword %2) %3)
                     :first first
+                    :spit spit
                     :second second
+                    :toArray vector
+                    :split #(clojure.string/split %1 (re-pattern %2))
                     :get get
+                    :last last
                     :rest rest}
                    (zipmap (mapv keyword $fn) args))))))
 

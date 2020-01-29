@@ -1,0 +1,3 @@
+- {code: I, display: immediate}
+- {code: Q, display: queue}
+- {code: D, display: deferred}

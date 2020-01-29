@@ -1,4 +1,4 @@
-terminology: true
+terminology: true  
 
 dictionary:
   - name: Patient
@@ -52,8 +52,8 @@ fns:
     $body:
       $call: spit
       $args:
-        - $ "/home/victor/Documents/Work/Trash/" + fns.mkName(toString(sys)) + ".json" 
-        - $  fns.toJson(fns.cleanUpConcept(cnt)) 
+        - $ "/home/victor/Documents/Alkona/undefhir/resources/fhir-term/" + fns.mkName(toString(sys)) + ".yaml" 
+        - $  fns.toYaml(fns.cleanUpConcept(cnt)) 
     
   - name: intoFiles
     $body:

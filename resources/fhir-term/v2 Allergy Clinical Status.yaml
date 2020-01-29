@@ -1,0 +1,7 @@
+- {code: C, display: Confirmed or verified}
+- {code: I, display: Confirmed but inactive}
+- {code: U, display: Unconfirmed}
+- {code: E, display: Erroneous}
+- {code: S, display: Suspect}
+- {code: P, display: Pending}
+- {code: D, display: Doubt raised}

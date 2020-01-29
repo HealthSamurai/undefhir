@@ -1,0 +1,10 @@
+- {code: text, display: Text}
+- {code: above, display: Above}
+- {code: below, display: Below}
+- {code: not-in, display: Not In}
+- {code: in, display: In}
+- {code: not, display: Not}
+- {code: contains, display: Contains}
+- {code: exact, display: Exact}
+- {code: missing, display: Missing}
+- {code: type, display: Type}

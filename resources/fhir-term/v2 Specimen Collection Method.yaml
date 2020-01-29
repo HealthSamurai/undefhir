@@ -1,0 +1,42 @@
+- {code: WOOD, display: 'Swab, Wooden Shaft'}
+- {code: TMCH, display: 'Transport Media, Chalamydia'}
+- {code: VENIP, display: Venipuncture}
+- {code: TMOT, display: 'Transport Media,'}
+- {code: TMMY, display: 'Transport Media, Mycoplasma'}
+- {code: TMPV, display: 'Transport Media, PVA'}
+- {code: SWD, display: 'Swab, Dacron tipped'}
+- {code: TMSC, display: 'Transport Media, Stool Culture'}
+- {code: TMAN, display: 'Transport Media, Anaerobic'}
+- {code: TMVI, display: 'Transport Media, Viral'}
+- {code: TMP, display: 'Plate, Thayer-Martin'}
+- {code: TMM4, display: 'Transport Media, M4'}
+- {code: KOFFP, display: 'Plate, Cough'}
+- {code: CVP, display: 'Line, CVP'}
+- {code: BCPD, display: 'Blood Culture, Pediatric Bottle'}
+- {code: BCAN, display: 'Blood Culture, Anaerobic Bottle'}
+- {code: TMUP, display: 'Transport Media, Ureaplasma'}
+- {code: BCAE, display: 'Blood Culture, Aerobic Bottle'}
+- {code: BAP, display: 'Plates, Blood Agar'}
+- {code: ANP, display: 'Plates, Anaerobic'}
+- {code: SWA, display: Swab}
+- {code: MLP, display: 'Plate, Martin-Lewis'}
+- {code: ML11, display: Mod. Martin-Lewis Agar}
+- {code: MARTL, display: Martin-Lewis Agar}
+- {code: LNV, display: 'Line, Venous'}
+- {code: LNA, display: 'Line, Arterial'}
+- {code: BIO, display: Biopsy}
+- {code: FNA, display: 'Aspiration, Fine Needle'}
+- {code: ESWA, display: 'Environmental, Swab'}
+- {code: CATH, display: Catheterized}
+- {code: EPLA, display: 'Environmental, Plate'}
+- {code: CAP, display: Capillary Specimen}
+- {code: SHA, display: Shaving}
+- {code: SCRAPS, display: Scrapings}
+- {code: SCLP, display: 'Scalp, Fetal Vein'}
+- {code: QC5, display: Quality Control For Micro}
+- {code: PUMP, display: Pump Specimen}
+- {code: PRIME, display: Pump Prime}
+- {code: PNA, display: Arterial puncture}
+- {code: PIN, display: Pinworm Prep}
+- {code: PACE, display: 'Pace, Gen-Probe'}
+- {code: NYP, display: 'Plate, New York City'}

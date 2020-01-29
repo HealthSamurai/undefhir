@@ -1,0 +1,19 @@
+- {code: EC, display: emergency contact}
+- {code: AS, display: answering service}
+- {code: _TelecommunicationAddressUse, display: _TelecommunicationAddressUse}
+- {code: PST, display: postal address}
+- {code: DIR, display: direct}
+- {code: PHYS, display: physical visit address}
+- {code: HP, display: primary home}
+- {code: PUB, display: public}
+- {code: H, display: home address}
+- {code: OLD, display: no longer in use}
+- {code: _PostalAddressUse, display: _PostalAddressUse}
+- {code: HV, display: vacation home}
+- {code: _GeneralAddressUse, display: _GeneralAddressUse}
+- {code: BAD, display: bad address}
+- {code: CONF, display: confidential address}
+- {code: TMP, display: temporary address}
+- {code: WP, display: work place}
+- {code: PG, display: pager}
+- {code: MC, display: mobile contact)}

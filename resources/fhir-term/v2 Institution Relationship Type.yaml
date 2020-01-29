@@ -1,0 +1,4 @@
+- {code: CON, display: Contractor}
+- {code: EMP, display: Employee}
+- {code: VOL, display: Volunteer}
+- {code: CST, display: Consultant}

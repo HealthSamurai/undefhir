@@ -1,0 +1,9 @@
+- {code: A, display: 'Some, but not all, results available'}
+- {code: CA, display: Order was canceled}
+- {code: CM, display: Order is completed}
+- {code: SC, display: 'In process, scheduled'}
+- {code: RP, display: Order has been replaced}
+- {code: HD, display: Order is on hold}
+- {code: IP, display: 'In process, unspecified'}
+- {code: DC, display: Order was discontinued}
+- {code: ER, display: 'Error, order not found'}

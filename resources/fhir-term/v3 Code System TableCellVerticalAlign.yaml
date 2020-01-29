@@ -1,0 +1,4 @@
+- {code: top, display: top}
+- {code: middle, display: middle}
+- {code: baseline, display: baseline}
+- {code: bottom, display: bottom}

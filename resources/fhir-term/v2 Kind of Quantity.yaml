@@ -1,0 +1,102 @@
+- {code: VELRT, display: Velocity Ratio}
+- {code: VFR, display: Volume Fraction}
+- {code: VISC, display: Viscosity}
+- {code: VOL, display: Volume}
+- {code: VRAT, display: Volume Rate}
+- {code: VRTO, display: Volume Ratio}
+- {code: KINV, display: Kinematic Viscosity}
+- {code: PRES, display: Pressure (Partial)}
+- {code: LIQ, display: Liquefaction}
+- {code: IMP, display: Impression/ interpretation of study}
+- {code: MASS, display: Mass}
+- {code: MCNC, display: Mass Concentration}
+- {code: MCNT, display: Mass Content}
+- {code: MCRTO, display: Mass Concentration Ratio}
+- {code: MFR, display: Mass Fraction}
+- {code: MGFLUX, display: Magnetic flux}
+- {code: MINC, display: Mass Increment}
+- {code: MORPH, display: Morphology}
+- {code: MOTIL, display: Motility}
+- {code: MRAT, display: Mass Rate}
+- {code: MRTO, display: Mass Ratio}
+- {code: NCNC, display: Number Concentration}
+- {code: NCNT, display: Number Content}
+- {code: NFR, display: Number Fraction}
+- {code: NRTO, display: Number Ratio}
+- {code: NUM, display: Number}
+- {code: OD, display: Optical density}
+- {code: OSMOL, display: Osmolality}
+- {code: FREQ, display: Frequency}
+- {code: PRID, display: Presence/Identity/Existence}
+- {code: PWR, display: Power (wattage)}
+- {code: RANGE, display: Ranges}
+- {code: RATIO, display: Ratios}
+- {code: RCRLTM, display: Reciprocal Relative Time}
+- {code: RDEN, display: Relative Density}
+- {code: REL, display: Relative}
+- {code: RLMCNC, display: Relative Mass Concentration}
+- {code: RLSCNC, display: Relative Substance Concentration}
+- {code: RLTM, display: Relative Time}
+- {code: SATFR, display: Saturation Fraction}
+- {code: SCNC, display: Substance Concentration}
+- {code: SCNCIN, display: Substance Concentration Increment}
+- {code: SCNT, display: Substance Content}
+- {code: SCNTR, display: Substance Content Rate}
+- {code: SCRTO, display: Substance Concentration Ratio}
+- {code: SFR, display: Substance Fraction}
+- {code: SHAPE, display: Shape}
+- {code: SMELL, display: Smell}
+- {code: SRAT, display: Substance Rate}
+- {code: SRTO, display: Substance Ratio}
+- {code: SUB, display: Substance Amount}
+- {code: SUSC, display: Susceptibility}
+- {code: TASTE, display: Taste}
+- {code: TEMP, display: Temperature}
+- {code: TEMPDF, display: Temperature Difference}
+- {code: TEMPIN, display: Temperature Increment}
+- {code: THRMCNC, display: Threshold Mass Concentration}
+- {code: THRSCNC, display: Threshold Substance Concentration}
+- {code: TIME, display: Time (e.g. seconds)}
+- {code: TITR, display: Dilution Factor (Titer)}
+- {code: TMDF, display: Time Difference}
+- {code: TMSTP, display: Time Stamp-Date and Time}
+- {code: TRTO, display: Time Ratio}
+- {code: TYPE, display: Type}
+- {code: VCNT, display: Volume Content}
+- {code: VEL, display: Velocity}
+- {code: CACT, display: Catalytic Activity}
+- {code: CCNT, display: Catalytic Content}
+- {code: CCRTO, display: Catalytic Concentration Ratio}
+- {code: CFR, display: Catalytic Fraction}
+- {code: CLAS, display: Class}
+- {code: CNC, display: Catalytic Concentration}
+- {code: CNST, display: Constant}
+- {code: COEF, display: Coefficient}
+- {code: COLOR, display: Color}
+- {code: CONS, display: Consistency}
+- {code: CRAT, display: Catalytic Rate}
+- {code: CRTO, display: Catalytic Ratio}
+- {code: DEN, display: Density}
+- {code: DEV, display: Device}
+- {code: DIFF, display: Difference}
+- {code: ELAS, display: Elasticity}
+- {code: ELPOT, display: Electrical Potential (Voltage)}
+- {code: ELRAT, display: Electrical current (amperage)}
+- {code: ELRES, display: Electrical Resistance}
+- {code: ENGR, display: Energy}
+- {code: ENT, display: Entitic}
+- {code: ENTCAT, display: Entitic Catalytic Activity}
+- {code: ENTNUM, display: Entitic Number}
+- {code: ENTSUB, display: Entitic Substance of Amount}
+- {code: ENTVOL, display: Entitic Volume}
+- {code: EQL, display: Equilibrium}
+- {code: FORCE, display: Mechanical force}
+- {code: LINC, display: Length Increment}
+- {code: LEN, display: Length}
+- {code: ABS, display: Absorbance}
+- {code: ACNC, display: 'Concentration, Arbitrary Substance'}
+- {code: ACT, display: Activity}
+- {code: APER, display: Appearance}
+- {code: ARB, display: Arbitrary}
+- {code: AREA, display: Area}
+- {code: ASPECT, display: Aspect}

@@ -1,0 +1,5 @@
+- {code: I, display: The visit is marked inactive and the user cannot enter new data
+    against it.}
+- {code: D, display: The visit is marked for deletion and the user cannot enter new
+    data against it.}
+- {code: P, display: Marked for purge.  User is no longer able to update the visit.}

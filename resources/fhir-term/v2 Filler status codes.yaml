@@ -1,0 +1,12 @@
+- {code: Deleted, display: Deleted}
+- {code: Complete, display: Complete}
+- {code: DC, display: Discontinued}
+- {code: Discontinued, display: Discontinued}
+- {code: Noshow, display: Noshow}
+- {code: Overbook, display: Overbook}
+- {code: Pending, display: Pending}
+- {code: Started, display: Started}
+- {code: Waitlist, display: Waitlist}
+- {code: Cancelled, display: Cancelled}
+- {code: Booked, display: Booked}
+- {code: Blocked, display: Blocked}

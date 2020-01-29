@@ -1,0 +1,9 @@
+- {code: P, display: Preadmit}
+- {code: I, display: Inpatient}
+- {code: E, display: Emergency}
+- {code: B, display: Obstetrics}
+- {code: C, display: Commercial Account}
+- {code: U, display: Unknown}
+- {code: R, display: Recurring patient}
+- {code: N, display: Not Applicable}
+- {code: O, display: Outpatient}

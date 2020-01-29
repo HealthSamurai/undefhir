@@ -1,0 +1,8 @@
+- {code: SUP, display: Supernatant}
+- {code: SER, display: 'Serum, NOS (not otherwise specified)'}
+- {code: SED, display: Sediment}
+- {code: PRP, display: Platelet rich plasma}
+- {code: PPP, display: Platelet poor plasma}
+- {code: PLAS, display: 'Plasma, NOS (not otherwise specified)'}
+- {code: BSEP, display: 'Whole blood, separated'}
+- {code: BLD, display: 'Whole blood, homogeneous'}

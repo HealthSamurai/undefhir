@@ -1,0 +1,3 @@
+- {code: fhirpath, display: FHIRPath}
+- {code: extension, display: Extension URL}
+- {code: element, display: Element ID}

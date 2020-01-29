@@ -1,0 +1,45 @@
+- {code: DE, display: Germany}
+- {code: CA, display: Canada}
+- {code: TR, display: Turkey}
+- {code: C1, display: Unclassified Realm}
+- {code: UY, display: Uruguay}
+- {code: UV, display: Universal}
+- {code: FR, display: France}
+- {code: US, display: United States of America}
+- {code: UK, display: United Kingdom}
+- {code: TW, display: Taiwan}
+- {code: BR, display: Brazil}
+- {code: AU, display: Australia}
+- {code: AT, display: Austria}
+- {code: AR, display: Argentina}
+- {code: JP, display: Japan}
+- {code: FI, display: Finland}
+- {code: AffiliateRealms, display: Affiliate Realms}
+- {code: BindingRealms, display: binding realms}
+- {code: ES, display: Spain}
+- {code: CO, display: Columbia}
+- {code: CZ, display: Czech Republic}
+- {code: DK, display: Denmark}
+- {code: MX, display: Mexico}
+- {code: NL, display: The Netherlands}
+- {code: NZ, display: New Zealand}
+- {code: CL, display: Chile}
+- {code: CH, display: Switzerland}
+- {code: CN, display: China}
+- {code: LT, display: Lithuania}
+- {code: RO, display: Romania}
+- {code: RU, display: Russian Federation}
+- {code: SE, display: Sweden}
+- {code: SG, display: Singapore}
+- {code: KR, display: Korea}
+- {code: ZZ, display: Localized Version}
+- {code: IN, display: India}
+- {code: IE, display: Ireland}
+- {code: HR, display: Croatia}
+- {code: NamespaceRealms, display: namespace realms}
+- {code: X1, display: Example Realm}
+- {code: R1, display: Representative Realm}
+- {code: GR, display: Greece}
+- {code: IT, display: Italy}
+- {code: SOA, display: Southern Africa}
+- {code: GB, display: Great Britain}

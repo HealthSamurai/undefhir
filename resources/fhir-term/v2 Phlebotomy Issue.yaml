@@ -1,0 +1,14 @@
+- {code: PFL, display: Poor flow}
+- {code: DMT, display: Defective Instrument}
+- {code: NAD, display: 'Needle adjustment (this may not end a procedure, if successful
+    will impact component production)'}
+- {code: MIS, display: Missed / in tissue}
+- {code: IPF, display: Instrument Power Failure}
+- {code: ACN, display: Air Contamination}
+- {code: CLT, display: Clotted}
+- {code: COL, display: Collapse}
+- {code: DAK, display: Defective Apheresis Kit}
+- {code: VSM, display: Vein Spasm}
+- {code: DBG, display: Defective Bag}
+- {code: INF, display: Infiltration}
+- {code: DND, display: Defective Needle}

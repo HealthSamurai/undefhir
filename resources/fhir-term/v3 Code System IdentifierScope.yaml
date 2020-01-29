@@ -1,0 +1,4 @@
+- {code: VER, display: Version Identifier}
+- {code: BUSN, display: Business Identifier}
+- {code: OBJ, display: Object Identifier}
+- {code: VW, display: View Specific Identifier}

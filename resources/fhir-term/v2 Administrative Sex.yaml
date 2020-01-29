@@ -1,0 +1,6 @@
+- {code: N, display: Not applicable}
+- {code: M, display: Male}
+- {code: F, display: Female}
+- {code: A, display: Ambiguous}
+- {code: U, display: Unknown}
+- {code: O, display: Other}

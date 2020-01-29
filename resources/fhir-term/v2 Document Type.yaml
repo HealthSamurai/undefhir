@@ -1,0 +1,14 @@
+- {code: DI, display: Diagnostic imaging}
+- {code: DS, display: Discharge summary}
+- {code: ED, display: Emergency department report}
+- {code: HP, display: History and physical examination}
+- {code: OP, display: Operative report}
+- {code: PC, display: Psychiatric consultation}
+- {code: PH, display: Psychiatric history and physical examination}
+- {code: PN, display: Procedure note}
+- {code: PR, display: Progress note}
+- {code: SP, display: Surgical pathology}
+- {code: AR, display: Autopsy report}
+- {code: TS, display: Transfer summary}
+- {code: CD, display: Cardiodiagnostics}
+- {code: CN, display: Consultation}

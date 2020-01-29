@@ -1,0 +1,8 @@
+- {code: C, display: Small Children Dependent}
+- {code: U, display: Unknown}
+- {code: WU, display: Walk up}
+- {code: M, display: Medical Supervision Required}
+- {code: D, display: Spouse dependent}
+- {code: CB, display: Common Bath}
+- {code: S, display: Spouse Dependent}
+- {code: O, display: Other}

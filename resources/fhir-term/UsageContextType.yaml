@@ -1,0 +1,8 @@
+- {code: task, display: Workflow Task}
+- {code: gender, display: Gender}
+- {code: age, display: Age Range}
+- {code: focus, display: Clinical Focus}
+- {code: species, display: Species}
+- {code: venue, display: Clinical Venue}
+- {code: user, display: User Type}
+- {code: workflow, display: Workflow Setting}

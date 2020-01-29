@@ -1,0 +1,3 @@
+- {code: UL, display: Unlisted (Should not appear in directories)}
+- {code: UP, display: Unpublished}
+- {code: LI, display: Listed}

@@ -1,0 +1,8 @@
+- {code: CO, display: Contract}
+- {code: CR, display: Credit}
+- {code: DP, display: Department}
+- {code: GR, display: Grant}
+- {code: NC, display: No Charge}
+- {code: RS, display: Research}
+- {code: PC, display: Professional}
+- {code: CH, display: Charge}

@@ -1,0 +1,7 @@
+- {code: LYM, display: Lymphocytes}
+- {code: PLS, display: Plasma}
+- {code: PLT, display: Platelets}
+- {code: PSC, display: Peripheral Stem Cells}
+- {code: GRN, display: Granulocytes}
+- {code: RBC, display: Red Blood Cells}
+- {code: WBL, display: Whole Blood}

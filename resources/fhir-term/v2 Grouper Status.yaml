@@ -1,0 +1,10 @@
+- {code: '4', display: 'Invalid age, admission date, date of birth or discharge date'}
+- {code: '8', display: Invalid length of stay}
+- {code: '3', display: Data does not fulfill DRG criteria}
+- {code: '5', display: Invalid gender}
+- {code: '7', display: Invalid weight ad admission}
+- {code: '6', display: Invalid discharge status}
+- {code: '2', display: Diagnosis is not allowed to be primary}
+- {code: '1', display: Invalid or missing primary diagnosis}
+- {code: '9', display: Invalid field "same day"}
+- {code: '0', display: Normal grouping}

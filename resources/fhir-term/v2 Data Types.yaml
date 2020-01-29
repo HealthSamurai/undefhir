@@ -1,0 +1,96 @@
+- {code: RP, display: Reference pointer}
+- {code: ST, display: String data}
+- {code: SRT, display: Sort order}
+- {code: SPS, display: Specimen source}
+- {code: SPD, display: Specialty description}
+- {code: SNM, display: String of telephone number digits}
+- {code: SN, display: Structured numeric}
+- {code: QIP, display: Query input parameter list}
+- {code: MSG, display: Message type}
+- {code: UVC, display: UB value code and amount}
+- {code: VH, display: Visiting hours}
+- {code: VID, display: Version identifier}
+- {code: NA, display: Numeric array}
+- {code: VR, display: Value range}
+- {code: WVI, display: Channel Identifier}
+- {code: WVS, display: Waveform source}
+- {code: XAD, display: Extended address}
+- {code: XCN, display: Extended composite ID number and name for persons}
+- {code: XON, display: Extended composite name and ID number for organizations}
+- {code: XPN, display: Extended person name}
+- {code: XTN, display: Extended telecommunications number}
+- {code: NDL, display: Name with date and location}
+- {code: MOC, display: Money and charge code}
+- {code: MO, display: Money}
+- {code: MA, display: Multiplexed array}
+- {code: TS, display: Time stamp}
+- {code: TQ, display: Timing/quantity}
+- {code: TN, display: Telephone number}
+- {code: NM, display: Numeric}
+- {code: TM, display: Time}
+- {code: ED, display: Encapsulated data}
+- {code: DTN, display: Day type and number}
+- {code: DTM, display: Date/time}
+- {code: RFR, display: Reference range}
+- {code: DT, display: Date}
+- {code: DR, display: Date/time range}
+- {code: DLT, display: Delta}
+- {code: DLN, display: Driver's license number}
+- {code: DLD, display: Discharge to location and date}
+- {code: DIN, display: Date and institution name}
+- {code: DDI, display: Daily deductible information}
+- {code: CX, display: Extended composite ID with check digit}
+- {code: CWE, display: Coded with exceptions}
+- {code: CSU, display: Channel sensitivity and units}
+- {code: CQ, display: Composite quantity with units}
+- {code: CP, display: Composite price}
+- {code: CNS, display: Composite ID number and name simplified}
+- {code: CNN, display: Composite ID number and name simplified}
+- {code: RCD, display: Row column definition}
+- {code: CNE, display: Coded with no exceptions}
+- {code: CN, display: Composite ID number and name}
+- {code: CM, display: Composite}
+- {code: CK, display: Composite ID with check digit}
+- {code: CF, display: Coded element with formatted values}
+- {code: CE, display: Coded element}
+- {code: CD, display: Channel definition}
+- {code: CCP, display: Channel calibration parameters}
+- {code: CCD, display: Charge code and date}
+- {code: QSC, display: Query selection criteria}
+- {code: AUI, display: Authorization information}
+- {code: AD, display: Address}
+- {code: PN, display: Person name}
+- {code: PPN, display: Performing person time stamp}
+- {code: PRL, display: Parent result link}
+- {code: PT, display: Processing type}
+- {code: PTA, display: Policy type and amount}
+- {code: SI, display: Sequence ID}
+- {code: SCV, display: Scheduling class value pair}
+- {code: SAD, display: Street Address}
+- {code: NR, display: Numeric range}
+- {code: OCD, display: Occurrence code and date}
+- {code: OSD, display: Order sequence definition}
+- {code: OSP, display: Occurrence span code and date}
+- {code: PIP, display: Practitioner institutional privileges}
+- {code: PL, display: Person location}
+- {code: RPT, display: Repeat pattern}
+- {code: MOP, display: Money or percentage}
+- {code: TX, display: Text data}
+- {code: PLN, display: Practitioner license or other ID number}
+- {code: RMC, display: Room coverage}
+- {code: LA2, display: Location with address variation 2}
+- {code: LA1, display: Location with address variation 1}
+- {code: JCC, display: Job code/class}
+- {code: IS, display: Coded value for user-defined tables}
+- {code: ID, display: Coded values for HL7 tables}
+- {code: ICD, display: Insurance certification definition}
+- {code: HD, display: Hierarchic designator}
+- {code: GTS, display: General timing specification}
+- {code: FT, display: Formatted text}
+- {code: FN, display: Family name}
+- {code: RI, display: Repeat interval}
+- {code: FC, display: Financial class}
+- {code: ERL, display: Error location}
+- {code: ELD, display: Error location and description}
+- {code: EIP, display: Entity identifier pair}
+- {code: EI, display: Entity identifier}

@@ -1,0 +1,9 @@
+- {code: VR, display: Very restricted}
+- {code: '2', display: ASTM Level 2}
+- {code: '3', display: ASTM Level 3}
+- {code: R, display: Restricted}
+- {code: '1', display: ASTM Level 1}
+- {code: RE, display: Restricted}
+- {code: U, display: Usual control}
+- {code: UC, display: Usual control}
+- {code: V, display: Very restricted}

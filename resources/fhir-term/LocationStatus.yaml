@@ -1,0 +1,3 @@
+- {code: active, display: Active}
+- {code: suspended, display: Suspended}
+- {code: inactive, display: Inactive}

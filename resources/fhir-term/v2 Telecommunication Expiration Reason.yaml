@@ -1,0 +1,5 @@
+- {code: N, display: No longer in service}
+- {code: R, display: On request}
+- {code: C, display: Corrected}
+- {code: E, display: Added in error}
+- {code: M, display: Moved}

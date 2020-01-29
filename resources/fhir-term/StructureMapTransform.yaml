@@ -1,0 +1,17 @@
+- {code: dateOp, display: dateOp}
+- {code: qty, display: qty}
+- {code: append, display: append}
+- {code: translate, display: translate}
+- {code: reference, display: reference}
+- {code: uuid, display: uuid}
+- {code: c, display: c}
+- {code: cc, display: cc}
+- {code: create, display: create}
+- {code: copy, display: copy}
+- {code: truncate, display: truncate}
+- {code: escape, display: escape}
+- {code: cast, display: cast}
+- {code: evaluate, display: evaluate}
+- {code: pointer, display: pointer}
+- {code: cp, display: cp}
+- {code: id, display: id}

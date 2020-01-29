@@ -1,0 +1,10 @@
+- {code: SCHED, display: Schedule date/time}
+- {code: REP, display: 'Report date/time, report date/time at filling ancillary (i.e.,
+    Lab)'}
+- {code: RCT, display: 'Specimen receipt date/time, receipt of specimen in filling
+    ancillary (Lab)'}
+- {code: ORD, display: Order date/time}
+- {code: COL, display: 'Collection date/time, equivalent to film or sample collection
+    date/time'}
+- {code: CAN, display: Cancellation date/time}
+- {code: ANY, display: Any date/time within a range}

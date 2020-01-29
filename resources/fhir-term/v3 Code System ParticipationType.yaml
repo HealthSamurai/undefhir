@@ -1,0 +1,61 @@
+- {code: RCV, display: receiver}
+- {code: WIT, display: witness}
+- {code: DIS, display: discharger}
+- {code: ESC, display: escort}
+- {code: REF, display: referrer}
+- {code: _ParticipationInformationGenerator, display: ParticipationInformationGenerator}
+- {code: RDV, display: reusable device}
+- {code: AUT, display: author (originator)}
+- {code: INF, display: informant}
+- {code: ENT, display: data entry person}
+- {code: TRANS, display: Transcriber}
+- {code: CALLBCK, display: callback contact}
+- {code: ATND, display: attender}
+- {code: ADM, display: admitter}
+- {code: _ParticipationAncillary, display: ParticipationAncillary}
+- {code: ELOC, display: entry location}
+- {code: DST, display: destination}
+- {code: LOC, display: location}
+- {code: TRC, display: tracker}
+- {code: REFT, display: Referred to}
+- {code: REFB, display: Referred By}
+- {code: PRCP, display: primary information recipient}
+- {code: NOT, display: ugent notification contact}
+- {code: IRCP, display: information recipient}
+- {code: RCT, display: record target}
+- {code: HLD, display: holder}
+- {code: GUAR, display: guarantor party}
+- {code: COV, display: coverage target}
+- {code: CAGNT, display: causative agent}
+- {code: BEN, display: beneficiary}
+- {code: IND, display: indirect target}
+- {code: SPC, display: specimen}
+- {code: SBJ, display: subject}
+- {code: PRD, display: product}
+- {code: EXSRC, display: ExposureSource}
+- {code: EXPTRGT, display: ExposureTarget}
+- {code: EXPART, display: ExposureParticipation}
+- {code: EXPAGNT, display: ExposureAgent}
+- {code: DON, display: donor}
+- {code: NRD, display: non-reuseable device}
+- {code: TPA, display: therapeutic agent}
+- {code: CSM, display: consumable}
+- {code: CAT, display: catalyst}
+- {code: BBY, display: baby}
+- {code: ALY, display: analyte}
+- {code: DIR, display: direct target}
+- {code: PART, display: Participation}
+- {code: DEV, display: device}
+- {code: LA, display: legal authenticator}
+- {code: CST, display: custodian}
+- {code: AUTHEN, display: authenticator}
+- {code: VRF, display: verifier}
+- {code: RESP, display: responsible party}
+- {code: SPRF, display: secondary performer}
+- {code: PPRF, display: primary performer}
+- {code: DIST, display: distributor}
+- {code: PRF, display: performer}
+- {code: CON, display: consultant}
+- {code: VIA, display: via}
+- {code: RML, display: remote}
+- {code: ORG, display: origin}

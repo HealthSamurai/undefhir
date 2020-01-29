@@ -1,0 +1,17 @@
+- {code: TRC, display: trace}
+- {code: INV, display: invalid}
+- {code: DER, display: derived}
+- {code: OTH, display: other}
+- {code: NINF, display: negative infinity}
+- {code: PINF, display: positive infinity}
+- {code: NA, display: not applicable}
+- {code: QS, display: Sufficient Quantity}
+- {code: UNK, display: unknown}
+- {code: NP, display: not present}
+- {code: ASKU, display: asked but unknown}
+- {code: MSK, display: masked}
+- {code: NAVU, display: Not available}
+- {code: NAV, display: temporarily unavailable}
+- {code: NASK, display: not asked}
+- {code: UNC, display: un-encoded}
+- {code: NI, display: NoInformation}

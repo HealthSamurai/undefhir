@@ -1,0 +1,4 @@
+- {code: primitive-type, display: Primitive Data Type}
+- {code: complex-type, display: Complex Data Type}
+- {code: resource, display: Resource}
+- {code: logical, display: Logical Model}

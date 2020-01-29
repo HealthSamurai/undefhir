@@ -29,7 +29,7 @@
        (csv/read-csv reader)))))
 
 (defn json-dictionary [file]
-  (json/parse-string (slurp file) ))
+  (json/parse-string (slurp file)))
 
 (defn build-in-dictionary [resource-name]
   (str/split-lines (slurp (io/resource (str "dictionary/" resource-name)))))
@@ -44,7 +44,7 @@
   (let [query (cond (string? query) query
                     (vector? query) (build-query query cache)
                     :else (throw (Exception. (str "Can`t create query from: " query))))]
-    (mapcat vals (pg/query db query))))
+    (vec (pg/query db query))))
 
 (defn load-dictionary [db {:keys [csv json yaml file query literal build-in] f :format :as d} & [dictionary-cache]]
   (try
@@ -69,7 +69,6 @@
    {}
    dict))
 
-
 ;; UI
 (defn ui-load-dictionaries [db dict]
   (println "Load dictionaries:")
@@ -83,7 +82,7 @@
     db :db/connection
     d :dictionary output-format :output :as opts}]
   (if output-format
-    (u/formatter ((keyword d) (load-dictionaries db (:dictionary manifest))) output-format)
+    (u/formatter (get (load-dictionaries db (:dictionary manifest)) d) output-format)
 
     (let [dbg (get (ui-load-dictionaries db (:dictionary manifest)) d)
           dictionaty-source (first (filter #(= d (:name %))  (:dictionary manifest)))]

@@ -1,0 +1,12 @@
+- {code: MCD, display: Medicaid number}
+- {code: QA, display: QA number}
+- {code: GL, display: General ledger number}
+- {code: DEA, display: Drug Enforcement Agency no.}
+- {code: CY, display: County number}
+- {code: MCR, display: Medicare number}
+- {code: TAX, display: Tax ID number}
+- {code: SL, display: State license number}
+- {code: LI, display: Labor and industries number}
+- {code: L&I, display: Labor and industries number}
+- {code: UPIN, display: Unique physician ID no.}
+- {code: TRL, display: Training license number}

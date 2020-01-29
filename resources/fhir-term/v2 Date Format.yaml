@@ -1,0 +1,6 @@
+- {code: '4', display: dd.mm.yy}
+- {code: '6', display: Yymmdd}
+- {code: '2', display: yy.mm.dd}
+- {code: '3', display: dd/mm/yy}
+- {code: '5', display: yy/mm/dd}
+- {code: '1', display: mm/dd/yy}

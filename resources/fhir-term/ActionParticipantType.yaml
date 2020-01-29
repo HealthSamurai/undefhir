@@ -1,0 +1,3 @@
+- {code: practitioner, display: Practitioner}
+- {code: patient, display: Patient}
+- {code: related-person, display: Related Person}

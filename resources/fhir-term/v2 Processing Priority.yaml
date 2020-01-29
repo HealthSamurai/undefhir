@@ -1,0 +1,7 @@
+- {code: B, display: Do at bedside or portable (may be used with other codes)}
+- {code: A, display: As soon as possible (a priority lower than stat)}
+- {code: T, display: Timing critical (do as near as possible to requested time)}
+- {code: S, display: Stat (do immediately)}
+- {code: R, display: Routine}
+- {code: P, display: Preoperative (to be done prior to surgery)}
+- {code: C, display: 'Measure continuously (e.g., arterial line blood pressure)'}

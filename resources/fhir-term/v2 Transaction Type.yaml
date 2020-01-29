@@ -1,0 +1,5 @@
+- {code: CD, display: Credit}
+- {code: AJ, display: Adjustment}
+- {code: CO, display: Co-payment}
+- {code: CG, display: Charge}
+- {code: PY, display: Payment}

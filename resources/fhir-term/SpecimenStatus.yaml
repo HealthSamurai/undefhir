@@ -1,0 +1,4 @@
+- {code: unavailable, display: Unavailable}
+- {code: unsatisfactory, display: Unsatisfactory}
+- {code: entered-in-error, display: Entered in Error}
+- {code: available, display: Available}

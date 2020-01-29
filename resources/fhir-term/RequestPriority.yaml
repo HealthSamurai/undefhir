@@ -1,0 +1,4 @@
+- {code: urgent, display: Urgent}
+- {code: stat, display: STAT}
+- {code: asap, display: ASAP}
+- {code: routine, display: Routine}

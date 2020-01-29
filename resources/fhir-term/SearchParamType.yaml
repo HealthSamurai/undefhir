@@ -1,0 +1,8 @@
+- {code: reference, display: Reference}
+- {code: composite, display: Composite}
+- {code: date, display: Date/DateTime}
+- {code: uri, display: URI}
+- {code: number, display: Number}
+- {code: string, display: String}
+- {code: quantity, display: Quantity}
+- {code: token, display: Token}

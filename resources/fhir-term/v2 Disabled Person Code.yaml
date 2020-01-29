@@ -1,0 +1,4 @@
+- {code: PT, display: Patient}
+- {code: AP, display: Associated party}
+- {code: GT, display: Guarantor}
+- {code: IN, display: Insured}

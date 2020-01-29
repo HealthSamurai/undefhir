@@ -1,0 +1,17 @@
+- {code: capabilities, display: capabilities}
+- {code: read, display: read}
+- {code: search-type, display: search-type}
+- {code: transaction, display: transaction}
+- {code: search-system, display: search-system}
+- {code: search, display: search}
+- {code: create, display: create}
+- {code: history-system, display: history-system}
+- {code: history-type, display: history-type}
+- {code: history-instance, display: history-instance}
+- {code: history, display: history}
+- {code: delete, display: delete}
+- {code: patch, display: patch}
+- {code: update, display: update}
+- {code: vread, display: vread}
+- {code: batch, display: batch}
+- {code: operation, display: operation}

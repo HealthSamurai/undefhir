@@ -1,0 +1,4 @@
+- {code: WALK, display: Patient walks to diagnostic service}
+- {code: PORT, display: The examining device goes to patient's location}
+- {code: CART, display: Cart - patient travels on cart or gurney}
+- {code: WHLC, display: Wheelchair}

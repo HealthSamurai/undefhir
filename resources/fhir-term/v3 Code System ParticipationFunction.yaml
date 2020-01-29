@@ -1,0 +1,49 @@
+- {code: PRISURG, display: primary surgeon}
+- {code: PROMSK, display: authorized provider masking author}
+- {code: PRCON, display: personal representative consent author}
+- {code: POACON, display: healthcare power of attorney consent author}
+- {code: GRDCON, display: legal guardian consent author}
+- {code: _ConsenterParticipationFunction, display: ConsenterParticipationFunction}
+- {code: AUWA, display: work area information receiver}
+- {code: RETROCES, display: retrocessionaires}
+- {code: AUTM, display: care team information receiver}
+- {code: AULR, display: legitimate relationship information receiver}
+- {code: SASST, display: second assistant surgeon}
+- {code: SNRS, display: scrub nurse}
+- {code: TASST, display: third assistant}
+- {code: AUCG, display: caregiver information receiver}
+- {code: _AuthorizedReceiverParticipationFunction, display: AuthorizedReceiverParticipationFunction}
+- {code: PAYORCNTR, display: payor contracting}
+- {code: FFSMGT, display: ffs management}
+- {code: ENROLL, display: enrollment broker}
+- {code: CLMADJ, display: claims adjudication}
+- {code: _PayorParticipationFunction, display: PayorParticipationFunction}
+- {code: _CoverageParticipationFunction, display: CoverageParticipationFunction}
+- {code: AUEMROV, display: emergency overrider}
+- {code: FULINRD, display: fully insured}
+- {code: MCMGT, display: managed care management}
+- {code: AUCOV, display: consent overrider}
+- {code: REINS, display: reinsures}
+- {code: UNDERWRTNG, display: underwriting}
+- {code: _SponsorParticipationFunction, display: SponsorParticipationFunction}
+- {code: _OverriderParticipationFunction, display: OverriderParticipationFunction}
+- {code: SUBCON, display: subject of consent author}
+- {code: _UnderwriterParticipationFunction, display: UnderwriterParticipationFunction}
+- {code: SUBCTRT, display: subcontracting risk}
+- {code: PROVMGT, display: provider management}
+- {code: ATTPHYS, display: attending physician}
+- {code: UMGT, display: utilization management}
+- {code: COMPOSER, display: composer software}
+- {code: SELFINRD, display: self insured}
+- {code: ASSEMBLER, display: assembly software}
+- {code: ANRS, display: anesthesia nurse}
+- {code: ANEST, display: anesthesist}
+- {code: PCP, display: primary care physician}
+- {code: DISPHYS, display: discharging physician}
+- {code: FASST, display: first assistant surgeon}
+- {code: MDWF, display: midwife}
+- {code: _AuthorizedParticipationFunction, display: AuthorizedParticipationFunction}
+- {code: NASST, display: nurse assistant}
+- {code: REVIEWER, display: reviewer}
+- {code: RNDPHYS, display: rounding physician}
+- {code: ADMPHYS, display: admitting physician}

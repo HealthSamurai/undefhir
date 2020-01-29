@@ -1,0 +1,8 @@
+- {code: A, display: Abuse}
+- {code: B, display: Unexpected beneficial effect}
+- {code: D, display: Dependency}
+- {code: I, display: Interaction}
+- {code: L, display: Lack of expect therapeutic effect}
+- {code: M, display: Misuse}
+- {code: O, display: Overdose}
+- {code: W, display: Drug withdrawal}

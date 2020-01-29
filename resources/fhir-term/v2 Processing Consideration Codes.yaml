@@ -1,0 +1,6 @@
+- {code: PAPER, display: Paper documentation to follow}
+- {code: RTADJ, display: Real Time Adjudication Processing}
+- {code: PYRDELAY, display: Delayed by a Previous Payer}
+- {code: DFADJ, display: Deferred Adjudication Processing}
+- {code: EFORM, display: Electronic form to follow}
+- {code: FAX, display: Fax to follow}

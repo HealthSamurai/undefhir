@@ -1,0 +1,7 @@
+- {code: U, display: Urgent}
+- {code: A, display: Accident}
+- {code: C, display: Elective}
+- {code: E, display: Emergency}
+- {code: L, display: Labor and Delivery}
+- {code: N, display: Newborn (Birth in healthcare facility)}
+- {code: R, display: Routine}

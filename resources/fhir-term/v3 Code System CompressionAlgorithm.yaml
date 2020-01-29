@@ -1,0 +1,6 @@
+- {code: BZ, display: bzip}
+- {code: Z, display: compress}
+- {code: GZ, display: gzip}
+- {code: DF, display: deflate}
+- {code: ZL, display: zlib}
+- {code: Z7, display: Z7}

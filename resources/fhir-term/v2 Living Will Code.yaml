@@ -1,0 +1,7 @@
+- {code: I, display: 'No, patient does not have a living will but information was
+    provided'}
+- {code: N, display: 'No, patient does not have a living will and no information was
+    provided'}
+- {code: U, display: Unknown}
+- {code: Y, display: 'Yes, patient has a living will'}
+- {code: F, display: 'Yes, patient has a living will but it is not on file'}

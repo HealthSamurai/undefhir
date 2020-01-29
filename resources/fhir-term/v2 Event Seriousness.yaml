@@ -1,0 +1,3 @@
+- {code: N, display: 'No'}
+- {code: S, display: Significant}
+- {code: Y, display: 'Yes'}

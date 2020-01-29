@@ -1,0 +1,7 @@
+- {code: entered-in-error, display: Entered in Error}
+- {code: not-billable, display: Not billable}
+- {code: unknown, display: Unknown}
+- {code: aborted, display: Aborted}
+- {code: billed, display: Billed}
+- {code: billable, display: Billable}
+- {code: planned, display: Planned}

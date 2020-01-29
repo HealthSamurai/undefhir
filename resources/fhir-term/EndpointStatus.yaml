@@ -1,0 +1,6 @@
+- {code: test, display: Test}
+- {code: entered-in-error, display: Entered in error}
+- {code: suspended, display: Suspended}
+- {code: error, display: Error}
+- {code: 'off', display: 'Off'}
+- {code: active, display: Active}

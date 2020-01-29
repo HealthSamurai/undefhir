@@ -1,0 +1,5 @@
+- {code: QUANTIFIED_KIND, display: described quantified}
+- {code: GROUPKIND, display: described group}
+- {code: KIND, display: described}
+- {code: INSTANCE, display: specific}
+- {code: GROUP, display: specific group}

@@ -1,0 +1,4 @@
+- {code: CP, display: Complete}
+- {code: NA, display: Not Administered}
+- {code: PA, display: Partially Administered}
+- {code: RE, display: Refused}

@@ -1,0 +1,6 @@
+- {code: NORMAL, display: normal}
+- {code: ACTIVE, display: active}
+- {code: CANCELLED, display: cancelled}
+- {code: COMPLETED, display: completed}
+- {code: PENDING, display: pending}
+- {code: NULLIFIED, display: nullified}

@@ -1,0 +1,4 @@
+- {code: proportion, display: Proportion}
+- {code: ratio, display: Ratio}
+- {code: continuous-variable, display: Continuous Variable}
+- {code: cohort, display: Cohort}

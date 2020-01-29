@@ -1,0 +1,7 @@
+- {code: UC, display: UNCHANGED}
+- {code: UN, display: UNLINK}
+- {code: UP, display: UPDATE}
+- {code: AD, display: ADD}
+- {code: CO, display: CORRECT}
+- {code: DE, display: DELETE}
+- {code: LI, display: LINK}

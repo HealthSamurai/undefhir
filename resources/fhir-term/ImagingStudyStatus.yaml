@@ -1,0 +1,5 @@
+- {code: available, display: Available}
+- {code: registered, display: Registered}
+- {code: entered-in-error, display: Entered in Error}
+- {code: unknown, display: Unknown}
+- {code: cancelled, display: Cancelled}

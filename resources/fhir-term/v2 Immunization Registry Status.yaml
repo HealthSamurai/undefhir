@@ -1,0 +1,8 @@
+- {code: M, display: Inactive - Moved or gone elsewhere (cancel contract)}
+- {code: L, display: Inactive - Lost to follow-up (cancel contract)}
+- {code: I, display: Inactive}
+- {code: A, display: Active}
+- {code: U, display: Unknown}
+- {code: P, display: Inactive - Permanently inactive (Do not reactivate or add new
+    entries to the record)}
+- {code: O, display: Other}

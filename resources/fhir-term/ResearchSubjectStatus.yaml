@@ -1,0 +1,13 @@
+- {code: off-study, display: Off-study}
+- {code: withdrawn, display: Withdrawn}
+- {code: screening, display: Screening}
+- {code: potential-candidate, display: Potential Candidate}
+- {code: pending-on-study, display: Pending on-study}
+- {code: on-study-observation, display: On-study-observation}
+- {code: on-study-intervention, display: On-study-intervention}
+- {code: on-study, display: On-study}
+- {code: not-registered, display: Not Registered}
+- {code: ineligible, display: Ineligible}
+- {code: follow-up, display: Follow-up}
+- {code: eligible, display: Eligible}
+- {code: candidate, display: Candidate}
