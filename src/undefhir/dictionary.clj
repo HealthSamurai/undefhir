@@ -46,28 +46,43 @@
                     :else (throw (Exception. (str "Can`t create query from: " query))))]
     (vec (pg/query db query))))
 
-(defn load-dictionary [db {:keys [csv json yaml file query literal build-in] f :format :as d} & [dictionary-cache]]
+(defn dispatch-format [file]
+  (let [format (re-find #"\w+$" file)]
+    (cond
+      (= format "json")
+      (json-dictionary file)
+      (= format "csv")
+      (csv-dictionary file)
+      (= format "yaml")
+      (yaml-dictionary file)
+      (= format "txt")
+      (file-dictionary file)
+      :else
+      (when-let [cnt (file-dictionary file)]
+        cnt))))
+
+(defn load-dictionary [db {:keys [file resource query literal build-in] f :format :as d} & [dictionary-cache]]
   (try
     (cond
       literal   literal
       build-in  (build-in-dictionary build-in)
-      file      (file-dictionary file)
-      csv       (csv-dictionary csv f)
-      json      (json-dictionary json)
-      yaml      (yaml-dictionary yaml)
+      resource  (yaml-dictionary (io/resource resource))
+      file      (dispatch-format file)
       query     (query-dictionary db query dictionary-cache)
       :else     (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'yaml', 'build-in', 'file', 'literal' or 'query'"))))
     (catch Exception e
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
 
-(defn load-dictionaries [db dict & [cb]]
+(defn load-dictionaries [db {:keys [terminology dictionary]} & [cb]]
   (reduce
    (fn [acc {n :name :as d}]
      (let [acc (assoc acc  (name n) (load-dictionary db d acc))]
        (when cb (cb)) ;; For ui progress bar
        acc))
    {}
-   dict))
+   (if terminology
+     (concat dictionary u/term-names)
+     dictionary)))
 
 ;; UI
 (defn ui-load-dictionaries [db dict]
@@ -82,9 +97,9 @@
     db :db/connection
     d :dictionary output-format :output :as opts}]
   (if output-format
-    (u/formatter (get (load-dictionaries db (:dictionary manifest)) d) output-format)
+    (u/formatter (get (load-dictionaries db manifest) d) output-format)
 
-    (let [dbg (get (ui-load-dictionaries db (:dictionary manifest)) d)
+    (let [dbg (get (ui-load-dictionaries db manifest) d)
           dictionaty-source (first (filter #(= d (:name %))  (:dictionary manifest)))]
       (println "Debug dictionary: " d)
       (println "Source: " dictionaty-source)

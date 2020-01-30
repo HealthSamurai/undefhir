@@ -20,16 +20,14 @@
              (csv/write-csv writer (prepare-for-csv e)))
     (throw (Exception. (str "Unsupported output format: " f)))))
 
-(defmacro get-term-names []
-  (let [r (->> (str (System/getProperty "user.dir") "/resources/fhir-term")
-               clojure.java.io/file
-               file-seq
-               rest
-               (map (fn [x]
-                      (let [name (.getName x)]
-                        {:name (str/replace name #"\.yaml" "")
-                         :resource (str "fhir-term/" (.getName x))}))))]
-    `~r))
+(def term-names (->> (str (System/getProperty "user.dir") "/resources/fhir-term")
+                     clojure.java.io/file
+                     file-seq
+                     rest
+                     (map (fn [x]
+                            (let [n (.getName x)]
+                              {:name (str/replace n #"\.yaml" "")
+                               :resource (str "fhir-term/" (.getName x))})))))
 
 (defn table-name [resource-type]
   (str "\"" (str/replace (str/lower-case (name resource-type)) #"\." "__")  "\""))

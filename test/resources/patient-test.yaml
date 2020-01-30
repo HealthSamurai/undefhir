@@ -2,28 +2,28 @@ terminology: true
 
 dictionary:
   - name: Patient
-    json: test/resources/Patient1.json
+    file: test/resources/Patient1.json
 
   - name: FamilyDict
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: GivenDict
     file: test/resources/dictionary/names
 
   - name: CountryDict
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: CityDict
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: StateDict
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: DistrictDict 
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: LineDict 
-    json: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/color.json 
 
   - name: CodeSystems
     query: |
