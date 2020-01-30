@@ -64,8 +64,8 @@ fns:
 
   - name: testPatient
     $body:
-      name: $ fns.randHumanName (get(fns.dict("Patient"), "name"))
       telecom: $ fns.randContactPoint(get(fns.dict("Patient"), "telecom"))
       address: $ fns.randAddress(get(fns.dict("Patient"), "address"))
+      gender: $ fns.randCoding("AdministrativeGender").display 
       birthDate: $ fns.randBirthDate()
 

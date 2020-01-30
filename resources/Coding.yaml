@@ -1,0 +1,3 @@
+$fn: ["Dict"]
+$body:
+  $ randNth(fns.dict(Dict)) 

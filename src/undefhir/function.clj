@@ -20,8 +20,8 @@
 (defn rand-phone []
   (u/rand-nmb 10))
 
-(defn dict [db {d :dictionary :as manifest}]
-  (let [dictionaries (dictionary/load-dictionaries db d)]
+(defn dict [db manifest]
+  (let [dictionaries (dictionary/load-dictionaries db manifest)]
     (fn [dict-name]
       (get dictionaries dict-name))))
 
@@ -58,7 +58,8 @@
   "Preset of rand functions defined via just template"
   [{:name :randHumanName    :resource "HumanName.yaml"}
    {:name :randAddress      :resource "Address.yaml"}
-   {:name :randContactPoint :resource "ContactPoint.yaml"}])
+   {:name :randContactPoint :resource "ContactPoint.yaml"}
+   {:name :randCoding       :resource "Coding.yaml"}])
 
 (defn load-from-file [{:keys [file resource] :as f}]
   (when (or file resource)
