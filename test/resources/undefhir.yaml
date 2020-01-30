@@ -96,23 +96,24 @@ fns:
     $body:
       $ fns.cljtreefhir(fns.flat2tree(fns.dict("attribute")))
 
-# if coll
-# then
-#  -  randHumanName()
-# else
-#  randHumanName()
 
-copy:
-  Practitioner:
-    query: "select * from practitioner where ......."
-    strategy: merge | deepmerge | replace
-    template:
-      resource:
-        name: $ fns.ruHumanName()
-        birthDate: $ fns.fhriBirthDate()
-        qualification: $ fns.practitionerQualification()
+# -------------------------------
+# Design
 
-  Patient:
-    template:
-      resource: 
-        name: $ fns.ruRandHumanName()
+stream:
+  genericIn:
+    query: "select * from patient" 
+    connection:
+      dbUser: ...
+  genericOut:
+    query: "Copy patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' "
+    connectoin:
+      dbUser: ...
+
+pipe:
+  patient:
+    params:
+      tableName: patient
+    fn: patient
+    in: patientIn 
+    out: patientOut 
