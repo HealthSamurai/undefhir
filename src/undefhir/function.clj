@@ -1,18 +1,13 @@
 (ns undefhir.function
   (:require [jute.core :as jute]
-            [clojure.data.generators :as gen]
             [simple-progress.bar :as spb]
             [clojure.string :as str]
             [cheshire.core :as json]
             [clj-yaml.core :as yaml]
             [undefhir.dictionary :as dictionary]
             [undefhir.utils :as u]
+            [undefhir.date :as d]
             [clojure.java.io :as io]))
-
-(defn rand-birthDate []
-  (.format
-   (java.text.SimpleDateFormat. "yyyy-MM-dd")
-   (gen/date #inst "1990-01-16T00:00:00.000-00:00")))
 
 (defn rand-email []
   (str (u/rand-str 7) "@" (u/rand-str 4) "." (rand-nth ["ru" "com" "net" "io"])))
@@ -68,7 +63,7 @@
 
 (def root-fns
   "Preset of build-in functions"
-  {:randBirthDate rand-birthDate
+  {:randDate      #(d/rand-date %1 %2)
    :randEmail     rand-email
    :randNumber    u/rand-nmb
    :toJson        json/generate-string

@@ -67,5 +67,5 @@ fns:
       telecom: $ fns.randContactPoint(get(fns.dict("Patient"), "telecom"))
       address: $ fns.randAddress(get(fns.dict("Patient"), "address"))
       gender: $ fns.randCoding("AdministrativeGender").display 
-      birthDate: $ fns.randBirthDate()
+      birthDate: $ fns.randDate("20.02.2017", "20.03.2019")
 
