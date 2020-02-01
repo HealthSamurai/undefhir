@@ -100,8 +100,6 @@
       el))
    value))
 
-(anonimify-name (fn [el] "7") [{:family "Hello" :given ["World 1" "World 2"]}])
-
 (defn skip-list [spec]
   (set/union
    (set ["OperationOutcome"])

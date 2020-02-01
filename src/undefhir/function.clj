@@ -6,7 +6,7 @@
             [clj-yaml.core :as yaml]
             [undefhir.dictionary :as dictionary]
             [undefhir.utils :as u]
-            [undefhir.date :as d]
+            ;;[undefhir.date :as d]
             [clojure.java.io :as io]))
 
 (defn rand-email []
@@ -63,7 +63,7 @@
 
 (def root-fns
   "Preset of build-in functions"
-  {:randDate      #(d/rand-date %1 %2)
+  {;;:randDate      #(d/rand-date %1 %2)
    :randEmail     rand-email
    :randNumber    u/rand-nmb
    :toJson        json/generate-string
