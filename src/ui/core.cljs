@@ -1,9 +1,10 @@
 (ns ^:figwheel-hooks ui.core
   (:require [reagent.core :as reagent]
+            [ui.layout :as layout]
             [re-frame.core :as rf]))
 
 (defn current-page []
-  (fn [] [:h1 "Hello undefhire"]))
+  layout/layout)
 
 (defn mount-root []
   (rf/dispatch-sync [::initialize])
