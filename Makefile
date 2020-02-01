@@ -10,6 +10,8 @@ PGIMAGE?=aidbox/db:11.4.0-P1
 
 repl:
 	clj -A:test:nrepl
+ui-repl:
+	clj -A:dev:ui:test:nrepl
 
 build:
 	clj -A:build

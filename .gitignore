@@ -16,3 +16,4 @@ pom.xml.asc
 .hg/
 *#*
 /test/resources/out
+resources/public/js/out*
