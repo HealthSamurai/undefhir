@@ -5,6 +5,8 @@
 (def core-styles
   (styles/style
    [:#app
+    {:font-family "\"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
+    
     [:.ptbl [:&:hover {:cursor "pointer"}]]
 
     [:#layout {:display "grid"
@@ -30,7 +32,7 @@
      [:#entity-list {:background-color "#252526"}]
      [:#editor      {:background-color "#1e1e1e"}]]]))
 
-(defn layout []
+(defn layout [page]
   [:div#layout core-styles
    [:div:#top-nav]
    [:div:#logo
@@ -40,5 +42,5 @@
     [:i.entity-lnk.ptbl.fas.fa-server]
     [:i.entity-lnk.ptbl.fas.fa-database]
     [:i.entity-lnk.ptbl.fas.fa-stream]]
-   [:div#entity-list "2"]
+   [:div#entity-list page]
    [:div#editor "3"]])

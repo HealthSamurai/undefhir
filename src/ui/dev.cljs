@@ -5,5 +5,5 @@
 
 (devtools/install!)
 (enable-console-print!)
-(enable-re-frisk! {:width "800px", :height "500px", :x 0, :y 0})
+(enable-re-frisk! #_{:width "800px", :height "500px", :x 0, :y 0})
 (core/mount-root)
