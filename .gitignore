@@ -17,4 +17,4 @@ pom.xml.asc
 *#*
 /test/resources/out
 resources/public/js/out*
-resources/public/js
+resources/public/js/app.js

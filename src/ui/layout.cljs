@@ -1,5 +1,9 @@
 (ns ui.layout
   (:require [ui.styles :as styles]
+            [reagent.core :as r]
+            [monaco.helpers :as helpers]
+            [jslib.monaco :as monaco]
+
             [clojure.string :as str]
             [re-frame.core :as rf]))
 
@@ -9,7 +13,9 @@
    [:#app
     {:font-family "\"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
     
+    [:.editor-area {:height "300px"}]
     [:.ptbl [:&:hover {:cursor "pointer"}]]
+    [:.grow {:flex-grow "1"}]
 
     [:#layout {:display "grid"
                :width "100vw"
@@ -64,11 +70,116 @@
          (for [i items] ^{:key (:href i)}
            [:a {:href (:href i)} [(:ico i) (:attr i)]])]))))
 
+(def monaco-editor (.-editor js/monaco))
+;;(def monaco-languages (helpers/get js/monaco "languages"))
+
+(defn create [dom-element options override]
+  (.create monaco-editor  dom-element  options override)
+  )
+
+
+(defn editor [config]
+  (let [*ref                   (atom nil)
+        assign-ref             (fn [component] (reset! *ref component))
+
+        editor-did-mount       (fn [this editor]
+                                 (let [props (r/props this)]
+                                   (when-some [f (:editorDidMount props)]
+                                     (f editor js/monaco))
+                                   #_(aset this "__subscription"
+                                     (on-did-change-model-content editor
+                                       (fn [event]
+                                         (when-not (helpers/get this "__preventTriggerChangeEvent")
+                                           (when-some [f (:onChange props)]
+                                             (f (get-value editor) event))))))))
+
+        editor-will-mount      (fn [this _]
+                                 (let [props (r/props this)]
+                                   (when-some [f (:editorWillMount props)]
+                                     (or (f js/monaco) {}))))
+
+        component-did-mount    (fn [this]
+                                 (when-some [ref @*ref]
+                                   (let [props  (r/props this)
+                                         opts   (-> config (merge props) (assoc :editorWillMount (partial editor-will-mount this)))
+                                         editor (create ref opts config)]
+                                     (aset this "editor" editor)
+                                     #_(.layout editor)
+                                     ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
+                                     ;;(editor-did-mount this editor)
+                                     )))
+
+        ;; component-did-update   (fn [this old-argv]
+        ;;                          (let [editor      (helpers/get this "editor")
+        ;;                                old-props   (second old-argv)
+        ;;                                props       (r/props this)
+        ;;                                model       (get-model editor)
+        ;;                                model-value (get-model-value model)
+        ;;                                {:keys [value theme language options width height]} props]
+
+        ;;                            (when (and value (not= value model-value))
+        ;;                              (helpers/set this "__preventTriggerChangeEvent " true)
+        ;;                              (push-undo-stop editor)
+        ;;                              (push-edit-operations model [] [{:text value, :range (get-full-model-range model)}])
+        ;;                              (push-undo-stop editor)
+        ;;                              (helpers/set this "__preventTriggerChangeEvent " false))
+
+        ;;                            (when (not= language (:language old-props))
+        ;;                              (set-model-language model language))
+
+        ;;                            (when (not= theme (:theme old-props))
+        ;;                              (set-theme theme))
+
+        ;;                            (when (not= options (:options old-props))
+        ;;                              (update-options editor options))
+
+        ;;                            (when (or (not= width (:width old-props))
+        ;;                                    (not= height (:height old-props)))
+        ;;                              (layout editor))))
+
+        ;; component-will-unmount (fn [this]
+        ;;                          (when-some [editor (helpers/get this "editor")]
+        ;;                            (dispose editor)
+
+        ;;                            (when-some [model (get-model editor)]
+        ;;                              (dispose model)))
+
+        ;;                          (when-some [sub (helpers/get this "__subscription")]
+        ;;                            (dispose sub)))
+
+        render                 (fn [_]
+                                 [:div.monaco-editor-wrapper {:ref assign-ref}])]
+    (fn [_]
+      (r/create-class
+        {:display-name           "monaco-editor"
+         :component-did-mount    component-did-mount
+         ;;:component-did-update   component-did-update
+         ;;:component-will-unmount component-will-unmount
+         :render                 render}))))
+
 (defn layout [page]
   [:div#layout core-styles
-   [:div:#top-nav]
-   [:div:#logo
+   [:div#top-nav]
+   [:div#logo
     [:i.fas.fa-fire]]
    [main-navigation]
    [:div#entity-list page]
-   [:div#editor "3"]])
+   [:div#editor
+    [:div.editor-area
+     [editor  {:width               "300px"
+               :height              "300px"
+               :value               "hello world" 
+               :defaultValue        "init"
+               :language            "custom"
+               :theme               "custom"
+               :minimap             {:enabled true}
+               :autoIndent          true
+               :selectOnLineNumbers true
+               :roundedSelection    false
+               :readOnly            false
+               :cursorStyle         "line"
+               :automaticLayout     false
+               ;;:editorDidMount      (fn [editor monaco] (monaco/focus editor))
+               ;;:editorWillMount     (fn [monaco])
+               ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
+               :overrideServices    {}}]]]])

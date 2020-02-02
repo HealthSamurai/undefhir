@@ -4,6 +4,12 @@
 (def figwheel-options
   {:id "app"
    :options {:main 'ui.dev
+
+             :foreign-libs [{:file "resources/public/js/monaco/monaco.js"
+                             :provides ["jslib.monaco"]}]
+
+             :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+             :preloads        ['day8.re-frame-10x.preload]
              :output-to "resources/public/js/app.js"
              :output-dir "resources/public/js/out"}
    :config {:watch-dirs ["src"]
@@ -28,6 +34,5 @@
   (start)
   (stop)
 
-  ;;(require '[figwheel.main.api :as repl])
   (repl/cljs-repl "app")
   )

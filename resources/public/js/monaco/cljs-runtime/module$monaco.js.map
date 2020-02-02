@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"module$monaco.js",
+"lineCount":1,
+"mappings":"AAAAA,cAAA,cAAA,CAAkC,QAAQ,CAACC,MAAD,CAAQC,OAAR,CAAgBC,MAAhB,CAAuBC,OAAvB,CAAgC,CAC1ED,MAAAC,QAAA,CAAgBC,MAD0D;",
+"sources":["global$module$monaco.js"],
+"sourcesContent":["shadow$provide[\"module$monaco\"] = function(global,require,module,exports) {\nmodule.exports=(monaco);\n};"],
+"names":["shadow$provide","global","require","module","exports","monaco"]
+}
