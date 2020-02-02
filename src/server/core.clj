@@ -1,6 +1,7 @@
 (ns server.core
   (:require [clojure.java.io :as io]
             [route-map.core :as rm]
+            [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.json :refer [wrap-json-response]]
             [org.httpkit.server :as server]
             [clojure.string :as str])
@@ -26,6 +27,7 @@
   {:status 200
    :body (file-tree "src")})
 
+
 (def routes
   {"workspace"  {:GET workspace}})
 
@@ -36,7 +38,9 @@
 
 (def app 
   (-> handler
-      wrap-json-response))
+      wrap-json-response
+      (wrap-cors :access-control-allow-origin [#".*"]
+                 :access-control-allow-methods [:get :put :post :delete])))
 
 (defonce state (atom nil))
 

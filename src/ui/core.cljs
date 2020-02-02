@@ -5,6 +5,7 @@
             [ui.routes :as routes]
 
             [ui.zframes.routing]
+            [ui.zframes.xhr]
             [ui.dictionary.view]
             [ui.explorer.view]
             [re-frame.core :as rf]))
@@ -13,7 +14,9 @@
  ::initialize
  [(rf/inject-cofx :window-location)]
  (fn [{location :location db :db} _]
-   {:db (assoc db :route-map/routes routes/routes)
+   {:db (assoc db
+               :xhr {:config {:base-url "http://localhost:9090"}}
+               :route-map/routes routes/routes)
     :route-map/start {}}))
 
 (defn not-found-page []

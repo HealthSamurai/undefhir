@@ -6,7 +6,8 @@
 (rf/reg-event-fx
  index
  (fn [{db :db} [pid phase params]]
-   {}))
+   {:xhr/fetch {:uri "/workspace"
+                :req-id pid}}))
 
 (rf/reg-sub
  index
