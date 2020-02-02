@@ -1,5 +1,7 @@
 (ns ui.layout
-  (:require [ui.styles :as styles]))
+  (:require [ui.styles :as styles]
+            [clojure.string :as str]
+            [re-frame.core :as rf]))
 
 
 (def core-styles
@@ -20,6 +22,7 @@
      [:#top-nav {:grid-area "header / top-nav / span 1 / span 3"
                  :background-color "#3d3d3d"}]
      [:#entity-nav  {:background-color "#333"}
+      [:a {:text-decoration "none"}]
       [:.entity-lnk {:padding "10px"
                      :text-align "center"
                      :width "50px"
@@ -36,17 +39,36 @@
      [:#entity-list {:background-color "#252526"}]
      [:#editor      {:background-color "#1e1e1e"}]]]))
 
+(def menu
+  [{:href "#/explorer"   :ico :i.entity-lnk.ptbl.far.fa-file         :attr {:title "Explorer: /project/path"} }
+   {:href "#/dictionary" :ico :i.entity-lnk.ptbl.fas.fa-list         :attr {:title "Dictionaries"}}
+   {:href "#/connection" :ico :i.entity-lnk.ptbl.fas.fa-database     :attr {:title "Connections"}}
+   {:href "#/stream"     :ico :i.entity-lnk.ptbl.fas.fa-stream       :attr {:title "Streams"}}])
+
+(rf/reg-sub
+ ::navigation
+ :<- [:route-map/fragment]
+ (fn [fragment _]
+   (map
+    (fn [i]
+      (if (str/includes? (or fragment "#/") (:href i))
+        (assoc-in i [:attr :class] "active")
+        i))
+    menu)))
+
+(defn main-navigation []
+  (let [navigation (rf/subscribe [::navigation])]
+    (fn []
+      (let [items @navigation]
+        [:div#entity-nav
+         (for [i items] ^{:key (:href i)}
+           [:a {:href (:href i)} [(:ico i) (:attr i)]])]))))
+
 (defn layout [page]
   [:div#layout core-styles
    [:div:#top-nav]
    [:div:#logo
     [:i.fas.fa-fire]]
-   [:div#entity-nav
-    [:a {:href "#/"} [:i.entity-lnk.ptbl.far.fa-file {:title "Explorer: /project/path"}]]
-    [:a {:href "#/dictionary"} [:i.active.entity-lnk.ptbl.fas.fa-list {:title "Dictionaries"}]]
-    [:i.entity-lnk.ptbl.fas.fa-database
-     {:title "Connections"}]
-    [:i.entity-lnk.ptbl.fas.fa-stream
-     {:title "Streams"}]]
+   [main-navigation]
    [:div#entity-list page]
    [:div#editor "3"]])

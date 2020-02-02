@@ -1,6 +1,7 @@
 (ns ui.routes)
 
 (def routes {:.             :ui.explorer.model/index
+             "explorer"     {:.  :ui.explorer.model/index}
              "dictionary"   {:.  :ui.dictionary.model/index}})
 
 
