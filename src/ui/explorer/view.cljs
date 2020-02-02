@@ -20,7 +20,7 @@
  model/index
  (fn [{:keys [dictionary]} params]
    [:div#dictionary dict-style
-    [:div.title "EXPLORER"]
+    [:div.title "EXPLORER: /resources"]
     [:div.dict
        [:i.arrow.fas.fa-caret-right]
        [:i.folder.fas.fa-folder] "workspace"
