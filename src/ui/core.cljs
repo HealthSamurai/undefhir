@@ -6,6 +6,7 @@
 
             [ui.zframes.routing]
             [ui.dictionary.view]
+            [ui.explorer.view]
             [re-frame.core :as rf]))
 
 (rf/reg-event-fx

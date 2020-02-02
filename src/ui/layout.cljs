@@ -42,10 +42,8 @@
    [:div:#logo
     [:i.fas.fa-fire]]
    [:div#entity-nav
-    [:i.entity-lnk.ptbl.far.fa-file
-     {:title "Explorer: /project/path"}]
-    [:i.active.entity-lnk.ptbl.fas.fa-list
-     {:title "Dictionaries"}]
+    [:a {:href "#/"} [:i.entity-lnk.ptbl.far.fa-file {:title "Explorer: /project/path"}]]
+    [:a {:href "#/dictionary"} [:i.active.entity-lnk.ptbl.fas.fa-list {:title "Dictionaries"}]]
     [:i.entity-lnk.ptbl.fas.fa-database
      {:title "Connections"}]
     [:i.entity-lnk.ptbl.fas.fa-stream
