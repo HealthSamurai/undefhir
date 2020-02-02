@@ -11,9 +11,7 @@
 
 (rf/reg-sub
  index
- (fn [db [pid]]
-   {:directory
-    [{:name "core" :resource "AdministrativeGender.yam"}
-     {:name "fns" :resource "v2 Marital Status.yaml"}
-     {:name "streams" :resource "Observation.yaml"}
-     ]}))
+ :<- [:pages/data index]
+ :<- [:xhr/response index]
+ (fn [[page {dirs :data }] [pid]]
+   {:dir dirs}))

@@ -14,7 +14,7 @@
     [:#layout {:display "grid"
                :width "100vw"
                :height "100vh"
-               :grid-template-rows "[header] 32px [content] 100%"
+               :grid-template-rows "[header] 32px [content] calc(100% - 32px)"
                :grid-template-columns "[top-nav] 50px [list] 270px [code] auto"}
      [:#logo {:grid-area "header / top-nav / span 1 / span 1"
               :font-size "22px" :padding "2px" :width "50px"
