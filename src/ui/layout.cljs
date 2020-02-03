@@ -13,9 +13,10 @@
    [:#app
     {:font-family "\"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
     
-    [:.editor-area {:height "300px"}]
+    [:.editor-area {:max-height "100%"}]
     [:.ptbl [:&:hover {:cursor "pointer"}]]
     [:.grow {:flex-grow "1"}]
+    [:.monaco-editor-wrapper {:height "100%"}]
 
     [:#layout {:display "grid"
                :width "100vw"
@@ -74,8 +75,38 @@
 ;;(def monaco-languages (helpers/get js/monaco "languages"))
 
 (defn create [dom-element options override]
-  (.create monaco-editor  dom-element  options override)
-  )
+  (.create monaco-editor  dom-element  (clj->js options) ))
+
+(defn set-theme [theme-name]
+  (.setTheme monaco-editor  theme-name))
+
+(defn update-options [editor options]
+  (.updateOptions editor  options))
+
+
+
+
+(defn get-value [editor] (.getValue editor))
+
+(defn get-model [editor] (.getModel editor))
+
+(defn mlayout [editor] (.layout editor ))
+
+(defn on-did-change-model [editor listener]
+  (.onDidChangeModel editor  listener))
+
+(defn on-did-change-model-content [editor listener]
+  (.onDidChangeModelContent editor  listener))
+(defn push-undo-stop [editor]
+  (.pushUndoStop editor ))
+(defn push-edit-operations [model before-cursor-state edit-operations]
+  (.pushEditOperations model  before-cursor-state edit-operations))
+
+(defn get-full-model-range [model]
+  (.getFullModelRange model ))
+
+(defn set-model-language [model language-id]
+  (.setModelLanguage monaco-editor  model language-id))
 
 
 (defn editor [config]
@@ -86,10 +117,10 @@
                                  (let [props (r/props this)]
                                    (when-some [f (:editorDidMount props)]
                                      (f editor js/monaco))
-                                   #_(aset this "__subscription"
+                                   (aset this "__subscription"
                                      (on-did-change-model-content editor
                                        (fn [event]
-                                         (when-not (helpers/get this "__preventTriggerChangeEvent")
+                                         (when-not (aget this "__preventTriggerChangeEvent")
                                            (when-some [f (:onChange props)]
                                              (f (get-value editor) event))))))))
 
@@ -106,36 +137,36 @@
                                      (aset this "editor" editor)
                                      #_(.layout editor)
                                      ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
-                                     ;;(editor-did-mount this editor)
+                                     (editor-did-mount this editor)
                                      )))
 
-        ;; component-did-update   (fn [this old-argv]
-        ;;                          (let [editor      (helpers/get this "editor")
-        ;;                                old-props   (second old-argv)
-        ;;                                props       (r/props this)
-        ;;                                model       (get-model editor)
-        ;;                                model-value (get-model-value model)
-        ;;                                {:keys [value theme language options width height]} props]
+        component-did-update   (fn [this old-argv]
+                                 (let [editor      (.-editor this)
+                                       old-props   (second old-argv)
+                                       props       (r/props this)
+                                       model       (.getModel editor)
+                                       model-value (.getValue model)
+                                       {:keys [value theme language options width height]} props]
 
-        ;;                            (when (and value (not= value model-value))
-        ;;                              (helpers/set this "__preventTriggerChangeEvent " true)
-        ;;                              (push-undo-stop editor)
-        ;;                              (push-edit-operations model [] [{:text value, :range (get-full-model-range model)}])
-        ;;                              (push-undo-stop editor)
-        ;;                              (helpers/set this "__preventTriggerChangeEvent " false))
+                                   (when (and value (not= value model-value))
+                                     (aset this "__preventTriggerChangeEvent " true)
+                                     (push-undo-stop editor)
+                                     (push-edit-operations model [] [{:text value, :range (get-full-model-range model)}])
+                                     (push-undo-stop editor)
+                                     (aset this "__preventTriggerChangeEvent " false))
 
-        ;;                            (when (not= language (:language old-props))
-        ;;                              (set-model-language model language))
+                                   (when (not= language (:language old-props))
+                                     (set-model-language model language))
 
-        ;;                            (when (not= theme (:theme old-props))
-        ;;                              (set-theme theme))
+                                   (when (not= theme (:theme old-props))
+                                     (set-theme theme))
 
-        ;;                            (when (not= options (:options old-props))
-        ;;                              (update-options editor options))
+                                   (when (not= options (:options old-props))
+                                     (update-options editor options))
 
-        ;;                            (when (or (not= width (:width old-props))
-        ;;                                    (not= height (:height old-props)))
-        ;;                              (layout editor))))
+                                   (when (or (not= width (:width old-props))
+                                           (not= height (:height old-props)))
+                                     (mlayout editor))))
 
         ;; component-will-unmount (fn [this]
         ;;                          (when-some [editor (helpers/get this "editor")]
@@ -153,7 +184,7 @@
       (r/create-class
         {:display-name           "monaco-editor"
          :component-did-mount    component-did-mount
-         ;;:component-did-update   component-did-update
+         :component-did-update   component-did-update
          ;;:component-will-unmount component-will-unmount
          :render                 render}))))
 
@@ -165,13 +196,15 @@
    [main-navigation]
    [:div#entity-list page]
    [:div#editor
-    [:div.editor-area
-     [editor  {:width               "300px"
-               :height              "300px"
-               :value               "hello world" 
+    [editor   {;;:width               "300px"
+               ;;:height              "300px"
+               :value               "hello world hello world hello\n 
+hello world hello world hello world hello \n
+world hello world hello world hello world\n 
+ello world hello world hello world hello world hello world hello world hello world " 
                :defaultValue        "init"
-               :language            "custom"
-               :theme               "custom"
+               :language            "yaml"
+               :theme               "vs-dark"
                :minimap             {:enabled true}
                :autoIndent          true
                :selectOnLineNumbers true
@@ -179,7 +212,7 @@
                :readOnly            false
                :cursorStyle         "line"
                :automaticLayout     false
-               ;;:editorDidMount      (fn [editor monaco] (monaco/focus editor))
-               ;;:editorWillMount     (fn [monaco])
+               :editorDidMount      (fn [editor monaco] (.focus editor))
+               :editorWillMount     (fn [monaco])
                ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
-               :overrideServices    {}}]]]])
+               :overrideServices    {}}]]])
