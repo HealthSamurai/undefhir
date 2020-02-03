@@ -105,3 +105,29 @@
       (println "Source: " dictionaty-source)
       (println "Result: " )
       (println dbg))))
+
+(comment
+
+  (def distr ["Алатырский р-н" "Аликовский р-н" "Батыревский р-н" "Вурнарский р-н" "Ибресинский р-н" "Мариинско-Посадский р-н" "Моргаушский р-н" "Порецкий р-н" "Урмарский р-н" "Цивильский р-н" "Яльчикский р-н" "Ядринский р-н" "Янтиковский р-н"])
+
+  (def towns ["Алатырь г" "Аликово с" "Батырево с" "Вурнары п" "Ибреси пос" "Моргауши г" "Порецкое с" "Урмары с" "Цивильск с" "Шумерля г" "Ядрин г" "Яльчики г" "Янтиково с"])
+
+  (def streets ["Пушкина ул" "Революции ул" "Ленина ул" "Победы ул" "Советская ул" "Центральная ул"])
+
+  (defn generate-address []
+    (let [house (inc (rand-int 50))
+          housing (inc (rand-int 5))
+          apartment (inc (rand-int 40))
+          kladr (u/rand-nmb 17)
+          fias (rh/re-hash (.toUpperCase (str (u/rand-str 8) "-" (.toUpperCase (u/rand-str 4)) "-" (.toUpperCase (u/rand-str 4)) "-" (.toUpperCase (u/rand-str 4)) "-" (.toUpperCase (u/rand-str 12)))))]
+      {:text (str "Чувашская Республика - Чувашия, " (rand-nth distr) ", " (rand-nth towns) ", " (rand-nth streets) ", дом " house ",  корп. " housing ", кв. " apartment)
+       :houseNumber house
+       :housing housing
+       :kladr kladr
+       :fias fias
+       :use (rand-nth ["home" "temp"])
+       :type (rand-nth ["both" "physical"])}))
+
+  (spit "/home/victor/Documents/Alkona/undefhir/test/resources/dictionary/ch_addreses.yaml" (yaml/generate-string (repeatedly 50 generate-address)))
+  )
+

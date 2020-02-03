@@ -3,7 +3,10 @@ $body:
   $map: $ telecom 
   $as: i
   $body: 
-    system: $ get(i, "system") 
+    system:
+      $if: $ get(i, "system") 
+      $then: get(i, "system")
+      $else: "phone"
     value:
       $if: $ get(i, "system") = "email"
       $then: $ fns.randEmail()

@@ -32,14 +32,14 @@
    (let [current-year (-> (java.time.LocalDate/now) .getYear .toString Integer/parseInt inc)
          parsed-base (parse-date base)
          rnd-year (+ (:year parsed-base) (rand-int (- current-year (:year parsed-base))))
-         rnd-month (+ 1 (rand-int 13))
+         rnd-month (+ 1 (rand-int 12))
          rnd-day (cond
                    (and (zero? (mod current-year 4)) (= rnd-month 2))
-                   (+ 1 (rand-int 30))
-                   (= rnd-month 2)
                    (+ 1 (rand-int 29))
+                   (= rnd-month 2)
+                   (+ 1 (rand-int 28))
                    :else
-                   (+ 1 (rand-int 32)))]
+                   (+ 1 (rand-int 31)))]
      (str/join (:splitter parsed-base) (-> parsed-base
                                            (assoc
                                             :year rnd-year
@@ -63,14 +63,14 @@
                      (= (:year p-start) (:year p-end))
                      (+ (:month p-start) (rand-int (inc (- (:month p-end) (:month p-start)))))
                      :else
-                     (+ 1 (rand-int 13)))
+                     (+ 1 (rand-int 12)))
          rnd-day (cond
                    (and (zero? (mod rnd-year 4)) (= rnd-month 2))
                    (+ (:day p-start) (rand-int 30))
                    (= rnd-month 2)
-                   (+ 1 (rand-int 29))
+                   (+ 1 (rand-int 28))
                    :else
-                   (+ 1 (rand-int 32)))]
+                   (+ 1 (rand-int 31)))]
      (str/join (:splitter p-start) (-> p-start
                                            (assoc
                                             :year rnd-year

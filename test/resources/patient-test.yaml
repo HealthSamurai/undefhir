@@ -5,10 +5,10 @@ dictionary:
     file: test/resources/Patient1.json
 
   - name: FamilyDict
-    file: test/resources/dictionary/color.json 
+    file: test/resources/dictionary/colors_ru.txt 
 
   - name: GivenDict
-    file: test/resources/dictionary/names
+    file: test/resources/dictionary/animals_ru.txt
 
   - name: CountryDict
     file: test/resources/dictionary/color.json 
@@ -33,7 +33,44 @@ dictionary:
       on cs.resource->>'url' = c.resource->>'system'
       group by cs.id
 
+  - name: chuvashiaAddresses
+    file: test/resources/dictionary/ch_addreses.yaml
+
+  - name: TestPatient
+    query: |
+      select resource from tmp_patient limit 1;
+
+  - name: PipeConfig
+    literal:
+      writer:
+        query: "select * from patient"
+        db-spec:
+          host: localhost
+          port: 5441
+          user: postgres
+          database: undefhir
+          password: postgres
+      reader:
+        query: "COPY patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t'"
+        db-spec: 
+          host: localhost
+          port: 5441
+          user: postgres
+          database: trytest 
+          password: postgres
+      fn: $ fns.transformPatient
+
 fns:
+  - name: randAddress
+    $fn: [address]
+    $body:
+      $if: $ address
+      $then:
+        $map: $ address
+        $body: $ randNth(fns.dict("chuvashiaAddresses")) 
+      $else:
+        - $ randNth(fns.dict("chuvashiaAddresses"))
+
   - name: mkName 
     $fn: [s]
     $body: $ last (split(s, "/"))
@@ -62,10 +99,17 @@ fns:
       $body:
         $ fns.saveFile (i.system, i.entry)
 
-  - name: testPatient
+  - name: transformPatient 
+    $fn: ["Patient"]
     $body:
-      telecom: $ fns.randContactPoint(get(fns.dict("Patient"), "telecom"))
-      address: $ fns.randAddress(get(fns.dict("Patient"), "address"))
-      gender: $ fns.randCoding("AdministrativeGender").display 
-      birthDate: $ fns.randDate("20.02.2017", "20.03.2019")
+      telecom: $ fns.randContactPoint(Patient.resource.telecom)
+      address: $ fns.randAddress(Patient.resource.address)
+      name: $ fns.randHumanName(Patient.resource.name)
+      
+  - name: tryTest
+    $body:
+      $ fns.pipedLoader(fns.dict("PipeConfig"))
 
+  - name: applyTransForm
+    $body:
+      $ merge(first(fns.dict("TestPatient")).resource, fns.transformPatient(first(fns.dict("TestPatient")).resource))

@@ -7,6 +7,7 @@
             [undefhir.dictionary :as dictionary]
             [undefhir.utils :as u]
             [undefhir.date :as d]
+            [undefhir.stream :as us]
             [clojure.java.io :as io]))
 
 (defn rand-email []
@@ -69,6 +70,7 @@
    :toJson        json/generate-string
    :toYaml        yaml/generate-string
    :randPhone     rand-phone
+   :pipedLoader   us/run-pipe
    :cljtreefhir   tree2fhir
    :dict          dict})
 

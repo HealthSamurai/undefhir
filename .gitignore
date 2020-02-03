@@ -15,3 +15,6 @@ pom.xml.asc
 .hgignore
 .hg/
 *#*
+/test/resources/out
+resources/public/js/out*
+resources/public/js/app.js

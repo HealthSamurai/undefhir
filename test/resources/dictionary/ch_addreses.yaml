@@ -1,0 +1,150 @@
+- {text: 'Чувашская Республика - Чувашия, Мариинско-Посадский р-н, Ядрин г, Советская
+    ул, дом 20,  корп. 5, кв. 34', houseNumber: 20, housing: 5, kladr: '96849219535819366',
+  fias: CEGIKMOQ-UWYA-EGIK-OQSU-YACEGIKMOQSU, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Урмарский р-н, Цивильск с, Революции ул,
+    дом 21,  корп. 3, кв. 3', houseNumber: 21, housing: 3, kladr: '64522498470450914',
+  fias: YACEGIKM-QSUW-ACEG-KMOQ-UWYACEGIKMOQ, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Янтиково с, Революции ул,
+    дом 33,  корп. 4, кв. 1', houseNumber: 33, housing: 4, kladr: '63379323041531219',
+  fias: AYWUSQOM-IGEC-YWUS-OMKI-ECAYWUSQOMKI, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Янтиковский р-н, Ибреси пос, Победы ул,
+    дом 45,  корп. 3, кв. 23', houseNumber: 45, housing: 3, kladr: '10763248916371538',
+  fias: FHJLNPRT-XZBD-HJLN-RTVX-BDFHJLNPRTVX, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Шумерля г, Центральная ул,
+    дом 34,  корп. 3, кв. 29', houseNumber: 34, housing: 3, kladr: '34376543849350649',
+  fias: BDFHJLNP-TVXZ-DFHJ-NPRT-XZBDFHJLNPRT, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Ядринский р-н, Батырево с, Центральная ул,
+    дом 4,  корп. 4, кв. 15', houseNumber: 4, housing: 4, kladr: '03318612123078902',
+  fias: SUWYACEG-KMOQ-UWYA-EGIK-OQSUWYACEGIK, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Урмары с, Победы ул, дом
+    15,  корп. 4, кв. 38', houseNumber: 15, housing: 4, kladr: '86713715993476456',
+  fias: WUSQOMKI-ECAY-USQO-KIGE-AYWUSQOMKIGE, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Шумерля г, Революции ул,
+    дом 42,  корп. 2, кв. 29', houseNumber: 42, housing: 2, kladr: '00375903139301764',
+  fias: NPRTVXZB-FHJL-PRTV-ZBDF-JLNPRTVXZBDF, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Порецкий р-н, Ядрин г, Ленина ул, дом 4,  корп.
+    3, кв. 22', houseNumber: 4, housing: 3, kladr: '87167135366572656', fias: HJLNPRTV-ZBDF-JLNP-TVXZ-DFHJLNPRTVXZ,
+  use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Урмары с, Советская ул,
+    дом 28,  корп. 4, кв. 10', houseNumber: 28, housing: 4, kladr: '29537146487819063',
+  fias: UWYACEGI-MOQS-WYAC-GIKM-QSUWYACEGIKM, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Ядрин г, Революции ул, дом
+    46,  корп. 1, кв. 27', houseNumber: 46, housing: 1, kladr: '99925184565371923',
+  fias: FHJLNPRT-XZBD-HJLN-RTVX-BDFHJLNPRTVX, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Ибресинский р-н, Яльчики г, Пушкина ул,
+    дом 11,  корп. 3, кв. 27', houseNumber: 11, housing: 3, kladr: '74286283673642120',
+  fias: QSUWYACE-IKMO-SUWY-CEGI-MOQSUWYACEGI, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Алатырский р-н, Янтиково с, Ленина ул, дом
+    24,  корп. 5, кв. 35', houseNumber: 24, housing: 5, kladr: '54646178387192784',
+  fias: IKMOQSUW-ACEG-KMOQ-UWYA-EGIKMOQSUWYA, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Батырево с, Пушкина ул,
+    дом 46,  корп. 4, кв. 5', houseNumber: 46, housing: 4, kladr: '69291874113802167',
+  fias: YWUSQOMK-GECA-WUSQ-MKIG-CAYWUSQOMKIG, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Ибресинский р-н, Вурнары п, Пушкина ул,
+    дом 37,  корп. 5, кв. 36', houseNumber: 37, housing: 5, kladr: '88588753454635951',
+  fias: KMOQSUWY-CEGI-MOQS-WYAC-GIKMOQSUWYAC, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Цивильск с, Советская ул,
+    дом 25,  корп. 2, кв. 8', houseNumber: 25, housing: 2, kladr: '34640427129706995',
+  fias: IKMOQSUW-ACEG-KMOQ-UWYA-EGIKMOQSUWYA, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Ядринский р-н, Цивильск с, Советская ул,
+    дом 36,  корп. 3, кв. 8', houseNumber: 36, housing: 3, kladr: '20829256516754673',
+  fias: NPRTVXZB-FHJL-PRTV-ZBDF-JLNPRTVXZBDF, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Ибреси пос, Ленина ул,
+    дом 31,  корп. 3, кв. 26', houseNumber: 31, housing: 3, kladr: '07757655862950354',
+  fias: MOQSUWYA-EGIK-OQSU-YACE-IKMOQSUWYACE, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Мариинско-Посадский р-н, Алатырь г, Советская
+    ул, дом 36,  корп. 5, кв. 24', houseNumber: 36, housing: 5, kladr: '76007143813384181',
+  fias: USQOMKIG-CAYW-SQOM-IGEC-YWUSQOMKIGEC, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Мариинско-Посадский р-н, Цивильск с, Пушкина
+    ул, дом 6,  корп. 1, кв. 35', houseNumber: 6, housing: 1, kladr: '49992228367955558',
+  fias: CEGIKMOQ-UWYA-EGIK-OQSU-YACEGIKMOQSU, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Яльчики г, Победы ул, дом
+    5,  корп. 2, кв. 13', houseNumber: 5, housing: 2, kladr: '33400745046763312',
+  fias: ECAYWUSQ-MKIG-CAYW-SQOM-IGECAYWUSQOM, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Цивильск с, Центральная
+    ул, дом 21,  корп. 2, кв. 32', houseNumber: 21, housing: 2, kladr: '09162569056097253',
+  fias: BZXVTRPN-JHFD-ZXVT-PNLJ-FDBZXVTRPNLJ, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Ибресинский р-н, Урмары с, Пушкина ул, дом
+    6,  корп. 2, кв. 10', houseNumber: 6, housing: 2, kladr: '09353094753302703',
+  fias: YACEGIKM-QSUW-ACEG-KMOQ-UWYACEGIKMOQ, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Янтиково с, Революции ул,
+    дом 43,  корп. 2, кв. 39', houseNumber: 43, housing: 2, kladr: '62536697990862790',
+  fias: YACEGIKM-QSUW-ACEG-KMOQ-UWYACEGIKMOQ, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Алатырь г, Ленина ул, дом
+    16,  корп. 5, кв. 4', houseNumber: 16, housing: 5, kladr: '25911305564607654',
+  fias: ACEGIKMO-SUWY-CEGI-MOQS-WYACEGIKMOQS, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Урмарский р-н, Аликово с, Ленина ул, дом
+    50,  корп. 1, кв. 22', houseNumber: 50, housing: 1, kladr: '87808746830366280',
+  fias: OMKIGECA-WUSQ-MKIG-CAYW-SQOMKIGECAYW, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Аликовский р-н, Аликово с, Победы ул, дом
+    13,  корп. 1, кв. 14', houseNumber: 13, housing: 1, kladr: '64655083142613899',
+  fias: XVTRPNLJ-FDBZ-VTRP-LJHF-BZXVTRPNLJHF, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Ибресинский р-н, Янтиково с, Советская ул,
+    дом 28,  корп. 4, кв. 27', houseNumber: 28, housing: 4, kladr: '50960563075331695',
+  fias: CAYWUSQO-KIGE-AYWU-QOMK-GECAYWUSQOMK, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Ядрин г, Ленина ул, дом
+    24,  корп. 2, кв. 3', houseNumber: 24, housing: 2, kladr: '07994222557710452',
+  fias: TRPNLJHF-BZXV-RPNL-HFDB-XVTRPNLJHFDB, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Ибреси пос, Советская ул,
+    дом 34,  корп. 5, кв. 35', houseNumber: 34, housing: 5, kladr: '70582895489502022',
+  fias: LNPRTVXZ-DFHJ-NPRT-XZBD-HJLNPRTVXZBD, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Алатырский р-н, Ядрин г, Победы ул, дом
+    10,  корп. 5, кв. 30', houseNumber: 10, housing: 5, kladr: '04758757494022993',
+  fias: IKMOQSUW-ACEG-KMOQ-UWYA-EGIKMOQSUWYA, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Шумерля г, Победы ул, дом
+    29,  корп. 5, кв. 33', houseNumber: 29, housing: 5, kladr: '85675365216877033',
+  fias: BDFHJLNP-TVXZ-DFHJ-NPRT-XZBDFHJLNPRT, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Ибресинский р-н, Ядрин г, Пушкина ул, дом
+    37,  корп. 3, кв. 2', houseNumber: 37, housing: 3, kladr: '88529469015270232',
+  fias: GIKMOQSU-YACE-IKMO-SUWY-CEGIKMOQSUWY, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Порецкий р-н, Цивильск с, Победы ул, дом
+    49,  корп. 5, кв. 21', houseNumber: 49, housing: 5, kladr: '74145195566983089',
+  fias: VXZBDFHJ-NPRT-XZBD-HJLN-RTVXZBDFHJLN, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Порецкий р-н, Ибреси пос, Пушкина ул, дом
+    24,  корп. 3, кв. 32', houseNumber: 24, housing: 3, kladr: '10759770343813853',
+  fias: PRTVXZBD-HJLN-RTVX-BDFH-LNPRTVXZBDFH, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Урмарский р-н, Аликово с, Революции ул,
+    дом 6,  корп. 2, кв. 22', houseNumber: 6, housing: 2, kladr: '58640551583234779',
+  fias: IGECAYWU-QOMK-GECA-WUSQ-MKIGECAYWUSQ, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Урмарский р-н, Шумерля г, Пушкина ул, дом
+    19,  корп. 1, кв. 10', houseNumber: 19, housing: 1, kladr: '40545058570570266',
+  fias: HJLNPRTV-ZBDF-JLNP-TVXZ-DFHJLNPRTVXZ, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Алатырь г, Центральная ул,
+    дом 33,  корп. 2, кв. 8', houseNumber: 33, housing: 2, kladr: '41769582518345958',
+  fias: YACEGIKM-QSUW-ACEG-KMOQ-UWYACEGIKMOQ, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Урмарский р-н, Ибреси пос, Победы ул, дом
+    24,  корп. 1, кв. 10', houseNumber: 24, housing: 1, kladr: '36093800141888594',
+  fias: XZBDFHJL-PRTV-ZBDF-JLNP-TVXZBDFHJLNP, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Моргаушский р-н, Аликово с, Ленина ул, дом
+    20,  корп. 4, кв. 33', houseNumber: 20, housing: 4, kladr: '44639792720041996',
+  fias: HJLNPRTV-ZBDF-JLNP-TVXZ-DFHJLNPRTVXZ, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Шумерля г, Советская ул,
+    дом 24,  корп. 3, кв. 38', houseNumber: 24, housing: 3, kladr: '59407879577807871',
+  fias: QOMKIGEC-YWUS-OMKI-ECAY-USQOMKIGECAY, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Моргаушский р-н, Цивильск с, Ленина ул,
+    дом 21,  корп. 3, кв. 32', houseNumber: 21, housing: 3, kladr: '94520536383284701',
+  fias: TVXZBDFH-LNPR-VXZB-FHJL-PRTVXZBDFHJL, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Урмары с, Центральная ул,
+    дом 30,  корп. 5, кв. 20', houseNumber: 30, housing: 5, kladr: '34773577448193525',
+  fias: JLNPRTVX-BDFH-LNPR-VXZB-FHJLNPRTVXZB, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Вурнарский р-н, Батырево с, Центральная
+    ул, дом 5,  корп. 2, кв. 35', houseNumber: 5, housing: 2, kladr: '94363375891768114',
+  fias: YWUSQOMK-GECA-WUSQ-MKIG-CAYWUSQOMKIG, use: temp, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Урмары с, Пушкина ул, дом
+    45,  корп. 4, кв. 39', houseNumber: 45, housing: 4, kladr: '04912679961641653',
+  fias: PNLJHFDB-XVTR-NLJH-DBZX-TRPNLJHFDBZX, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Ибреси пос, Победы ул, дом
+    49,  корп. 5, кв. 29', houseNumber: 49, housing: 5, kladr: '65065092581254500',
+  fias: NPRTVXZB-FHJL-PRTV-ZBDF-JLNPRTVXZBDF, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Вурнары п, Революции ул,
+    дом 47,  корп. 4, кв. 2', houseNumber: 47, housing: 4, kladr: '46708998579751320',
+  fias: IKMOQSUW-ACEG-KMOQ-UWYA-EGIKMOQSUWYA, use: temp, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Яльчикский р-н, Аликово с, Ленина ул, дом
+    15,  корп. 5, кв. 39', houseNumber: 15, housing: 5, kladr: '62672637484789063',
+  fias: JHFDBZXV-RPNL-HFDB-XVTR-NLJHFDBZXVTR, use: home, type: physical}
+- {text: 'Чувашская Республика - Чувашия, Батыревский р-н, Ядрин г, Победы ул, дом
+    23,  корп. 2, кв. 22', houseNumber: 23, housing: 2, kladr: '47108891995593366',
+  fias: QSUWYACE-IKMO-SUWY-CEGI-MOQSUWYACEGI, use: home, type: both}
+- {text: 'Чувашская Республика - Чувашия, Цивильский р-н, Вурнары п, Советская ул,
+    дом 36,  корп. 5, кв. 29', houseNumber: 36, housing: 5, kladr: '07247571720719291',
+  fias: HJLNPRTV-ZBDF-JLNP-TVXZ-DFHJLNPRTVXZ, use: temp, type: both}
