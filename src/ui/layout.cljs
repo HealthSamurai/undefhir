@@ -78,16 +78,14 @@
 ;;(def monaco-languages (helpers/get js/monaco "languages"))
 
 (defn create [dom-element options override]
-  (.create monaco-editor  dom-element  (clj->js options) ))
+
+  (.create monaco-editor  dom-element  (clj->js options) (clj->js override) ))
 
 (defn set-theme [theme-name]
   (.setTheme monaco-editor  theme-name))
 
 (defn update-options [editor options]
   (.updateOptions editor  options))
-
-
-
 
 (defn get-value [editor] (.getValue editor))
 
@@ -142,6 +140,19 @@
                                      ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
                                      (editor-did-mount this editor)
                                      )))
+        component-will-receive-props (fn [this [_ cfg]]
+                                      (when-some [ref @*ref]
+                                        ;;(println "----->>> " (:value cfg))
+                                        (.setValue (aget this "editor") (:value cfg))
+                                        #_(let [props  (r/props this)
+                                              opts   (-> (assoc config :value (:value cfg)) (merge props) (assoc :editorWillMount (partial editor-will-mount this)))
+                                              editor (create ref opts {})]
+                                          (aset this "editor" editor)
+                                          (.layout editor)
+                                          ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
+                                          (editor-did-mount this editor)
+                                          ))
+                                      )
 
         component-did-update   (fn [this old-argv]
                                  (let [editor      (.-editor this)
@@ -171,41 +182,34 @@
                                            (not= height (:height old-props)))
                                      (mlayout editor))))
 
-        ;; component-will-unmount (fn [this]
-        ;;                          (when-some [editor (helpers/get this "editor")]
-        ;;                            (dispose editor)
+         ;; component-will-unmount (fn [this]
+         ;;                          (when-some [editor (aget this "editor")]
+         ;;                            (dispose editor)
 
-        ;;                            (when-some [model (get-model editor)]
-        ;;                              (dispose model)))
+         ;;                            (when-some [model (get-model editor)]
+         ;;                              (dispose model)))
 
-        ;;                          (when-some [sub (helpers/get this "__subscription")]
-        ;;                            (dispose sub)))
+         ;;                          (when-some [sub (aget this "__subscription")]
+         ;;                            (dispose sub)))
 
         render                 (fn [_]
                                  [:div.monaco-editor-wrapper {:ref assign-ref}])]
-    (fn [_]
+    (fn [config]
       (r/create-class
         {:display-name           "monaco-editor"
          :component-did-mount    component-did-mount
          :component-did-update   component-did-update
+         :component-will-receive-props component-will-receive-props
          ;;:component-will-unmount component-will-unmount
          :render                 render}))))
 
-(defn layout [page]
-  [:div#layout core-styles
-   [:div#top-nav]
-   [:div#logo
-    [:i.fas.fa-fire]]
-   [main-navigation]
-   [:div#entity-list page]
-   [:div#editor
-    [editor   {;;:width               "300px"
-               ;;:height              "300px"
-               :value               "hello world hello world hello\n 
-hello world hello world hello world hello \n
-world hello world hello world hello world\n 
-ello world hello world hello world hello world hello world hello world hello world " 
-               :defaultValue        "init"
+(defn edd []
+  (let [cnt (rf/subscribe [:xhr/response :ui.explorer.model/file ])]
+    (fn []
+      [editor   {;;:width               "300px"
+                 ;;:height              "300px"
+                 :value               (get-in @cnt [:data :file-content]) 
+               ;;:defaultValue        (get-in @cnt [:data :file-content])
                :language            "yaml"
                :theme               "vs-dark"
                :minimap             {:enabled true}
@@ -218,4 +222,14 @@ ello world hello world hello world hello world hello world hello world hello wor
                :editorDidMount      (fn [editor monaco] (.focus editor))
                :editorWillMount     (fn [monaco])
                ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
-               :overrideServices    {}}]]])
+               :overrideServices    {}}]
+      )))
+
+(defn layout [page]
+  [:div#layout core-styles
+   [:div#top-nav]
+   [:div#logo
+    [:i.fas.fa-fire]]
+   [main-navigation]
+   [:div#entity-list page]
+   [:div#editor [edd]]])

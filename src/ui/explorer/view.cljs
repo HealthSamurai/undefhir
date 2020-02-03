@@ -1,5 +1,6 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
+            [re-frame.core :as rf]
             [ui.styles :as styles]
             [jslib.icons :as icons]
             [ui.pages :as pages]))
@@ -34,8 +35,9 @@
       (reduce-kv
        (fn [acc k v]
          (conj acc
-               [:div.directory1 {:key k}
-                [:div.line {:style {"paddingLeft" (str padding "px")}}
+               [:div {:key k }
+                [:div.line {:style {"paddingLeft" (str padding "px")}
+                            :on-click #(rf/dispatch [::model/open-file (:path v)])}
                  (if (:isDirectory v)
                    [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
                    [:span.file [:span.file {:class (.getClassWithColor js/FileIcons k)} ]])

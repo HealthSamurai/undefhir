@@ -15,3 +15,10 @@
  :<- [:xhr/response index]
  (fn [[page {dirs :data }] [pid]]
    {:dir dirs}))
+
+(rf/reg-event-fx
+ ::open-file 
+ (fn [{db :db} [_ file]]
+   {:xhr/fetch {:uri "/workspace/file"
+                :params  {:file file}
+                :req-id ::file}}))

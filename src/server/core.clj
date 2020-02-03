@@ -2,6 +2,7 @@
   (:require [clojure.java.io :as io]
             [route-map.core :as rm]
             [ring.middleware.cors :refer [wrap-cors]]
+            [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.json :refer [wrap-json-response]]
             [org.httpkit.server :as server]
             [clojure.string :as str])
@@ -20,15 +21,21 @@
           (let [path (path-split file)]
             (assoc-in acc
                       (mk-tree-path path)
-                      {:isDirectory (.isDirectory file)})))
+                      {:path (.getPath file)
+                       :isDirectory (.isDirectory file)})))
         {})))
 
 (defn workspace [req]
   {:status 200
    :body (file-tree "test")})
 
+(defn workspace-file [req]
+  {:status 200
+   :body {:file-content (slurp (io/file (get-in req  [:params "file"])))}})
+
 (def routes
-  {"workspace"  {:GET workspace}})
+  {"workspace"  {:GET workspace
+                 "file" {:GET workspace-file}}})
 
 (defn handler [{meth :request-method uri :uri :as req}]
   (if-let [res (rm/match [meth uri] routes)]
@@ -37,6 +44,7 @@
 
 (def app
   (-> handler
+      wrap-params
       wrap-json-response
       (wrap-cors :access-control-allow-origin [#".*"]
                  :access-control-allow-methods [:get :put :post :delete])))
