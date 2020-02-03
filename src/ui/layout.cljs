@@ -3,17 +3,20 @@
             [reagent.core :as r]
             [monaco.helpers :as helpers]
             [jslib.monaco :as monaco]
+            [jslib.monaco.yaml ]
+            [jslib.icons ]
 
             [clojure.string :as str]
             [re-frame.core :as rf]))
 
+; #262626
 
 (def core-styles
   (styles/style
    [:#app
     {:font-family "\"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
     
-    [:.editor-area {:max-height "100%"}]
+    ;;[:.editor-area {:height "100%"}]
     [:.ptbl [:&:hover {:cursor "pointer"}]]
     [:.grow {:flex-grow "1"}]
     [:.monaco-editor-wrapper {:height "100%"}]

@@ -25,7 +25,7 @@
 
 (defn workspace [req]
   {:status 200
-   :body (file-tree "src")})
+   :body (file-tree "test")})
 
 (def routes
   {"workspace"  {:GET workspace}})

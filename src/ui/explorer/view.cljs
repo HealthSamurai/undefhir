@@ -1,6 +1,7 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
             [ui.styles :as styles]
+            [jslib.icons :as icons]
             [ui.pages :as pages]))
 
 (def dict-style
@@ -34,10 +35,10 @@
        (fn [acc k v]
          (conj acc
                [:div.directory1 {:key k}
-                [:div.line {:style {"padding-left" (str padding "px")}}
+                [:div.line {:style {"paddingLeft" (str padding "px")}}
                  (if (:isDirectory v)
                    [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
-                   [:span.file [:i.folder.far.fa-file]])
+                   [:span.file [:span.file {:class (.getClassWithColor js/FileIcons k)} ]])
                  k]
                 (work-tree v padding)]))
        [:div.dir]
