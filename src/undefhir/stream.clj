@@ -16,7 +16,7 @@
     (with-open [writer (io/writer out-stream)]
       (let [write-fn (fn [e]
                        (let [res {:foo "marat"
-                                  :d (System/currentTimeMillis)  
+                                  :d (System/currentTimeMillis)
                                   :n (keys e)}]
                          (json/generate-stream res  writer)
                          (.write writer  "\n")))]
@@ -34,14 +34,12 @@
                 (recur (.read in-stream))))))))
 
 (comment
-
   ;; PIPE
   (def foo (future
              (let [out-stream (PipedOutputStream.)
                    in-stream (PipedInputStream. out-stream)]
                (run-output-stream {} {} out-stream)
                (run-input-stream  {} in-stream))))
-
 
   (let [f (FileOutputStream. "test/resources/out.test")]
     (.write f  101)
