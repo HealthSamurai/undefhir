@@ -1,6 +1,10 @@
 (ns undefhir.stream
   (:require [clojure.java.io :as io]
+            [undefhir.re-hash :as re-hash]
             [cheshire.core :as json]
+            [undefhir.utils :as uu]
+            [clj-yaml.core :as yaml]
+            [undefhir.function :as uf]
             [pg.core :as pg]
             [undefhir.utils :as uu]
             [clj-pg.honey :as honey]
@@ -13,6 +17,44 @@
             PreparedStatement ResultSet SQLException Statement Types]
            org.postgresql.PGConnection
            org.postgresql.copy.CopyManager))
+
+(defn truncate [db-spec tbl]
+  (pg.core/with-connection  db-spec
+    (fn [root-conn]
+      (honey/exec! root-conn (str "truncate  " tbl)))))
+
+(defn index-off [db-spec tbl]
+  (let [tbl tbl]
+    (pg.core/with-connection  db-spec
+      (fn [root-conn]
+        (honey/exec! root-conn (str
+                   "UPDATE pg_index
+                    SET indisready=false
+                    WHERE indrelid = (
+                      SELECT oid
+                      FROM pg_class
+                      WHERE relname= '" tbl "')"))
+        (honey/exec! root-conn (str "VACUUM  " tbl))))))
+
+
+(comment
+  (index-off writer-db-spec  "practitioner")
+  (index-on writer-db-spec  "practitioner")
+  )
+(defn index-on [db-spec tbl]
+  (let [tbl (uu/table-name tbl)]
+    (pg.core/with-connection db-spec
+      (fn [root-conn]
+        (honey/exec! root-conn
+                  (str
+                   "UPDATE pg_index
+                    SET indisready=true
+                    WHERE indrelid = (
+                      SELECT oid
+                      FROM pg_class
+                      WHERE relname= '" tbl "')"))
+        (honey/exec! root-conn (str "REINDEX table   " tbl))))))
+
 
 (defn- make-name-unique
   [cols col-name n]
@@ -74,7 +116,6 @@
     (with-open [writer (io/writer out-stream)]
       (let [write-fn (fn [r]
                 (let [res (cb r)]
-                  ;; TODO: generalize or move to JUTE fn
                   (.write writer (str (or (:id res) (uuid)) "\t" (:txid res) " \t" (:status res)  "\t"))
                   (json/generate-stream (:resource res) writer)
                   (.write writer  "\n")))]
@@ -85,9 +126,10 @@
 
           query
           (with-open [conn* (make-raw-connectoion db-spec)]
-            (query-with-row-cb conn* query {:row-cb write-fn :fetch-size 100}))
+            (query-with-row-cb conn* query {:row-cb write-fn :fetch-size 10000}))
 
           :else nil )))
+    (println (str "Read time: "  (- (System/currentTimeMillis) @t )  ))
     (spit "/tmp/timing-read" (str "Read time: "  (- (System/currentTimeMillis) @t )  ))
     (.close out-stream)))
 
@@ -112,6 +154,7 @@
 
        :esle nil)
 
+     (println  (str "Write time: "  (- (System/currentTimeMillis) @t )  ) )
      (spit "/tmp/timing-write" (str "Write time: "  (- (System/currentTimeMillis) @t )  )))))
 
 (defn patient-transform [item]
@@ -133,22 +176,25 @@
 
 (def writer-db-spec
   {:host "localhost"
-   :port "5441"
+   :port "5444"
    :user "postgres"
-   :database "trytest"
+   :database "undefined"
    :password  "postgres"})
 
-(defn run-pipe [{:keys [reader writer fn] :as m}]
+(defn run-pipe [{:keys [reader writer fn before]}]
+  (when before
+    (with-open [conn*    (make-raw-connectoion (:db-spec before))]
+      (honey/exec! {:connection  conn*} (:query before) )))
+
   (if-let [write-file (:file writer)]
     (run-reader reader fn (io/file write-file))
 
     (let [out-stream (PipedOutputStream.)
-          in-stream (PipedInputStream. out-stream)]
+          in-stream (PipedInputStream. out-stream 10000)]
         (run-reader reader fn out-stream)
         (run-writer writer in-stream))))
 
-(defn tranform-id [resource]
-  resource)
+(defn tranform-id [resource] resource)
 
 (defn generate-pipes [db-in target-db]
   (let [resources (map #(-> % :id (.toLowerCase) uu/table-name)
@@ -162,26 +208,67 @@
                      :db-spec target-db}
             :fn "ids-transform"}) resources)))
 
-(def pipe
-  {:reader {:query "select * from patient"
-            :db-spec reader-db-spec}
-   :writer {:query "COPY patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' "
-            :db-spec writer-db-spec}
-   :fn patient-transform})
+(defn gen-pipe [tbl cb]
+  (let [tbl (uu/table-name tbl)]
+    {:reader {:query (str "select * from " tbl " limit 20000")
+              :db-spec reader-db-spec}
+      :writer {:query (str "COPY " tbl " (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' ")
+               :db-spec writer-db-spec}
+     ;;:writer {:file "/tmp/patient.ndjson"}
 
-(def pipe-to-file
-  {:reader {:query "select * from patient"
-            :db-spec reader-db-spec}
-   :writer {:file "/tmp/ptout"}
-   :fn patient-transform})
+     ;; :before {:query (str "truncate " tbl) :db-spec writer-db-spec}
+     :fn cb}))
 
+
+(defn anonymify-refs [resource]
+  (clojure.walk/prewalk
+   (fn [x]
+     (cond
+       (and (:id x) (:resourceType x))
+       (update x :id re-hash/re-hash)
+
+       (and
+        (get-in x [:identifier :value])
+        (get-in x [:identifier :system]))
+       (update-in x [:identifier :value] re-hash/re-hash)
+       
+       :else x))
+   resource))
+
+(defn practitioner-transform [row]
+  ;;row
+
+  (update row :resource anonymify-refs)
+
+  ;;row 
+  #_(assoc-in row [:resource :name] "marat")
+  )
+
+(def practitioner-pipe
+  (gen-pipe "practitioner"  practitioner-transform))
+(def patient-pipe
+  (gen-pipe "patient"  practitioner-transform))
 
 (comment
   ;; PIPE
+  ;;(honey/exec! { :connection (make-raw-connectoion writer-db-spec)} "select 1")
 
   (do
+    (println "-----------------")
+    (truncate writer-db-spec "patient")
+    (index-off writer-db-spec "patient")
+    (println "RUN copy patient")
     (reset! t (System/currentTimeMillis))
-    (run-pipe pipe))
+    (future (run-pipe patient-pipe))
+    (println "-----------------"))
+
+  (do
+    (println "-----------------")
+    (truncate writer-db-spec "practitioner")
+    (index-off writer-db-spec "practitioner")
+    (println "RUN copy practitioner")
+    (reset! t (System/currentTimeMillis))
+    (future (run-pipe practitioner-pipe)))
 
   (do
     (reset! t (System/currentTimeMillis))
@@ -199,4 +286,15 @@
         #_(run-input-stream  {:query  (str "COPY patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' ")
                               :db-spec writer-db}
                              in-stream))))
+
+  (def configuration (assoc (yaml/parse-string (slurp "/home/victor/Documents/Alkona/undefhir/test/resources/patient-test.yaml")) :db/connection reader-db-spec ))
+
+  (defn transform-patient [pt]
+    (let [cnt (merge (get pt :resource) ((:transformPatient (uf/load-fns configuration)) pt))]
+      (assoc pt :resource cnt)))
+
+  (doseq [res (honey/query (pg/connection reader-db-spec) "select * from patient limit 10;")]
+      (spit "/home/victor/Documents/Work/Trash/Result.yaml" (yaml/generate-string (transform-patient res)) :append true)
+      (spit "/home/victor/Documents/Work/Trash/Result.yaml" "\n\n" :append true))
+
   )

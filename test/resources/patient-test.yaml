@@ -1,5 +1,3 @@
-terminology: true  
-
 dictionary:
   - name: Patient
     file: test/resources/Patient1.json
@@ -25,39 +23,39 @@ dictionary:
   - name: LineDict 
     file: test/resources/dictionary/color.json 
 
-  - name: CodeSystems
-    query: |
-      select cs.resource->>'name' as system, jsonb_agg(c.resource) as entry
-      from concept c
-      join codesystem as cs
-      on cs.resource->>'url' = c.resource->>'system'
-      group by cs.id
+  # - name: CodeSystems
+  #   query: |
+  #     select cs.resource->>'name' as system, jsonb_agg(c.resource) as entry
+  #     from concept c
+  #     join codesystem as cs
+  #     on cs.resource->>'url' = c.resource->>'system'
+  #     group by cs.id
 
   - name: chuvashiaAddresses
     file: test/resources/dictionary/ch_addreses.yaml
 
-  - name: TestPatient
-    query: |
-      select resource from tmp_patient limit 1;
+  # - name: TestPatient
+  #   query: |
+  #     select resource from tmp_patient limit 10;
 
-  - name: PipeConfig
-    literal:
-      writer:
-        query: "select * from patient"
-        db-spec:
-          host: localhost
-          port: 5441
-          user: postgres
-          database: undefhir
-          password: postgres
-      reader:
-        query: "COPY patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t'"
-        db-spec: 
-          host: localhost
-          port: 5441
-          user: postgres
-          database: trytest 
-          password: postgres
+  # - name: PipeConfig
+  #   literal:
+  #     writer:
+  #       query: "select * from patient"
+  #       db-spec:
+  #         host: localhost
+  #         port: 5441
+  #         user: postgres
+  #         database: undefhir
+  #         password: postgres
+  #     reader:
+  #       query: "COPY patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t'"
+  #       db-spec: 
+  #         host: localhost
+  #         port: 5441
+  #         user: postgres
+  #         database: trytest 
+  #         password: postgres
 
 fns:
   - name: randAddress
@@ -105,17 +103,8 @@ fns:
       address: $ fns.randAddress(Patient.resource.address)
       name: $ fns.randHumanName(Patient.resource.name)
 
-  - name: testTry
-    $fn: ["resource"]
-    $body: $ resource
-
-  - name: tryTest
-    $body:
-      $let:
-        config: $ assoc(fns.dict("PipeConfig"), "fn", fns.testTry)
-      $body:
-        $ fns.pipedLoader(config)
-    
   - name: applyTransForm
     $body:
-      $ merge(first(fns.dict("TestPatient")).resource, fns.transformPatient(first(fns.dict("TestPatient")).resource))
+      $map: $ fns.dict("TestPatient")
+      $as: i
+      $body: $ merge(i.resource, fns.transformPatient(i))

@@ -136,6 +136,7 @@
         (get-in x [:identifier :value])
         (get-in x [:identifier :system]))
        (update-in x [:identifier :value] hash-id)
+       
        :else x))
    resource))
 
