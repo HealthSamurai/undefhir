@@ -58,7 +58,6 @@ dictionary:
           user: postgres
           database: trytest 
           password: postgres
-      fn: $ fns.transformPatient
 
 fns:
   - name: randAddress
@@ -105,11 +104,18 @@ fns:
       telecom: $ fns.randContactPoint(Patient.resource.telecom)
       address: $ fns.randAddress(Patient.resource.address)
       name: $ fns.randHumanName(Patient.resource.name)
-      
+
+  - name: testTry
+    $fn: ["resource"]
+    $body: $ resource
+
   - name: tryTest
     $body:
-      $ fns.pipedLoader(fns.dict("PipeConfig"))
-
+      $let:
+        config: $ assoc(fns.dict("PipeConfig"), "fn", fns.testTry)
+      $body:
+        $ fns.pipedLoader(config)
+    
   - name: applyTransForm
     $body:
       $ merge(first(fns.dict("TestPatient")).resource, fns.transformPatient(first(fns.dict("TestPatient")).resource))

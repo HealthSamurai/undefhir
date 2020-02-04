@@ -2,6 +2,7 @@
   (:require [clojure.java.io :as io]
             [cheshire.core :as json]
             [pg.core :as pg]
+            [undefhir.utils :as uu]
             [clj-pg.honey :as honey]
             [clojure.java.jdbc :as jdbc]
             [clojure.string :as str])
@@ -137,7 +138,7 @@
    :database "trytest"
    :password  "postgres"})
 
-(defn run-pipe [{:keys [reader writer fn]}]
+(defn run-pipe [{:keys [reader writer fn] :as m}]
   (if-let [write-file (:file writer)]
     (run-reader reader fn (io/file write-file))
 
@@ -150,7 +151,7 @@
   resource)
 
 (defn generate-pipes [db-in target-db]
-  (let [resources (map #(-> % :id (.toLowerCase))
+  (let [resources (map #(-> % :id (.toLowerCase) uu/table-name)
                        (honey/query
                         (pg/connection reader-db-spec)
                         "select id from entity where resource#>>'{type}'='resource' and resource#>>'{isMeta}' is null"))]
