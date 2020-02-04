@@ -1,3 +1,11 @@
+body, html {
+    background-color: #262626;
+}
+
+.indicator {
+    color: #19a6e4;
+    font-size: 30px;
+}
 .indicator {
   position: absolute;
   top: 50%;

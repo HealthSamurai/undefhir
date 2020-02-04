@@ -4,7 +4,7 @@
             [monaco.helpers :as helpers]
             [jslib.monaco :as monaco]
             [jslib.monaco.yaml ]
-            [jslib.monaco.clojure ]
+            ;;[jslib.monaco.clojure ]
             [jslib.icons ]
 
             [clojure.string :as str]
