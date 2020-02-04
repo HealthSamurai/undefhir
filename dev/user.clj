@@ -10,6 +10,8 @@
                              :provides ["jslib.monaco"]}
                             {:file "resources/public/js/monaco/yaml.js"
                              :provides ["jslib.monaco.yaml"]}
+                            {:file "resources/public/js/monaco/clojure.js"
+                             :provides ["jslib.monaco.clojure"]}
                             {:file "resources/public/js/icons.js"
                              :provides ["jslib.icons"]}]
 

@@ -4,6 +4,7 @@
             [monaco.helpers :as helpers]
             [jslib.monaco :as monaco]
             [jslib.monaco.yaml ]
+            [jslib.monaco.clojure ]
             [jslib.icons ]
 
             [clojure.string :as str]
@@ -209,21 +210,20 @@
       [editor   {;;:width               "300px"
                  ;;:height              "300px"
                  :value               (get-in @cnt [:data :file-content]) 
-               ;;:defaultValue        (get-in @cnt [:data :file-content])
-               :language            "yaml"
-               :theme               "vs-dark"
-               :minimap             {:enabled true}
-               :autoIndent          true
-               :selectOnLineNumbers true
-               :roundedSelection    false
-               :readOnly            false
-               :cursorStyle         "line"
-               :automaticLayout     false
-               :editorDidMount      (fn [editor monaco] (.focus editor))
-               :editorWillMount     (fn [monaco])
-               ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
-               :overrideServices    {}}]
-      )))
+                 ;;:defaultValue        (get-in @cnt [:data :file-content])
+                 :language            "yaml"
+                 :theme               "vs-dark"
+                 :minimap             {:enabled true}
+                 :autoIndent          true
+                 :selectOnLineNumbers true
+                 :roundedSelection    false
+                 :readOnly            false
+                 :cursorStyle         "line"
+                 :automaticLayout     false
+                 :editorDidMount      (fn [editor monaco] (.focus editor))
+                 :editorWillMount     (fn [monaco])
+                 ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
+                 :overrideServices    {}}])))
 
 (defn layout [page]
   [:div#layout core-styles
