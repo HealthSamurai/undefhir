@@ -11,6 +11,9 @@ dictionary:
   - name: CountryDict
     file: test/resources/dictionary/color.json 
 
+  - name: Patronymics
+    file: test/resources/dictionary/patronymic 
+
   - name: CityDict
     file: test/resources/dictionary/color.json 
 
@@ -95,6 +98,17 @@ fns:
       $as: i 
       $body:
         $ fns.saveFile (i.system, i.entry)
+
+  - name: randHumanName
+    $fn: ["name"]
+    $body: 
+      $map: "$ name"
+      $as: i
+      $body: 
+        family: $ randNth (fns.dict("FamilyDict")) 
+        given:
+            - $ randNth (fns.dict("GivenDict"))
+            - $ randNth (fns.dict("Patronymics"))
 
   - name: transformPatient 
     $fn: ["Patient"]
