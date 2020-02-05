@@ -9,16 +9,23 @@
 (def magic-ids
   {\1 (vec (char-range "A" "Z"))
    \2 (vec (char-range "a" "z"))
-   \3 (vec (char-range "1" "9"))
+   \3 (vec (concat (char-range "1" "9")))
    \4 (vec (char-range "А" "Я"))
    \5 (vec (char-range "а" "я"))})
-
 (defn abs [x] (if (pos? x) x (- x)))
+
+(defn ii [i]
+  (loop [init 0
+         result i]
+    (if (= init i)
+      result
+      (recur (inc init) (+ result (* init init))))))
+
 
 (defn rnd-choice
   [h magic-id i]
   (if-let [v (magic-ids magic-id)] 
-    (v (rem (abs (+ h i i)) (count v)))
+    (v (rem (abs (+ h (* i i))) (count v)))
     magic-id))
 
 (defn get-magic-id [ch]
@@ -32,8 +39,15 @@
       :else ch)))
 
 (defn re-hash [base & [salt]]
-  (let [h (hash (str base (or salt "NEED SALT")))]
+  (let [h  (hash (str base (or salt "NEED SALT long undefhir salt")))]
     (loop [s "", i 0, [t & rst] base]
-      (if (or t rst)
-        (recur (str s  (rnd-choice h (get-magic-id t) i)) (inc i) rst)
-        s))))
+      (let [h (hash (+ h i))]
+        (if (or t rst)
+          (recur (str s  (rnd-choice h (get-magic-id t) i)) (inc i) rst)
+          s)))))
+
+(comment
+  (re-hash "357-246-135 92")
+
+  (re-hash "642-753-864 97")
+  )
