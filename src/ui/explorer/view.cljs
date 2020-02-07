@@ -1,6 +1,7 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
             [re-frame.core :as rf]
+            [reagent.core :as r]
             [ui.styles :as styles]
             [jslib.icons :as icons]
             [ui.pages :as pages]))
@@ -11,11 +12,10 @@
                 :min-height "4em" :max-height "100%" :overflow-y "auto"}
     [:.explorer-wrapper {:margin-left "-8px"}]
     [:.dict {:margin-left "2px"}]
-    ;;[:.dir  {:padding-left "10px"}]
-    [:.file {:padding-left "6px"}]
+    [:.file {:padding-left "15px"}
+     [:&.fa-file {:padding-right "5px"}]]
 
     [:.line [:&:hover {:cursor "pointer" :background-color "#37373d"}]]
-
 
     [:.file-ico {:margin-right "6px"}]
     [:.arrow  {:margin "6px" :font-size "10px"}]
@@ -35,14 +35,18 @@
       (reduce-kv
        (fn [acc k v]
          (conj acc
-               [:div {:key k }
-                [:div.line {:style {"paddingLeft" (str padding "px")}
-                            :on-click #(rf/dispatch [::model/open-file (:path v)])}
-                 (if (:isDirectory v)
-                   [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
-                   [:span.file [:span.file {:class (.getClassWithColor js/FileIcons k)} ]])
-                 k]
-                (work-tree v padding)]))
+               [:div.line
+                {:key k
+                 :style {"paddingLeft" (str padding "px")}
+                 :on-click (fn [e]
+                             (if (:isDirectory v)
+                               (println "dir")
+                               (rf/dispatch [::model/open-file (:path v)])))}
+                (if (:isDirectory v)
+                  [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
+                  [:span.file {:class (or (.getClassWithColor js/FileIcons k) "far fa-file")} ])
+                k]
+               (work-tree v padding)))
        [:div.dir]
        child))))
 
