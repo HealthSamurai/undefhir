@@ -2,6 +2,7 @@
   (:require [ui.app-styles :as app-styles]
             [ui.styles :as styles]
             [ui.zframes.editor :as editor]
+            [ui.zframes.tabu :as tabu]
             [clojure.string :as str]
             [re-frame.core :as rf]))
 
@@ -48,4 +49,6 @@
    [:div#logo.logo [:i.fas.fa-fire]]
    [main-navigation]
    [:div#entity-list page]
-   [:div#editor [editor/edd]]])
+   [:div#editor
+    [tabu/tabular]
+    [editor/edd]]])
