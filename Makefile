@@ -1,4 +1,4 @@
-PGPORT=5441
+PGPORT=5443
 PGHOST=localhost
 PGUSER=postgres
 PGDATABASE=undefhir

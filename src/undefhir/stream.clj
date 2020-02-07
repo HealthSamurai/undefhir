@@ -37,11 +37,6 @@
                       WHERE relname= '" tbl "')"))
         (honey/exec! root-conn (str "VACUUM  " tbl))))))
 
-
-(comment
-  (index-off writer-db-spec  "practitioner")
-  (index-on writer-db-spec  "practitioner")
-  )
 (defn index-on [db-spec tbl]
   (let [tbl (uu/table-name tbl)]
     (pg.core/with-connection db-spec
@@ -55,7 +50,6 @@
                       FROM pg_class
                       WHERE relname= '" tbl "')"))
         (honey/exec! root-conn (str "REINDEX table   " tbl))))))
-
 
 (defn- make-name-unique
   [cols col-name n]
@@ -172,13 +166,17 @@
 ;; -h localhost -p 5439 -U postgres testbox
 (def reader-db-spec
   {:host "localhost"
-   :port "5441"
+   :port "5443"
    :user "postgres"
-   :database "undefhir"
+   :database "testbox"
    :password  "postgres"})
 
 (def writer-db-spec
-  {})
+  {:host "localhost"
+   :port "5443"
+   :user "postgres"
+   :database "undefhir"
+   :password  "postgres"})
 
 (defn run-pipe [{:keys [reader writer fn before]}]
   (when before
@@ -209,7 +207,7 @@
 
 (defn gen-pipe [tbl cb]
   (let [tbl (uu/table-name tbl)]
-    {:reader {:query (str "select * from " tbl " limit 1000")
+    {:reader {:query (str "select * from " tbl " ")
               :db-spec reader-db-spec}
       :writer {:query (str "COPY " tbl " (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' ")
                :db-spec writer-db-spec}
@@ -225,6 +223,9 @@
      (cond
        (and (:id x) (:resourceType x))
        (update x :id re-hash/re-hash)
+
+       (:localRef x)
+       (update x :localRef re-hash/re-hash)
        
        (and (:system x) (:value x))
        (update x :value re-hash/re-hash)
@@ -265,7 +266,6 @@
     (run-pipe pipe)
     (println "-----------------")))
 
-
 (defn run-copy-pipe [tbl]
   (let [pipe (gen-pipe tbl ident)]
     (println "-----------------")
@@ -284,9 +284,58 @@
     (run-pipe pipe)
     (println "-----------------")))
 
+
+(def configuration (assoc (yaml/parse-string (slurp "test/resources/patient-test.yaml"))
+                          :db/connection reader-db-spec ))
+
+(def ttp (:transformPatient (uf/load-fns configuration)))
+(defn patient-transform [row]
+  (let [cnt (merge (:resource row) (ttp row))]
+    (-> row
+        (assoc  :resource cnt)
+        (update :id re-hash/re-hash)
+        (update :resource anonymify-refs))))
+
+
+(defn dr-transform [row]
+  (-> row 
+      (update :id re-hash/re-hash)
+      (update :resource anonymify-refs)
+      (assoc-in [:resource :content 0 :attachment :url] "https://blanker.ru/files/images/medicinskaya_spravka_na_oruzhie._forma_046-1.jpg")))
+
+(defn run-dr-pipe [tbl]
+  (let [pipe (gen-pipe tbl dr-transform)]
+    (println "-----------------")
+    (truncate writer-db-spec tbl)
+    (println (str "RUN copy " tbl))
+    (reset! t (System/currentTimeMillis))
+    (run-pipe pipe)
+    (println "-----------------")))
+
+(defn run-patient-pipe [tbl]
+  (let [pipe (gen-pipe tbl patient-transform)]
+    (println "-----------------")
+    (truncate writer-db-spec tbl)
+    (index-off writer-db-spec tbl)
+    (println (str "RUN copy " tbl))
+    (reset! t (System/currentTimeMillis))
+    (run-pipe pipe)
+    (println "-----------------")))
+
 (comment
+    (truncate writer-db-spec "schedulerule")
+
+  (do (reset! i 0) (future (run-patient-pipe "patient")))
+(index-on writer-db-spec "patient")
   ;; PIPE
   ;;(honey/exec! { :connection (make-raw-connectoion writer-db-spec)} "select 1")
+
+
+  (let [tbls ["condition"]] 
+      (doseq [t tbls]
+        (future (index-on writer-db-spec t))))
+(do
+  (reset! i 0) (run-dr-pipe "documentreference"))
 
   (let [tbls ["practitioner" "practitionerrole"  "organization" "organizationinfo"]] 
       (doseq [t tbls]
@@ -308,6 +357,11 @@
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 
+  (do (reset! i 0) (run-big-pipe "servicerequest"))
+  (do (reset! i 0) (run-big-pipe "healthcareservice"))
+
+  (do
+    (reset! i 0) (run-big-pipe "condition"))
   (do
     (reset! i 0) (run-big-pipe "sector")
     (reset! i 0) (run-big-pipe "personbinding"))
@@ -317,11 +371,7 @@
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 
-
-
-  (do 
-    (reset! i 0)
-    (run-big-pipe "patient"))
+  (do (reset! i 0) (run-big-pipe "patient"))
 
   #_(do
     (reset! i 0)
@@ -329,38 +379,21 @@
     (reset! i 0)
     (run-big-pipe "codesystem"))
 
-  (let [tbls ["episodeofcare" "schedulerule" "appointment" "encounter" "documentreference"]] 
+  (let [tbls ["episodeofcare" ]] 
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
-  #_(do
-    (reset! i 0)
-    (run-big-pipe "episodeofcare")
-    (reset! i 0)
-    (run-big-pipe "schedulerule")
-    (reset! i 0)
-    (run-big-pipe "appointment" )
-    (reset! i 0)
-    (run-big-pipe "encounter")
-    (reset! i 0)
-    (run-big-pipe "documentreference"))
-
-  ;;125422
   (do
-    (println "-----------------")
-    (truncate writer-db-spec "patient")
-    (index-off writer-db-spec "patient")
-    (println "RUN copy patient")
-    (reset! t (System/currentTimeMillis))
-    (future (run-pipe patient-pipe))
-    (println "-----------------"))
+    (reset! i 0)
+    (future (run-big-pipe "episodeofcare"))
+    (reset! i 0)
+    (future (run-big-pipe "schedulerule"))
+    (reset! i 0)
+    (future (run-big-pipe "appointment" ))
+    (reset! i 0)
+    (future (run-big-pipe "encounter"))
+    (reset! i 0)
+    #_(run-big-pipe "documentreference"))
 
-  #_(do
-    (println "-----------------")
-    (truncate writer-db-spec "practitioner")
-    (index-off writer-db-spec "practitioner")
-    (println "RUN copy practitioner")
-    (reset! t (System/currentTimeMillis))
-    (future (run-pipe practitioner-pipe)))
 
   (do
     (reset! t (System/currentTimeMillis))
@@ -379,11 +412,6 @@
 <<<<<<< HEAD
                              in-stream))))
 
-  #_(def configuration (assoc (yaml/parse-string (slurp "/home/victor/Documents/Alkona/undefhir/test/resources/patient-test.yaml")) :db/connection reader-db-spec ))
-
-  #_(defn transform-patient [pt]
-    (let [cnt (merge (get pt :resource) ((:transformPatient (uf/load-fns configuration)) pt))]
-      (assoc pt :resource cnt)))
 
   #_(doseq [res (honey/query (pg/connection reader-db-spec) "select * from patient limit 10;")]
       (spit "/home/victor/Documents/Work/Trash/Result.yaml" (yaml/generate-string (transform-patient res)) :append true)
