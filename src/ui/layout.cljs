@@ -2,7 +2,7 @@
   (:require [ui.app-styles :as app-styles]
             [ui.styles :as styles]
             [ui.zframes.editor :as editor]
-            [ui.zframes.tabu :as tabu]
+            [ui.zframes.tabu.view :as tabu]
             [clojure.string :as str]
             [re-frame.core :as rf]))
 

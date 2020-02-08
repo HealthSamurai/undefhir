@@ -130,7 +130,7 @@
         {:display-name           "monaco-editor"
          :component-did-mount    component-did-mount
          :component-did-update   component-did-update
-         :component-will-receive-props component-will-receive-props
+         :UNSAFE_component-will-receive-props component-will-receive-props
          ;;:component-will-unmount component-will-unmount
          :render                 render}))))
 

@@ -1,5 +1,6 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
+            [ui.zframes.tabu.model :as tabu]
             [re-frame.core :as rf]
             [reagent.core :as r]
             [ui.styles :as styles]
@@ -41,7 +42,9 @@
                  :on-click (fn [e]
                              (if (:isDirectory v)
                                (println "dir")
-                               (rf/dispatch [::model/open-file (:path v)])))}
+                               (do
+                                 (rf/dispatch [::tabu/add {:id  (:path v) :title k}])
+                                 (rf/dispatch [::model/open-file (:path v)]))))}
                 (if (:isDirectory v)
                   [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
                   [:span.file {:class (or (.getClassWithColor js/FileIcons k) "far fa-file")} ])
