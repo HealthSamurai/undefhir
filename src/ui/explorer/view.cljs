@@ -29,6 +29,8 @@
       [:i {:padding "0 4px"}
        [:&:hover {:color "white"}]]]]]))
 
+(defn file-icon [file-name]
+  [:span.file {:class (or (.getClassWithColor js/FileIcons file-name) "far fa-file")}])
 
 (defn work-tree [{:keys [child isDirectory] :as tree} & [padding]]
   (let [padding (+ padding 10)]
@@ -43,11 +45,12 @@
                              (if (:isDirectory v)
                                (println "dir")
                                (do
-                                 (rf/dispatch [::tabu/add {:id  (:path v) :title k}])
+                                 (rf/dispatch [::tabu/add {:id  (:path v)
+                                                           :title [:span (file-icon k) k]}])
                                  (rf/dispatch [::model/open-file (:path v)]))))}
                 (if (:isDirectory v)
                   [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
-                  [:span.file {:class (or (.getClassWithColor js/FileIcons k) "far fa-file")} ])
+                  (file-icon k))
                 k]
                (work-tree v padding)))
        [:div.dir]

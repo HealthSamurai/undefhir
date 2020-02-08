@@ -5,15 +5,18 @@
 
 (def style
   (s/style
-   [:#tabu {:height "32px"
+   [:#tabu {:height "32px" :max-width "calc(100vw - 320px)"
+            :overflow "scroll"
             :align-items "center"
             :display "flex"
             :background-color "#252526"}
     [:.tab {:background-color "#2d2d2d"
+            :white-space "nowrap"
             :display "flex" :align-items "center" :height "100%"
             :font-size "13px" :color "#ffffff80"
-            :user-select "none"
-            :padding "0 15px" :margin-right "2px"}
+            :user-select "none" 
+            :padding "0 15px" :margin-right "2px"
+            :border-top "1px solid transparent"}
      [:&.active {:background-color "#1e1e1e" :color "#fff"
                  :border-top "1px solid #0e639ccc"}]
      [:&:hover {:cursor "pointer"

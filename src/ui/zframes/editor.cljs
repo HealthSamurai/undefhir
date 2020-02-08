@@ -137,9 +137,7 @@
 (defn edd []
   (let [cnt (rf/subscribe [:xhr/response :ui.explorer.model/file ])]
     (fn []
-      [editor   {;;:width               "300px"
-                 ;;:height              "300px"
-                 :value               (get-in @cnt [:data :file-content]) 
+      [editor   {:value               (get-in @cnt [:data :file-content]) 
                  ;;:defaultValue        (get-in @cnt [:data :file-content])
                  :language            "yaml"
                  :theme               "vs-dark"
@@ -149,7 +147,7 @@
                  :roundedSelection    false
                  :readOnly            false
                  :cursorStyle         "line"
-                 :automaticLayout     false
+                 :automaticLayout     true
                  :editorDidMount      (fn [editor monaco] (.focus editor))
                  :editorWillMount     (fn [monaco])
                  ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
