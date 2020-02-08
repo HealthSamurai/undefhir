@@ -67,6 +67,10 @@
                                          opts   (-> config (merge props) (assoc :editorWillMount (partial editor-will-mount this)))
                                          editor (create ref opts config)]
                                      (aset this "editor" editor)
+                                     (.addCommand editor (+  (.. js/monaco -KeyMod -CtrlCmd) (.. js/monaco -KeyCode -KEY_S))
+                                                  (fn [e] (println  "Save file" (.getValue editor))))
+
+
                                      #_(.layout editor)
                                      ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
                                      (editor-did-mount this editor)
@@ -141,7 +145,7 @@
                  ;;:defaultValue        (get-in @cnt [:data :file-content])
                  :language            "yaml"
                  :theme               "vs-dark"
-                 :minimap             {:enabled true}
+                 :minimap             {:enabled false}
                  :autoIndent          true
                  :selectOnLineNumbers true
                  :roundedSelection    false
