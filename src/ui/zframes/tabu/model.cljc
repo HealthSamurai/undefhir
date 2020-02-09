@@ -30,8 +30,11 @@
 
 (rf/reg-event-fx
  ::select
- (fn [{db :db} [_ tab]]
-   {:db (update db ::tabular select-tab tab)}))
+ (fn [{db :db} [_ {ev :on-click :as tab}]]
+   (merge
+    {:db (update db ::tabular select-tab tab)}
+    (when ev
+      {:dispatch ev}))))
 
 (rf/reg-event-db
  ::init

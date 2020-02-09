@@ -6,15 +6,12 @@
             [jslib.monaco.yaml ]
             [jslib.icons ]))
 
-(def monaco-editor (.-editor js/monaco))
-;;(def monaco-languages (helpers/get js/monaco "languages"))
 
 (defn create [dom-element options override]
-
-  (.create monaco-editor  dom-element  (clj->js options) (clj->js override) ))
+  (.create model/monaco-editor  dom-element  (clj->js options) (clj->js override) ))
 
 (defn set-theme [theme-name]
-  (.setTheme monaco-editor  theme-name))
+  (.setTheme model/monaco-editor  theme-name))
 
 (defn update-options [editor options]
   (.updateOptions editor  options))
@@ -39,7 +36,7 @@
   (.getFullModelRange model ))
 
 (defn set-model-language [model language-id]
-  (.setModelLanguage monaco-editor  model language-id))
+  (.setModelLanguage model/monaco-editor  model language-id))
 
 
 (defn editor [config]
@@ -71,9 +68,9 @@
                                      (.addCommand editor (+  (.. js/monaco -KeyMod -CtrlCmd) (.. js/monaco -KeyCode -KEY_S))
                                                   (fn [e] (println  "Save file" (.getValue editor))))
 
+                                     ;; Store edotr state
+                                     (rf/dispatch [::model/set-editor editor])
 
-                                     #_(.layout editor)
-                                     ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
                                      (editor-did-mount this editor)
                                      )))
         component-will-receive-props (fn [this [_ cfg]]
@@ -139,22 +136,40 @@
          ;;:component-will-unmount component-will-unmount
          :render                 render}))))
 
+  ;; const defModel = monaco.editor.createModel(
+  ;;   "const helloWorld = () => { return \"Hello World!\"; }",
+  ;;   "javascript"
+  ;; )
+
+  ;; const textModel = monaco.editor.createModel(
+  ;;   "helloWorld()",
+  ;;   "javascript"
+  ;; )
+
+;; (def model2 (.createModel model/monaco-editor "var\n foo\n = \"bar\"  " "javascript"))
+
+;; (defn test-btn []
+;;   (let [ed (rf/subscribe [::model/editor])]
+;;     (fn []
+;;       [:div
+;;        [:div.btn.btn-primary {:on-click (fn []
+;;                                           (let [m (.createModel model/monaco-editor "fooooo\no\no\no\no\noooo" "yaml")]
+;;                                             (.setModel @ed m)))} "model1"]
+;;        [:div.btn.btn-primary {:on-click #(.setModel @ed model2)} "model2"]
+;;        ])))
+
 (defn edd []
-  (let [cnt (rf/subscribe [:xhr/response :ui.explorer.model/file ])]
-    (fn []
-      [editor   {:value               (get-in @cnt [:data :file-content]) 
-                 ;;:defaultValue      (get-in @cnt [:data :file-content])
-                 :language            "yaml"
-                 :theme               "vs-dark"
-                 :minimap             {:enabled false}
-                 :autoIndent          true
-                 :scrollBeyondLastLine false
-                 :selectOnLineNumbers true
-                 :roundedSelection    false
-                 :readOnly            false
-                 :cursorStyle         "line"
-                 :automaticLayout     true
-                 :editorDidMount      (fn [editor monaco] (.focus editor))
-                 :editorWillMount     (fn [monaco])
-                 ;;:onChange          (fn [new-value event] (rf/dispatch [::set-value new-value]))
-                 :overrideServices    {}}])))
+  [editor   {:theme               "vs-dark"
+             :minimap             {:enabled false}
+             :autoIndent          true
+             :scrollBeyondLastLine false
+             :selectOnLineNumbers true
+             :model               nil
+             :roundedSelection    false
+             :readOnly            false
+             :cursorStyle         "line"
+             :automaticLayout     true
+             :editorDidMount      (fn [editor monaco] (.focus editor))
+             :editorWillMount     (fn [monaco])
+             ;;:onChange          (fn [new-value event] (rf/dispatch [::set-value new-value]))
+             :overrideServices    {}}])

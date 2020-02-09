@@ -1,6 +1,7 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
             [ui.zframes.tabu.model :as tabu]
+            [ui.zframes.editor.model :as editor]
             [re-frame.core :as rf]
             [reagent.core :as r]
             [ui.styles :as styles]
@@ -54,6 +55,7 @@
                                (collapse-element (aget e "target"))
                                (do
                                  (rf/dispatch [::tabu/add {:id  (:path v)
+                                                           :on-click [::editor/set-model (:path v)]
                                                            :title [:span (file-icon k) k]}])
                                  (rf/dispatch [::model/open-file (:path v)]))))}
                 (if (:isDirectory v)
