@@ -32,6 +32,14 @@
 (defn file-icon [file-name]
   [:span.file {:class (or (.getClassWithColor js/FileIcons file-name) "far fa-file")}])
 
+(defn collapse-element [obj]
+  (let [el-style (-> obj
+                     (aget "nextElementSibling")
+                     (aget "style"))]
+    (if (= "block" (aget el-style "display"))
+      (set! (.-display el-style) "none")
+      (set! (.-display el-style) "block"))))
+
 (defn work-tree [{:keys [child isDirectory] :as tree} & [padding]]
   (let [padding (+ padding 10)]
     (when child
@@ -43,7 +51,7 @@
                  :style {"paddingLeft" (str padding "px")}
                  :on-click (fn [e]
                              (if (:isDirectory v)
-                               (println "dir")
+                               (collapse-element (aget e "target"))
                                (do
                                  (rf/dispatch [::tabu/add {:id  (:path v)
                                                            :title [:span (file-icon k) k]}])
