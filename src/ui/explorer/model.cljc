@@ -6,7 +6,7 @@
 (rf/reg-event-fx
  index
  (fn [{db :db} [pid phase params]]
-   {:xhr/fetch {:uri "/workspace"
+   {:xhr/fetch {:uri "/api/v1/workspace"
                 :req-id pid}}))
 
 (rf/reg-sub
@@ -19,6 +19,6 @@
 (rf/reg-event-fx
  ::open-file 
  (fn [{db :db} [_ file]]
-   {:xhr/fetch {:uri "/workspace/file"
+   {:xhr/fetch {:uri "/api/v1/workspace/file"
                 :params  {:file file}
                 :req-id ::file}}))

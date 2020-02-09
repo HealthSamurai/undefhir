@@ -29,13 +29,18 @@
   {:status 200
    :body (file-tree "test")})
 
-(defn workspace-file [req]
+(defn read-file [req]
+  {:status 200
+   :body {:file-content (slurp (io/file (get-in req  [:params "file"])))}})
+
+(defn write-file [req]
   {:status 200
    :body {:file-content (slurp (io/file (get-in req  [:params "file"])))}})
 
 (def routes
-  {"workspace"  {:GET workspace
-                 "file" {:GET workspace-file}}})
+  {"api" {"v1" {"workspace" {:GET workspace
+                             "file" {:GET read-file
+                                     :POST write-file}}}}})
 
 (defn handler [{meth :request-method uri :uri :as req}]
   (if-let [res (rm/match [meth uri] routes)]

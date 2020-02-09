@@ -1,5 +1,6 @@
-(ns ui.zframes.editor
+(ns ui.zframes.editor.view
   (:require [jslib.monaco :as monaco]
+            [ui.zframes.editor.model :as model]
             [re-frame.core :as rf]
             [reagent.core :as r]
             [jslib.monaco.yaml ]
@@ -142,11 +143,12 @@
   (let [cnt (rf/subscribe [:xhr/response :ui.explorer.model/file ])]
     (fn []
       [editor   {:value               (get-in @cnt [:data :file-content]) 
-                 ;;:defaultValue        (get-in @cnt [:data :file-content])
+                 ;;:defaultValue      (get-in @cnt [:data :file-content])
                  :language            "yaml"
                  :theme               "vs-dark"
                  :minimap             {:enabled false}
                  :autoIndent          true
+                 :scrollBeyondLastLine false
                  :selectOnLineNumbers true
                  :roundedSelection    false
                  :readOnly            false
@@ -154,5 +156,5 @@
                  :automaticLayout     true
                  :editorDidMount      (fn [editor monaco] (.focus editor))
                  :editorWillMount     (fn [monaco])
-                 ;;:onChange            (fn [new-value event] (rf/dispatch [::set-value new-value]))
+                 ;;:onChange          (fn [new-value event] (rf/dispatch [::set-value new-value]))
                  :overrideServices    {}}])))

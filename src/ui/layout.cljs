@@ -1,7 +1,7 @@
 (ns ui.layout
   (:require [ui.app-styles :as app-styles]
             [ui.styles :as styles]
-            [ui.zframes.editor :as editor]
+            [ui.zframes.editor.view :as editor]
             [ui.zframes.tabu.view :as tabu]
             [clojure.string :as str]
             [re-frame.core :as rf]))
