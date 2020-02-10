@@ -32,7 +32,6 @@
        (match @tabs
               [{:id "test" :active true}
                {:id "another tab" :active nil?}])))
-   
 
    (testing "Tab select"
      (rf/dispatch [::sut/select {:id  "test"}])
