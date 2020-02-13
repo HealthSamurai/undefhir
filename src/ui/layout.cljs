@@ -46,11 +46,35 @@
 (def outline-style
   (styles/style
    [:.outline {:background-color "#252526"
-               :color "white"}]))
+               :color "#cccccc"
+               :font-size "14px"}
+    [:.fn {:width "12px" :margin-right "3px"}]
+    [:.functions {:padding-left "17px"
+                  :padding-top "3px"}]
+    [:.header {:height "32px"
+                :vertical-align "middle"
+                :padding "8px 17px"
+                :font-size "11px"}]]))
+
+
+(def outline-state
+  {:fns [{:name "randPatientName"
+          :params ["foo" "bar"]}
+         {:name "randPatientAddress"}
+         {:name "randPhone"}
+         {:name "randEmail"}
+         {:name "PatientTransform"}]})
+
+(defn functions [{fns :fns}]
+  [:div.functions
+   (for [f fns] ^{:key (:name f)}
+     [:div [:img.fn {:src "/img/fn.svg"}] (:name f)])])
 
 (defn outline []
   [:div.outline outline-style
-   "Outline"])
+   [:div.header "OUTLINE"]
+   [functions outline-state]
+   ])
 
 (defn layout [page]
   [:div#layout app-styles/layout app-styles/app
