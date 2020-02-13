@@ -11,6 +11,12 @@
      [:#top-nav     {:grid-area "header / top-nav / span 1 / span 4"}]
      [:#outline     {:grid-area "content / outline / span 1 / span 1"}]
      [:#entity-list {:background-color "#252526"}]
+
+     [:.editor-view {:max-width "calc(100vw - 660px)"}]
+     [:#editor-area  {:display "grid" :width "calc(100vw - 370px)" :height "100%"
+                      :grid-template-columns "[editor] auto [outline] 290px"
+                      :grid-template-rows "100%" }]
+
      [:#editor      {:background-color "#1e1e1e"}]]]))
 
 (def app 

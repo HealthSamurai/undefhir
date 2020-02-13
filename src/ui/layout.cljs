@@ -32,6 +32,7 @@
                    :justify-content "center" :border-left "2px solid transparent"
                    :font-size "25px" :color "#8c8c8c"}
      [:&.active {:color "white" :border-left "2px solid white"}]
+     [:&.active-right {:color "white" :border-right "2px solid white"}]
      [:&:hover {:color "white"}]]] ))
 
 (defn main-navigation []
@@ -42,6 +43,14 @@
          (for [i items] ^{:key (:href i)}
            [:a {:href (:href i)} [(:ico i) (:attr i)]])]))))
 
+(def outline-style
+  (styles/style
+   [:.outline {:background-color "#252526"
+               :color "white"}]))
+
+(defn outline []
+  [:div.outline outline-style
+   "Outline"])
 
 (defn layout [page]
   [:div#layout app-styles/layout app-styles/app
@@ -50,9 +59,10 @@
    [main-navigation]
    [:div#entity-list page]
    [:div#editor
-    [tabu/tabular]
-    [editor/edd]]
+    [:div#editor-area
+     [:div.editor-view
+      [tabu/tabular]
+      [editor/edd]]
+     [outline]]]
    [:div#outline.entity-nav
-    [:span.entity-lnk.ptbl.fas.fa-list {:title "Outline"}]
-    ]
-   ])
+    [:span.active-right.entity-lnk.ptbl.fas.fa-list {:title "Outline"}]]])
