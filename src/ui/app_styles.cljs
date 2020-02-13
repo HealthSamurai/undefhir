@@ -6,9 +6,10 @@
    [:#app
     [:#layout {:display "grid" :width "100vw" :height "100vh"
                :grid-template-rows "[header] 32px [content] calc(100% - 32px)"
-               :grid-template-columns "[top-nav] 50px [list] 270px [code] auto"}
+               :grid-template-columns "[top-nav] 50px [list] 270px [code] auto [outline] 50px" }
      [:#logo        {:grid-area "header / top-nav / span 1 / span 1"} ]
-     [:#top-nav     {:grid-area "header / top-nav / span 1 / span 3"}]
+     [:#top-nav     {:grid-area "header / top-nav / span 1 / span 4"}]
+     [:#outline     {:grid-area "content / outline / span 1 / span 1"}]
      [:#entity-list {:background-color "#252526"}]
      [:#editor      {:background-color "#1e1e1e"}]]]))
 

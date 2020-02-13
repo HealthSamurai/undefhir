@@ -9,7 +9,7 @@
 (def menu
   [{:href "#/explorer"   :ico :i.entity-lnk.ptbl.far.fa-file         :attr {:title "Explorer: /project/path"} }
    {:href "#/connection" :ico :i.entity-lnk.ptbl.fas.fa-database     :attr {:title "Connections"}}
-   {:href "#/dictionary" :ico :i.entity-lnk.ptbl.fas.fa-list         :attr {:title "Dictionaries"}}
+   ;;{:href "#/dictionary" :ico :i.entity-lnk.ptbl.fas.fa-list         :attr {:title "Dictionaries"}}
    {:href "#/stream"     :ico :i.entity-lnk.ptbl.fas.fa-stream       :attr {:title "Streams"}}])
 
 (rf/reg-sub
@@ -25,7 +25,7 @@
 
 (def entity-nav-styles
   (styles/style
-   [:#entity-nav  {:background-color "#333"}
+   [:.entity-nav  {:background-color "#333"}
     [:a {:text-decoration "none"}]
     [:.entity-lnk {:padding "10px" :text-align "center" :width "50px" :height "50px"
                    :display "flex" :align-items "center"
@@ -38,7 +38,7 @@
   (let [navigation (rf/subscribe [::navigation])]
     (fn []
       (let [items @navigation]
-        [:div#entity-nav entity-nav-styles
+        [:div#entity-nav.entity-nav entity-nav-styles
          (for [i items] ^{:key (:href i)}
            [:a {:href (:href i)} [(:ico i) (:attr i)]])]))))
 
@@ -51,4 +51,8 @@
    [:div#entity-list page]
    [:div#editor
     [tabu/tabular]
-    [editor/edd]]])
+    [editor/edd]]
+   [:div#outline.entity-nav
+    [:span.entity-lnk.ptbl.fas.fa-list {:title "Outline"}]
+    ]
+   ])
