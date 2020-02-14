@@ -5,10 +5,12 @@
 
 (def style
   (s/style
+   [:.tabu {:overflow-x "hidden"
+            :overflow-y "hidden"}]
+   [:.tabu:hover {:overflow-x "overlay"}]
    [:#tabu {:height "32px" :max-width "calc(100vw - 320px)"
-            :overflow "scroll"
-            :overflow-y "hidden"
             :align-#454a46items "center"
+            :position "relative"
             :display "flex"
             :background-color "#252526"}
     [:.tab {:background-color "#2d2d2d"
@@ -28,7 +30,7 @@
   (let [tabs (rf/subscribe [::model/tabular])]
     (fn []
       (when @tabs
-        [:div#tabu style
+        [:div#tabu.tabu style
          (for [t @tabs] ^{:key (:id t)}
            [:div.tab
             {:on-click #(rf/dispatch [::model/select t])

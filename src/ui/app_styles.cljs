@@ -4,7 +4,7 @@
 (def layout
   (styles/style
    [:#app
-    ["::-webkit-scrollbar" {:width "10px" :height "8px"}]
+    ["::-webkit-scrollbar" {:width "10px" :height "3px"}]
     ["::-webkit-scrollbar-track" {:background "#333"}]
     ["::-webkit-scrollbar-thumb" {:background "#404040"}]
     ["::-webkit-scrollbar-thumb:hover" {:background "#555"}]

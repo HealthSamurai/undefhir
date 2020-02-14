@@ -12,8 +12,9 @@
 (def dict-style
   (styles/style
    [:#explorer {:color "#e7e7e7" :font-size "13px"
-                :min-height "4em" :max-height "100%" :overflow-y "auto"}
-    [:.explorer-wrapper {:margin-left "-8px"}]
+                :min-height "4em" :max-height "100%" :overflow "hidden"}
+    [:.explorer-wrapper {:margin-left "-8px" :max-height "calc(100vh - 65px)" :overflow-y "hidden"}
+     [:&:hover {:overflow-y "scroll"}]]
     [:.dict {:margin-left "2px"}]
     [:.file {:padding-left "15px"}
      [:&.fa-file {:padding-right "5px"}]]
@@ -90,5 +91,5 @@
       [:i.ptbl.fas.fa-search {:title "search"}]] ]
 
     [:div.explorer-wrapper
-     [workspace]]
+     [workspace] [:br]]
     [:br]]))
