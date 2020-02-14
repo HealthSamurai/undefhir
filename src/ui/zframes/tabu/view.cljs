@@ -14,7 +14,7 @@
             :white-space "nowrap"
             :display "flex" :align-items "center" :height "100%"
             :font-size "13px" :color "#ffffff80"
-            :user-select "none" 
+            :user-select "none"
             :padding "0 15px" :margin-right "2px"
             :border-top "1px solid transparent"}
      [:&.active {:background-color "#1e1e1e" :color "#fff"

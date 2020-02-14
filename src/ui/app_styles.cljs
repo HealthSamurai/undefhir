@@ -4,9 +4,9 @@
 (def layout
   (styles/style
    [:#app
-    ["::-webkit-scrollbar" {:width "10px" :height "7px"}]
-    ["::-webkit-scrollbar-track" {:background "#f1f1f1"}]
-    ["::-webkit-scrollbar-thumb" {:background "#888"}]
+    ["::-webkit-scrollbar" {:width "10px" :height "8px"}]
+    ["::-webkit-scrollbar-track" {:background "#333"}]
+    ["::-webkit-scrollbar-thumb" {:background "#404040"}]
     ["::-webkit-scrollbar-thumb:hover" {:background "#555"}]
     [:#layout {:display "grid" :width "100vw" :height "100vh"
                :grid-template-rows "[header] 32px [content] calc(100% - 32px)"
