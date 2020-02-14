@@ -51,7 +51,9 @@
     [:.fn {:width "12px" :margin-right "3px"}]
     [:.subheader [:.arrow {:padding "0 5px"}]]
     [:.functions {:padding-top "3px"}]
-    [:.functions-list {:padding-left "23px"}]
+    [:.fnn {:padding-left "23px"}
+     [:&:hover {:cursor "pointer"
+                :background-color "#37373d"}]]
     [:.header {:height "32px"
                 :vertical-align "middle"
                 :padding "8px 17px"
@@ -59,23 +61,35 @@
 
 
 (def outline-state
-  {:fns [{:name "randPatientName"
+  {:dicts  [{:name "Names"
+             :params ["foo" "bar"]}
+            {:name "Colors"}
+            {:name "Phones"}]
+   :fns [{:name "randPatientName"
           :params ["foo" "bar"]}
          {:name "randPatientAddress"}
          {:name "randPhone"}
          {:name "randEmail"}
          {:name "PatientTransform"}]})
 
+(defn dicts [{dicts :dicts}]
+  [:div.dicts
+   [:div.subheader [:i.arrow.fas.fa-caret-right] [:img.fn {:src "/img/dict.svg"}] "Dictionaries"]
+   [:div.functions-list
+    (for [d dicts] ^{:key (:name d)}
+      [:div.fnn [:img.fn {:src "/img/d.svg"}] (:name d)])]])
+
 (defn functions [{fns :fns}]
   [:div.functions
    [:div.subheader [:i.arrow.fas.fa-caret-right] [:img.fn {:src "/img/fn.svg"}] "Functions"]
    [:div.functions-list
     (for [f fns] ^{:key (:name f)}
-      [:div [:img.fn {:src "/img/f.svg"}] (:name f)])]])
+      [:div.fnn [:img.fn {:src "/img/f.svg"}] (:name f)])]])
 
 (defn outline []
   [:div.outline outline-style
    [:div.header "OUTLINE"]
+   [dicts outline-state]
    [functions outline-state]])
 
 (defn layout [page]
