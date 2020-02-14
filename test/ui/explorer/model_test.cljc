@@ -12,8 +12,10 @@
 
 (deftest collapse-tree
   (rf-test/run-test-sync
-   (rf/dispatch [::sut/index])
-   (testing "Collapse"
+   (testing "Collapse on"
      (rf/dispatch [::sut/collapse path])
-     (println @state)
-     (match @state (assoc-in @state (conj path :collapse) true)))))
+     (match @state (assoc-in @state (conj path :collapse) true)))
+
+   (testing "Collapse off"
+     (rf/dispatch [::sut/collapse path])
+     (match @state (assoc-in @state (conj path :collapse) false)))))
