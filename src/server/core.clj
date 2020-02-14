@@ -26,34 +26,67 @@
                        :isDirectory (.isDirectory file)})))
         {:root base-path})))
 
-(defn workspace [req]
-  {:status 200
-   :body (file-tree "test/resources/sample/")})
+(defn workspace [{:keys [root] :as ctx}]
+  (fn [req]
+    {:status 200
+     :body (file-tree root)}))
 
-(defn read-file [req]
-  {:status 200
-   :body {:file-content (slurp (io/file (get-in req  [:params "file"])))}})
+(defn read-file [{:keys [root] :as ctx}]
+  (fn [req]
+    {:status 200
+     :body {:file-content (slurp (io/file (str root (get-in req  [:params "file"]))))}}))
 
-(defn write-file [req]
-  {:status 200
-   :body {:file-content (slurp (io/file (get-in req  [:params "file"])))}})
+(defn write-file [{:keys [root] :as ctx}]
+  (fn [req]
+    (println req)
+    {:status 200
+     :body {} #_{:file-content (spit (str root (get-in req  [:params "file"])))}}))
+
+(def ctx
+  {:root "test/resources/sample/"})
 
 (def routes
-  {"api" {"v1" {"workspace" {:GET workspace
-                             "file" {:GET read-file
-                                     :POST write-file}}}}})
+  {"api" {"v1" {"workspace" {:GET (workspace ctx)
+                             "file" {:GET (read-file ctx)
+                                     :POST (write-file ctx)}}}}})
 
 (defn handler [{meth :request-method uri :uri :as req}]
   (if-let [res (rm/match [meth uri] routes)]
     ((:match res)  (update-in req [:params] merge (:params req)))
     {:status 404 :body {:error  "Not found"}}))
 
+(defn preflight
+  [{meth :request-method hs :headers :as req}]
+  (let [headers (get hs "access-control-request-headers")
+        origin (get hs "origin")
+        meth  (get hs "access-control-request-method")]
+    {:status 200
+     :headers {"Access-Control-Allow-Headers" headers
+               "Access-Control-Allow-Methods" meth
+               "Access-Control-Allow-Origin" origin
+               "Access-Control-Allow-Credentials" "true"
+               "Access-Control-Expose-Headers" "Location, Transaction-Meta, Content-Location, Category, Content-Type, X-total-count"}}))
+
+(defn allow [resp req]
+  (let [origin (get-in req [:headers "origin"])]
+    (update resp :headers merge
+            {"Access-Control-Allow-Origin" origin
+             "Access-Control-Allow-Credentials" "true"
+             "Access-Control-Expose-Headers" "Location, Content-Location, Category, Content-Type, X-total-count"})))
+
+
+(defn mk-handler [dispatch]
+  (fn [req]
+    (if (= :options (:request-method req))
+      (preflight req)
+      (let [resp (dispatch req)]
+        (-> resp (allow req))))))
+
 (def app
   (-> handler
+      mk-handler
       wrap-params
-      wrap-json-response
-      (wrap-cors :access-control-allow-origin [#".*"]
-                 :access-control-allow-methods [:get :put :post :delete])))
+      wrap-json-response))
 
 (defonce state (atom nil))
 

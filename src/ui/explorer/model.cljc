@@ -47,3 +47,9 @@
  (fn [{db :db} [_ {{value :file-content} :data {{{file :file} :params} :success} :request :as resp}]]
    {:dispatch-n [[::editor/create-model file {:value value :language "yaml"}]
                  [::editor/set-model file]]}))
+
+(rf/reg-event-fx
+ ::save
+ (fn [{db :db} [_ file]]
+   (println "->>>>>>>>>>>>>>>>>>>>>>>>" file)
+   ))

@@ -66,7 +66,9 @@
                                          editor (create ref opts config)]
                                      (aset this "editor" editor)
                                      (.addCommand editor (+  (.. js/monaco -KeyMod -CtrlCmd) (.. js/monaco -KeyCode -KEY_S))
-                                                  (fn [e] (println  "Save file" (.getValue editor))))
+                                                  (fn [e]
+                                                    (rf/dispatch [::model/save (.getValue editor) ])
+                                                    #_(println  "Save file" (.getValue editor))))
 
                                      ;; Store edotr state
                                      (rf/dispatch [::model/set-editor editor])

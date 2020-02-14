@@ -55,3 +55,15 @@
  ::editor
  (fn [db [_ file-name]]
    (get-in db [::editor :editor])))
+
+(rf/reg-event-fx
+ ::save
+ (fn [{db :db} [_ file]]
+   {:xhr/fetch {:uri "/api/v1/workspace/file"
+                :method :post
+                ;;:params  {:file file}
+                :body     {:file file}
+                :req-id   ::file-save}}
+
+   ;;(println "->>>>>>>>>>>>>>>>>>>>>>>>" file)
+   ))
