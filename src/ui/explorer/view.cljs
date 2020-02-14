@@ -6,7 +6,8 @@
             [reagent.core :as r]
             [ui.styles :as styles]
             [jslib.icons :as icons]
-            [ui.pages :as pages]))
+            [ui.pages :as pages]
+            [clojure.string :as str]))
 
 (def dict-style
   (styles/style
@@ -33,12 +34,24 @@
 (defn file-icon [file-name]
   [:span.file {:class (or (.getClassWithColor js/FileIcons file-name) "far fa-file")}])
 
+(defn normalize-name [node]
+  (-> node first name str/lower-case))
+
+(defn sorted-tree [tree]
+  (->> tree
+       (reduce-kv
+        (fn [acc k v]
+          (update acc (if (:isDirectory v) 0 1) conj [k v]))
+        [[] []])
+       (map #(sort-by normalize-name %))
+       (apply concat)))
+
 (defn work-tree [{:keys [child isDirectory] :as tree} & [padding path]]
   (let [padding (+ padding 10)
         path (or path [])]
     (when child
-      (reduce-kv
-       (fn [acc k v]
+      (reduce
+       (fn [acc [k v]]
          (let [path (conj (conj path :child) k)]
            (conj acc
                  [:div.line
@@ -59,7 +72,7 @@
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]
-       child))))
+       (sorted-tree child)))))
 
 (defn workspace []
   (let [tree (rf/subscribe [::model/explorer])]
