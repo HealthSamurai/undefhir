@@ -1,0 +1,119 @@
+dictionary:
+  #- name: resource
+  #  query: "select  id from entity where resource @@ 'type = resource'"
+  - name: attribute
+    query: >-
+        with
+        attrs as (
+            select resource as resource from attribute
+            where resource @@ 'resource.id = Patient and type.id in (HumanName, ContactPoint)' ),
+        parents as (
+            select resource as resource from attribute
+            where resource->'path' <@ any (select resource->'path' from attrs)
+            and resource @@ 'resource.id = Patient ' )
+
+        select resource
+        from (
+            select resource, resource->>'path' as pth from parents
+           union
+            select resource, resource->>'path' as pth from attrs
+            order by pth ) a
+
+fns:
+  - name: treePath
+    $fn: ["path"]
+    $body:
+      $call: flatten
+      $args:
+        - $map: $ path
+          $as: pth
+          $body: ["attr", "$ pth"]
+
+  - name: flat2tree
+    $fn: ["attrs"]
+    $body:
+      $reduce: $ attrs 
+      $as: ["acc", "attr"]
+      $start: {}
+      $body:
+        $call: assocIn
+        $args:
+          - $ acc
+          - $ fns.treePath(attr.path)
+          - $ attr
+
+  - name: randomize
+    $fn: [node]
+    $body:
+      $if: $ node.coll 
+      $then:
+        - $ "$ randType(" + node.type + ")"
+      $else:
+        $ "$ randType(" + node.type + ")"
+        
+  - name: toFhir
+    $fn: [fhirTree]
+    $body:
+      $let:
+        treetofhir:
+          $fn: [tree] 
+          $body:
+            $reduce: $ get(tree, "attr")
+            $as: ["acc", "attr"]
+            $start: {}
+            $body:
+              $call: assoc
+              $args:
+              - $ acc
+              - $ second(first(attr))
+              - $if: $ get(second(second(attr)), "attr")
+                $then:
+                  $if: $ get(second(second(attr)), "coll")
+                  $then:
+                  - $reduce: $ get(second(second(attr)), "attr")
+                    $as: ["acc", "attr"]
+                    $start: {}
+                    $body:
+                      $call: assoc
+                      $args:
+                      - $ acc
+                      - $ second(first(attr))
+                      - $ fns.randomize(second(second(attr)))
+                  $else:
+                    $reduce: $ get(second(second(attr)), "attr")
+                    $as: ["acc", "attr"]
+                    $start: {}
+                    $body:
+                      $call: assoc
+                      $args:
+                      - $ acc
+                      - $ second(first(attr))
+                      - $ fns.randomize(second(second(attr)))
+                $else: $ fns.randomize(second(second(attr)))
+      $body: $ treetofhir(fhirTree)
+
+  - name: test 
+    $body:
+      $ fns.cljtreefhir(fns.flat2tree(fns.dict("attribute")))
+
+
+# -------------------------------
+# Design
+
+stream:
+  genericIn:
+    query: "select * from patient" 
+    connection:
+      dbUser: ...
+  genericOut:
+    query: "Copy patient (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' "
+    connectoin:
+      dbUser: ...
+
+pipe:
+  patient:
+    params:
+      tableName: patient
+    fn: patient
+    in: patientIn 
+    out: patientOut 

@@ -8,26 +8,27 @@
             [clojure.string :as str])
   (:import [java.io File]))
 
-(defn path-split [file]
-  (str/split (.getPath file) (re-pattern File/separator)))
+(defn path-split [file-path]
+  (str/split file-path (re-pattern File/separator)))
 
 (defn mk-tree-path [pth]
   (mapcat (partial conj [:child]) pth))
 
 (defn file-tree [base-path]
-  (->> base-path io/file file-seq
+  (->> base-path io/file file-seq rest
        (reduce
         (fn [acc file]
-          (let [path (path-split file)]
+          (let [file-path (str/replace  (.getPath file) (re-pattern base-path) "")
+                path (path-split file-path)]
             (assoc-in acc
                       (mk-tree-path path)
-                      {:path (.getPath file)
+                      {:path file-path 
                        :isDirectory (.isDirectory file)})))
-        {})))
+        {:root base-path})))
 
 (defn workspace [req]
   {:status 200
-   :body (file-tree "test")})
+   :body (file-tree "test/resources/sample/")})
 
 (defn read-file [req]
   {:status 200

@@ -29,8 +29,9 @@
 
 (rf/reg-sub
  index
- (fn [db _]
-   {}))
+ :<- [::explorer]
+ (fn [file-tree _]
+   {:root (:root file-tree)} ))
 
 (rf/reg-event-fx
  ::open-file

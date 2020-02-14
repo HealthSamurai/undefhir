@@ -82,10 +82,10 @@
 
 (pages/reg-subs-page
  model/index
- (fn [{:keys [explorer] :as db} params]
+ (fn [{:keys [root] :as db} params]
    [:div#explorer dict-style
     [:div.title
-     [:div.desc.grow "EXPLORER: /src "]
+     [:div.desc.grow "EXPLORER: " root]
      [:div.actions
       [:i.ptbl.fas.fa-redo-alt {:title "Reload"}]
       [:i.ptbl.fas.fa-search {:title "search"}]] ]
