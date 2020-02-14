@@ -49,8 +49,9 @@
                :color "#cccccc"
                :font-size "14px"}
     [:.fn {:width "12px" :margin-right "3px"}]
-    [:.functions {:padding-left "17px"
-                  :padding-top "3px"}]
+    [:.subheader [:.arrow {:padding "0 5px"}]]
+    [:.functions {:padding-top "3px"}]
+    [:.functions-list {:padding-left "23px"}]
     [:.header {:height "32px"
                 :vertical-align "middle"
                 :padding "8px 17px"
@@ -67,14 +68,15 @@
 
 (defn functions [{fns :fns}]
   [:div.functions
-   (for [f fns] ^{:key (:name f)}
-     [:div [:img.fn {:src "/img/fn.svg"}] (:name f)])])
+   [:div.subheader [:i.arrow.fas.fa-caret-right] [:img.fn {:src "/img/fn.svg"}] "Functions"]
+   [:div.functions-list
+    (for [f fns] ^{:key (:name f)}
+      [:div [:img.fn {:src "/img/f.svg"}] (:name f)])]])
 
 (defn outline []
   [:div.outline outline-style
    [:div.header "OUTLINE"]
-   [functions outline-state]
-   ])
+   [functions outline-state]])
 
 (defn layout [page]
   [:div#layout app-styles/layout app-styles/app
