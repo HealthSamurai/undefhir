@@ -4,15 +4,15 @@
             [re-frame.core :as rf]))
 
 (def style
-  (s/style
-   [:.tabu {:overflow-x "hidden"
-            :overflow-y "hidden"}]
-   [:.tabu:hover {:overflow-x "overlay"}]
+  (s/style 
    [:#tabu {:height "32px" :max-width "calc(100vw - 320px)"
             :align-#454a46items "center"
+            :overflow-x "hidden"
+            :overflow-y "hidden"
             :position "relative"
             :display "flex"
             :background-color "#252526"}
+    [:&:hover {:overflow-x "overlay"}]
     [:.tab {:background-color "#2d2d2d"
             :white-space "nowrap"
             :display "flex" :align-items "center" :height "100%"
