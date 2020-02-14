@@ -7,7 +7,8 @@
   (s/style
    [:#tabu {:height "32px" :max-width "calc(100vw - 320px)"
             :overflow "scroll"
-            :align-items "center"
+            :overflow-y "hidden"
+            :align-#454a46items "center"
             :display "flex"
             :background-color "#252526"}
     [:.tab {:background-color "#2d2d2d"
@@ -26,10 +27,11 @@
 (defn tabular []
   (let [tabs (rf/subscribe [::model/tabular])]
     (fn []
-      [:div#tabu style
-       (for [t @tabs] ^{:key (:id t)}
-         [:div.tab
-          {:on-click #(rf/dispatch [::model/select t])
+      (when @tabs
+        [:div#tabu style
+         (for [t @tabs] ^{:key (:id t)}
+           [:div.tab
+            {:on-click #(rf/dispatch [::model/select t])
 
-           :class (if (:active t) "active")}
-          (:title t)])])))
+             :class (if (:active t) "active")}
+            (:title t)])]))))
