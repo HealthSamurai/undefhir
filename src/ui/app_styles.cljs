@@ -4,6 +4,10 @@
 (def layout
   (styles/style
    [:#app
+    ["::-webkit-scrollbar" {:width "10px" :height "7px"}]
+    ["::-webkit-scrollbar-track" {:background "#f1f1f1"}]
+    ["::-webkit-scrollbar-thumb" {:background "#888"}]
+    ["::-webkit-scrollbar-thumb:hover" {:background "#555"}]
     [:#layout {:display "grid" :width "100vw" :height "100vh"
                :grid-template-rows "[header] 32px [content] calc(100% - 32px)"
                :grid-template-columns "[top-nav] 50px [list] 270px [code] auto [outline] 50px" }
@@ -19,7 +23,7 @@
 
      [:#editor      {:background-color "#1e1e1e"}]]]))
 
-(def app 
+(def app
   (styles/style
    [:.app
     {:font-family "\"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
