@@ -36,4 +36,4 @@
     [:.grow {:flex-grow "1"}]
     [:.monaco-editor-wrapper {:height "calc(100% - 32px)"
                               :resize "vertical"
-                              :overflow "auto"}]]))
+                              :overflow "hidden"}]]))
