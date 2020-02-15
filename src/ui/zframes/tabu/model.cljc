@@ -1,5 +1,6 @@
 (ns ui.zframes.tabu.model
-  (:require [re-frame.core :as rf]))
+  (:require [re-frame.core :as rf]
+            [ui.zframes.editor.model :as editor]))
 
 (defn tab-exists? [tabs tab]
   (seq (filter #(= (:id tab) (:id %)) tabs)))
@@ -34,7 +35,8 @@
 (rf/reg-event-fx
  ::remove
  (fn [{db :db} [_ tab]]
-   {:db (update db ::tabular remove-tab tab)}))
+   {:db (update db ::tabular remove-tab tab)
+    :dispatch [::editor/reset-model (:id tab)]}))
 
 (rf/reg-event-fx
  ::select

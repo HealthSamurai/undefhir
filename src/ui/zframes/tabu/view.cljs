@@ -1,7 +1,6 @@
 (ns ui.zframes.tabu.view
   (:require [ui.styles :as s]
             [ui.zframes.tabu.model :as model]
-            [ui.zframes.editor.model :as editor]
             [re-frame.core :as rf]))
 
 (def style
@@ -43,5 +42,4 @@
             (:title t)
             [:img.close-btn {:src "img/close-icon.png"
                              :on-click #(do
-                                          (rf/dispatch [::model/remove t])
-                                          (rf/dispatch [::editor/reset-model (:id t)]))}]])]))))
+                                          (rf/dispatch [::model/remove t]))}]])]))))
