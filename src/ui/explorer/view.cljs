@@ -13,13 +13,21 @@
   (styles/style
    [:#explorer {:color "#e7e7e7" :font-size "13px"
                 :min-height "4em" :max-height "100%" :overflow "hidden"}
-    [:.explorer-wrapper {:margin-left "-8px" :max-height "calc(100vh - 65px)" :overflow-y "hidden"}
+    [:.explorer-wrapper {:margin-left "-8px" :height "calc(100vh - 65px)" :overflow-y "hidden"}
      [:&:hover {:overflow-y "scroll"}]]
     [:.dict {:margin-left "2px"}]
     [:.file {:padding-left "15px"}
      [:&.fa-file {:padding-right "5px"}]]
 
-    [:.line [:&:hover {:cursor "pointer" :background-color "#37373d"}]]
+    [:.line
+     [:.actions {:display "none"}]
+     [:&:hover {:cursor "pointer" :background-color "#37373d"}
+      [:.actions {:color "#ffffff80"
+                  :display "block" :margin-right "8px" :margin-top "5px"}
+       [:&:hover {:color "white"}]]]]
+    [:.dir
+     [:.arrow {:transform "rotate(45deg)"}]
+     [:&.collapsed [:.arrow {:transform "rotate(0deg)"}] ]]
 
     [:.file-ico {:margin-right "6px"}]
     [:.arrow  {:margin "6px" :font-size "10px"}]
@@ -67,9 +75,15 @@
                                                              :title [:span (file-icon k) k]}])
                                    (rf/dispatch [::model/open-file (:path v)]))))}
                   (if (:isDirectory v)
-                    [:span [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
+                    [:span.dir {:class (if (:collapse v) "collapsed")}
+                     [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
                     (file-icon k))
-                  k]
+                  k
+                  [:i.actions.float-right.fas.fa-ellipsis-h
+                   {:on-click (fn [e] 
+                                (.preventDefault e)
+                                (println "-------------------------------------------------------------")
+                                false)}]]
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]
