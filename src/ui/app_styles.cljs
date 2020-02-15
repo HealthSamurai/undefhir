@@ -32,6 +32,21 @@
              :margin-top "-2px" :color "#19a6e4" :text-align "center"}]
     [:.top-nav {:background-color "#3d3d3d"}]
 
+    ;; ------------------------------------
+    [:.btn {:border-radius 0
+            :font-size "13px"}
+     [:&:hover {:cursor "pouinter"}]]
+    [:.btn-primary {:background-color "#007acc"
+                    :padding "4px 9px"
+                    :min-width "65px"
+                    :line-height "1em"}]
+    [:.u-input {:background "rgb(60, 60, 60)"
+                :color "rgb(204, 204, 204)"
+                :padding "3px 5px"
+                :width "100%"
+                :border "none"}]
+
+    ;; ------------------------------------
     [:.ptbl [:&:hover {:cursor "pointer"}]]
     [:.flex {:display "flex"}]
     [:.grow {:flex-grow "1"}]

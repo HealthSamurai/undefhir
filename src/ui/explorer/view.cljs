@@ -1,6 +1,7 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
             [ui.zframes.tabu.model :as tabu]
+            [ui.zframes.modal :as modal]
             [ui.zframes.editor.model :as editor]
             [re-frame.core :as rf]
             [reagent.core :as r]
@@ -104,7 +105,19 @@
                     {:on-click #(println "111111111111111")}
                     [:i.fas.fas.fa-ellipsis-h]
                     [:div.ctx-menu
-                     [:div.itm "Nev File"]
+                     [:div.itm
+                      {:on-click #(rf/dispatch [::modal/modal {:title "New file"
+                                                               :body [:div
+                                                                      [:br]
+                                                                      [:div "Create file in dicts/"]
+                                                                      [:br]
+                                                                      [:input.u-input {:value "animals.txt"}]
+                                                                      [:br]
+                                                                      [:div.bottom.flex
+                                                                       [:div.grow]
+                                                                       [:div.btn.btn-primary "OK"]]
+                                                                      ]}])}
+                      "Nev File"]
                      [:div.itm "Nev Folder"]
                      [:div.itm "Delete"]
                      ]]]]

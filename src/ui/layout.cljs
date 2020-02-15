@@ -3,6 +3,7 @@
             [ui.styles :as styles]
             [ui.zframes.editor.view :as editor]
             [ui.zframes.tabu.view :as tabu]
+            [ui.zframes.modal :as modal]
             [clojure.string :as str]
             [re-frame.core :as rf]))
 
@@ -93,16 +94,20 @@
    [functions outline-state]])
 
 (defn layout [page]
-  [:div#layout app-styles/layout app-styles/app
-   [:div#top-nav.top-nav]
-   [:div#logo.logo [:i.fas.fa-fire]]
-   [main-navigation]
-   [:div#entity-list page]
-   [:div#editor
-    [:div#editor-area
-     [:div.editor-view
-      [tabu/tabular]
-      [editor/edd]]
-     [outline]]]
-   [:div#outline.entity-nav
-    [:span.active-right.entity-lnk.ptbl.fas.fa-list {:title "Outline"}]]])
+  [:div
+   [:div#layout app-styles/layout app-styles/app
+    [:div#top-nav.top-nav]
+    [:div#logo.logo [:i.fas.fa-fire]]
+    [main-navigation]
+    [:div#entity-list page]
+    [:div#editor
+     [:div#editor-area
+      [:div.editor-view
+       [tabu/tabular]
+       [editor/edd]]
+      [outline]]]
+    [:div#outline.entity-nav
+     [:span.active-right.entity-lnk.ptbl.fas.fa-list {:title "Outline"}]]]
+
+   [modal/modal]
+   ])

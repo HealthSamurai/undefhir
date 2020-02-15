@@ -5,6 +5,7 @@
             [ui.routes :as routes]
 
             [ui.zframes.routing]
+            [ui.zframes.modal]
             [ui.zframes.xhr]
             [ui.dictionary.view]
             [ui.explorer.view]
