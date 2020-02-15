@@ -38,6 +38,13 @@
       :clj model)))
 
 (rf/reg-event-fx
+ ::reset-model
+ (fn [{db :db} [_ id]]
+   (let [editor (get-in db [::editor :editor])
+         model  (get-in db [::editor :model id])]
+     {:db (update-in db [::editor :model] dissoc id)})))
+
+(rf/reg-event-fx
  ::set-model
  (fn [{db :db} [_ id]]
    ;; id - is file name
