@@ -33,6 +33,7 @@
     [:.top-nav {:background-color "#3d3d3d"}]
 
     [:.ptbl [:&:hover {:cursor "pointer"}]]
+    [:.flex {:display "flex"}]
     [:.grow {:flex-grow "1"}]
     [:.monaco-editor-wrapper {:height "calc(100% - 32px)"
                               :resize "vertical"

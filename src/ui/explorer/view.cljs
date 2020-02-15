@@ -23,8 +23,26 @@
      [:.actions {:display "none"}]
      [:&:hover {:cursor "pointer" :background-color "#37373d"}
       [:.actions {:color "#ffffff80"
-                  :display "block" :margin-right "8px" :margin-top "5px"}
-       [:&:hover {:color "white"}]]]]
+                  :display "block" :margin-right "8px" :margin-top "3px"}
+       [:.cnt {:display "none"}]
+       [:.ctx-menu {:display "none"}]
+       [:&:hover
+        [:.fas {:color "white"}]
+        [:.ctx-menu {:display "block"}]]]]]
+
+    [:.actions {:padding-right "10px" :position "relative"}
+     [:.ctx-menu {:position "absolute"
+                  :max-width "290px"
+                  :min-width "90px"
+                  :right 0
+                  :box-shadow "0px 1px 6px black"
+                  :background-color "#252526"}
+      [:.itm {:padding "5px 20px"
+              :white-space "nowrap"}
+       [:&:hover {:color "white"
+                  :background-color "#094771"}]]]
+     [:i {:padding "0 4px"}]]
+
     [:.dir
      [:.arrow {:transform "rotate(45deg)"}]
      [:&.collapsed [:.arrow {:transform "rotate(0deg)"}] ]]
@@ -36,9 +54,7 @@
               :display "flex"
               :position "sticky" :top "0" :background-color "#252526"
               :padding-left "17px" :height "32px" :align-items "center"}
-     [:.actions {:padding-right "10px"}
-      [:i {:padding "0 4px"}
-       [:&:hover {:color "white"}]]]]]))
+     ]]))
 
 (defn file-icon [file-name]
   [:span.file {:class (or (.getClassWithColor js/FileIcons file-name) "far fa-file")}])
@@ -64,26 +80,34 @@
          (let [path (conj (conj path :child) k)]
            (conj acc
                  [:div.line
-                  {:key k
-                   :style {"paddingLeft" (str padding "px")}
-                   :on-click (fn [e]
-                               (if (:isDirectory v)
-                                 (rf/dispatch [::model/collapse path])
-                                 (do
-                                   (rf/dispatch [::tabu/add {:id  (:path v)
-                                                             :on-click [::editor/set-model (:path v)]
-                                                             :title [:span (file-icon k) k]}])
-                                   (rf/dispatch [::model/open-file (:path v)]))))}
-                  (if (:isDirectory v)
-                    [:span.dir {:class (if (:collapse v) "collapsed")}
-                     [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
-                    (file-icon k))
-                  k
-                  [:i.actions.float-right.fas.fa-ellipsis-h
-                   {:on-click (fn [e] 
-                                (.preventDefault e)
-                                (println "-------------------------------------------------------------")
-                                false)}]]
+                  [:div.flex
+                   [:div.grow
+                    {:key k
+                     :style {"paddingLeft" (str padding "px")}
+                     :on-context-menu (fn [e]
+                                        (.preventDefault e)
+                                        (println "- right"))
+                     :on-click (fn [e]
+                                 (if (:isDirectory v)
+                                   (rf/dispatch [::model/collapse path])
+                                   (do
+                                     (rf/dispatch [::tabu/add {:id  (:path v)
+                                                               :on-click [::editor/set-model (:path v)]
+                                                               :title [:span (file-icon k) k]}])
+                                     (rf/dispatch [::model/open-file (:path v)]))))}
+                    (if (:isDirectory v)
+                      [:span.dir {:class (if (:collapse v) "collapsed")}
+                       [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
+                      (file-icon k))
+                    k]
+                   [:div.actions
+                    {:on-click #(println "111111111111111")}
+                    [:i.fas.fas.fa-ellipsis-h]
+                    [:div.ctx-menu
+                     [:div.itm "Nev File"]
+                     [:div.itm "Nev Folder"]
+                     [:div.itm "Delete"]
+                     ]]]]
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]
