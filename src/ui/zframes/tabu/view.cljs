@@ -1,10 +1,11 @@
 (ns ui.zframes.tabu.view
   (:require [ui.styles :as s]
             [ui.zframes.tabu.model :as model]
+            [ui.zframes.editor.model :as editor]
             [re-frame.core :as rf]))
 
 (def style
-  (s/style 
+  (s/style
    [:#tabu {:height "32px" :max-width "calc(100vw - 320px)"
             :align-#454a46items "center"
             :overflow-x "hidden"
@@ -13,6 +14,10 @@
             :display "flex"
             :background-color "#252526"}
     [:&:hover {:overflow-x "overlay"}]
+    [:.close-btn {:width "14px"
+                  :height "14px"
+                  :margin-top "5px"
+                  :margin-left "10px" }]
     [:.tab {:background-color "#2d2d2d"
             :white-space "nowrap"
             :display "flex" :align-items "center" :height "100%"
@@ -29,11 +34,12 @@
 (defn tabular []
   (let [tabs (rf/subscribe [::model/tabular])]
     (fn []
-      (when @tabs
+      (when-not (empty? @tabs)
         [:div#tabu.tabu style
          (for [t @tabs] ^{:key (:id t)}
            [:div.tab
             {:on-click #(rf/dispatch [::model/select t])
-
              :class (if (:active t) "active")}
-            (:title t)])]))))
+            (:title t)
+            [:img.close-btn {:src "img/close-icon.png"
+                             :on-click #(do (rf/dispatch [::model/remove t]))}]])]))))

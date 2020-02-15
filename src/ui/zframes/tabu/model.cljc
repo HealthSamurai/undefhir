@@ -23,10 +23,18 @@
         (select-tab tabs tab)
         (conj (unselect-tabs tabs) tab)))))
 
+(defn remove-tab [tabs tab]
+  (remove #(= % tab) tabs))
+
 (rf/reg-event-fx
  ::add
  (fn [{db :db} [_ tab]]
    {:db (update db ::tabular add-tab tab)}))
+
+(rf/reg-event-fx
+ ::remove
+ (fn [{db :db} [_ tab]]
+   {:db (update db ::tabular remove-tab tab)}))
 
 (rf/reg-event-fx
  ::select
