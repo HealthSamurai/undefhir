@@ -1,6 +1,7 @@
 (ns server.core
   (:require [clojure.java.io :as io]
             [route-map.core :as rm]
+            [cheshire.core :as json]
             [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.json :refer [wrap-json-response]]
@@ -38,9 +39,10 @@
 
 (defn write-file [{:keys [root] :as ctx}]
   (fn [req]
-    (println req)
-    {:status 200
-     :body {} #_{:file-content (spit (str root (get-in req  [:params "file"])))}}))
+    (let [body  (json/parse-string (slurp (:body req)) keyword)
+          resp (spit (str root (:file-path body)) (:file body) )]
+      {:status 200
+       :body {:status "ok"}})))
 
 (def ctx
   {:root "test/resources/sample/"})

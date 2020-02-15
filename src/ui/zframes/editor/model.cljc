@@ -40,9 +40,11 @@
 (rf/reg-event-fx
  ::set-model
  (fn [{db :db} [_ id]]
+   ;; id - is file name
    (let [editor (get-in db [::editor :editor])
          model  (get-in db [::editor :model id])]
-     {::set-model {:editor editor
+     {:db (assoc-in db [::editor :active-model] id)
+      ::set-model {:editor editor
                    :model model}})))
 
 
@@ -59,11 +61,9 @@
 (rf/reg-event-fx
  ::save
  (fn [{db :db} [_ file]]
-   {:xhr/fetch {:uri "/api/v1/workspace/file"
-                :method :post
-                ;;:params  {:file file}
-                :body     {:file file}
-                :req-id   ::file-save}}
-
-   ;;(println "->>>>>>>>>>>>>>>>>>>>>>>>" file)
-   ))
+   (let [file-path (get-in db [::editor :active-model])]
+     {:xhr/fetch {:uri "/api/v1/workspace/file"
+                  :method :post
+                  :body     {:file file
+                             :file-path file-path}
+                  :req-id   ::file-save}})))

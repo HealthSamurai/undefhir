@@ -72,22 +72,11 @@
 
                                      ;; Store edotr state
                                      (rf/dispatch [::model/set-editor editor])
+                                     (editor-did-mount this editor))))
 
-                                     (editor-did-mount this editor)
-                                     )))
         component-will-receive-props (fn [this [_ cfg]]
                                       (when-some [ref @*ref]
-                                        ;;(println "----->>> " (:value cfg))
-                                        (.setValue (aget this "editor") (:value cfg))
-                                        #_(let [props  (r/props this)
-                                              opts   (-> (assoc config :value (:value cfg)) (merge props) (assoc :editorWillMount (partial editor-will-mount this)))
-                                              editor (create ref opts {})]
-                                          (aset this "editor" editor)
-                                          (.layout editor)
-                                          ;;(.layout editor (clj->js {:width "100px" :height "100px"}))
-                                          (editor-did-mount this editor)
-                                          ))
-                                      )
+                                        (.setValue (aget this "editor") (:value cfg))))
 
         component-did-update   (fn [this old-argv]
                                  (let [editor      (.-editor this)
