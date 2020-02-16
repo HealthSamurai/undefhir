@@ -37,12 +37,19 @@
    #?(:cljs (.setModel editor model)
       :clj model)))
 
+(defn switch-model [id db]
+  (let [current-model (get-in db [::editor :active-model])
+        models (-> db (get-in [::editor :model]) keys)]
+    (if (= current-model id)
+      (last models)
+      current-model)))
+
 (rf/reg-event-fx
  ::reset-model
  (fn [{db :db} [_ id]]
    (let [m (update-in db [::editor :model] dissoc id)]
      {:db m
-      :dispatch [::set-model (-> m (get-in [::editor :model]) keys last)]})))
+      :dispatch [::set-model (switch-model id m)]})))
 
 (rf/reg-event-fx
  ::set-model
@@ -53,7 +60,6 @@
      {:db (assoc-in db [::editor :active-model] id)
       ::set-model {:editor editor
                    :model model}})))
-
 
 (rf/reg-sub
  ::model
