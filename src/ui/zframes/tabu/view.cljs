@@ -41,5 +41,4 @@
              :class (if (:active t) "active")}
             (:title t)
             [:img.close-btn {:src "img/close-icon.png"
-                             :on-click #(do
-                                          (rf/dispatch [::model/remove t]))}]])]))))
+                             :on-click #(rf/dispatch [::model/remove t])}]])]))))
