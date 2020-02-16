@@ -17,7 +17,7 @@
    [:.zmodal {:position "fixed" :height "100%" :top 0
               :width "100%" :z-index "99"
               :font-size "13px"}
-    [:.bottom {:margin-top "10px"}]
+    [:.bottom {:margin-top "13px"}]
     [:.modal-content {:box-shadow "0 0px 8px #000"
                       :border-radius "0"
                       :border "none"
@@ -25,11 +25,11 @@
     [:.modal-header {:background-color "#007acc"
                      :color "white"
                      :border "none"
-                     :padding "0 8px"
+                     :padding "3px 13px"
                      :font-size "13px"
                      :border-radius "0"}]
     [:.modal-body {:color "#cccccc"
-                   :padding "8px"}]]
+                   :padding "13px"}]]
    ))
 (defn modal []
   (let [modal* (rf/subscribe [::modal])]

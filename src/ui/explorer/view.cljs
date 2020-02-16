@@ -1,5 +1,6 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
+            [ui.explorer.action :as action]
             [ui.zframes.tabu.model :as tabu]
             [ui.zframes.modal :as modal]
             [ui.zframes.editor.model :as editor]
@@ -101,26 +102,7 @@
                        [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
                       (file-icon k))
                     k]
-                   [:div.actions
-                    {:on-click #(println "111111111111111")}
-                    [:i.fas.fas.fa-ellipsis-h]
-                    [:div.ctx-menu
-                     [:div.itm
-                      {:on-click #(rf/dispatch [::modal/modal {:title "New file"
-                                                               :body [:div
-                                                                      [:br]
-                                                                      [:div "Create file in dicts/"]
-                                                                      [:br]
-                                                                      [:input.u-input {:value "animals.txt"}]
-                                                                      [:br]
-                                                                      [:div.bottom.flex
-                                                                       [:div.grow]
-                                                                       [:div.btn.btn-primary "OK"]]
-                                                                      ]}])}
-                      "Nev File"]
-                     [:div.itm "Nev Folder"]
-                     [:div.itm "Delete"]
-                     ]]]]
+                   [action/context-menu k v]]]
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]

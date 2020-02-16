@@ -34,12 +34,14 @@
 
     ;; ------------------------------------
     [:.btn {:border-radius 0
-            :font-size "13px"}
-     [:&:hover {:cursor "pouinter"}]]
+            :font-size "11px"
+            :transition "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"}
+     [:&:hover {:cursor "pointer"}]]
     [:.btn-primary {:background-color "#007acc"
                     :padding "4px 9px"
                     :min-width "65px"
-                    :line-height "1em"}]
+                    :line-height "1em"}
+     [:&:hover {:background-color "#1177bb"}]]
     [:.u-input {:background "rgb(60, 60, 60)"
                 :color "rgb(204, 204, 204)"
                 :padding "3px 5px"
