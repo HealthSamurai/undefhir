@@ -5,7 +5,8 @@
 (def new-file-form-path [:form :new-file])
 (def new-file-form-schema
   {:type :form
-   :fields {:file-path {:type :string
+   :fields {:base-path {:type :string}
+            :file-path {:type :string
                         :validators {:required {:message "File name is required"}}}}})
 
 

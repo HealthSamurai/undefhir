@@ -54,7 +54,7 @@
  ::new-file-modal
  (fn [_ [_ dir modal]]
    {:dispatch-n
-    [[::form/new-file-init]
+    [[::form/new-file-init {:base-path (name dir)}]
      [:ui.zframes.modal/modal
       {:title "New file"
        :body modal}]]}))
@@ -66,10 +66,10 @@
 
 (rf/reg-event-fx
  ::new-file-submit
- (fn [{db :db} [_ form-value]]
+ (fn [{db :db} [_ {:keys [base-path file-path] :as form-value}]]
    {:xhr/fetch {:uri "/api/v1/workspace"
                 :method :post
-                :body {:file-path (:file-path form-value)}
+                :body {:file-path (str base-path  "/" file-path)}
                 :success  {:event ::file-created}}}))
 
 (rf/reg-event-fx
