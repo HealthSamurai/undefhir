@@ -7,6 +7,11 @@
  (fn [db [_ modal]]
    (assoc db ::modal modal)))
 
+(rf/reg-event-db
+ ::close
+ (fn [db [_ modal]]
+   (dissoc db ::modal)))
+
 (rf/reg-sub
  ::modal
  (fn [db _]

@@ -17,10 +17,13 @@
     [:.explorer-wrapper {:margin-left "-8px" :height "calc(100vh - 65px)" :overflow-y "hidden"}
      [:&:hover {:overflow-y "scroll"}]]
     [:.dict {:margin-left "2px"}]
-    [:.file {:padding-left "15px"}
+    [:.file {:padding-left "15px"
+             :display "inline-block"
+             :width "33px"}
      [:&.fa-file {:padding-right "5px"}]]
 
     [:.line
+     {:height "22px" :align-items "center"}
      [:.actions {:display "none"}]
      [:&:hover {:cursor "pointer" :background-color "#37373d"}
       [:.actions {:color "#ffffff80"
@@ -50,7 +53,7 @@
 
     [:.file-ico {:margin-right "6px"}]
     [:.arrow  {:margin "6px" :font-size "10px"}]
-    [:.folder {:margin-right "6px"}]
+    [:.folder {:margin-right "4px" :font-size "13px"}]
     [:.title {:font-size "calc(13px/1.2)"
               :display "flex"
               :position "sticky" :top "0" :background-color "#252526"
@@ -105,28 +108,27 @@
        (fn [acc [k v]]
          (let [path (conj (conj path :child) k)]
            (conj acc
-                 [:div.line
-                  [:div.flex
-                   [:div.grow
-                    {:key k
-                     :style {"paddingLeft" (str padding "px")}
-                     :on-context-menu (fn [e]
-                                        (.preventDefault e)
-                                        (println "- right"))
-                     :on-click (fn [e]
-                                 (if (:isDirectory v)
-                                   (rf/dispatch [::model/collapse path])
-                                   (do
-                                     (rf/dispatch [::tabu/add {:id  (:path v)
-                                                               :on-click [::editor/set-model (:path v)]
-                                                               :title [:span (file-icon k) k]}])
-                                     (rf/dispatch [::model/open-file (:path v)]))))}
-                    (if (:isDirectory v)
-                      [:span.dir {:class (if (:collapse v) "collapsed")}
-                       [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
-                      (file-icon k))
-                    k]
-                   [context-menu k v]]]
+                 [:div.line.flex
+                  [:div.grow
+                   {:key k
+                    :style {"paddingLeft" (str padding "px")}
+                    :on-context-menu (fn [e]
+                                       (.preventDefault e)
+                                       (println "- right"))
+                    :on-click (fn [e]
+                                (if (:isDirectory v)
+                                  (rf/dispatch [::model/collapse path])
+                                  (do
+                                    (rf/dispatch [::tabu/add {:id  (:path v)
+                                                              :on-click [::editor/set-model (:path v)]
+                                                              :title [:span (file-icon k) k]}])
+                                    (rf/dispatch [::model/open-file (:path v)]))))}
+                   (if (:isDirectory v)
+                     [:span.dir {:class (if (:collapse v) "collapsed")}
+                      [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
+                     (file-icon k))
+                   k]
+                  [context-menu k v]]
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]

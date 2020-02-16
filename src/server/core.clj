@@ -37,6 +37,13 @@
     {:status 200
      :body {:file-content (slurp (io/file (str root (get-in req  [:params "file"]))))}}))
 
+(defn create-file [{:keys [root] :as ctx}]
+  (fn [req]
+    (let [body  (json/parse-string (slurp (:body req)) keyword)
+          resp (spit (str root (:file-path body)) "" )]
+      {:status 200
+       :body {:status "ok"}})))
+
 (defn write-file [{:keys [root] :as ctx}]
   (fn [req]
     (let [body  (json/parse-string (slurp (:body req)) keyword)
@@ -49,6 +56,7 @@
 
 (def routes
   {"api" {"v1" {"workspace" {:GET (workspace ctx)
+                             :POST (create-file ctx)
                              "file" {:GET (read-file ctx)
                                      :POST (write-file ctx)}}}}})
 

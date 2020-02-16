@@ -49,12 +49,6 @@
    {:dispatch-n [[::editor/create-model file {:value value :language "yaml"}]
                  [::editor/set-model file]]}))
 
-(rf/reg-event-fx
- ::save
- (fn [{db :db} [_ file]]
-   (println "->>>>>>>>>>>>>>>>>>>>>>>>" file)
-   ))
-
 
 (rf/reg-event-fx
  ::new-file-modal
@@ -73,4 +67,14 @@
 (rf/reg-event-fx
  ::new-file-submit
  (fn [{db :db} [_ form-value]]
-   (println "Form value " form-value)))
+   {:xhr/fetch {:uri "/api/v1/workspace"
+                :method :post
+                :body {:file-path (:file-path form-value)}
+                :success  {:event ::file-created}}}))
+
+(rf/reg-event-fx
+ ::file-created
+ (fn [_ _]
+   {:dispatch-n [;; TODO: show alert or notification
+                 [:ui.zframes.modal/close]
+                 [index]]}))
