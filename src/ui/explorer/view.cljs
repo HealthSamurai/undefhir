@@ -1,11 +1,10 @@
 (ns ui.explorer.view
   (:require [ui.explorer.model :as model]
-            [ui.explorer.action :as action]
+            [ui.explorer.form :as form]
             [ui.zframes.tabu.model :as tabu]
-            [ui.zframes.modal :as modal]
             [ui.zframes.editor.model :as editor]
+            [ui.zenform.core :as zform]
             [re-frame.core :as rf]
-            [reagent.core :as r]
             [ui.styles :as styles]
             [jslib.icons :as icons]
             [ui.pages :as pages]
@@ -35,7 +34,7 @@
     [:.actions {:padding-right "10px" :position "relative"}
      [:.ctx-menu {:position "absolute"
                   :max-width "290px"
-                  :min-width "90px"
+                  :min-width "120px"
                   :right 0
                   :box-shadow "0px 1px 6px black"
                   :background-color "#252526"}
@@ -73,6 +72,31 @@
        (map #(sort-by normalize-name %))
        (apply concat)))
 
+(defn new-file-modal [dir]
+  [:div
+   [:div.mb-3.mt-2
+    [:i.fas.fa-folder] [:span.ml-2 (str (name dir) "/")]]
+
+   [zform/text-input
+    form/new-file-form-path
+    [:file-path]
+    {:placeholder "File name"
+     :type "text" :name "file"
+     :auto-focus "autofocus"}]
+   [:div.bottom.flex
+    [:div.grow]
+    [:div.btn.btn-primary {:on-click #(rf/dispatch [::model/new-file-form-submit ])} "OK"]]])
+
+(defn context-menu [path node]
+  [:div.actions
+   {:on-click #(println "111111111111111")}
+   [:i.fas.fas.fa-ellipsis-h]
+   [:div.ctx-menu
+    (if (:isDirectory node)
+      [:div.itm
+       {:on-click #(rf/dispatch [::model/new-file-modal path (new-file-modal path)])}
+       "Nev File"])]])
+
 (defn work-tree [{:keys [child isDirectory] :as tree} & [padding path]]
   (let [padding (+ padding 10)
         path (or path [])]
@@ -102,7 +126,7 @@
                        [:i.arrow.fas.fa-caret-right] [:i.folder.fas.fa-folder]]
                       (file-icon k))
                     k]
-                   [action/context-menu k v]]]
+                   [context-menu k v]]]
                  (when-not (:collapse v)
                    (work-tree v padding path)))))
        [:div.dir]

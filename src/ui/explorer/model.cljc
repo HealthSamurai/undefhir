@@ -1,5 +1,6 @@
 (ns ui.explorer.model
   (:require [re-frame.core :as rf]
+            [ui.explorer.form :as form]
             [ui.zframes.editor.model :as editor]))
 
 (def index ::index)
@@ -53,3 +54,23 @@
  (fn [{db :db} [_ file]]
    (println "->>>>>>>>>>>>>>>>>>>>>>>>" file)
    ))
+
+
+(rf/reg-event-fx
+ ::new-file-modal
+ (fn [_ [_ dir modal]]
+   {:dispatch-n
+    [[::form/new-file-init]
+     [:ui.zframes.modal/modal
+      {:title "New file"
+       :body modal}]]}))
+
+(rf/reg-event-fx
+ ::new-file-form-submit
+ (fn [{db :db} [_ file-path]]
+   {:dispatch [::form/new-file-eval {:success ::new-file-submit}]}))
+
+(rf/reg-event-fx
+ ::new-file-submit
+ (fn [{db :db} [_ form-value]]
+   (println "Form value " form-value)))

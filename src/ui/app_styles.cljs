@@ -42,11 +42,11 @@
                     :min-width "65px"
                     :line-height "1em"}
      [:&:hover {:background-color "#1177bb"}]]
-    [:.u-input {:background "rgb(60, 60, 60)"
-                :color "rgb(204, 204, 204)"
-                :padding "3px 5px"
-                :width "100%"
-                :border "none"}]
+    [:input {:background "rgb(60, 60, 60)"
+             :color "rgb(204, 204, 204)"
+             :padding "3px 5px"
+             :width "100%"
+             :border "none"}]
 
     ;; ------------------------------------
     [:.ptbl [:&:hover {:cursor "pointer"}]]
