@@ -21,13 +21,6 @@ Database and application communication and data transformation
 
 Example of `undefhir.yaml`
 ```yaml
-skip:                         # list  of resources thats will be skipped from copy
-- EpisodeOfCare
-- Session 
-
-skipHistory: true             # skip resources history or not (default true)
-
-loadFhirTerminology: true     # Load pre buildin FHIR terminology
 
 # User defined dictionaries
 # can be refer to buildIn dicts
