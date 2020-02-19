@@ -196,12 +196,9 @@ $ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" -o json
 :skip
 
 
-
-
 ## CLI options
 
 ## Samples
-
 
 
 ```sh
