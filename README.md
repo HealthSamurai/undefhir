@@ -187,14 +187,7 @@ $ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" -o json
 
 ## API reference 
 
-:salt
-
 :dictionary
-
-:template
-
-:skip
-
 
 ## CLI options
 
