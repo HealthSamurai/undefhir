@@ -197,3 +197,9 @@ $ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" -o json
 ```sh
 clj -i src/undefhir/core.clj -m undefhir.core -f ./test/resources/undefhir.yaml debug -d numbers
 ```
+
+
+TODOS
+
+ES support
+web socket/http stream
