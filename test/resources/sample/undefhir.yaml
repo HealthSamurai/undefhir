@@ -2,4 +2,4 @@ dictionary:
   - name: colors
     file: dicts/color.yaml
   - name: animanls
-    file: dicts/animals.txt
+    file: dicts/animals.yaml

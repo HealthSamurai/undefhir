@@ -1,5 +1,7 @@
 (ns server.core
   (:require [clojure.java.io :as io]
+            [undefhir.dictionary :as dict]
+            [undefhir.core :as uc]
             [route-map.core :as rm]
             [cheshire.core :as json]
             [ring.middleware.cors :refer [wrap-cors]]
@@ -8,6 +10,10 @@
             [org.httpkit.server :as server]
             [clojure.string :as str])
   (:import [java.io File]))
+
+(defonce state (atom {}))
+ 
+(defn drop-cache [] (reset! state {}))
 
 (defn path-split [file-path]
   (str/split file-path (re-pattern File/separator)))
@@ -48,14 +54,31 @@
   (fn [req]
     (let [body  (json/parse-string (slurp (:body req)) keyword)
           resp (spit (str root (:file-path body)) (:file body) )]
+      (drop-cache)
       {:status 200
        :body {:status "ok"}})))
 
+(defn dictionary-cache [{:keys [state root] :as ctx}]
+  (or (:dictionary @state)
+      (:dictionary (swap! state assoc :dictionary
+              (dict/load-dictionaries
+               nil
+               (assoc (uc/ensure-manifest (str root "undefhir.yaml"))
+                      :root root))))))
+
+(defn dictionary [ctx]
+  (fn [req]
+    (let [resp  (keys (dictionary-cache ctx))  ]
+      {:status 200
+       :body resp})))
+
 (def ctx
-  {:root "test/resources/sample/"})
+  {:root "test/resources/sample/"
+   :state state})
 
 (def routes
-  {"api" {"v1" {"workspace" {:GET (workspace ctx)
+  {"api" {"v1" {"dictionary" {:GET (dictionary ctx)}
+                "workspace" {:GET (workspace ctx)
                              :POST (create-file ctx)
                              "file" {:GET (read-file ctx)
                                      :POST (write-file ctx)}}}}})

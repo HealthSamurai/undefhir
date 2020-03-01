@@ -61,22 +61,22 @@
       (when-let [cnt (file-dictionary file)]
         cnt))))
 
-(defn load-dictionary [db {:keys [file resource query literal build-in] f :format :as d} & [dictionary-cache]]
+(defn load-dictionary [db {:keys [file resource query literal build-in ] f :format :as d} & [dictionary-cache root]]
   (try
     (cond
       literal   literal
       build-in  (build-in-dictionary build-in)
       resource  (yaml-dictionary (io/resource resource))
-      file      (dispatch-format file)
+      file      (dispatch-format (str root file))
       query     (query-dictionary db query dictionary-cache)
       :else     (throw (Exception. (str "Undefined dictionary type: " (keys d) ". Expected 'yaml', 'build-in', 'file', 'literal' or 'query'"))))
     (catch Exception e
       (throw (Exception. (str "Can`t load dictionary: " (.getMessage e)))))))
 
-(defn load-dictionaries [db {:keys [terminology dictionary]} & [cb]]
+(defn load-dictionaries [db {:keys [terminology dictionary root]} & [cb]]
   (reduce
    (fn [acc {n :name :as d}]
-     (let [acc (assoc acc  (name n) (load-dictionary db d acc))]
+     (let [acc (assoc acc  (name n) (load-dictionary db d acc root))]
        (when cb (cb)) ;; For ui progress bar
        acc))
    {}
