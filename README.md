@@ -1,5 +1,8 @@
 # UndeFHIR
 
+Firts release 
+Aidbox FHIR database anonimize
+
 What is it?
 
 
@@ -69,6 +72,14 @@ copy:
 ```
 
 ## Basic concepts
+
+Connection
+Stream
+Dictionary
+Function
+Pipe
+
+
 
 ### Randomizer 
 
@@ -188,6 +199,7 @@ $ undefhir debug -f testWithArgs -o json -i "firstArg" -i "secondArg" -o json
 ## API reference 
 
 :dictionary
+
 
 ## CLI options
 
