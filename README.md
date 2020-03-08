@@ -22,6 +22,8 @@ What is it for?
 
 Database and application communication and data transformation
 
+Connection -> Stream -> Function -> Stream -> Connection
+
 Example of `undefhir.yaml`
 ```yaml
 
