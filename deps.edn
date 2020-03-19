@@ -20,7 +20,8 @@
          org.clojure/data.generators {:mvn/version "0.1.2"} 
          honeysql                    {:mvn/version "0.9.8"}
          route-map                   {:mvn/version "0.0.7-RC4"}
-         cheshire                    {:mvn/version "5.9.0"}}
+         cheshire                    {:mvn/version "5.9.0"}
+         ru.yandex.clickhouse/clickhouse-jdbc   {:mvn/version "0.2"}}
 
  :aliases
  {:ui

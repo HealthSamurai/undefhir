@@ -3,3 +3,5 @@ dictionary:
     file: dicts/color.yaml
   - name: animanls
     file: dicts/animals.yaml
+  - name: city
+    file: dicts/cities.yaml

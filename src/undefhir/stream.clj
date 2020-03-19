@@ -4,20 +4,42 @@
             [undefhir.re-hash :as re-hash]
             [cheshire.core :as json]
             [undefhir.utils :as uu]
+            [clojure.data.csv :as csv]
             [clj-yaml.core :as yaml]
             [undefhir.function :as uf]
             [pg.core :as pg]
             [undefhir.utils :as uu]
             [clj-pg.honey :as honey]
             [clojure.java.jdbc :as jdbc]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            )
   (:import (java.io FileInputStream FileOutputStream PipedOutputStream PipedInputStream)
            java.util.zip.GZIPInputStream
            (org.apache.commons.io IOUtils FileUtils)
+           (ru.yandex.clickhouse
+            ClickHouseStatement
+            ClickHouseDataSource
+            ClickHouseConnectionImpl
+            ClickHouseStatementImpl)
+           (ru.yandex.clickhouse.domain ClickHouseFormat)
            [java.sql BatchUpdateException DriverManager
             PreparedStatement ResultSet SQLException Statement Types]
            org.postgresql.PGConnection
            org.postgresql.copy.CopyManager))
+
+(comment
+  (def ch-ds (ClickHouseDataSource. "jdbc:clickhouse://localhost:8123/fhir")) 
+  (def ch-conn  (.getConnection ch-ds))
+  (.executeQuery (.createStatement ch-conn) "SELECT id FROM organization")
+
+  (-> (.createStatement ch-conn)
+      .write
+      (.format  (. ClickHouseFormat CSV))
+      (.table "organization")
+      (.data  (java.io.ByteArrayInputStream. (.getBytes "\"foo\",\"bar\"\n")) )
+      .send)
+
+  )
 
 (defn truncate [db-spec tbl]
   (pg.core/with-connection  db-spec
@@ -96,7 +118,6 @@
       (catch Exception e (println e))))
   (.setAutoCommit conn false))
 
-(defonce t (atom nil))
 (defn make-raw-connectoion
   "Make raw jdbc connection"
   [db-spec]
@@ -104,18 +125,38 @@
 
 (defn uuid [] (str (java.util.UUID/randomUUID)))
 
+(defonce t (atom nil))
 (defonce i (atom 0))
+
+(defn prepare-for-csv [e]
+  (if (map? (first e))
+    e
+    (mapv #(conj [] %) e)))
 (defn run-reader
   "Get data stream from spec, get callbackk and out-stram as interface"
-  [{:keys [ file query db-spec] :as spec} cb out-stream]
+  [{:keys [ file query db-spec columns] :as spec} cb out-stream]
   (future
     (with-open [writer (io/writer out-stream)]
       (let [write-fn (fn [r]
                 (let [res (cb r)]
                   (spit "/tmp/pb" (swap! i inc))
-                  (.write writer (str (or (:id res) (uuid)) "\t" (:txid res) " \t" (:status res)  "\t"))
-                  (json/generate-stream (:resource res) writer)
-                  (.write writer  "\n")))]
+                  (if columns
+                    (do
+                      (->> columns
+                           (reduce
+                            (fn  [acc c ]
+                              (conj acc (c res)))
+                            [])
+                           (conj [])
+                           (csv/write-csv writer)
+                           )
+                      #_(.write writer  "\n")
+                      )
+                    
+                    (do
+                      (.write writer (str (or (:id res) (uuid)) "\t" (:txid res) " \t" (:status res)  "\t"))
+                      (json/generate-stream (:resource res) writer)
+                      (.write writer  "\n")))))]
         (cond
           file
           (doseq [e (json/parsed-seq (io/reader file))]
@@ -132,11 +173,21 @@
 
 (defn run-writer
   "Receive data"
-  [{:keys [file query db-spec] :as spec} in-stream]
+  [{:keys [file query db-spec ch] :as spec} in-stream]
+
   (deref
    (future
      (cond
        ;; Primary - write to pg
+       ch  (let [ch-ds (ClickHouseDataSource. "jdbc:clickhouse://localhost:8123/fhir")
+                 ch-conn  (.getConnection ch-ds)]
+
+             (-> (.createStatement ch-conn)
+                 .write
+                 (.sendToTable (:table ch)
+                               in-stream
+                               (. ClickHouseFormat CSV))))
+
        query (with-open [conn* (make-raw-connectoion db-spec)]
                (let [copy (CopyManager. conn*) ]
                  (.copyIn copy  query in-stream)))
@@ -166,7 +217,7 @@
 ;; -h localhost -p 5439 -U postgres testbox
 (def reader-db-spec
   {:host "localhost"
-   :port "5443"
+   :port "5439"
    :user "postgres"
    :database "testbox"
    :password  "postgres"})
@@ -208,14 +259,51 @@
 (defn gen-pipe [tbl cb]
   (let [tbl (uu/table-name tbl)]
     {:reader {:query (str "select * from " tbl " ")
-              :db-spec reader-db-spec}
-      :writer {:query (str "COPY " tbl " (id, txid, status, resource) FROM STDIN csv quote e'\\x01' delimiter e'\\t' ")
-               :db-spec writer-db-spec}
-     ;;:writer {:file "/tmp/patient.ndjson"}
-
-     ;; :before {:query (str "truncate " tbl) :db-spec writer-db-spec}
+              :db-spec reader-db-spec
+              :columns [:id :name :org_oid]}
+     :writer {:ch {:table tbl}}
      :fn cb}))
 
+(defn flat-org [row]
+  {:id (:id row)
+   :org_oid (->> (get-in row [:resource :identifier])
+                 (filter (fn [a] (= "urn:identity:oid:Organization" (get-in a [:system]))))
+                 first :value)
+   :name (get-in row [:resource  :alias 0])})
+
+(defn gen-pipe-dr [tbl cb]
+  (let [tbl (uu/table-name tbl)]
+    {:reader {:query (str "select * from " tbl "  ")
+              :db-spec reader-db-spec
+              :columns [:id :type :author_org :author_prr]}
+     :writer {:ch {:table tbl}}
+     :fn cb}))
+
+(defn flat-dr [row]
+  {:id (:id row)
+   :type (->> (get-in row [ :resource :category 0 :coding])
+              (filter (fn [c] (= "urn:CodeSystem:medrecord-group" (:system c) )))
+              first
+              :code)
+   :author_org (->> (get-in row [:resource :author])
+                    (filter (fn [a] (= "urn:source:rmis:PractitionerRole" (get-in a [:identifier :system]))))
+                    first :identifier :value)
+   :author_prr (->> (get-in row [:resource :author])
+                    (filter (fn [a] (= "urn:identity:oid:Organization" (get-in a [:identifier :system]))))
+                    first :identifier :value)})
+
+(comment
+
+  (do
+    (reset! t (System/currentTimeMillis))
+    (run-pipe (gen-pipe "organization" flat-org)))
+
+  (println "Docrefs")
+(do
+    (reset! t (System/currentTimeMillis))
+    (run-pipe (gen-pipe-dr "documentreference" flat-dr)))
+
+  )
 
 (defn anonymify-refs [resource]
   (clojure.walk/prewalk
