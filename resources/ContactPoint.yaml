@@ -1,11 +1,11 @@
 $fn: ["telecom"]
-$body: 
-  $map: $ telecom 
+$body:
+  $map: $ telecom
   $as: i
-  $body: 
+  $body:
     use: mobile
     system:
-      $if: $ get(i, "system") 
+      $if: $ get(i, "system")
       $then: get(i, "system")
       $else: phone
     value:

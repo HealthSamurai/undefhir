@@ -1,11 +1,10 @@
 $fn: ["name"]
-$body: 
+$body:
   $map: "$ name"
   $as: i
-  $body: 
-    family: $ randNth (fns.dict("FamilyDict")) 
+  $body:
+    family: $ randNth (fns.dict("FamilyDict"))
     given:
-      $map: $ i.given 
+      $map: $ i.given
       $body:
         $ randNth (fns.dict("GivenDict"))
-        

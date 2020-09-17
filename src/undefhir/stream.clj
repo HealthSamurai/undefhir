@@ -7,6 +7,7 @@
             [clojure.data.csv :as csv]
             [clj-yaml.core :as yaml]
             [undefhir.function :as uf]
+            [org.httpkit.client :as http]
             [pg.core :as pg]
             [undefhir.utils :as uu]
             [clj-pg.honey :as honey]
@@ -28,7 +29,7 @@
            org.postgresql.copy.CopyManager))
 
 (comment
-  (def ch-ds (ClickHouseDataSource. "jdbc:clickhouse://localhost:8123/fhir")) 
+  (def ch-ds (ClickHouseDataSource. "jdbc:clickhouse://localhost:8123/fhir"))
   (def ch-conn  (.getConnection ch-ds))
   (.executeQuery (.createStatement ch-conn) "SELECT id FROM organization")
 
@@ -132,6 +133,7 @@
   (if (map? (first e))
     e
     (mapv #(conj [] %) e)))
+
 (defn run-reader
   "Get data stream from spec, get callbackk and out-stram as interface"
   [{:keys [ file query db-spec columns] :as spec} cb out-stream]
@@ -152,7 +154,7 @@
                            )
                       #_(.write writer  "\n")
                       )
-                    
+
                     (do
                       (.write writer (str (or (:id res) (uuid)) "\t" (:txid res) " \t" (:status res)  "\t"))
                       (json/generate-stream (:resource res) writer)
@@ -173,7 +175,7 @@
 
 (defn run-writer
   "Receive data"
-  [{:keys [file query db-spec ch] :as spec} in-stream]
+  [{:keys [es file query db-spec ch] :as spec} in-stream]
 
   (deref
    (future
@@ -191,6 +193,8 @@
        query (with-open [conn* (make-raw-connectoion db-spec)]
                (let [copy (CopyManager. conn*) ]
                  (.copyIn copy  query in-stream)))
+
+       ;;es    ()
 
        ;; File not used on pipe as ouput by perfomance reason
        ;; but stream file output can be used for testing and debug
@@ -217,9 +221,9 @@
 ;; -h localhost -p 5439 -U postgres testbox
 (def reader-db-spec
   {:host "localhost"
-   :port "5439"
+   :port "5443"
    :user "postgres"
-   :database "testbox"
+   :database "undefhir"
    :password  "postgres"})
 
 (def writer-db-spec
@@ -258,11 +262,32 @@
 
 (defn gen-pipe [tbl cb]
   (let [tbl (uu/table-name tbl)]
-    {:reader {:query (str "select * from " tbl " ")
+    {:reader {:query (str "select * from " tbl "  limit 500")
               :db-spec reader-db-spec
-              :columns [:id :name :org_oid]}
-     :writer {:ch {:table tbl}}
+              :columns [:id :name :kladr :okato]}
+     :writer {:file "/tmp/out.txt"}
      :fn cb}))
+
+(defn es-upload [data]
+  (http/post
+   "http://localhost:9200/fias/_doc"
+   {:headers {"content-type" "application/json"}
+    :body (json/generate-string data)}
+   (fn [{:keys [status headers body error]}]
+     (prn status body error))))
+
+
+(comment
+
+  (run-pipe (gen-pipe "fias" identity))
+
+
+
+  (es-upload row))
+
+
+
+
 
 (defn flat-org [row]
   {:id (:id row)
@@ -314,7 +339,7 @@
 
        (:localRef x)
        (update x :localRef re-hash/re-hash)
-       
+
        (and (:system x) (:value x))
        (update x :value re-hash/re-hash)
 
@@ -322,22 +347,22 @@
         (get-in x [:identifier :value])
         (get-in x [:identifier :system]))
        #_(update-in x [:identifier :value] re-hash/re-hash)
-       
+
        :else x))
    resource))
 
 (defn practitioner-transform [row]
-  (-> row 
+  (-> row
       (update :id re-hash/re-hash)
       (update :resource anonymify-refs)))
 
 (defn gen-transform [row]
-  (-> row 
+  (-> row
       (update :id re-hash/re-hash)
       (update :resource anonymify-refs)))
 
 (defn pr-transform [row]
-  (-> row 
+  (-> row
       (update :id re-hash/re-hash)
       (update :resource anonymify-refs)
       (update :resource dissoc :derived)))
@@ -386,7 +411,7 @@
 
 
 (defn dr-transform [row]
-  (-> row 
+  (-> row
       (update :id re-hash/re-hash)
       (update :resource anonymify-refs)
       (assoc-in [:resource :content 0 :attachment :url] "https://blanker.ru/files/images/medicinskaya_spravka_na_oruzhie._forma_046-1.jpg")))
@@ -419,13 +444,13 @@
   ;;(honey/exec! { :connection (make-raw-connectoion writer-db-spec)} "select 1")
 
 
-  (let [tbls ["condition"]] 
+  (let [tbls ["condition"]]
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 (do
   (reset! i 0) (run-dr-pipe "documentreference"))
 
-  (let [tbls ["practitioner" "practitionerrole"  "organization" "organizationinfo"]] 
+  (let [tbls ["practitioner" "practitionerrole"  "organization" "organizationinfo"]]
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 
@@ -433,15 +458,15 @@
     (reset! i 0) (run-pr-pipe "practitioner")
     (reset! i 0) (run-pr-pipe "practitionerrole")
     (reset! i 0) (run-pr-pipe "organization"))
-  
+
   (do
     (reset! i 0) (run-pr-pipe "organizationinfo")
     (reset! i 0) (run-pr-pipe "departmentInfo"))
-    
 
-  
 
-  (let [tbls ["sector" "personbinding" ]] 
+
+
+  (let [tbls ["sector" "personbinding" ]]
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 
@@ -453,9 +478,9 @@
   (do
     (reset! i 0) (run-big-pipe "sector")
     (reset! i 0) (run-big-pipe "personbinding"))
-  
 
-  (let [tbls ["concept" "codesystem" ]] 
+
+  (let [tbls ["concept" "codesystem" ]]
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
 
@@ -467,7 +492,7 @@
     (reset! i 0)
     (run-big-pipe "codesystem"))
 
-  (let [tbls ["episodeofcare" ]] 
+  (let [tbls ["episodeofcare" ]]
       (doseq [t tbls]
         (future (index-on writer-db-spec t))))
   (do

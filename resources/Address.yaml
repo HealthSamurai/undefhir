@@ -3,12 +3,12 @@ $body:
   $map: "$ address"
   $as: i
   $body:
-    city: $ randNth (fns.dict("CityDict")) 
-    country: $ randNth (fns.dict("CountryDict")) 
+    city: $ randNth (fns.dict("CityDict"))
+    country: $ randNth (fns.dict("CountryDict"))
     postalCode: $ fns.randNumber (5)
     district: $ randNth (fns.dict("DistrictDict"))
     state: $ randNth (fns.dict("StateDict"))
     line:
-      $map: $ i.line  
+      $map: $ i.line
       $body:
         $ randNth (fns.dict("LineDict"))

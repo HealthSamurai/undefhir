@@ -1,5 +1,7 @@
 /resources/private/*
 *scratch*
+esdata
+grafanadata
 /target
 /classes
 /checkouts
